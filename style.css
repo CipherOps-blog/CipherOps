@@ -374,7 +374,8 @@ body.dark .landing-description {
 }
 
 #contact-section {
-  margin: 2rem auto 4rem;
+  margin: 2rem auto 0;
+  padding-bottom: 2rem;
   max-width: 720px;
   text-align: center;
   font-size: 0.95rem;
