@@ -319,6 +319,9 @@ body.dark .toggle-thumb {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  margin: 0 -3rem;
+  width: calc(100% + 6rem);
+  padding: 0;
 }
 
 #landing-canvas {
