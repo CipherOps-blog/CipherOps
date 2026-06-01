@@ -370,13 +370,13 @@ body.dark .toggle-thumb {
   font-size: clamp(4rem, 6vw, 6rem);
   letter-spacing: -0.04em;
   color: #87A878;
-  -webkit-text-stroke: 1px #FFFFFF;
+  -webkit-text-stroke: 1.2px #FFFFFF;
   text-shadow: 0 0 1px rgba(255,255,255,0.9);
 }
 
 body.dark .landing-title {
   color: #87A878;
-  -webkit-text-stroke: 1px #000000;
+  -webkit-text-stroke: 1.2px #000000;
   text-shadow: 0 0 1px rgba(0,0,0,0.85);
 }
 
@@ -385,13 +385,13 @@ body.dark .landing-title {
   font-size: 1.75rem;
   font-weight: 600;
   color: #B8A9C9;
-  -webkit-text-stroke: 1px #FFFFFF;
+  -webkit-text-stroke: 1.2px #FFFFFF;
   text-shadow: 0 0 1px rgba(255,255,255,0.85);
 }
 
 body.dark .landing-author {
   color: #B8A9C9;
-  -webkit-text-stroke: 1px #000000;
+  -webkit-text-stroke: 1.2px #000000;
   text-shadow: 0 0 1px rgba(0,0,0,0.75);
 }
 
