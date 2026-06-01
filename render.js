@@ -276,9 +276,16 @@ const loadArticleFromHash = () => {
   loadArticle(filePath);
 };
 
+const whenReady = (callback) => {
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', callback);
+  } else {
+    callback();
+  }
+};
+
 window.addEventListener('hashchange', loadArticleFromHash);
-window.addEventListener('DOMContentLoaded', loadArticleFromHash);
-loadArticleFromHash();
+whenReady(loadArticleFromHash);
 
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;
