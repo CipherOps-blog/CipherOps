@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CipherOps</title>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$']],
+          displayMath: [['$$', '$$']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.16.162/pdf.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="topbar">
+      <button id="toc-button" aria-label="Toggle table of contents" onclick="toggleTOC()">☰</button>
+      <button id="title-button" onclick="showLanding()">CipherOps</button>
+      <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <nav id="toc"></nav>
+
+    <main id="main-content">
+      <div id="landing">
+        <canvas id="bg-canvas"></canvas>
+        <div id="landing-text">
+          <h1>CipherOps</h1>
+          <p class="author">genghis</p>
+          <p class="intro">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+          </p>
+        </div>
+      </div>
+
+      <div id="article-container" style="display:none;">
+        <div id="article-content"></div>
+      </div>
+    </main>
+
+    <div id="toc-backdrop" style="display:none;" onclick="toggleTOC()"></div>
+
+    <script type="module" src="animation.js"></script>
+    <script type="module" src="toc.js"></script>
+    <script type="module" src="render.js"></script>
+
+    <script>
+      const updateThemeButton = () => {
+        const button = document.getElementById('theme-toggle');
+        if (!button) return;
+        button.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      };
+
+      const toggleDarkMode = () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('cipherops-theme', isDark ? 'dark' : 'light');
+        updateThemeButton();
+      };
+
+      const toggleTOC = () => {
+        const toc = document.getElementById('toc');
+        const backdrop = document.getElementById('toc-backdrop');
+        if (!toc || !backdrop) return;
+
+        const isOpen = toc.classList.toggle('toc-open');
+        if (window.innerWidth <= 768) {
+          backdrop.style.display = isOpen ? 'block' : 'none';
+        } else {
+          backdrop.style.display = 'none';
+        }
+      };
+
+      window.toggleDarkMode = toggleDarkMode;
+      window.toggleTOC = toggleTOC;
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('cipherops-theme');
+        if (savedTheme === 'dark') {
+          document.body.classList.add('dark');
+        }
+        updateThemeButton();
+
+        if (window.startAnimation) {
+          window.startAnimation();
+        } else {
+          console.warn('startAnimation() not available yet.');
+        }
+      });
+    </script>
+  </body>
+</html>
