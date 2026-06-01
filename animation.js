@@ -28,25 +28,28 @@ const resizeCanvas = () => {
 
 const buildGrid = (width, height) => {
   const r = hexRadius;
-  const h = Math.sqrt(3) * r;
-  const xStep = r * 1.5;
-  const yStep = h;
+  const xStep = 1.5 * r;
+  const yStep = Math.sqrt(3) * r;
 
   grid = [];
-  let row = 0;
+  const qMin = Math.floor(-2 * width / xStep);
+  const qMax = Math.ceil(2 * width / xStep);
+  const sMin = Math.floor(-2 * height / yStep);
+  const sMax = Math.ceil(2 * height / yStep);
 
-  for (let y = -h; y < height + h; y += yStep) {
-    const offsetX = row % 2 === 0 ? 0 : r * 0.75;
-    for (let x = -r * 2; x < width + r * 2; x += xStep) {
-      const centreX = x + offsetX;
-      const centreY = y;
+  for (let q = qMin; q <= qMax; q += 1) {
+    for (let s = sMin; s <= sMax; s += 1) {
+      const centreX = q * xStep;
+      const centreY = (s + q * 0.5) * yStep;
+      if (centreX < -2 * r || centreX > width + 2 * r || centreY < -2 * r || centreY > height + 2 * r) {
+        continue;
+      }
       const phase = Math.random() * Math.PI * 2;
       const frequency = 0.0008 + Math.random() * 0.0006;
       const amplitude = 5 + Math.random() * 3;
-      const colourIndex = (row + Math.floor(x / xStep)) % 2;
+      const colourIndex = (q + s) % 2 === 0 ? 0 : 1;
       grid.push({ centreX, centreY, phase, frequency, amplitude, colourIndex });
     }
-    row += 1;
   }
 };
 

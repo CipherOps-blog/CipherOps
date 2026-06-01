@@ -30,7 +30,11 @@
     <header id="topbar">
       <button id="toc-button" aria-label="Toggle table of contents" onclick="toggleTOC()">☰</button>
       <button id="title-button" onclick="showLanding()">CipherOps</button>
-      <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode()">🌙</button>
+      <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
+        <span class="toggle-label dark-label">DARK</span>
+        <span class="toggle-thumb"></span>
+        <span class="toggle-label light-label">LIGHT</span>
+      </button>
     </header>
 
     <nav id="toc"></nav>
@@ -65,7 +69,8 @@
       const updateThemeButton = () => {
         const button = document.getElementById('theme-toggle');
         if (!button) return;
-        button.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        const isDark = document.body.classList.contains('dark');
+        button.setAttribute('data-active', isDark ? 'dark' : 'light');
       };
 
       const toggleDarkMode = () => {

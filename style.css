@@ -57,30 +57,92 @@ button {
   cursor: pointer;
 }
 
-#toggle-theme,
 #toggle-toc {
   position: fixed;
+  left: 1rem;
+  top: 1rem;
   z-index: 30;
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  display: grid;
+  display: none;
   place-items: center;
   background: rgba(255, 255, 255, 0.88);
   color: var(--fg);
   box-shadow: var(--shadow);
   transition: background 0.3s ease, transform 0.3s ease;
+  font-size: 1.5rem;
 }
 
-body.dark #toggle-theme,
 body.dark #toggle-toc {
   background: rgba(0, 0, 0, 0.82);
 }
 
-#toggle-theme {
+#theme-toggle {
+  position: fixed;
   top: 1rem;
   right: 1rem;
+  z-index: 30;
+  width: 140px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(200, 200, 200, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease;
 }
+
+body.dark #theme-toggle {
+  background: rgba(100, 100, 100, 0.5);
+}
+
+#theme-toggle[data-active='dark'] .toggle-thumb {
+  transform: translateX(-44px);
+}
+
+#theme-toggle[data-active='light'] .toggle-thumb {
+  transform: translateX(44px);
+}
+
+.toggle-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: opacity 0.3s ease;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+#theme-toggle[data-active='dark'] .dark-label {
+  opacity: 1;
+  color: var(--fg);
+}
+
+#theme-toggle[data-active='light'] .light-label {
+  opacity: 1;
+  color: var(--fg);
+}
+
+.toggle-thumb {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+body.dark .toggle-thumb {
+  background: rgba(200, 200, 200, 0.95);
+}
+
 
 #toggle-toc {
   left: 1rem;
@@ -220,6 +282,12 @@ body.dark #toggle-toc {
   min-height: 100vh;
 }
 
+#landing {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 #landing-canvas {
   position: absolute;
   inset: 0;
@@ -227,6 +295,17 @@ body.dark #toggle-toc {
   height: 100%;
   background: radial-gradient(circle at center, rgba(184, 169, 201, 0.16), transparent 32%),
     radial-gradient(circle at top left, rgba(135, 168, 120, 0.15), transparent 28%);
+}
+
+#landing-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: min(90%, 720px);
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .landing-overlay {
@@ -331,17 +410,40 @@ hr {
     display: grid;
   }
 
-  #toggle-theme {
-    top: 1rem;
-    right: 1rem;
+  #theme-toggle {
+    width: 130px;
+    height: 40px;
+    padding: 0 0.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  #toggle-theme,
   #toggle-toc {
     width: 42px;
     height: 42px;
+  }
+
+  #theme-toggle {
+    width: 120px;
+    height: 38px;
+    padding: 0 0.5rem;
+  }
+
+  .toggle-label {
+    font-size: 0.65rem;
+  }
+
+  .toggle-thumb {
+    width: 32px;
+    height: 32px;
+  }
+
+  #theme-toggle[data-active='dark'] .toggle-thumb {
+    transform: translateX(-38px);
+  }
+
+  #theme-toggle[data-active='light'] .toggle-thumb {
+    transform: translateX(38px);
   }
 
   .landing-title {
