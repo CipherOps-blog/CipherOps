@@ -18,8 +18,13 @@ const loadArticle = async (filePath) => {
 
     const markdown = await response.text();
     const html = marked && marked.parse ? marked.parse(markdown) : markdown;
-
-    articleContainer.innerHTML = html;
+  
+    articleContainer.innerHTML = `
+      <div class="article-content">
+        ${html}
+      </div>
+    `;
+    
     injectArticleHexagons(articleContainer);
     landing.style.display = 'none';
     articleContainer.style.display = 'block';
