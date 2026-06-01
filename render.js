@@ -27,6 +27,11 @@ const loadArticle = async (filePath) => {
     contentPanel.scrollTop = 0;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    const articleHash = `#article=${encodeURIComponent(filePath)}`;
+    if (window.location.hash !== articleHash) {
+      window.history.pushState(null, '', articleHash);
+    }
+
     await renderMath();
     renderGraphs();
     renderPDFs();
@@ -266,7 +271,23 @@ const showLanding = () => {
 
   const activeLinks = document.querySelectorAll('.toc-article.active');
   activeLinks.forEach((link) => link.classList.remove('active'));
+
+  if (window.location.hash.startsWith('#article=')) {
+    window.history.pushState(null, '', window.location.pathname + window.location.search);
+  }
 };
+
+const loadArticleFromHash = () => {
+  if (window.location.hash.startsWith('#article=')) {
+    const filePath = decodeURIComponent(window.location.hash.replace('#article=', ''));
+    if (filePath && typeof loadArticle === 'function') {
+      loadArticle(filePath);
+    }
+  }
+};
+
+window.addEventListener('hashchange', loadArticleFromHash);
+window.addEventListener('DOMContentLoaded', loadArticleFromHash);
 
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;

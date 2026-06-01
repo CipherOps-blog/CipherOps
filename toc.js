@@ -36,7 +36,7 @@ const handleCategoryToggle = (categoryEl) => {
 const createArticleLink = (article) => {
   const link = document.createElement('a');
   link.className = 'toc-article';
-  link.href = article.file;
+  link.href = `#article=${encodeURIComponent(article.file)}`;
   link.dataset.file = article.file;
   link.innerHTML = `<span class="toc-article-title">${article.title}</span>`;
 
