@@ -38,7 +38,7 @@ const createArticleLink = (article) => {
   link.className = 'toc-article';
   link.href = '#';
   link.dataset.file = article.file;
-  link.innerHTML = `<span class="toc-article-title">${article.title}</span><span class="toc-article-date">${article.date}</span>`;
+  link.innerHTML = `<span class="toc-article-title">${article.title}</span>`;
 
   link.addEventListener('click', (event) => {
     event.preventDefault();
