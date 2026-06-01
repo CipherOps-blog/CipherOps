@@ -21,8 +21,8 @@ All variants use ephemeral keys, meaning a fresh key pair is generated per sessi
 ## Security Basis
 
 Security reduces to two hard coding-theory problems:
-- **QC Syndrome Decoding (QCSD)** : finding a sparse error vector given its syndrome
-- **QC Codeword Finding (QCCF)** : finding a low-weight codeword in a quasi-cyclic code
+- **QC Syndrome Decoding** : finding a sparse error vector given its syndrome
+- **QC Codeword Finding** : finding a low-weight codeword in a quasi-cyclic code
 
 The best known classical and quantum attacks are variants of Information Set Decoding, a research direction dating back to Prange (1962) with only polynomial improvements over decades.
 
