@@ -341,15 +341,15 @@ body.dark .toggle-thumb {
   margin: 0 0 0.75rem;
   font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -0.04em;
-  color: #87A878;
+  color: #B8A9C9;
   -webkit-text-stroke: 0.8px #FFFFFF;
-  text-shadow: 0 0 1px rgba(255,255,255,0.8);
+  text-shadow: 0 0 1px rgba(255,255,255,0.85);
 }
 
 body.dark .landing-title {
-  color: #87A878;
+  color: #B8A9C9;
   -webkit-text-stroke: 0.8px #000000;
-  text-shadow: 0 0 1px rgba(0,0,0,0.75);
+  text-shadow: 0 0 1px rgba(0,0,0,0.8);
 }
 
 .landing-author {
