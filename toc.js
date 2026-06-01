@@ -1,4 +1,4 @@
-const manifestPath = '/manifest.json';
+const manifestPath = 'manifest.json';
 const tocRootId = 'toc';
 let currentActiveLink = null;
 
