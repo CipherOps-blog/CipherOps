@@ -443,6 +443,8 @@ body.dark .landing-description {
   min-height: 60vh;
   display: none;
   opacity: 1;
+  position: relative;
+  overflow: visible;
 }
 
 .fade-in {
@@ -616,5 +618,61 @@ hr {
 
   .landing-title {
     font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+}
+
+/* ── Article hex decorations ─────────────────────────────────────── */
+
+@keyframes hexFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes hexFloatAlt {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-7px); }
+  100% { transform: translateY(0px); }
+}
+
+.article-hex {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+body.dark .article-hex {
+  opacity: 0.7;
+}
+
+/* Top-left cluster */
+.article-hex-tl-1 {
+  top: -18px;
+  left: -88px;
+  animation: hexFloat 6s ease-in-out infinite;
+}
+.article-hex-tl-2 {
+  top: 42px;
+  left: -44px;
+  animation: hexFloatAlt 7.5s ease-in-out infinite 0.8s;
+}
+
+/* Top-right cluster */
+.article-hex-tr-1 {
+  top: -18px;
+  right: -88px;
+  animation: hexFloat 6.8s ease-in-out infinite 0.4s;
+}
+.article-hex-tr-2 {
+  top: 42px;
+  right: -44px;
+  animation: hexFloatAlt 7s ease-in-out infinite 1.2s;
+}
+
+/* Hide when viewport is too narrow to show them */
+@media (max-width: 960px) {
+  .article-hex {
+    display: none;
   }
 }
