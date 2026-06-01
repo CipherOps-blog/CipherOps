@@ -20,6 +20,7 @@ const loadArticle = async (filePath) => {
     const html = marked && marked.parse ? marked.parse(markdown) : markdown;
 
     articleContainer.innerHTML = html;
+    injectArticleHexagons(articleContainer);
     landing.style.display = 'none';
     articleContainer.style.display = 'block';
     articleContainer.classList.remove('fade-in');
@@ -291,5 +292,38 @@ whenReady(loadArticleFromHash);
 
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;
+
+const makeHexSVG = (size, strokeColour, extraClass) => {
+  const r = size / 2;
+  const points = Array.from({ length: 6 }, (_, i) => {
+    const angle = (Math.PI / 3) * i - Math.PI / 6;
+    return `${r + Math.cos(angle) * r},${r + Math.sin(angle) * r}`;
+  }).join(' ');
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', size);
+  svg.setAttribute('height', size);
+  svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  svg.classList.add('article-hex', extraClass);
+  const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+  poly.setAttribute('points', points);
+  poly.setAttribute('fill', 'none');
+  poly.setAttribute('stroke', strokeColour);
+  poly.setAttribute('stroke-width', '2');
+  svg.appendChild(poly);
+  return svg;
+};
+
+const injectArticleHexagons = (container) => {
+  // Remove any previously injected hexes (e.g. when navigating between articles)
+  container.querySelectorAll('.article-hex').forEach((el) => el.remove());
+
+  // Top-left: sage behind, lavender in front
+  container.appendChild(makeHexSVG(72, '#87A878', 'article-hex-tl-1'));
+  container.appendChild(makeHexSVG(72, '#B8A9C9', 'article-hex-tl-2'));
+
+  // Top-right: lavender behind, sage in front
+  container.appendChild(makeHexSVG(72, '#B8A9C9', 'article-hex-tr-1'));
+  container.appendChild(makeHexSVG(72, '#87A878', 'article-hex-tr-2'));
+};
 
 export { loadArticle, showLanding };
