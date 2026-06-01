@@ -425,6 +425,65 @@ body.dark .landing-description {
   color: var(--accent-alt);
 }
 
+#article-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 0 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+#article-container h1,
+#article-container h2,
+#article-container h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+#article-container h1 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+#article-container h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+#article-container p {
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+#article-container code {
+  background: rgba(135, 168, 120, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+#article-container pre {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+body.dark #article-container pre {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#article-container ul,
+#article-container ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+#article-container li {
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+}
+
 .article-shell {
   max-width: 720px;
   margin: 0 auto;
