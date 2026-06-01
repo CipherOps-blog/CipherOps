@@ -278,6 +278,7 @@ const loadArticleFromHash = () => {
 
 window.addEventListener('hashchange', loadArticleFromHash);
 window.addEventListener('DOMContentLoaded', loadArticleFromHash);
+loadArticleFromHash();
 
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;
