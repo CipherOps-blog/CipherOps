@@ -342,13 +342,13 @@ body.dark .toggle-thumb {
   font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -0.04em;
   color: #87A878;
-  -webkit-text-stroke: 2px #FFFFFF;
+  -webkit-text-stroke: 4px #FFFFFF;
   text-shadow: 0 0 1px rgba(255,255,255,0.9);
 }
 
 body.dark .landing-title {
   color: #87A878;
-  -webkit-text-stroke: 2px #000000;
+  -webkit-text-stroke: 4px #000000;
   text-shadow: 0 0 1px rgba(0,0,0,0.85);
 }
 
@@ -356,13 +356,13 @@ body.dark .landing-title {
   margin: 0 0 1rem;
   font-size: 1.25rem;
   color: #B8A9C9;
-  -webkit-text-stroke: 0.9px #FFFFFF;
+  -webkit-text-stroke: 2.9px #FFFFFF;
   text-shadow: 0 0 1px rgba(255,255,255,0.85);
 }
 
 body.dark .landing-author {
   color: #B8A9C9;
-  -webkit-text-stroke: 0.9px #000000;
+  -webkit-text-stroke: 2.9px #000000;
   text-shadow: 0 0 1px rgba(0,0,0,0.75);
 }
 
@@ -372,13 +372,13 @@ body.dark .landing-author {
   font-size: 1rem;
   line-height: 1.8;
   color: #000000;
-  -webkit-text-stroke: 0.85px #FFFFFF;
+  -webkit-text-stroke: 2.85px #FFFFFF;
   text-shadow: 0 0 0.8px rgba(255,255,255,0.85);
 }
 
 body.dark .landing-description {
   color: #FFFFFF;
-  -webkit-text-stroke: 0.85px #000000;
+  -webkit-text-stroke: 2.85px #000000;
   text-shadow: 0 0 0.8px rgba(0,0,0,0.75);
 }
 
