@@ -1,25 +1,33 @@
-# BIKE KEM
+# BIKE: Bit Flipping Key Encapsulation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+BIKE is a post-quantum **Key Encapsulation Mechanism (KEM)** submitted to the NIST Post-Quantum Cryptography standardization process. It is built on the hardness of decoding **Quasi-Cyclic Moderate Density Parity-Check (QC-MDPC)** codes, a well-studied problem in coding theory with no known quantum speedup beyond Grover's algorithm.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## What Problem Does BIKE Solve?
 
-## Section One
+Classical key exchange protocols such as RSA and ECDH rely on the hardness of factoring large integers or computing discrete logarithms. Both problems are efficiently solvable by a sufficiently powerful quantum computer running **Shor's algorithm**. BIKE is designed to remain secure even against such adversaries.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+## How It Works
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+BIKE centers on **bit-flipping decoding**: a simple iterative algorithm that corrects errors in a noisy codeword by repeatedly flipping the bits most likely to be wrong, guided by the syndrome (the parity-check result). The private key is a sparse parity-check matrix; the public key hides that structure behind a dense product.
 
-## Section Two
+The suite offers three variants with different trade-offs:
 
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+- **BIKE-1** : fast key generation, larger public keys, no polynomial inversion required
+- **BIKE-2** : compact public keys (half the size), systematic form, inversion-based keygen with batch optimization available
+- **BIKE-3** : noisy syndrome decoding, follows the Ouroboros framework
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex ea commodo consequatur.
+All variants use **ephemeral keys**, meaning a fresh key pair is generated per session. This inherently defeats the GJS reaction attack, which requires observing many decryption failures under the same key.
 
-## Section Three
+## Security Basis
 
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+Security reduces to two hard coding-theory problems:
+- **QC Syndrome Decoding (QCSD)** : finding a sparse error vector given its syndrome
+- **QC Codeword Finding (QCCF)** : finding a low-weight codeword in a quasi-cyclic code
 
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+The best known classical and quantum attacks are variants of **Information Set Decoding (ISD)**, a research direction dating back to Prange (1962) with only polynomial improvements over decades.
 
-Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+## Full Specification
+
+The complete specification (including algorithm pseudocode) parameter tables, performance benchmarks, Known Answer Tests (KAT), formal IND-CPA security proofs, and the asymptotic analysis of the bit-flipping decoder — is available in the paper below.
+
+<div class="pdf-embed" data-src="articles/post-quantum-algorithms/BIKE.pdf"></div>
