@@ -677,22 +677,6 @@ body.dark .article-hex {
   }
 }
 
-#article-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.article-content {
-  position: relative;
-  z-index: 2;
-}
-
-.article-hex {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.18;
-}
 
 /* # Title */
 #article-container h1 {
