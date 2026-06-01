@@ -268,6 +268,17 @@ const showLanding = () => {
   activeLinks.forEach((link) => link.classList.remove('active'));
 };
 
+const loadArticleFromHash = () => {
+  const hash = window.location.hash;
+  if (!hash.startsWith('#article=')) return;
+  const filePath = decodeURIComponent(hash.slice('#article='.length));
+  if (!filePath) return;
+  loadArticle(filePath);
+};
+
+window.addEventListener('hashchange', loadArticleFromHash);
+window.addEventListener('DOMContentLoaded', loadArticleFromHash);
+
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;
 
