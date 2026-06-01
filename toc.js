@@ -30,7 +30,9 @@ const setActiveLink = (link) => {
 };
 
 const handleCategoryToggle = (categoryEl) => {
-  categoryEl.classList.toggle('collapsed');
+  const isExpanded = categoryEl.getAttribute('aria-expanded') === 'true';
+  categoryEl.setAttribute('aria-expanded', String(!isExpanded));
+  categoryEl.classList.toggle('collapsed', isExpanded);
 };
 
 const createArticleLink = (article) => {
