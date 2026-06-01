@@ -373,6 +373,25 @@ body.dark .landing-description {
   text-shadow: 0 0 0.8px rgba(0,0,0,0.7);
 }
 
+#contact-section {
+  margin: 2rem auto 4rem;
+  max-width: 720px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+#contact-section a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#contact-section a:hover,
+#contact-section a:focus-visible {
+  color: var(--accent-alt);
+}
+
 .article-shell {
   max-width: 720px;
   margin: 0 auto;
