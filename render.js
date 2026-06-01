@@ -9,9 +9,11 @@ const loadArticle = async (filePath) => {
   if (!articleContainer || !landing || !contentPanel) return;
 
   try {
-    const response = await fetch(filePath, { cache: 'no-cache' });
+    const baseUrl = window.location.href.split('#')[0];
+    const articleUrl = new URL(filePath, baseUrl).href;
+    const response = await fetch(articleUrl, { cache: 'no-cache' });
     if (!response.ok) {
-      throw new Error(`Unable to load article: ${response.statusText}`);
+      throw new Error(`Unable to load article: ${response.statusText} (${articleUrl})`);
     }
 
     const markdown = await response.text();
