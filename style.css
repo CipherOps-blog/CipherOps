@@ -321,11 +321,6 @@ body.dark .toggle-thumb {
   color: var(--muted);
 }
 
-#landing-content,
-#article-content {
-  min-height: 100vh;
-}
-
 #landing {
   position: relative;
   min-height: 100vh;
@@ -444,10 +439,14 @@ body.dark .landing-description {
   padding: 3rem 0 0;
   background: var(--bg);
   color: var(--fg);
-  display: block;
   width: 100%;
   min-height: 60vh;
-  animation: fadeIn 0.4s ease;
+  display: none;
+  opacity: 1;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease !important;
 }
 
 #article-container h1,

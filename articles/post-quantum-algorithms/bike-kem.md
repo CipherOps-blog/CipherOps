@@ -23,7 +23,7 @@ print(compute_area(5))
 
 ## Graph Definition
 <div class="graph-definition">
-{"nodes":[{"id":"A","label":"Node A","link":"https://example.com"},{"id":"B","label":"Node B","link":"articles/example-category/example-article.md"}],"edges":[{"from":"A","to":"B","directed":true}]}
+{"nodes":[{"id":"A","label":"Node A","link":"https://example.com"},{"id":"B","label":"Node B","link":"articles/post-quantum-algorithms/bike-kem.md"}],"edges":[{"from":"A","to":"B","directed":true}]}
 </div>
 
 ## Embedded PDF
