@@ -17,7 +17,7 @@ const loadArticle = async (filePath) => {
     }
 
     const markdown = await response.text();
-    const html = typeof marked === 'function' ? marked.parse(markdown) : '';
+    const html = marked && marked.parse ? marked.parse(markdown) : markdown;
 
     articleContainer.innerHTML = html;
     landing.style.display = 'none';
