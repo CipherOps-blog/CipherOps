@@ -332,12 +332,25 @@ body.dark .toggle-thumb {
   margin: 0 0 0.75rem;
   font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -0.04em;
+  color: #000000;
+  -webkit-text-stroke: 1px #FFFFFF;
+}
+
+body.dark .landing-title {
+  color: #FFFFFF;
+  -webkit-text-stroke: 1px #000000;
 }
 
 .landing-author {
   margin: 0 0 1rem;
   font-size: 1.25rem;
-  color: var(--muted);
+  color: #000000;
+  -webkit-text-stroke: 0.6px #FFFFFF;
+}
+
+body.dark .landing-author {
+  color: #FFFFFF;
+  -webkit-text-stroke: 0.6px #000000;
 }
 
 .landing-description {
@@ -345,7 +358,13 @@ body.dark .toggle-thumb {
   max-width: 620px;
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--muted);
+  color: #000000;
+  -webkit-text-stroke: 0.5px #FFFFFF;
+}
+
+body.dark .landing-description {
+  color: #FFFFFF;
+  -webkit-text-stroke: 0.5px #000000;
 }
 
 .article-shell {
