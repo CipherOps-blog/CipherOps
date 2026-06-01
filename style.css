@@ -83,58 +83,60 @@ body.dark #toggle-toc {
   top: 1rem;
   right: 1rem;
   z-index: 30;
-  width: 100px;
-  height: 50px;
+  width: 35px;
+  height: 18px;
   border: none;
   border-radius: 999px;
-  background: rgba(180, 180, 180, 0.25);
+  background: rgba(120, 120, 120, 0.4);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0.6rem;
+  padding: 0 0.3rem;
   box-shadow: var(--shadow);
   transition: background 0.3s ease;
 }
 
 body.dark #theme-toggle {
-  background: rgba(100, 100, 100, 0.35);
+  background: rgba(80, 80, 80, 0.5);
 }
 
 .toggle-icon {
-  color: var(--muted);
+  color: #333;
   transition: opacity 0.3s ease, color 0.3s ease;
-  opacity: 0.5;
+  opacity: 0.4;
   flex-shrink: 0;
+  width: 12px;
+  height: 12px;
 }
 
 body.dark .toggle-icon {
-  color: var(--fg);
+  color: #ddd;
 }
 
 #theme-toggle[data-active='dark'] .dark-icon {
   opacity: 1;
-  color: #B8A9C9;
+  color: #7B5FA8;
 }
 
 #theme-toggle[data-active='light'] .light-icon {
   opacity: 1;
-  color: #87A878;
+  color: #6B8E6F;
 }
 
 .toggle-thumb {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  left: 5px;
+  left: 2px;
 }
 
 body.dark .toggle-thumb {
-  background: rgba(220, 220, 220, 0.95);
+  background: rgba(200, 200, 200, 0.95);
 }
 
 #theme-toggle[data-active='dark'] .toggle-thumb {
@@ -142,7 +144,7 @@ body.dark .toggle-thumb {
 }
 
 #theme-toggle[data-active='light'] .toggle-thumb {
-  transform: translateX(50px);
+  transform: translateX(17px);
 }
 
 
@@ -414,22 +416,23 @@ hr {
   }
 
   #theme-toggle {
-    width: 90px;
-    height: 46px;
+    width: 32px;
+    height: 16px;
+    padding: 0 0.25rem;
   }
 
   .toggle-thumb {
-    width: 38px;
-    height: 38px;
+    width: 13px;
+    height: 13px;
   }
 
   #theme-toggle[data-active='light'] .toggle-thumb {
-    transform: translateX(46px);
+    transform: translateX(16px);
   }
 
   .toggle-icon {
-    width: 16px;
-    height: 16px;
+    width: 11px;
+    height: 11px;
   }
 }
 
@@ -440,23 +443,23 @@ hr {
   }
 
   #theme-toggle {
-    width: 80px;
-    height: 44px;
-    padding: 0 0.5rem;
+    width: 30px;
+    height: 15px;
+    padding: 0 0.2rem;
   }
 
   .toggle-thumb {
-    width: 36px;
-    height: 36px;
+    width: 12px;
+    height: 12px;
   }
 
   #theme-toggle[data-active='light'] .toggle-thumb {
-    transform: translateX(42px);
+    transform: translateX(15px);
   }
 
   .toggle-icon {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
   }
 
   .landing-title {
