@@ -25,10 +25,10 @@
     ]
   },
   {
-    "category": "Examples",
+    "category": "Post-Quantum Algorithms",
     "articles": [
       {
-        "title": "Example Article",
+        "title": "BIKE KEM",
         "file": "articles/example-category/example-article.md",
         "date": "June 01, 2026"
       }
