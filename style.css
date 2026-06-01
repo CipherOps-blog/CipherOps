@@ -676,3 +676,34 @@ body.dark .article-hex {
     display: none;
   }
 }
+
+#article-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-content {
+  position: relative;
+  z-index: 2;
+}
+
+.article-hex {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+/* # Title */
+#article-container h1 {
+  color: #87A878; /* sage green */
+}
+
+/* ## Section, ### Subsection, etc */
+#article-container h2,
+#article-container h3,
+#article-container h4,
+#article-container h5,
+#article-container h6 {
+  color: #B8A9C9; /* lavender */
+}
