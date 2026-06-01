@@ -29,7 +29,7 @@
     "articles": [
       {
         "title": "BIKE KEM",
-        "file": "articles/example-category/example-article.md",
+        "file": "articles/post-quantum-algorithms/bike-kem.md",
         "date": "June 01, 2026"
       }
     ]
