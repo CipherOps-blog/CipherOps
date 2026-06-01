@@ -1,33 +1,25 @@
-# Example Article
+# BIKE KEM
 
-Welcome to the CipherOps example article. This page demonstrates the blog features, including math, code, graphs, and embedded PDFs.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-## Inline Math and Display Equation
-Here is inline math using $e^{i\pi} + 1 = 0$ inside a sentence.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-And here is the famous Euler identity displayed below:
+## Section One
 
-$$
-e^{i\pi} + 1 = 0
-$$
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-## Python Code Example
-```python
-import math
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
-def compute_area(radius):
-    return math.pi * radius ** 2
+## Section Two
 
-print(compute_area(5))
-```
+Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
 
-## Graph Definition
-<div class="graph-definition">
-{"nodes":[{"id":"A","label":"Node A","link":"https://example.com"},{"id":"B","label":"Node B","link":"articles/post-quantum-algorithms/bike-kem.md"}],"edges":[{"from":"A","to":"B","directed":true}]}
-</div>
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex ea commodo consequatur.
 
-## Embedded PDF
-<div class="pdf-embed" data-src="pdfs/example.pdf"></div>
+## Section Three
 
-## Closing Thoughts
-This article is a demonstration of CipherOps features. The graph and PDF are rendered dynamically, math is typeset, and code receives syntax highlighting.
+Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+
+Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
