@@ -72,7 +72,7 @@ const drawHexagon = (x, y, r, offsetY, strokeStyle) => {
   }
   ctx.closePath();
   ctx.strokeStyle = strokeStyle;
-  ctx.lineWidth = 1.25;
+  ctx.lineWidth = 2;
   ctx.stroke();
 };
 

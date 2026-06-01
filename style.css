@@ -334,11 +334,13 @@ body.dark .toggle-thumb {
   letter-spacing: -0.04em;
   color: #87A878;
   -webkit-text-stroke: 0.8px #FFFFFF;
+  text-shadow: 0 0 1px rgba(255,255,255,0.8);
 }
 
 body.dark .landing-title {
   color: #87A878;
   -webkit-text-stroke: 0.8px #000000;
+  text-shadow: 0 0 1px rgba(0,0,0,0.75);
 }
 
 .landing-author {
@@ -346,11 +348,13 @@ body.dark .landing-title {
   font-size: 1.25rem;
   color: #B8A9C9;
   -webkit-text-stroke: 0.5px #FFFFFF;
+  text-shadow: 0 0 1px rgba(255,255,255,0.8);
 }
 
 body.dark .landing-author {
   color: #B8A9C9;
   -webkit-text-stroke: 0.5px #000000;
+  text-shadow: 0 0 1px rgba(0,0,0,0.75);
 }
 
 .landing-description {
@@ -360,11 +364,13 @@ body.dark .landing-author {
   line-height: 1.8;
   color: #000000;
   -webkit-text-stroke: 0.5px #FFFFFF;
+  text-shadow: 0 0 0.8px rgba(255,255,255,0.8);
 }
 
 body.dark .landing-description {
   color: #FFFFFF;
   -webkit-text-stroke: 0.5px #000000;
+  text-shadow: 0 0 0.8px rgba(0,0,0,0.7);
 }
 
 .article-shell {
