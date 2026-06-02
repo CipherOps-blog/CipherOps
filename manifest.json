@@ -1,26 +1,11 @@
 [
   {
-    "category": "Cryptography",
+    "category": "Mathematics",
     "articles": [
       {
-        "title": "Introduction to Cryptography",
-        "file": "articles/cryptography/introduction.md",
+        "title": "Reduction-based NP-completeness proofs",
+        "file": "articles/cryptography/np-completeness-graph.md",
         "date": "January 10, 2025"
-      },
-      {
-        "title": "Modern Encryption Techniques",
-        "file": "articles/cryptography/modern-encryption.md",
-        "date": "February 14, 2025"
-      }
-    ]
-  },
-  {
-    "category": "Graph Theory",
-    "articles": [
-      {
-        "title": "Graph Theory Fundamentals",
-        "file": "articles/graph-theory/fundamentals.md",
-        "date": "March 20, 2025"
       }
     ]
   },
