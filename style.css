@@ -676,19 +676,3 @@ body.dark .article-hex {
     display: none;
   }
 }
-/* Subcategory styles */
-.toc-subcategory {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent-color);
-  padding: 8px 16px 4px 24px;
-  margin-top: 4px;
-  opacity: 0.85;
-}
-
-.toc-article-sub {
-  padding-left: 36px;
-  font-size: 0.9rem;
-}
