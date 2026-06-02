@@ -79,19 +79,12 @@ const renderGraphs = () => {
     }
 
     const width = graphDef.clientWidth || 720;
-    const height = 420;
     const paddingX = 16;
     const paddingY = 10;
     const fontSize = 12;
     const fontFamily = 'Georgia, serif';
 
-    const svg = d3.create('svg')
-      .attr('width', '100%')
-      .attr('height', height)
-      .attr('viewBox', `0 0 ${width} ${height}`)
-      .style('overflow', 'visible');
-
-    // Measure text width using a temporary SVG text element
+    // Measure text width
     const measureText = (text) => {
       const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       tempSvg.style.visibility = 'hidden';
@@ -107,133 +100,252 @@ const renderGraphs = () => {
       return w;
     };
 
-    const arrowId = `arrow-${Math.random().toString(36).substr(2, 9)}`;
-    const defs = svg.append('defs');
-    defs.append('marker')
-      .attr('id', arrowId)
-      .attr('viewBox', '0 -5 10 10')
-      .attr('refX', 10)
-      .attr('refY', 0)
-      .attr('markerWidth', 8)
-      .attr('markerHeight', 8)
-      .attr('orient', 'auto')
-      .append('path')
-      .attr('d', 'M0,-5L10,0L0,5')
-      .attr('fill', '#87A878');
-
-    const nodes = graphData.nodes.map((node, idx) => {
+    // Attach box dimensions to each node
+    const nodeMap = {};
+    graphData.nodes.forEach((node) => {
       const textWidth = measureText(node.label || node.id);
-      const boxW = textWidth + paddingX * 2;
-      const boxH = fontSize + paddingY * 2;
-      return { ...node, index: idx, boxW, boxH };
+      node.boxW = textWidth + paddingX * 2;
+      node.boxH = fontSize + paddingY * 2;
+      nodeMap[node.id] = node;
     });
 
-    const links = graphData.edges.map((edge) => ({
-      source: edge.from,
-      target: edge.to,
-      directed: edge.directed,
-    }));
-
-    const maxBoxW = Math.max(...nodes.map((n) => n.boxW));
-    const maxBoxH = Math.max(...nodes.map((n) => n.boxH));
-    const collideRadius = Math.sqrt((maxBoxW / 2) ** 2 + (maxBoxH / 2) ** 2) + 10;
-
-    const simulation = d3.forceSimulation(nodes)
-      .force('link', d3.forceLink(links).id((d) => d.id).distance(160).strength(0.5))
-      .force('charge', d3.forceManyBody().strength(-300))
-      .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collide', d3.forceCollide(collideRadius));
-
-    const linkGroup = svg.append('g').attr('class', 'graph-links');
-    const edgeElements = linkGroup.selectAll('line')
-      .data(links)
-      .enter()
-      .append('line')
-      .attr('fill', 'none')
-      .attr('stroke', '#B8A9C9')
-      .attr('stroke-width', 1.5)
-      .attr('marker-end', (d) => (d.directed ? `url(#${arrowId})` : null));
-
-    const nodeGroup = svg.append('g').attr('class', 'graph-nodes');
-    const nodeElements = nodeGroup.selectAll('g')
-      .data(nodes)
-      .enter()
-      .append('g')
-      .attr('cursor', 'pointer')
-      .on('click', (event, d) => {
-        if (d.link) {
-          if (d.link.startsWith('http')) {
-            window.open(d.link, '_blank');
-          } else {
-            loadArticle(d.link);
-          }
-        }
+    // Detect if graph is a tree (each node has at most one parent, no cycles)
+    const isTree = () => {
+      const parentCount = {};
+      graphData.nodes.forEach((n) => { parentCount[n.id] = 0; });
+      graphData.edges.forEach((e) => { parentCount[e.to] = (parentCount[e.to] || 0) + 1; });
+      const multiParent = Object.values(parentCount).some((c) => c > 1);
+      if (multiParent) return false;
+      const roots = graphData.nodes.filter((n) => parentCount[n.id] === 0);
+      if (roots.length !== 1) return false;
+      // Check for cycles via DFS
+      const childrenMap = {};
+      graphData.edges.forEach((e) => {
+        if (!childrenMap[e.from]) childrenMap[e.from] = [];
+        childrenMap[e.from].push(e.to);
       });
+      const visited = new Set();
+      const hasCycle = (id) => {
+        if (visited.has(id)) return true;
+        visited.add(id);
+        for (const child of (childrenMap[id] || [])) {
+          if (hasCycle(child)) return true;
+        }
+        visited.delete(id);
+        return false;
+      };
+      return !hasCycle(roots[0].id);
+    };
 
-    nodeElements.append('rect')
-      .attr('width', (d) => d.boxW)
-      .attr('height', (d) => d.boxH)
-      .attr('x', (d) => -d.boxW / 2)
-      .attr('y', (d) => -d.boxH / 2)
-      .attr('rx', 4)
-      .attr('ry', 4)
-      .attr('fill', '#FFFFFF')
-      .attr('stroke', '#87A878')
-      .attr('stroke-width', 2);
+    // Shared arrow marker
+    const createSvg = (height) => {
+      const svg = d3.create('svg')
+        .attr('width', '100%')
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .style('overflow', 'visible');
 
-    nodeElements.append('text')
-      .text((d) => d.label || d.id)
-      .attr('text-anchor', 'middle')
-      .attr('dy', '0.35em')
-      .attr('font-family', fontFamily)
-      .attr('font-size', fontSize)
-      .attr('fill', '#000000');
+      const arrowId = `arrow-${Math.random().toString(36).substr(2, 9)}`;
+      svg.append('defs')
+        .append('marker')
+        .attr('id', arrowId)
+        .attr('viewBox', '0 -5 10 10')
+        .attr('refX', 10)
+        .attr('refY', 0)
+        .attr('markerWidth', 8)
+        .attr('markerHeight', 8)
+        .attr('orient', 'auto')
+        .append('path')
+        .attr('d', 'M0,-5L10,0L0,5')
+        .attr('fill', '#87A878');
 
-    // Compute the point on the border of a rectangle where the edge should stop
-    const getRectBorderPoint = (source, target, boxW, boxH) => {
-      const dx = target.x - source.x;
-      const dy = target.y - source.y;
+      return { svg, arrowId };
+    };
+
+    // Compute border point on target rect
+    const getRectBorderPoint = (sx, sy, tx, ty, boxW, boxH) => {
+      const dx = tx - sx;
+      const dy = ty - sy;
       const angle = Math.atan2(dy, dx);
       const halfW = boxW / 2;
       const halfH = boxH / 2;
       const absCos = Math.abs(Math.cos(angle));
       const absSin = Math.abs(Math.sin(angle));
-      let t;
-      if (halfW * absSin <= halfH * absCos) {
-        t = halfW / absCos;
-      } else {
-        t = halfH / absSin;
-      }
+      const t = (halfW * absSin <= halfH * absCos) ? halfW / absCos : halfH / absSin;
       return {
-        x: target.x - Math.cos(angle) * t,
-        y: target.y - Math.sin(angle) * t,
+        x: tx - Math.cos(angle) * t,
+        y: ty - Math.sin(angle) * t,
       };
     };
 
-    simulation.on('tick', () => {
-      edgeElements
-        .attr('x1', (d) => d.source.x)
-        .attr('y1', (d) => d.source.y)
-        .attr('x2', (d) => {
-          if (!d.directed) return d.target.x;
-          const pt = getRectBorderPoint(d.source, d.target, d.target.boxW, d.target.boxH);
-          return pt.x;
-        })
-        .attr('y2', (d) => {
-          if (!d.directed) return d.target.y;
-          const pt = getRectBorderPoint(d.source, d.target, d.target.boxW, d.target.boxH);
-          return pt.y;
+    // Draw nodes (shared between both layouts)
+    const drawNodes = (svg, nodesData, getX, getY, getData) => {
+      const nodeElements = svg.append('g')
+        .selectAll('g')
+        .data(nodesData)
+        .enter()
+        .append('g')
+        .attr('transform', (d) => `translate(${getX(d)}, ${getY(d)})`)
+        .attr('cursor', 'pointer')
+        .on('click', (event, d) => {
+          const data = getData(d);
+          if (data.link) {
+            if (data.link.startsWith('http')) {
+              window.open(data.link, '_blank');
+            } else {
+              loadArticle(data.link);
+            }
+          }
         });
 
-      nodeElements.attr('transform', (d) => `translate(${d.x}, ${d.y})`);
-    });
+      nodeElements.append('rect')
+        .attr('width', (d) => getData(d).boxW)
+        .attr('height', (d) => getData(d).boxH)
+        .attr('x', (d) => -getData(d).boxW / 2)
+        .attr('y', (d) => -getData(d).boxH / 2)
+        .attr('rx', 4)
+        .attr('ry', 4)
+        .attr('fill', '#FFFFFF')
+        .attr('stroke', '#87A878')
+        .attr('stroke-width', 2);
 
-    simulation.alpha(1).restart();
-    setTimeout(() => simulation.stop(), 800);
+      nodeElements.append('text')
+        .text((d) => getData(d).label || getData(d).id)
+        .attr('text-anchor', 'middle')
+        .attr('dy', '0.35em')
+        .attr('font-family', fontFamily)
+        .attr('font-size', fontSize)
+        .attr('fill', '#000000');
 
-    graphDef.replaceWith(svg.node());
+      return nodeElements;
+    };
+
+    // ─── TREE LAYOUT ───────────────────────────────────────────────
+    const renderTree = () => {
+      const levelHeight = 100;
+
+      const childrenMap = {};
+      const hasParent = new Set();
+      graphData.edges.forEach((edge) => {
+        if (!childrenMap[edge.from]) childrenMap[edge.from] = [];
+        childrenMap[edge.from].push(edge.to);
+        hasParent.add(edge.to);
+      });
+
+      const rootId = graphData.nodes.find((n) => !hasParent.has(n.id)).id;
+
+      const buildHierarchy = (id) => {
+        const node = { ...nodeMap[id] };
+        if (childrenMap[id]) node.children = childrenMap[id].map(buildHierarchy);
+        return node;
+      };
+
+      const hierarchyData = d3.hierarchy(buildHierarchy(rootId));
+      const treeLayout = d3.tree().nodeSize([120, levelHeight]);
+      treeLayout(hierarchyData);
+
+      let minX = Infinity, maxX = -Infinity, maxY = -Infinity;
+      hierarchyData.each((d) => {
+        if (d.x < minX) minX = d.x;
+        if (d.x > maxX) maxX = d.x;
+        if (d.y > maxY) maxY = d.y;
+      });
+
+      const treeWidth = maxX - minX;
+      const height = maxY + levelHeight;
+      const offsetX = (width / 2) - (treeWidth / 2) - minX;
+      const offsetY = levelHeight / 2;
+
+      hierarchyData.each((d) => {
+        d.x += offsetX;
+        d.y += offsetY;
+      });
+
+      const { svg, arrowId } = createSvg(height);
+
+      svg.append('g')
+        .selectAll('line')
+        .data(hierarchyData.links())
+        .enter()
+        .append('line')
+        .attr('x1', (d) => d.source.x)
+        .attr('y1', (d) => d.source.y)
+        .attr('x2', (d) => getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.data.boxW, d.target.data.boxH).x)
+        .attr('y2', (d) => getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.data.boxW, d.target.data.boxH).y)
+        .attr('stroke', '#B8A9C9')
+        .attr('stroke-width', 1.5)
+        .attr('marker-end', `url(#${arrowId})`);
+
+      drawNodes(svg, hierarchyData.descendants(), (d) => d.x, (d) => d.y, (d) => d.data);
+
+      graphDef.replaceWith(svg.node());
+    };
+
+    // ─── FORCE LAYOUT ──────────────────────────────────────────────
+    const renderForce = () => {
+      const height = 420;
+
+      const nodes = graphData.nodes.map((node, idx) => ({ ...node, index: idx }));
+      const links = graphData.edges.map((edge) => ({
+        source: edge.from,
+        target: edge.to,
+        directed: edge.directed,
+      }));
+
+      const maxBoxW = Math.max(...nodes.map((n) => n.boxW));
+      const maxBoxH = Math.max(...nodes.map((n) => n.boxH));
+      const collideRadius = Math.sqrt((maxBoxW / 2) ** 2 + (maxBoxH / 2) ** 2) + 10;
+
+      const { svg, arrowId } = createSvg(height);
+
+      const simulation = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id((d) => d.id).distance(160).strength(0.5))
+        .force('charge', d3.forceManyBody().strength(-300))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collide', d3.forceCollide(collideRadius));
+
+      const edgeElements = svg.append('g')
+        .selectAll('line')
+        .data(links)
+        .enter()
+        .append('line')
+        .attr('stroke', '#B8A9C9')
+        .attr('stroke-width', 1.5)
+        .attr('marker-end', (d) => (d.directed ? `url(#${arrowId})` : null));
+
+      const nodeElements = drawNodes(svg, nodes, (d) => d.x, (d) => d.y, (d) => d);
+
+      simulation.on('tick', () => {
+        edgeElements
+          .attr('x1', (d) => d.source.x)
+          .attr('y1', (d) => d.source.y)
+          .attr('x2', (d) => {
+            if (!d.directed) return d.target.x;
+            return getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.boxW, d.target.boxH).x;
+          })
+          .attr('y2', (d) => {
+            if (!d.directed) return d.target.y;
+            return getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.boxW, d.target.boxH).y;
+          });
+
+        nodeElements.attr('transform', (d) => `translate(${d.x}, ${d.y})`);
+      });
+
+      simulation.alpha(1).restart();
+      setTimeout(() => simulation.stop(), 800);
+
+      graphDef.replaceWith(svg.node());
+    };
+
+    // Auto-detect and render
+    if (isTree()) {
+      renderTree();
+    } else {
+      renderForce();
+    }
   });
 };
+
 
 
 const supportsPdfIframe = () => {
