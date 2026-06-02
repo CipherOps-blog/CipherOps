@@ -1,54 +1,37 @@
-{
-  "categories": [
-    {
-      "name": "Cryptography",
-      "articles": []
-    },
-    {
-      "name": "Graph Theory",
-      "articles": []
-    },
-    {
-      "name": "Post-Quantum Algorithms",
-      "articles": [
-        {
-          "title": "BIKE KEM",
-          "file": "articles/post-quantum-algorithms/bike-kem.md",
-          "date": "2024-01-01"
-        }
-      ],
-      "subcategories": [
-        {
-          "name": "NIST 2024",
-          "articles": [
-            {
-              "title": "The NIST 2024 Project",
-              "file": "articles/post-quantum-algorithms/nist-2024/nist-2024-overview.md",
-              "date": "2024-01-01"
-            },
-            {
-              "title": "Kyber KEM",
-              "file": "articles/post-quantum-algorithms/nist-2024/kyber-kem.md",
-              "date": "2024-01-01"
-            },
-            {
-              "title": "Dilithium",
-              "file": "articles/post-quantum-algorithms/nist-2024/dilithium.md",
-              "date": "2024-01-01"
-            },
-            {
-              "title": "Falcon",
-              "file": "articles/post-quantum-algorithms/nist-2024/falcon.md",
-              "date": "2024-01-01"
-            },
-            {
-              "title": "SPHINCS+",
-              "file": "articles/post-quantum-algorithms/nist-2024/sphincs-plus.md",
-              "date": "2024-01-01"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "category": "Cryptography",
+    "articles": [
+      {
+        "title": "Introduction to Cryptography",
+        "file": "articles/cryptography/introduction.md",
+        "date": "January 10, 2025"
+      },
+      {
+        "title": "Modern Encryption Techniques",
+        "file": "articles/cryptography/modern-encryption.md",
+        "date": "February 14, 2025"
+      }
+    ]
+  },
+  {
+    "category": "Graph Theory",
+    "articles": [
+      {
+        "title": "Graph Theory Fundamentals",
+        "file": "articles/graph-theory/fundamentals.md",
+        "date": "March 20, 2025"
+      }
+    ]
+  },
+  {
+    "category": "Post-Quantum Algorithms",
+    "articles": [
+      {
+        "title": "BIKE KEM",
+        "file": "articles/post-quantum-algorithms/bike-kem.md",
+        "date": "June 01, 2026"
+      }
+    ]
+  }
+]
