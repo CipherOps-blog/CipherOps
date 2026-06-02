@@ -437,7 +437,7 @@ body.dark .landing-description {
   max-width: 720px;
   margin: 0 auto;
   padding: 3rem 0 0;
-  background: var(--bg);
+  background: transparent; /* was var(--bg) */
   color: var(--fg);
   width: 100%;
   min-height: 60vh;
@@ -446,6 +446,7 @@ body.dark .landing-description {
   position: relative;
   overflow: visible;
 }
+
 
 .fade-in {
   animation: fadeIn 0.4s ease !important;
