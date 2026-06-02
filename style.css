@@ -507,11 +507,12 @@ body.dark #article-container pre {
   max-width: 720px;
   margin: 0 auto;
   padding: 3rem 0;
-  background: var(--bg);
+  background: transparent; /* was var(--bg) */
   color: var(--fg);
   transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
   opacity: 1;
 }
+
 
 .article-shell.hidden {
   opacity: 0;
