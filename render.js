@@ -197,47 +197,61 @@ const renderGraphs = () => {
       };
     };
 
-    // ── Draw nodes (shared) ────────────────────────────────────────
-    const drawNodes = (svg, nodesData, getX, getY, getData) => {
-      const nodeElements = svg.append('g')
-        .selectAll('g')
-        .data(nodesData)
-        .enter()
-        .append('g')
-        .attr('transform', (d) => `translate(${getX(d)}, ${getY(d)})`)
-        .attr('cursor', 'pointer')
-        .on('click', (event, d) => {
-          const data = getData(d);
-          if (data.link) {
-            if (data.link.startsWith('http')) {
-              window.open(data.link, '_blank');
-            } else {
-              loadArticle(data.link);
-            }
-          }
-        });
+const drawNodes = (svg, nodesData, getX, getY, getData) => {
+  const nodeElements = svg.append('g')
+    .selectAll('g')
+    .data(nodesData)
+    .enter()
+    .append('g')
+    .attr('transform', (d) => `translate(${getX(d)}, ${getY(d)})`)
+    .attr('cursor', 'pointer')
+    .on('click', (event, d) => {
+      const data = getData(d);
+      // Only trigger node click if the click wasn't on a link
+      if (event.target.tagName === 'A') return;
+      if (data.link) {
+        if (data.link.startsWith('http')) {
+          window.open(data.link, '_blank');
+        } else {
+          loadArticle(data.link);
+        }
+      }
+    });
 
-      nodeElements.append('rect')
-        .attr('width', (d) => getData(d).boxW)
-        .attr('height', (d) => getData(d).boxH)
-        .attr('x', (d) => -getData(d).boxW / 2)
-        .attr('y', (d) => -getData(d).boxH / 2)
-        .attr('rx', 4)
-        .attr('ry', 4)
-        .attr('fill', '#FFFFFF')
-        .attr('stroke', '#87A878')
-        .attr('stroke-width', 2);
+  nodeElements.append('rect')
+    .attr('width', (d) => getData(d).boxW)
+    .attr('height', (d) => getData(d).boxH)
+    .attr('x', (d) => -getData(d).boxW / 2)
+    .attr('y', (d) => -getData(d).boxH / 2)
+    .attr('rx', 4)
+    .attr('ry', 4)
+    .attr('fill', '#FFFFFF')
+    .attr('stroke', '#87A878')
+    .attr('stroke-width', 2);
 
-      nodeElements.append('text')
-        .text((d) => getData(d).label || getData(d).id)
-        .attr('text-anchor', 'middle')
-        .attr('dy', '0.35em')
-        .attr('font-family', fontFamily)
-        .attr('font-size', fontSize)
-        .attr('fill', '#000000');
+  nodeElements.append('foreignObject')
+    .attr('width', (d) => getData(d).boxW)
+    .attr('height', (d) => getData(d).boxH)
+    .attr('x', (d) => -getData(d).boxW / 2)
+    .attr('y', (d) => -getData(d).boxH / 2)
+    .append('xhtml:div')
+    .style('width', '100%')
+    .style('height', '100%')
+    .style('display', 'flex')
+    .style('align-items', 'center')
+    .style('justify-content', 'center')
+    .style('font-family', fontFamily)
+    .style('font-size', `${fontSize}px`)
+    .style('color', '#000000')
+    .style('text-align', 'center')
+    .style('padding', '0 4px')
+    .style('box-sizing', 'border-box')
+    .style('pointer-events', 'auto')
+    .html((d) => getData(d).html || getData(d).label || getData(d).id);
 
-      return nodeElements;
-    };
+  return nodeElements;
+};
+
 
     // ── TREE LAYOUT ────────────────────────────────────────────────
     const renderTree = () => {
