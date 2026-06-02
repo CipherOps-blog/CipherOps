@@ -1,6 +1,10 @@
 const articleContainerId = 'article-container';
+
 const landingId = 'landing';
+
 const contentPanelId = 'main-content';
+
+
 
 const loadArticle = async (filePath) => {
   const articleContainer = document.getElementById(articleContainerId);
@@ -18,7 +22,7 @@ const loadArticle = async (filePath) => {
 
     const markdown = await response.text();
     const html = marked && marked.parse ? marked.parse(markdown) : markdown;
-  
+
     articleContainer.innerHTML = html;
     injectArticleHexagons(articleContainer);
     landing.style.display = 'none';
@@ -31,9 +35,14 @@ const loadArticle = async (filePath) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     await renderMath();
-    renderGraphs();
     renderPDFs();
     highlightCode();
+
+    // renderGraphs LAST, inside rAF so the DOM is fully laid out
+    // and clientWidth is correct
+    requestAnimationFrame(() => {
+      renderGraphs();
+    });
   } catch (error) {
     console.error(error);
     if (articleContainer) {
@@ -43,6 +52,8 @@ const loadArticle = async (filePath) => {
     }
   }
 };
+
+
 
 const renderMath = async () => {
   const articleContainer = document.getElementById(articleContainerId);
@@ -54,6 +65,8 @@ const renderMath = async () => {
   }
 };
 
+
+
 const highlightCode = () => {
   const articleContainer = document.getElementById(articleContainerId);
   if (!articleContainer || typeof hljs === 'undefined') return;
@@ -62,6 +75,8 @@ const highlightCode = () => {
     hljs.highlightElement(block);
   });
 };
+
+
 
 const renderGraphs = () => {
   const articleContainer = document.getElementById(articleContainerId);
@@ -78,13 +93,14 @@ const renderGraphs = () => {
       return;
     }
 
+    // Use actual clientWidth now that rAF has fired
     const width = graphDef.clientWidth || 720;
     const paddingX = 16;
     const paddingY = 10;
     const fontSize = 12;
     const fontFamily = 'Georgia, serif';
 
-    // Measure text width
+    // ── Measure text width ──────────────────────────────────────────
     const measureText = (text) => {
       const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       tempSvg.style.visibility = 'hidden';
@@ -100,7 +116,7 @@ const renderGraphs = () => {
       return w;
     };
 
-    // Attach box dimensions to each node
+    // ── Attach box dimensions to each node ─────────────────────────
     const nodeMap = {};
     graphData.nodes.forEach((node) => {
       const textWidth = measureText(node.label || node.id);
@@ -109,16 +125,19 @@ const renderGraphs = () => {
       nodeMap[node.id] = node;
     });
 
-    // Detect if graph is a tree (each node has at most one parent, no cycles)
+    // ── Detect tree ────────────────────────────────────────────────
+    // A tree has exactly one root, no node with more than one parent, no cycles
     const isTree = () => {
       const parentCount = {};
       graphData.nodes.forEach((n) => { parentCount[n.id] = 0; });
-      graphData.edges.forEach((e) => { parentCount[e.to] = (parentCount[e.to] || 0) + 1; });
-      const multiParent = Object.values(parentCount).some((c) => c > 1);
-      if (multiParent) return false;
+      graphData.edges.forEach((e) => {
+        parentCount[e.to] = (parentCount[e.to] || 0) + 1;
+      });
+      if (Object.values(parentCount).some((c) => c > 1)) return false;
       const roots = graphData.nodes.filter((n) => parentCount[n.id] === 0);
       if (roots.length !== 1) return false;
-      // Check for cycles via DFS
+
+      // DFS cycle check
       const childrenMap = {};
       graphData.edges.forEach((e) => {
         if (!childrenMap[e.from]) childrenMap[e.from] = [];
@@ -137,7 +156,7 @@ const renderGraphs = () => {
       return !hasCycle(roots[0].id);
     };
 
-    // Shared arrow marker
+    // ── Shared SVG + arrow marker factory ─────────────────────────
     const createSvg = (height) => {
       const svg = d3.create('svg')
         .attr('width', '100%')
@@ -162,7 +181,7 @@ const renderGraphs = () => {
       return { svg, arrowId };
     };
 
-    // Compute border point on target rect
+    // ── Arrow stops at rect border, not at centre ──────────────────
     const getRectBorderPoint = (sx, sy, tx, ty, boxW, boxH) => {
       const dx = tx - sx;
       const dy = ty - sy;
@@ -178,7 +197,7 @@ const renderGraphs = () => {
       };
     };
 
-    // Draw nodes (shared between both layouts)
+    // ── Draw nodes (shared) ────────────────────────────────────────
     const drawNodes = (svg, nodesData, getX, getY, getData) => {
       const nodeElements = svg.append('g')
         .selectAll('g')
@@ -220,7 +239,7 @@ const renderGraphs = () => {
       return nodeElements;
     };
 
-    // ─── TREE LAYOUT ───────────────────────────────────────────────
+    // ── TREE LAYOUT ────────────────────────────────────────────────
     const renderTree = () => {
       const levelHeight = 100;
 
@@ -241,10 +260,15 @@ const renderGraphs = () => {
       };
 
       const hierarchyData = d3.hierarchy(buildHierarchy(rootId));
+
+      // nodeSize([horizontal spacing, vertical spacing])
       const treeLayout = d3.tree().nodeSize([120, levelHeight]);
       treeLayout(hierarchyData);
 
-      let minX = Infinity, maxX = -Infinity, maxY = -Infinity;
+      // Compute bounding box of the laid-out tree
+      let minX = Infinity;
+      let maxX = -Infinity;
+      let maxY = -Infinity;
       hierarchyData.each((d) => {
         if (d.x < minX) minX = d.x;
         if (d.x > maxX) maxX = d.x;
@@ -253,9 +277,10 @@ const renderGraphs = () => {
 
       const treeWidth = maxX - minX;
       const height = maxY + levelHeight;
+
+      // Centre the tree horizontally and add top padding
       const offsetX = (width / 2) - (treeWidth / 2) - minX;
       const offsetY = levelHeight / 2;
-
       hierarchyData.each((d) => {
         d.x += offsetX;
         d.y += offsetY;
@@ -263,6 +288,7 @@ const renderGraphs = () => {
 
       const { svg, arrowId } = createSvg(height);
 
+      // Edges
       svg.append('g')
         .selectAll('line')
         .data(hierarchyData.links())
@@ -270,18 +296,27 @@ const renderGraphs = () => {
         .append('line')
         .attr('x1', (d) => d.source.x)
         .attr('y1', (d) => d.source.y)
-        .attr('x2', (d) => getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.data.boxW, d.target.data.boxH).x)
-        .attr('y2', (d) => getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.data.boxW, d.target.data.boxH).y)
+        .attr('x2', (d) => getRectBorderPoint(
+          d.source.x, d.source.y,
+          d.target.x, d.target.y,
+          d.target.data.boxW, d.target.data.boxH,
+        ).x)
+        .attr('y2', (d) => getRectBorderPoint(
+          d.source.x, d.source.y,
+          d.target.x, d.target.y,
+          d.target.data.boxW, d.target.data.boxH,
+        ).y)
         .attr('stroke', '#B8A9C9')
         .attr('stroke-width', 1.5)
         .attr('marker-end', `url(#${arrowId})`);
 
+      // Nodes
       drawNodes(svg, hierarchyData.descendants(), (d) => d.x, (d) => d.y, (d) => d.data);
 
       graphDef.replaceWith(svg.node());
     };
 
-    // ─── FORCE LAYOUT ──────────────────────────────────────────────
+    // ── FORCE LAYOUT ───────────────────────────────────────────────
     const renderForce = () => {
       const height = 420;
 
@@ -313,7 +348,7 @@ const renderGraphs = () => {
         .attr('stroke-width', 1.5)
         .attr('marker-end', (d) => (d.directed ? `url(#${arrowId})` : null));
 
-      const nodeElements = drawNodes(svg, nodes, (d) => d.x, (d) => d.y, (d) => d);
+      const nodeElements = drawNodes(svg, nodes, (d) => d.x || 0, (d) => d.y || 0, (d) => d);
 
       simulation.on('tick', () => {
         edgeElements
@@ -321,11 +356,19 @@ const renderGraphs = () => {
           .attr('y1', (d) => d.source.y)
           .attr('x2', (d) => {
             if (!d.directed) return d.target.x;
-            return getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.boxW, d.target.boxH).x;
+            return getRectBorderPoint(
+              d.source.x, d.source.y,
+              d.target.x, d.target.y,
+              d.target.boxW, d.target.boxH,
+            ).x;
           })
           .attr('y2', (d) => {
             if (!d.directed) return d.target.y;
-            return getRectBorderPoint(d.source.x, d.source.y, d.target.x, d.target.y, d.target.boxW, d.target.boxH).y;
+            return getRectBorderPoint(
+              d.source.x, d.source.y,
+              d.target.x, d.target.y,
+              d.target.boxW, d.target.boxH,
+            ).y;
           });
 
         nodeElements.attr('transform', (d) => `translate(${d.x}, ${d.y})`);
@@ -337,7 +380,7 @@ const renderGraphs = () => {
       graphDef.replaceWith(svg.node());
     };
 
-    // Auto-detect and render
+    // ── Auto-detect and render ─────────────────────────────────────
     if (isTree()) {
       renderTree();
     } else {
@@ -352,6 +395,8 @@ const supportsPdfIframe = () => {
   if (typeof navigator === 'undefined' || !navigator.mimeTypes) return false;
   return !!navigator.mimeTypes['application/pdf'];
 };
+
+
 
 const renderPDFUsingPDFJS = async (url, container) => {
   if (typeof pdfjsLib === 'undefined' || !pdfjsLib.getDocument) {
@@ -382,6 +427,8 @@ const renderPDFUsingPDFJS = async (url, container) => {
 
   container.appendChild(pdfContainer);
 };
+
+
 
 const renderPDFs = () => {
   const articleContainer = document.getElementById(articleContainerId);
@@ -433,6 +480,8 @@ const renderPDFs = () => {
   });
 };
 
+
+
 const showLanding = () => {
   const articleContainer = document.getElementById(articleContainerId);
   const landing = document.getElementById(landingId);
@@ -445,6 +494,8 @@ const showLanding = () => {
   activeLinks.forEach((link) => link.classList.remove('active'));
 };
 
+
+
 const loadArticleFromHash = () => {
   const hash = window.location.hash;
   if (!hash.startsWith('#article=')) return;
@@ -452,6 +503,8 @@ const loadArticleFromHash = () => {
   if (!filePath) return;
   loadArticle(filePath);
 };
+
+
 
 const whenReady = (callback) => {
   if (document.readyState === 'loading') {
@@ -461,11 +514,15 @@ const whenReady = (callback) => {
   }
 };
 
+
+
 window.addEventListener('hashchange', loadArticleFromHash);
 whenReady(loadArticleFromHash);
 
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;
+
+
 
 const makeHexSVG = (size, strokeColour, extraClass) => {
   const r = size / 2;
@@ -487,17 +544,16 @@ const makeHexSVG = (size, strokeColour, extraClass) => {
   return svg;
 };
 
-const injectArticleHexagons = (container) => {
-  // Remove any previously injected hexes (e.g. when navigating between articles)
-  container.querySelectorAll('.article-hex').forEach((el) => el.remove());
 
-  // Top-left: sage behind, lavender in front
+
+const injectArticleHexagons = (container) => {
+  container.querySelectorAll('.article-hex').forEach((el) => el.remove());
   container.appendChild(makeHexSVG(72, '#87A878', 'article-hex-tl-1'));
   container.appendChild(makeHexSVG(72, '#B8A9C9', 'article-hex-tl-2'));
-
-  // Top-right: lavender behind, sage in front
   container.appendChild(makeHexSVG(72, '#B8A9C9', 'article-hex-tr-1'));
   container.appendChild(makeHexSVG(72, '#87A878', 'article-hex-tr-2'));
 };
+
+
 
 export { loadArticle, showLanding };
