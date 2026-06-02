@@ -2,23 +2,25 @@
 
 yay
 
-```d3-tree
+<div class="graph-definition">
+```json
 {
-  "name": "SAT",
-  "children": [
-    {
-      "name": "3-SAT",
-      "children": [
-        { "name": "Clique" },
-        { "name": "Vertex Cover" }
-      ]
-    },
-    {
-      "name": "Subset Sum",
-      "children": [
-        { "name": "Knapsack" }
-      ]
-    }
+  "nodes": [
+    {"id": "root", "label": "Root Problem"},
+    {"id": "A", "label": "Subproblem A"},
+    {"id": "B", "label": "Subproblem B"},
+    {"id": "A1", "label": "Leaf A1"},
+    {"id": "A2", "label": "Leaf A2"},
+    {"id": "B1", "label": "Leaf B1"}
+  ],
+  "edges": [
+    {"from": "root", "to": "A", "directed": true},
+    {"from": "root", "to": "B", "directed": true},
+    {"from": "A", "to": "A1", "directed": true},
+    {"from": "A", "to": "A2", "directed": true},
+    {"from": "B", "to": "B1", "directed": true}
   ]
 }
 ```
+</div>
+
