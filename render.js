@@ -80,17 +80,39 @@ const renderGraphs = () => {
 
     const width = graphDef.clientWidth || 720;
     const height = 420;
+    const paddingX = 16;
+    const paddingY = 10;
+    const fontSize = 12;
+    const fontFamily = 'Georgia, serif';
+
     const svg = d3.create('svg')
       .attr('width', '100%')
       .attr('height', height)
       .attr('viewBox', `0 0 ${width} ${height}`)
       .style('overflow', 'visible');
 
+    // Measure text width using a temporary SVG text element
+    const measureText = (text) => {
+      const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      tempSvg.style.visibility = 'hidden';
+      tempSvg.style.position = 'absolute';
+      document.body.appendChild(tempSvg);
+      const tempText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      tempText.setAttribute('font-family', fontFamily);
+      tempText.setAttribute('font-size', fontSize);
+      tempText.textContent = text;
+      tempSvg.appendChild(tempText);
+      const w = tempText.getBBox().width;
+      document.body.removeChild(tempSvg);
+      return w;
+    };
+
+    const arrowId = `arrow-${Math.random().toString(36).substr(2, 9)}`;
     const defs = svg.append('defs');
     defs.append('marker')
-      .attr('id', `arrow-${Math.random().toString(36).substr(2, 9)}`)
+      .attr('id', arrowId)
       .attr('viewBox', '0 -5 10 10')
-      .attr('refX', 20)
+      .attr('refX', 10)
       .attr('refY', 0)
       .attr('markerWidth', 8)
       .attr('markerHeight', 8)
@@ -99,31 +121,38 @@ const renderGraphs = () => {
       .attr('d', 'M0,-5L10,0L0,5')
       .attr('fill', '#87A878');
 
-    const nodes = graphData.nodes.map((node, idx) => ({
-      ...node,
-      index: idx,
-    }));
+    const nodes = graphData.nodes.map((node, idx) => {
+      const textWidth = measureText(node.label || node.id);
+      const boxW = textWidth + paddingX * 2;
+      const boxH = fontSize + paddingY * 2;
+      return { ...node, index: idx, boxW, boxH };
+    });
+
     const links = graphData.edges.map((edge) => ({
       source: edge.from,
       target: edge.to,
       directed: edge.directed,
     }));
 
+    const maxBoxW = Math.max(...nodes.map((n) => n.boxW));
+    const maxBoxH = Math.max(...nodes.map((n) => n.boxH));
+    const collideRadius = Math.sqrt((maxBoxW / 2) ** 2 + (maxBoxH / 2) ** 2) + 10;
+
     const simulation = d3.forceSimulation(nodes)
-      .force('link', d3.forceLink(links).id((d) => d.id).distance(140).strength(0.5))
-      .force('charge', d3.forceManyBody().strength(-260))
+      .force('link', d3.forceLink(links).id((d) => d.id).distance(160).strength(0.5))
+      .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collide', d3.forceCollide(40));
+      .force('collide', d3.forceCollide(collideRadius));
 
     const linkGroup = svg.append('g').attr('class', 'graph-links');
-    const edgeElements = linkGroup.selectAll('path')
+    const edgeElements = linkGroup.selectAll('line')
       .data(links)
       .enter()
-      .append('path')
+      .append('line')
       .attr('fill', 'none')
       .attr('stroke', '#B8A9C9')
       .attr('stroke-width', 1.5)
-      .attr('marker-end', (d) => (d.directed ? `url(#${defs.select('marker').attr('id')})` : null));
+      .attr('marker-end', (d) => (d.directed ? `url(#${arrowId})` : null));
 
     const nodeGroup = svg.append('g').attr('class', 'graph-nodes');
     const nodeElements = nodeGroup.selectAll('g')
@@ -141,8 +170,13 @@ const renderGraphs = () => {
         }
       });
 
-    nodeElements.append('circle')
-      .attr('r', 22)
+    nodeElements.append('rect')
+      .attr('width', (d) => d.boxW)
+      .attr('height', (d) => d.boxH)
+      .attr('x', (d) => -d.boxW / 2)
+      .attr('y', (d) => -d.boxH / 2)
+      .attr('rx', 4)
+      .attr('ry', 4)
       .attr('fill', '#FFFFFF')
       .attr('stroke', '#87A878')
       .attr('stroke-width', 2);
@@ -151,18 +185,45 @@ const renderGraphs = () => {
       .text((d) => d.label || d.id)
       .attr('text-anchor', 'middle')
       .attr('dy', '0.35em')
-      .attr('font-family', 'Georgia, serif')
-      .attr('font-size', 12)
+      .attr('font-family', fontFamily)
+      .attr('font-size', fontSize)
       .attr('fill', '#000000');
 
+    // Compute the point on the border of a rectangle where the edge should stop
+    const getRectBorderPoint = (source, target, boxW, boxH) => {
+      const dx = target.x - source.x;
+      const dy = target.y - source.y;
+      const angle = Math.atan2(dy, dx);
+      const halfW = boxW / 2;
+      const halfH = boxH / 2;
+      const absCos = Math.abs(Math.cos(angle));
+      const absSin = Math.abs(Math.sin(angle));
+      let t;
+      if (halfW * absSin <= halfH * absCos) {
+        t = halfW / absCos;
+      } else {
+        t = halfH / absSin;
+      }
+      return {
+        x: target.x - Math.cos(angle) * t,
+        y: target.y - Math.sin(angle) * t,
+      };
+    };
+
     simulation.on('tick', () => {
-      edgeElements.attr('d', (d) => {
-        const sourceX = d.source.x;
-        const sourceY = d.source.y;
-        const targetX = d.target.x;
-        const targetY = d.target.y;
-        return `M${sourceX},${sourceY} L${targetX},${targetY}`;
-      });
+      edgeElements
+        .attr('x1', (d) => d.source.x)
+        .attr('y1', (d) => d.source.y)
+        .attr('x2', (d) => {
+          if (!d.directed) return d.target.x;
+          const pt = getRectBorderPoint(d.source, d.target, d.target.boxW, d.target.boxH);
+          return pt.x;
+        })
+        .attr('y2', (d) => {
+          if (!d.directed) return d.target.y;
+          const pt = getRectBorderPoint(d.source, d.target, d.target.boxW, d.target.boxH);
+          return pt.y;
+        });
 
       nodeElements.attr('transform', (d) => `translate(${d.x}, ${d.y})`);
     });
@@ -173,6 +234,7 @@ const renderGraphs = () => {
     graphDef.replaceWith(svg.node());
   });
 };
+
 
 const supportsPdfIframe = () => {
   if (typeof navigator === 'undefined' || !navigator.mimeTypes) return false;
