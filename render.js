@@ -5,7 +5,6 @@ const landingId = 'landing';
 const contentPanelId = 'main-content';
 
 
-
 const loadArticle = async (filePath) => {
   const articleContainer = document.getElementById(articleContainerId);
   const landing = document.getElementById(landingId);
@@ -37,6 +36,7 @@ const loadArticle = async (filePath) => {
     await renderMath();
     renderPDFs();
     highlightCode();
+    buildArticleTOC();
 
     // renderGraphs LAST, inside rAF so the DOM is fully laid out
     // and clientWidth is correct
@@ -54,7 +54,6 @@ const loadArticle = async (filePath) => {
 };
 
 
-
 const renderMath = async () => {
   const articleContainer = document.getElementById(articleContainerId);
   if (!articleContainer || typeof MathJax === 'undefined' || !MathJax.typesetPromise) return;
@@ -66,7 +65,6 @@ const renderMath = async () => {
 };
 
 
-
 const highlightCode = () => {
   const articleContainer = document.getElementById(articleContainerId);
   if (!articleContainer || typeof hljs === 'undefined') return;
@@ -76,6 +74,49 @@ const highlightCode = () => {
   });
 };
 
+
+const buildArticleTOC = () => {
+  const articleContainer = document.getElementById(articleContainerId);
+  const articleToc = document.getElementById('article-toc');
+  if (!articleContainer || !articleToc) return;
+
+  const headings = articleContainer.querySelectorAll('h2, h3');
+  articleToc.innerHTML = '';
+
+  if (headings.length === 0) {
+    articleToc.style.display = 'none';
+    return;
+  }
+
+  articleToc.style.display = '';
+
+  const title = document.createElement('p');
+  title.className = 'article-toc-title';
+  title.textContent = 'On this page';
+  articleToc.appendChild(title);
+
+  headings.forEach((heading, i) => {
+    if (!heading.id) {
+      heading.id = `section-${i}-${heading.textContent
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]/g, '')}`;
+    }
+
+    const link = document.createElement('a');
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent;
+    link.className = `article-toc-link article-toc-${heading.tagName.toLowerCase()}`;
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      heading.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    articleToc.appendChild(link);
+  });
+};
 
 
 const renderGraphs = () => {
@@ -126,7 +167,6 @@ const renderGraphs = () => {
     });
 
     // ── Detect tree ────────────────────────────────────────────────
-    // A tree has exactly one root, no node with more than one parent, no cycles
     const isTree = () => {
       const parentCount = {};
       graphData.nodes.forEach((n) => { parentCount[n.id] = 0; });
@@ -137,7 +177,6 @@ const renderGraphs = () => {
       const roots = graphData.nodes.filter((n) => parentCount[n.id] === 0);
       if (roots.length !== 1) return false;
 
-      // DFS cycle check
       const childrenMap = {};
       graphData.edges.forEach((e) => {
         if (!childrenMap[e.from]) childrenMap[e.from] = [];
@@ -197,61 +236,59 @@ const renderGraphs = () => {
       };
     };
 
-const drawNodes = (svg, nodesData, getX, getY, getData) => {
-  const nodeElements = svg.append('g')
-    .selectAll('g')
-    .data(nodesData)
-    .enter()
-    .append('g')
-    .attr('transform', (d) => `translate(${getX(d)}, ${getY(d)})`)
-    .attr('cursor', 'pointer')
-    .on('click', (event, d) => {
-      const data = getData(d);
-      // Only trigger node click if the click wasn't on a link
-      if (event.target.tagName === 'A') return;
-      if (data.link) {
-        if (data.link.startsWith('http')) {
-          window.open(data.link, '_blank');
-        } else {
-          loadArticle(data.link);
-        }
-      }
-    });
+    const drawNodes = (svg, nodesData, getX, getY, getData) => {
+      const nodeElements = svg.append('g')
+        .selectAll('g')
+        .data(nodesData)
+        .enter()
+        .append('g')
+        .attr('transform', (d) => `translate(${getX(d)}, ${getY(d)})`)
+        .attr('cursor', 'pointer')
+        .on('click', (event, d) => {
+          const data = getData(d);
+          if (event.target.tagName === 'A') return;
+          if (data.link) {
+            if (data.link.startsWith('http')) {
+              window.open(data.link, '_blank');
+            } else {
+              loadArticle(data.link);
+            }
+          }
+        });
 
-  nodeElements.append('rect')
-    .attr('width', (d) => getData(d).boxW)
-    .attr('height', (d) => getData(d).boxH)
-    .attr('x', (d) => -getData(d).boxW / 2)
-    .attr('y', (d) => -getData(d).boxH / 2)
-    .attr('rx', 4)
-    .attr('ry', 4)
-    .attr('fill', '#FFFFFF')
-    .attr('stroke', '#87A878')
-    .attr('stroke-width', 2);
+      nodeElements.append('rect')
+        .attr('width', (d) => getData(d).boxW)
+        .attr('height', (d) => getData(d).boxH)
+        .attr('x', (d) => -getData(d).boxW / 2)
+        .attr('y', (d) => -getData(d).boxH / 2)
+        .attr('rx', 4)
+        .attr('ry', 4)
+        .attr('fill', '#FFFFFF')
+        .attr('stroke', '#87A878')
+        .attr('stroke-width', 2);
 
-  nodeElements.append('foreignObject')
-    .attr('width', (d) => getData(d).boxW)
-    .attr('height', (d) => getData(d).boxH)
-    .attr('x', (d) => -getData(d).boxW / 2)
-    .attr('y', (d) => -getData(d).boxH / 2)
-    .append('xhtml:div')
-    .style('width', '100%')
-    .style('height', '100%')
-    .style('display', 'flex')
-    .style('align-items', 'center')
-    .style('justify-content', 'center')
-    .style('font-family', fontFamily)
-    .style('font-size', `${fontSize}px`)
-    .style('color', '#000000')
-    .style('text-align', 'center')
-    .style('padding', '0 4px')
-    .style('box-sizing', 'border-box')
-    .style('pointer-events', 'auto')
-    .html((d) => getData(d).html || getData(d).label || getData(d).id);
+      nodeElements.append('foreignObject')
+        .attr('width', (d) => getData(d).boxW)
+        .attr('height', (d) => getData(d).boxH)
+        .attr('x', (d) => -getData(d).boxW / 2)
+        .attr('y', (d) => -getData(d).boxH / 2)
+        .append('xhtml:div')
+        .style('width', '100%')
+        .style('height', '100%')
+        .style('display', 'flex')
+        .style('align-items', 'center')
+        .style('justify-content', 'center')
+        .style('font-family', fontFamily)
+        .style('font-size', `${fontSize}px`)
+        .style('color', '#000000')
+        .style('text-align', 'center')
+        .style('padding', '0 4px')
+        .style('box-sizing', 'border-box')
+        .style('pointer-events', 'auto')
+        .html((d) => getData(d).html || getData(d).label || getData(d).id);
 
-  return nodeElements;
-};
-
+      return nodeElements;
+    };
 
     // ── TREE LAYOUT ────────────────────────────────────────────────
     const renderTree = () => {
@@ -275,11 +312,9 @@ const drawNodes = (svg, nodesData, getX, getY, getData) => {
 
       const hierarchyData = d3.hierarchy(buildHierarchy(rootId));
 
-      // nodeSize([horizontal spacing, vertical spacing])
       const treeLayout = d3.tree().nodeSize([120, levelHeight]);
       treeLayout(hierarchyData);
 
-      // Compute bounding box of the laid-out tree
       let minX = Infinity;
       let maxX = -Infinity;
       let maxY = -Infinity;
@@ -292,7 +327,6 @@ const drawNodes = (svg, nodesData, getX, getY, getData) => {
       const treeWidth = maxX - minX;
       const height = maxY + levelHeight;
 
-      // Centre the tree horizontally and add top padding
       const offsetX = (width / 2) - (treeWidth / 2) - minX;
       const offsetY = levelHeight / 2;
       hierarchyData.each((d) => {
@@ -302,7 +336,6 @@ const drawNodes = (svg, nodesData, getX, getY, getData) => {
 
       const { svg, arrowId } = createSvg(height);
 
-      // Edges
       svg.append('g')
         .selectAll('line')
         .data(hierarchyData.links())
@@ -324,7 +357,6 @@ const drawNodes = (svg, nodesData, getX, getY, getData) => {
         .attr('stroke-width', 1.5)
         .attr('marker-end', `url(#${arrowId})`);
 
-      // Nodes
       drawNodes(svg, hierarchyData.descendants(), (d) => d.x, (d) => d.y, (d) => d.data);
 
       graphDef.replaceWith(svg.node());
@@ -404,12 +436,10 @@ const drawNodes = (svg, nodesData, getX, getY, getData) => {
 };
 
 
-
 const supportsPdfIframe = () => {
   if (typeof navigator === 'undefined' || !navigator.mimeTypes) return false;
   return !!navigator.mimeTypes['application/pdf'];
 };
-
 
 
 const renderPDFUsingPDFJS = async (url, container) => {
@@ -441,7 +471,6 @@ const renderPDFUsingPDFJS = async (url, container) => {
 
   container.appendChild(pdfContainer);
 };
-
 
 
 const renderPDFs = () => {
@@ -495,19 +524,23 @@ const renderPDFs = () => {
 };
 
 
-
 const showLanding = () => {
   const articleContainer = document.getElementById(articleContainerId);
   const landing = document.getElementById(landingId);
+  const articleToc = document.getElementById('article-toc');
   if (!articleContainer || !landing) return;
 
   articleContainer.style.display = 'none';
   landing.style.display = 'block';
 
+  if (articleToc) {
+    articleToc.innerHTML = '';
+    articleToc.style.display = 'none';
+  }
+
   const activeLinks = document.querySelectorAll('.toc-article.active');
   activeLinks.forEach((link) => link.classList.remove('active'));
 };
-
 
 
 const loadArticleFromHash = () => {
@@ -519,7 +552,6 @@ const loadArticleFromHash = () => {
 };
 
 
-
 const whenReady = (callback) => {
   if (document.readyState === 'loading') {
     window.addEventListener('DOMContentLoaded', callback);
@@ -529,13 +561,11 @@ const whenReady = (callback) => {
 };
 
 
-
 window.addEventListener('hashchange', loadArticleFromHash);
 whenReady(loadArticleFromHash);
 
 window.loadArticle = loadArticle;
 window.showLanding = showLanding;
-
 
 
 const makeHexSVG = (size, strokeColour, extraClass) => {
@@ -559,7 +589,6 @@ const makeHexSVG = (size, strokeColour, extraClass) => {
 };
 
 
-
 const injectArticleHexagons = (container) => {
   container.querySelectorAll('.article-hex').forEach((el) => el.remove());
   container.appendChild(makeHexSVG(72, '#87A878', 'article-hex-tl-1'));
@@ -567,7 +596,6 @@ const injectArticleHexagons = (container) => {
   container.appendChild(makeHexSVG(72, '#B8A9C9', 'article-hex-tr-1'));
   container.appendChild(makeHexSVG(72, '#87A878', 'article-hex-tr-2'));
 };
-
 
 
 export { loadArticle, showLanding };
