@@ -464,12 +464,12 @@ body.dark .landing-description {
 }
 
 /* H1 + H2 = top-level sections → sage green */
-#article-container h1 {
+#article-container h1,
+#article-container h2 {
   color: var(--accent);
 }
 
 /* H3 and deeper = subsections → lavender */
-#article-container h2,
 #article-container h3,
 #article-container h4,
 #article-container h5,
@@ -768,7 +768,7 @@ body.dark .article-hex {
   line-height: 1.45;
   margin-bottom: 0.3rem;
   padding: 0.15rem 0.4rem 0.15rem 1.1rem;
-  color: var(--fg);
+  color: var(--muted);
   text-decoration: none;
   border-radius: 0.3rem;
   border-left: 2px solid transparent;
@@ -782,7 +782,7 @@ body.dark .article-hex {
 }
 
 .article-toc-h3:hover {
-  color: var(--accent-alt); /* lavender */
+  color: var(--fg); /* lavender */
   background: rgba(184, 169, 201, 0.08);
 }
 
