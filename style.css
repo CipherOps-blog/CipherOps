@@ -138,3 +138,50 @@
 #article-layout {
   display: grid !important;
 }
+
+
+/* =========================
+   LEFT TOC ITEMS
+   ========================= */
+
+.toc-category {
+  margin-bottom: 1.5rem; /* space between categories */
+}
+
+.toc-category-header {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.35rem; /* space between header and its articles */
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toc-article-item {
+  margin: 0; /* remove default div spacing */
+}
+
+.toc-article {
+  display: block;
+  padding: 0.2rem 0.75rem; /* tight vertical padding per article */
+  font-size: 0.85rem;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.toc-article:hover {
+  text-decoration: underline;
+}
+
+.toc-article.active {
+  font-weight: bold;
+}
+
+/* Collapsed state */
+.toc-category.collapsed .toc-article-list {
+  display: none;
+}
