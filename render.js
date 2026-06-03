@@ -78,7 +78,7 @@ const buildArticleTOC = () => {
   const articleToc = document.getElementById('article-toc');
   if (!articleContainer || !articleToc) return;
 
-  const headings = articleContainer.querySelectorAll('h2, h3');
+  const headings = articleContainer.querySelectorAll('h1, h2, h3, h4');
   articleToc.innerHTML = '';
 
   if (headings.length === 0) {
@@ -86,8 +86,7 @@ const buildArticleTOC = () => {
     return;
   }
 
-  articleToc.style.display = 'flex';
-  articleToc.style.flexDirection = 'column';
+  articleToc.style.display = '';
 
   const title = document.createElement('p');
   title.className = 'article-toc-title';
@@ -103,10 +102,13 @@ const buildArticleTOC = () => {
         .replace(/[^\w-]/g, '')}`;
     }
 
+    const label = heading.textContent.trim();
+
     const link = document.createElement('a');
     link.href = `#${heading.id}`;
-    link.textContent = heading.textContent;
+    link.textContent = label;
     link.className = `article-toc-link article-toc-${heading.tagName.toLowerCase()}`;
+    link.title = label; /* full text on hover if truncated */
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -116,6 +118,7 @@ const buildArticleTOC = () => {
     articleToc.appendChild(link);
   });
 };
+
 
 
 const renderGraphs = () => {
