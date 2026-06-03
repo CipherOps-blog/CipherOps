@@ -678,37 +678,3 @@ body.dark .article-hex {
     display: none;
   }
 }
-
-.graph-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: auto;
-  border: 1px solid rgba(135, 168, 120, 0.3);
-  border-radius: 8px;
-}
-
-.graph-wrapper:fullscreen {
-  background: #fff;
-  overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.graph-fullscreen-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 10;
-  background: rgba(255,255,255,0.8);
-  border: 1px solid #87A878;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 2px 6px;
-}
-
-.graph-fullscreen-btn:hover {
-  background: #87A878;
-  color: #fff;
-}
