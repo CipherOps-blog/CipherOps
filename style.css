@@ -678,3 +678,81 @@ body.dark .article-hex {
     display: none;
   }
 }
+
+/* ── Article layout wrapper (article + right TOC) ────────────────── */
+
+#article-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Let the article take its natural width, no longer centered alone */
+#article-container {
+  flex: 1;
+  margin: 0; /* override the old margin: 0 auto */
+  min-width: 0; /* prevent flex overflow */
+}
+
+/* ── Right TOC panel ─────────────────────────────────────────────── */
+
+#article-toc {
+  display: none; /* shown by buildArticleTOC() when headings exist */
+  flex-shrink: 0;
+  width: 200px;
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding: 1rem 0.75rem;
+  border-left: 1px solid var(--panel-border);
+}
+
+.article-toc-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.article-toc-link {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.25rem;
+}
+
+.article-toc-link:hover {
+  color: var(--accent);
+}
+
+.article-toc-h2 {
+  padding-left: 0;
+  font-weight: 600;
+}
+
+.article-toc-h3 {
+  padding-left: 1rem;
+  font-weight: 400;
+}
+
+/* ── Hide right TOC on narrow screens ────────────────────────────── */
+
+@media (max-width: 1100px) {
+  #article-toc {
+    display: none !important;
+  }
+
+  #article-layout {
+    max-width: 720px;
+  }
+}
