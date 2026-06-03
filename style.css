@@ -782,8 +782,8 @@ body.dark .article-hex {
 }
 
 .article-toc-h3:hover {
-  color: var(--fg);
-  background: rgba(135, 168, 120, 0.06);
+  color: var(--fg); /* lavender */
+  background: rgba(184, 169, 201, 0.08);
 }
 
 /* ── Scroll-spy active state ─────────────────────────────────────── */
