@@ -306,13 +306,13 @@ body.dark .toggle-thumb {
 
 .toc-article:hover,
 .toc-article:focus-visible {
-  background: rgba(135, 168, 120, 0.12);
-  color: var(--accent);
+  background: rgba(184, 169, 201, 0.12);
+  color: var(--accent-alt);
 }
 
 .toc-article.active {
   background: linear-gradient(135deg, rgba(135, 168, 120, 0.18), rgba(184, 169, 201, 0.18));
-  color: var(--accent);
+  color: var(--accent-alt);
 }
 
 .article-meta {
@@ -454,10 +454,27 @@ body.dark .landing-description {
 
 #article-container h1,
 #article-container h2,
-#article-container h3 {
+#article-container h3,
+#article-container h4,
+#article-container h5,
+#article-container h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: 700;
+}
+
+/* H1 + H2 = top-level sections → sage green */
+#article-container h1,
+#article-container h2 {
+  color: var(--accent);
+}
+
+/* H3 and deeper = subsections → lavender */
+#article-container h3,
+#article-container h4,
+#article-container h5,
+#article-container h6 {
+  color: var(--accent-alt);
 }
 
 #article-container h1 {
