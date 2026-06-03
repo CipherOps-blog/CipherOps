@@ -80,6 +80,12 @@ const buildArticleTOC = () => {
   const articleToc = document.getElementById('article-toc');
   if (!articleContainer || !articleToc) return;
 
+  // Disconnect any previous scroll-spy observer
+  if (buildArticleTOC._observer) {
+    buildArticleTOC._observer.disconnect();
+    buildArticleTOC._observer = null;
+  }
+
   const headings = articleContainer.querySelectorAll('h2, h3');
   articleToc.innerHTML = '';
 
@@ -88,12 +94,15 @@ const buildArticleTOC = () => {
     return;
   }
 
-  articleToc.style.display = '';
+  // Fix: must set an explicit value, not '' (which falls back to CSS display:none)
+  articleToc.style.display = 'block';
 
   const title = document.createElement('p');
   title.className = 'article-toc-title';
   title.textContent = 'On this page';
   articleToc.appendChild(title);
+
+  const linkMap = new Map(); // heading.id → <a> element
 
   headings.forEach((heading, i) => {
     if (!heading.id) {
@@ -107,7 +116,8 @@ const buildArticleTOC = () => {
     const link = document.createElement('a');
     link.href = `#${heading.id}`;
     link.textContent = heading.textContent;
-    link.className = `article-toc-link article-toc-${heading.tagName.toLowerCase()}`;
+    // Use the distinct per-level classes (h2 vs h3) — no generic toc-link class
+    link.className = `article-toc-${heading.tagName.toLowerCase()}`;
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -115,7 +125,37 @@ const buildArticleTOC = () => {
     });
 
     articleToc.appendChild(link);
+    linkMap.set(heading.id, link);
   });
+
+  // ── Scroll-spy via IntersectionObserver ──────────────────────────
+  let activeId = null;
+
+  const setActive = (id) => {
+    if (id === activeId) return;
+    if (activeId && linkMap.has(activeId)) {
+      linkMap.get(activeId).classList.remove('toc-active');
+    }
+    activeId = id;
+    if (activeId && linkMap.has(activeId)) {
+      linkMap.get(activeId).classList.add('toc-active');
+    }
+  };
+
+  // rootMargin: trigger when heading crosses top ~15% of viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActive(entry.target.id);
+      }
+    });
+  }, { rootMargin: '0px 0px -80% 0px', threshold: 0 });
+
+  headings.forEach((h) => observer.observe(h));
+  buildArticleTOC._observer = observer;
+
+  // Activate the first heading immediately
+  if (headings.length > 0) setActive(headings[0].id);
 };
 
 
