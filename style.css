@@ -464,12 +464,12 @@ body.dark .landing-description {
 }
 
 /* H1 + H2 = top-level sections → sage green */
-#article-container h1,
-#article-container h2 {
+#article-container h1 {
   color: var(--accent);
 }
 
 /* H3 and deeper = subsections → lavender */
+#article-container h2,
 #article-container h3,
 #article-container h4,
 #article-container h5,
