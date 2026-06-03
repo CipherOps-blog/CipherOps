@@ -38,6 +38,8 @@ const loadArticle = async (filePath) => {
     highlightCode();
     buildArticleTOC();
 
+    // renderGraphs LAST, inside rAF so the DOM is fully laid out
+    // and clientWidth is correct
     requestAnimationFrame(() => {
       renderGraphs();
     });
@@ -78,7 +80,7 @@ const buildArticleTOC = () => {
   const articleToc = document.getElementById('article-toc');
   if (!articleContainer || !articleToc) return;
 
-  const headings = articleContainer.querySelectorAll('h1, h2, h3, h4');
+  const headings = articleContainer.querySelectorAll('h2, h3');
   articleToc.innerHTML = '';
 
   if (headings.length === 0) {
@@ -102,13 +104,10 @@ const buildArticleTOC = () => {
         .replace(/[^\w-]/g, '')}`;
     }
 
-    const label = heading.textContent.trim();
-
     const link = document.createElement('a');
     link.href = `#${heading.id}`;
-    link.textContent = label;
+    link.textContent = heading.textContent;
     link.className = `article-toc-link article-toc-${heading.tagName.toLowerCase()}`;
-    link.title = label; /* full text on hover if truncated */
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -118,7 +117,6 @@ const buildArticleTOC = () => {
     articleToc.appendChild(link);
   });
 };
-
 
 
 const renderGraphs = () => {
@@ -136,12 +134,14 @@ const renderGraphs = () => {
       return;
     }
 
+    // Use actual clientWidth now that rAF has fired
     const width = graphDef.clientWidth || 720;
     const paddingX = 16;
     const paddingY = 10;
     const fontSize = 12;
     const fontFamily = 'Georgia, serif';
 
+    // ── Measure text width ──────────────────────────────────────────
     const measureText = (text) => {
       const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       tempSvg.style.visibility = 'hidden';
@@ -157,6 +157,7 @@ const renderGraphs = () => {
       return w;
     };
 
+    // ── Attach box dimensions to each node ─────────────────────────
     const nodeMap = {};
     graphData.nodes.forEach((node) => {
       const textWidth = measureText(node.label || node.id);
@@ -165,6 +166,7 @@ const renderGraphs = () => {
       nodeMap[node.id] = node;
     });
 
+    // ── Detect tree ────────────────────────────────────────────────
     const isTree = () => {
       const parentCount = {};
       graphData.nodes.forEach((n) => { parentCount[n.id] = 0; });
@@ -193,6 +195,7 @@ const renderGraphs = () => {
       return !hasCycle(roots[0].id);
     };
 
+    // ── Shared SVG + arrow marker factory ─────────────────────────
     const createSvg = (height) => {
       const svg = d3.create('svg')
         .attr('width', '100%')
@@ -217,6 +220,7 @@ const renderGraphs = () => {
       return { svg, arrowId };
     };
 
+    // ── Arrow stops at rect border, not at centre ──────────────────
     const getRectBorderPoint = (sx, sy, tx, ty, boxW, boxH) => {
       const dx = tx - sx;
       const dy = ty - sy;
@@ -286,6 +290,7 @@ const renderGraphs = () => {
       return nodeElements;
     };
 
+    // ── TREE LAYOUT ────────────────────────────────────────────────
     const renderTree = () => {
       const levelHeight = 100;
 
@@ -357,6 +362,7 @@ const renderGraphs = () => {
       graphDef.replaceWith(svg.node());
     };
 
+    // ── FORCE LAYOUT ───────────────────────────────────────────────
     const renderForce = () => {
       const height = 420;
 
@@ -420,6 +426,7 @@ const renderGraphs = () => {
       graphDef.replaceWith(svg.node());
     };
 
+    // ── Auto-detect and render ─────────────────────────────────────
     if (isTree()) {
       renderTree();
     } else {
