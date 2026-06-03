@@ -2,7 +2,7 @@
 
 yay
 
-![graph](articles/mathematics/graph-light.png)
+![graph](graph-light.png)
 
 
 
