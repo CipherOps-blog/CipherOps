@@ -699,11 +699,9 @@ body.dark .article-hex {
 /* ── Right TOC panel ─────────────────────────────────────────────── */
 
 #article-toc {
-  display: none;
+  display: none; /* shown by buildArticleTOC() when headings exist */
   flex-shrink: 0;
-  width: fit-content;
-  min-width: 120px;
-  max-width: 200px;
+  width: 200px;
   position: sticky;
   top: 2rem;
   max-height: calc(100vh - 4rem);
@@ -719,56 +717,33 @@ body.dark .article-hex {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
-  white-space: nowrap;
 }
 
 .article-toc-link {
   display: block;
+  font-size: 0.85rem;
   line-height: 1.5;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s ease;
   border-radius: 0.25rem;
   padding: 0.1rem 0.25rem;
-  white-space: nowrap;
 }
 
 .article-toc-link:hover {
   color: var(--accent);
 }
 
-/* h1 — top level */
-.article-toc-h1 {
-  font-size: 0.88rem;
-  font-weight: 700;
-  padding-left: 0;
-  color: var(--text);
-}
-
-/* h2 — second level */
 .article-toc-h2 {
-  font-size: 0.85rem;
-  font-weight: 600;
   padding-left: 0;
+  font-weight: 600;
 }
 
-/* h3 — indented, lighter */
 .article-toc-h3 {
-  font-size: 0.80rem;
+  padding-left: 1rem;
   font-weight: 400;
-  padding-left: 0.85rem;
-  color: var(--muted);
 }
-
-/* h4 — more indented, even lighter */
-.article-toc-h4 {
-  font-size: 0.78rem;
-  font-weight: 400;
-  padding-left: 1.5rem;
-  opacity: 0.75;
-}
-
 
 /* ── Hide right TOC on narrow screens ────────────────────────────── */
 
