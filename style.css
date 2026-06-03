@@ -768,7 +768,7 @@ body.dark .article-hex {
   line-height: 1.45;
   margin-bottom: 0.3rem;
   padding: 0.15rem 0.4rem 0.15rem 1.1rem;
-  color: var(--muted);
+  color: var(--fg);
   text-decoration: none;
   border-radius: 0.3rem;
   border-left: 2px solid transparent;
@@ -782,7 +782,7 @@ body.dark .article-hex {
 }
 
 .article-toc-h3:hover {
-  color: var(--fg); /* lavender */
+  color: var(--accent-alt); /* lavender */
   background: rgba(184, 169, 201, 0.08);
 }
 
@@ -794,7 +794,7 @@ body.dark .article-hex {
 }
 
 .article-toc-h3.toc-active {
-  color: var(--fg);
+  color: var(--accent-alt);
   border-left-color: var(--accent-alt);
   background: rgba(184, 169, 201, 0.08);
 }
