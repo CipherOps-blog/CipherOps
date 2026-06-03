@@ -685,67 +685,104 @@ body.dark .article-hex {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  /* fills the space left of main-content, no extra centering needed */
+  width: 100%;
+  padding-right: 1rem;
 }
 
-/* Let the article take its natural width, no longer centered alone */
+/* Article takes all remaining space */
 #article-container {
   flex: 1;
-  margin: 0; /* override the old margin: 0 auto */
+  margin: 0;
   min-width: 0; /* prevent flex overflow */
 }
 
-/* ── Right TOC panel ─────────────────────────────────────────────── */
+/* ── Right in-article TOC (~1/6 of viewport) ─────────────────────── */
 
 #article-toc {
-  display: none; /* shown by buildArticleTOC() when headings exist */
+  display: none;           /* JS sets to 'block' when headings exist   */
   flex-shrink: 0;
-  width: 200px;
+  width: clamp(160px, 16vw, 220px);  /* ~1/6 of the page             */
   position: sticky;
-  top: 2rem;
-  max-height: calc(100vh - 4rem);
+  top: 4rem;               /* clear the topbar                         */
+  max-height: calc(100vh - 6rem);
   overflow-y: auto;
-  padding: 1rem 0.75rem;
-  border-left: 1px solid var(--panel-border);
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 2px solid var(--panel-border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+
+#article-toc::-webkit-scrollbar { width: 4px; }
+#article-toc::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 999px;
 }
 
 .article-toc-title {
-  margin: 0 0 0.75rem;
-  font-size: 0.78rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--muted);
 }
 
-.article-toc-link {
+/* ── H2 = section (full weight, no indent) ───────────────────────── */
+.article-toc-h2 {
   display: block;
   font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+  padding: 0.2rem 0.4rem;
+  color: var(--fg);
+  text-decoration: none;
+  border-radius: 0.3rem;
+  border-left: 2px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+/* ── H3 = subsection (lighter, indented) ─────────────────────────── */
+.article-toc-h3 {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.45;
+  margin-bottom: 0.3rem;
+  padding: 0.15rem 0.4rem 0.15rem 1.1rem;
   color: var(--muted);
   text-decoration: none;
-  transition: color 0.2s ease;
-  border-radius: 0.25rem;
-  padding: 0.1rem 0.25rem;
+  border-radius: 0.3rem;
+  border-left: 2px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
-.article-toc-link:hover {
+/* ── Hover ───────────────────────────────────────────────────────── */
+.article-toc-h2:hover {
   color: var(--accent);
+  background: rgba(135, 168, 120, 0.08);
 }
 
-.article-toc-h2 {
-  padding-left: 0;
-  font-weight: 600;
+.article-toc-h3:hover {
+  color: var(--fg);
+  background: rgba(135, 168, 120, 0.06);
 }
 
-.article-toc-h3 {
-  padding-left: 1rem;
-  font-weight: 400;
+/* ── Scroll-spy active state ─────────────────────────────────────── */
+.article-toc-h2.toc-active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(135, 168, 120, 0.1);
 }
 
-/* ── Hide right TOC on narrow screens ────────────────────────────── */
+.article-toc-h3.toc-active {
+  color: var(--fg);
+  border-left-color: var(--accent-alt);
+  background: rgba(184, 169, 201, 0.08);
+}
+
+/* ── Hide right TOC on screens where it would crowd the article ───── */
 
 @media (max-width: 1100px) {
   #article-toc {
@@ -753,6 +790,6 @@ body.dark .article-hex {
   }
 
   #article-layout {
-    max-width: 720px;
+    padding-right: 0;
   }
 }
