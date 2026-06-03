@@ -43,5 +43,25 @@
         "date": "June 02, 2026"
       }
     ]
+  },
+  {
+    "category": "Governance, risks, and compliance",
+    "articles": [
+      {
+        "title": "ISO 27001 mapping for PQC",
+        "file": "articles/governance/pqc-iso27k.md",
+        "date": "January 10, 2025"
+      },
+      {
+        "title": "PQC migration roadmap",
+        "file": "articles/governance/pqc-migration-roadmap.md",
+        "date": "January 10, 2025"
+      },
+      {
+        "title": "Vendor PQC readiness assessment",
+        "file": "articles/governance/vendor-pqc-readiness.md",
+        "date": "January 10, 2025"
+      }
+    ]
   }
 ]
