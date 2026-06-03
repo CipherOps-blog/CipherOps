@@ -259,7 +259,7 @@ body.dark .toggle-thumb {
 .toc-category-header {
   width: 100%;
   text-align: left;
-  padding: 0.5rem 0;
+  padding: 0rem 0;
   font-weight: 700;
   color: var(--fg);
   display: block;
