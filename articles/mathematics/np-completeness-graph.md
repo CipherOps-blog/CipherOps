@@ -2,6 +2,9 @@
 
 yay
 
+![graph](articles/mathematics/graph-light.png)
+
+
 <div class="pdf-embed" data-src="articles/mathematics/graph.pdf"></div>
 
 <div class="graph-definition">
