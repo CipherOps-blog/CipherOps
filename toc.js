@@ -92,7 +92,7 @@ const buildTOC = async () => {
     return;
   }
 
-  tocRoot.innerHTML = '';
+  // tocRoot.innerHTML = '';
 
   try {
     const manifest = await fetchManifest();
