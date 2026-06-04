@@ -710,7 +710,7 @@ body.dark .article-hex {
 /* Article takes all remaining space */
 #article-container {
   flex: 1;
-  margin: 0;
+  margin: auto;
   min-width: 0; /* prevent flex overflow */
 }
 
@@ -728,6 +728,7 @@ body.dark .article-hex {
   border-left: 2px solid var(--panel-border);
   scrollbar-width: thin;
   scrollbar-color: var(--scroll-thumb) transparent;
+  margin: 0;
 }
 
 #article-toc::-webkit-scrollbar { width: 4px; }
