@@ -812,29 +812,4 @@ body.dark .article-hex {
   }
 }
 
-/* Sidebar logo */
-#sidebar-logo {
-  padding: 16px 16px 8px 16px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-#sidebar-logo img {
-  width: 100%;
-  max-width: 180px;
-  display: block;
-}
-
-/* Light mode — default */
-#logo-dark-img  { display: none; }
-#logo-light-img { display: block; }
-
-/* Dark mode */
-body.dark #logo-light-img { display: none; }
-body.dark #logo-dark-img  { display: block; }
-
-/* Dark mode — subtle separator */
-body.dark #sidebar-logo {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
 
