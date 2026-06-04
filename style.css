@@ -326,7 +326,7 @@ body.dark .toggle-thumb {
   min-height: 100vh;
   overflow: hidden;
   margin: 0 0rem; /* attempt to put article in the right place : -3rem -> 0 rem */
-  width: calc(100% + 6rem);
+  width: auto;
   padding: 0;
 }
 
