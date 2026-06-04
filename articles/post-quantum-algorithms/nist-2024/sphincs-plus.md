@@ -1,8 +1,8 @@
 # SPHINCS+: The Mathematics Behind the Post-Quantum Signature Scheme
 
-SPHINCS+ is a stateless hash-based digital signature scheme, selected by NIST in 2022 as part of its Post-Quantum Cryptography standardization process. It is now standardized under FIPS 205. Unlike lattice-based or code-based schemes, SPHINCS+ derives its security entirely from the properties of cryptographic hash functions — making it one of the most conservative and well-understood post-quantum signature schemes available.
+SPHINCS+ is a stateless hash-based digital signature scheme, selected by NIST in 2022 as part of its Post-Quantum Cryptography standardization process. It is now standardized under FIPS 205. Unlike lattice-based or code-based schemes, SPHINCS+ derives its security entirely from the properties of cryptographic hash functions, making it one of the most conservative and well-understood post-quantum signature schemes available.
 
-The "+" in SPHINCS+ denotes its evolution from the original SPHINCS scheme (2015), incorporating several improvements in security analysis, efficiency, and parameter selection.
+The "+" in SPHINCS+ denotes its evolution from the original 2025 SPHINCS scheme, incorporating several improvements in security analysis, efficiency, and parameter selection.
 
 The core philosophy of SPHINCS+ is elegant:
 
