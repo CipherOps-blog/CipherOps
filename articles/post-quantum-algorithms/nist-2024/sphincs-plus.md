@@ -44,7 +44,7 @@ SPHINCS+ defines several tweakable hash functions derived from a base hash funct
 
 All these functions take a public seed $\mathsf{PK.seed} \in \{0,1\}^n$ and an address $\mathsf{ADRS} \in \{0,1\}^{32}$ as implicit or explicit inputs, enabling domain separation across the entire scheme.
 
-### 1.3 The Address Scheme (ADRS)
+### 1.3 The Address Scheme
 
 The address structure is a 32-byte value that encodes the position of a hash call within the overall tree structure. It contains:
 
@@ -80,7 +80,7 @@ Classically, birthday attacks find collisions in $O(2^{n/2})$; quantumly, BHT al
 
 ### 2.2 Pseudorandomness
 
-SPHINCS+ also requires the hash functions to behave as pseudorandom functions (PRFs) when keyed. Formally, for a random key $K$:
+SPHINCS+ also requires the hash functions to behave as pseudorandom functions when keyed. Formally, for a random key $K$:
 
 $$\left| \Pr[\mathcal{A}^{F_K(\cdot)} = 1] - \Pr[\mathcal{A}^{R(\cdot)} = 1] \right| \leq \epsilon_{\text{prf}}$$
 
