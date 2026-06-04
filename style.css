@@ -812,4 +812,27 @@ body.dark .article-hex {
   }
 }
 
+/* ── Sidebar logo ─────────────────────────────────────────────────── */
 
+#sidebar-logo {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+#sidebar-logo img {
+  width: 80%;
+  max-width: 160px;
+  height: auto;
+  display: block;
+}
+
+/* Light mode: show light logo, hide dark logo */
+#logo-dark-img  { display: none; }
+#logo-light-img { display: block; }
+
+/* Dark mode: swap them */
+body.dark #logo-dark-img  { display: block; }
+body.dark #logo-light-img { display: none; }
