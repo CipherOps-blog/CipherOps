@@ -200,7 +200,9 @@ body.dark .toggle-thumb {
   margin-left: 20vw;
   padding: 2rem 3rem;
   min-height: 100vh;
+  overflow-x: hidden;
 }
+
 
 @media (max-width: 768px) {
   #toc {
@@ -325,7 +327,7 @@ body.dark .toggle-thumb {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  margin: 0 0rem; /* attempt to put article in the right place : -3rem -> 0 rem */
+  margin: -2rem -3rem ; /* attempt to put article in the right place : -3rem -> 0 rem */
   width: auto;
   padding: 0;
 }
