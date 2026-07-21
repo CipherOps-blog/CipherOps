@@ -1,6 +1,6 @@
 # CipherOps
 
-CipherOps is a lightweight static GitHub Pages blog for security and math-minded articles, with a simple table of contents driven by a JSON manifest.
+CipherOps is a lightweight static GitHub Pages blog for cybersecurity and math articles.
 
 ## How to add a new article
 
