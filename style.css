@@ -422,6 +422,8 @@ body.dark .landing-author {
   z-index: 2;
 }
 
+.landing-title::before,
+.landing-author::before,
 .landing-description::before {
   content: '';
   position: absolute;
@@ -438,6 +440,8 @@ body.dark .landing-description {
   color: #FFFFFF;
 }
 
+body.dark .landing-title::before,
+body.dark .landing-author::before,
 body.dark .landing-description::before {
   background: rgba(0, 0, 0, 0.8);
 }
