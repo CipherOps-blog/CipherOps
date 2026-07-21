@@ -909,6 +909,11 @@ body.dark #logo-light-img { display: none; }
   transform: translateY(-2px);
 }
 
+body.dark .landing-articles-btn,
+body.dark .landing-courses-btn {
+  color: #000000;
+}
+
 #articles-landing {
   max-width: 720px;
   margin: 6rem auto 0;
