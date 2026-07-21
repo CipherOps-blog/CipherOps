@@ -387,21 +387,26 @@ body.dark .toggle-thumb {
 .landing-description {
   position: relative;
   z-index: 2;
-  display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  padding: 0.15em 0.35em;
-  border-radius: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.dark .landing-title,
-body.dark .landing-author,
-body.dark .landing-description {
-  background-color: rgba(0, 0, 0, 0.18);
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+.landing-title::before,
+.landing-author::before,
+.landing-description::before {
+  content: '';
+  position: absolute;
+  inset: -1rem;
+  z-index: -1;
+  border-radius: 2rem;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 35%, transparent 75%);
+  filter: blur(20px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+body.dark .landing-title::before,
+body.dark .landing-author::before,
+body.dark .landing-description::before {
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.25) 35%, transparent 75%);
 }
 
 .landing-title {
