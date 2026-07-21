@@ -1,0 +1,54 @@
+<svg height="402" width="402">
+<ellipse cx="201" cy="201" rx="200" ry="200" fill="#91c2f6" stroke="#0b59ad" stroke-width="2"/>
+
+<ellipse cx="201" cy="231" rx="170" ry="170" fill="#4298f3" stroke="#0b59ad" stroke-width="2"/>
+
+<ellipse cx="201" cy="261" rx="140" ry="140" fill="#0779f2" stroke="#0b59ad" stroke-width="2"/>
+
+<ellipse cx="201" cy="291" rx="110" ry="110" fill="#0b59ad" stroke="#0b59ad" stroke-width="2"/>
+
+<text 
+  x="201" 
+  y="300" 
+  text-anchor="middle" 
+  font-size="13" 
+  fill="black" 
+  font-weight="bold"
+  font-family="Arial, sans-serif">
+  Personal Area Network (PAN)
+</text>
+
+<text 
+  x="201" 
+  y="175" 
+  text-anchor="middle" 
+  font-size="13" 
+  fill="black" 
+  font-weight="bold"
+  font-family="Arial, sans-serif">
+  Local Area Network (LAN)
+</text>
+
+<text 
+  x="201" 
+  y="110" 
+  text-anchor="middle" 
+  font-size="13" 
+  fill="black" 
+  font-weight="bold"
+  font-family="Arial, sans-serif">
+  Metropolitan Area Network (MAN)
+</text>
+
+<text 
+  x="201" 
+  y="45" 
+  text-anchor="middle" 
+  font-size="13" 
+  fill="black" 
+  font-weight="bold"
+  font-family="Arial, sans-serif">
+  Wide Area Network (WAN)
+</text>
+
+</svg>
