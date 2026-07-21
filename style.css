@@ -382,6 +382,33 @@ body.dark .toggle-thumb {
   max-width: 720px;
 }
 
+.landing-title,
+.landing-author,
+.landing-description {
+  position: relative;
+  z-index: 2;
+}
+
+.landing-title::before,
+.landing-author::before,
+.landing-description::before {
+  content: '';
+  position: absolute;
+  inset: -1rem;
+  z-index: -1;
+  border-radius: 2rem;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 35%, transparent 75%);
+  filter: blur(20px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+body.dark .landing-title::before,
+body.dark .landing-author::before,
+body.dark .landing-description::before {
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.25) 35%, transparent 75%);
+}
+
 .landing-title {
   margin: 0 0 0.75rem;
   font-size: clamp(4rem, 6vw, 6rem);
