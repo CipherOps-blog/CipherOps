@@ -1,0 +1,67 @@
+[
+  {
+    "category": "Mathematics",
+    "articles": [
+      {
+        "title": "Reduction-based NP-completeness proofs",
+        "file": "articles/mathematics/np-completeness-graph.md",
+        "date": "January 10, 2025"
+      }
+    ]
+  },
+  {
+    "category": "Post-Quantum Algorithms",
+    "articles": [
+      {
+        "title": "BIKE KEM",
+        "file": "articles/post-quantum-algorithms/bike-kem.md",
+        "date": "June 01, 2026"
+      },
+      {
+        "title": "The NIST 2024 project",
+        "file": "articles/post-quantum-algorithms/nist-2024/nist-2024-overview.md",
+        "date": "June 02, 2026"
+      },
+      {
+        "title": "Kyber KEM",
+        "file": "articles/post-quantum-algorithms/nist-2024/kyber-kem.md",
+        "date": "June 02, 2026"
+      },
+      {
+        "title": "Dilithium",
+        "file": "articles/post-quantum-algorithms/nist-2024/dilithium.md",
+        "date": "June 01, 2026"
+      },
+      {
+        "title": "Falcon",
+        "file": "articles/post-quantum-algorithms/nist-2024/falcon.md",
+        "date": "June 02, 2026"
+      },
+      {
+        "title": "SPHINCS+",
+        "file": "articles/post-quantum-algorithms/nist-2024/sphincs-plus.md",
+        "date": "June 02, 2026"
+      }
+    ]
+  },
+  {
+    "category": "Governance, risks, and compliance",
+    "articles": [
+      {
+        "title": "ISO 27001 mapping for PQC",
+        "file": "articles/governance/pqc-iso27k.md",
+        "date": "January 10, 2025"
+      },
+      {
+        "title": "PQC migration roadmap",
+        "file": "articles/governance/pqc-migration-roadmap.md",
+        "date": "January 10, 2025"
+      },
+      {
+        "title": "Vendor PQC readiness assessment",
+        "file": "articles/governance/vendor-pqc-readiness.md",
+        "date": "January 10, 2025"
+      }
+    ]
+  }
+]
