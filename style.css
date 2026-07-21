@@ -412,16 +412,34 @@ body.dark .landing-author {
 }
 
 .landing-description {
+  position: relative;
   margin: 0 auto;
   max-width: 620px;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.8;
   color: #000000;
+  z-index: 2;
+}
+
+.landing-description::before {
+  content: '';
+  position: absolute;
+  inset: -0.35rem -0.75rem;
+  z-index: -1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  filter: blur(16px);
+  opacity: 0.95;
+  pointer-events: none;
 }
 
 body.dark .landing-description {
   color: #FFFFFF;
+}
+
+body.dark .landing-description::before {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* ── Footer inside #landing only ────────────────────────────────── */
