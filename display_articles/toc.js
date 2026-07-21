@@ -1,4 +1,4 @@
-const manifestPath = new URL('/display_articles/manifest.json', window.location.href).href;
+const manifestPath = new URL('../display_articles/manifest.json', window.location.href).href;
 const tocRootId = 'toc';
 let currentActiveLink = null;
 
