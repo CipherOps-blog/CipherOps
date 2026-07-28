@@ -1,3 +1,5 @@
+import { resolveAssetUrl } from './asset-url-resolver.mjs';
+
 const articleContainerId = 'article-container';
 const landingId          = 'landing';          // index.html uniquement
 const contentPanelId     = 'main-content';
@@ -35,6 +37,7 @@ const loadArticle = async (filePath) => {
     const html     = marked && marked.parse ? marked.parse(markdown) : markdown;
 
     articleContainer.innerHTML = html;
+    rewriteArticleAssetUrls(articleContainer, articleUrl);
     injectArticleHexagons(articleContainer);
 
     hideLandingShowArticle();
@@ -65,6 +68,24 @@ const loadArticle = async (filePath) => {
 };
 
 // ─────────────────────────────────────────────────────────────────
+
+const rewriteArticleAssetUrls = (container, baseUrl) => {
+  if (!container || !baseUrl) return;
+
+  const rewriteAttribute = (selector, attributeName) => {
+    container.querySelectorAll(selector).forEach((element) => {
+      const currentValue = element.getAttribute(attributeName);
+      if (!currentValue) return;
+      const resolvedValue = resolveAssetUrl(currentValue, baseUrl);
+      if (resolvedValue) element.setAttribute(attributeName, resolvedValue);
+    });
+  };
+
+  rewriteAttribute('img[src]', 'src');
+  rewriteAttribute('source[src]', 'src');
+  rewriteAttribute('source[srcset]', 'srcset');
+  rewriteAttribute('video[poster]', 'poster');
+};
 
 const renderMath = async () => {
   const articleContainer = document.getElementById(articleContainerId);
