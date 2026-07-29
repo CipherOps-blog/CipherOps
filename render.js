@@ -16,6 +16,63 @@ const hideLandingShowArticle = () => {
   if (articleLayout)   articleLayout.style.display   = 'flex';
 };
 
+const injectArticleDate = (container, date) => {
+  if (!container || !date) return;
+
+  const existingDate = container.querySelector('.article-date');
+  if (existingDate) existingDate.remove();
+
+  const titleHeading = container.querySelector('h1, h2, h3');
+  if (!titleHeading) return;
+
+  const dateElement = document.createElement('p');
+  dateElement.className = 'article-date';
+  dateElement.textContent = date;
+  titleHeading.insertAdjacentElement('afterend', dateElement);
+};
+
+const findManifestEntry = (manifest, filePath) => {
+  if (!Array.isArray(manifest)) return null;
+
+  for (const category of manifest) {
+    if (!category || !Array.isArray(category.articles)) continue;
+    for (const article of category.articles) {
+      if (article && article.file === filePath) return article;
+    }
+  }
+
+  return null;
+};
+
+const fetchManifestEntry = async (filePath) => {
+  const currentPageUrl = new URL(window.location.href);
+  const manifestCandidates = [
+    new URL('./manifest.json', currentPageUrl).href,
+    new URL('./practicalprojects-manifest.json', currentPageUrl).href,
+  ];
+
+  if (window.location.pathname.includes('/display_practicalprojects/')) {
+    manifestCandidates.unshift(new URL('./practicalprojects-manifest.json', currentPageUrl).href);
+  }
+
+  const uniqueCandidates = [...new Set(manifestCandidates)];
+
+  for (const manifestPath of uniqueCandidates) {
+    try {
+      const response = await fetch(manifestPath, { cache: 'no-cache' });
+      if (!response.ok) continue;
+
+      const manifest = await response.json();
+      const entry = findManifestEntry(manifest, filePath);
+      if (entry) return entry;
+    } catch (error) {
+      console.warn(`Unable to load manifest ${manifestPath}:`, error);
+    }
+  }
+
+  return null;
+};
+
 // ─────────────────────────────────────────────────────────────────
 
 const loadArticle = async (filePath) => {
@@ -33,8 +90,10 @@ const loadArticle = async (filePath) => {
 
     const markdown = await response.text();
     const html     = marked && marked.parse ? marked.parse(markdown) : markdown;
+    const manifestEntry = await fetchManifestEntry(filePath);
 
     articleContainer.innerHTML = html;
+    injectArticleDate(articleContainer, manifestEntry && manifestEntry.date);
     injectArticleHexagons(articleContainer);
 
     hideLandingShowArticle();

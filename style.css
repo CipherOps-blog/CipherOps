@@ -75,6 +75,14 @@ button {
   cursor: pointer;
 }
 
+#article-container .article-date {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  font-style: italic;
+}
+
 #article-container table,
 #main-content table {
   width: 100%;
