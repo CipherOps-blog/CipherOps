@@ -80,14 +80,14 @@ button {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  border: 3px solid var(--accent);
+  border: 3px solid var(--accent-alt);
 }
 
 #article-container th,
 #article-container td,
 #main-content th,
 #main-content td {
-  border: 1px solid var(--accent);
+  border: 1px solid var(--accent-alt);
   padding: 0.65rem 0.8rem;
   text-align: left;
   vertical-align: top;
