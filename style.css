@@ -537,6 +537,27 @@ body.dark .landing-description::before {
   margin-bottom: 1.25rem;
 }
 
+#article-container img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+}
+
+#article-container a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.16em;
+}
+
+#article-container a:hover,
+#article-container a:focus-visible {
+  color: var(--accent-alt);
+}
+
 #article-container code {
   background: rgba(135, 168, 120, 0.1);
   padding: 0.25rem 0.5rem;
