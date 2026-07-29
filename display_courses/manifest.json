@@ -6,6 +6,11 @@
         "title": "Introduction",
         "file": "courses/networks/1. Introduction.md",
         "date": "July 21, 2026"
+      },
+      {
+        "title": "Network Models, Layers and Protocols",
+        "file": "courses/networks/2. Network Models, Layers and Protocols.md",
+        "date": "July 21, 2026"
       }
     ]
   }
