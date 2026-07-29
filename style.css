@@ -75,6 +75,48 @@ button {
   cursor: pointer;
 }
 
+#article-container table,
+#main-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border: 3px solid var(--fg);
+}
+
+#article-container th,
+#article-container td,
+#main-content th,
+#main-content td {
+  border: 1px solid var(--fg);
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+#article-container tr:first-child > *,
+#main-content tr:first-child > * {
+  border-top-width: 3px;
+}
+
+#article-container th:first-child,
+#article-container td:first-child,
+#main-content th:first-child,
+#main-content td:first-child {
+  border-left-width: 3px;
+}
+
+#article-container th:last-child,
+#article-container td:last-child,
+#main-content th:last-child,
+#main-content td:last-child {
+  border-right-width: 3px;
+}
+
+#article-container tr:last-child > *,
+#main-content tr:last-child > * {
+  border-bottom-width: 3px;
+}
+
 #toggle-toc {
   position: fixed;
   left: 1rem;
