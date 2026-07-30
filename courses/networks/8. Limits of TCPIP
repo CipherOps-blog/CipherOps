@@ -1,0 +1,19 @@
+8. Limits of TCP/IP and Alternative Architectures
+## 8.1 Pillars and Conceptual Flaws of TCP/IP
+### 8.1.1 Historical Strengths of TCP/IP
+### 8.1.2 Critical Design Decisions
+### 8.1.3 Structural Limitations
+## 8.2 Structural Security Problems in TCP/IP
+### 8.2.1 Absence of Native Encryption
+### 8.2.2 Lack of Sovereignty and Dependencies
+### 8.2.3 Unanticipated New Requirements
+## 8.3 Reticulum
+### 8.3.1 Overview and Motivations
+### 8.3.2 Cryptographic Addressing
+### 8.3.3 Decentralised Routing
+### 8.3.4 Encryption by Default
+### 8.3.5 Interoperability and Physical Media
+### 8.3.6 Reticulum Communication Diagram
+### 8.3.7 Current Limitations and Challenges
+## 8.4 Resilient Peer-to-Peer Architectures
+### 8.4.1 Principles of Peer-to-Peer Networks
