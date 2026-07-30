@@ -1,0 +1,46 @@
+# 4. Defence in Depth
+ 
+## 4.1 Principles of Defence in Depth
+### 4.1.1 Concept and Architecture
+### 4.1.2 Zero Trust
+ 
+## 4.2 Applied Cryptography
+### 4.2.1 Encryption
+### 4.2.2 Multi-Factor Authentication
+### 4.2.3 Public Key Infrastructure
+ 
+## 4.3 Firewall
+### 4.3.1 Firewall Concepts and Types
+### 4.3.2 Firewall Placement in the Architecture
+### 4.3.3 OT Firewall
+ 
+## 4.4 Access Control Lists
+### 4.4.1 How ACLs Work
+### 4.4.2 Anti-Spoofing with ACLs
+ 
+## 4.5 IDS and IPS
+### 4.5.1 Intrusion Detection Systems
+### 4.5.2 Intrusion Prevention Systems
+### 4.5.3 Multi-Layer Detection Strategies
+ 
+## 4.6 Logging, Monitoring and Intrusion Detection
+### 4.6.1 Logging
+### 4.6.2 Security Operations Center
+ 
+## 4.7 VPN
+### 4.7.1 VPN Principles and Types
+### 4.7.2 DMZ and VPN Architecture
+ 
+## 4.8 Authentication and Network Access Control
+### 4.8.1 RADIUS
+### 4.8.2 Network Access Control
+### 4.8.3 Read-Only Domain Controller
+### 4.8.4 Bastion Host
+ 
+## 4.9 Traffic Matrix and Service Identification
+### 4.9.1 Building a Traffic Matrix
+ 
+## 4.10 Best Practices and Hardening
+### 4.10.1 Oversizing and Backup
+### 4.10.2 Update Server
+### 4.10.3 Discretionary Access Control
