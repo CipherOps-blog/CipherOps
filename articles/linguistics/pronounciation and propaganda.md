@@ -40,246 +40,69 @@ The historical record contains more recent examples of the same phenomenon. Duri
 
 ### 2.1 Kiev vs. Kyiv
 
-**Russian vs. Ukrainian Transliteration**
-- **Linguistic background**: Russian "Киев" (Kiev) vs. Ukrainian "Київ" (Kyiv)
-- **Transliteration systems**: Russian uses "ie" for "и", Ukrainian uses "y" for "и"
-- **Historical dominance**: Russian forms standard in English due to Soviet-era influence
-- **Language politics**: Ukrainian language suppressed under Russian Empire and Soviet Union ([Bilaniuk, 2005](https://www.cornellpress.cornell.edu/book/9780801489129/contested-tongues/))
-- **Post-independence**: Ukrainian government promotes Ukrainian-based transliterations
+The Kiev/Kyiv case is a highly documented contemporary example of pronunciation as political signaling. The difference between the two forms is rooted in the distinction between Russian and Ukrainian transliteration systems. The city's name in Russian, "Киев", transliterates into English as "Kiev" ; the Ukrainian form, "Київ", transliterates as "Kyiv". For most of the twentieth century, English-language media used the Russian-derived form. This was not a deliberate political choice at the time but a reflection of the [practical reality](https://www.cornellpress.cornell.edu/book/9780801489129/contested-tongues/) that most Western knowledge of Soviet geography was mediated through Russian-language sources.
 
-**Political Timeline**
-- **Pre-2014**: "Kiev" overwhelmingly dominant in English-language media
-- **Euromaidan (2013-2014)**: Ukrainian revolution increases Western attention to Ukrainian preferences
-- **2014 annexation of Crimea**: Geopolitical crisis raises stakes of linguistic choices
-- **Gradual adoption**: Some media outlets begin using "Kyiv" (2014-2021)
-- **2022 invasion**: Massive acceleration of "Kyiv" adoption as solidarity signal
-- **Current status**: "Kyiv" now dominant in Western media, "Kiev" marks pro-Russian stance
+Ukraine's independence in 1991 initiated a gradual process of linguistic reclamation, of which the push for Ukrainian-based transliterations was one component. The Ukrainian government adopted official romanization standards that reflected Ukrainian rather than Russian phonology, and began to encourage their international adoption. For most of the 1990s and 2000s, however, "Kiev" remained overwhelmingly dominant in English-language media, and the question of which form to use attracted little public attention outside specialist circles.
 
-**Ukrainian Government Advocacy**
-- **#KyivNotKiev campaign**: Social media advocacy by Ukrainian government and activists
-- **Official requests**: Ukrainian government formally requests international adoption
-- **Diplomatic pressure**: Ukrainian embassies lobby media organizations
-- **Style guide changes**: Major outlets (AP, BBC, NYT) adopt "Kyiv" ([AP Stylebook, 2022](https://www.apstylebook.com/))
-- **Geographic names**: Broader campaign for Ukrainian transliterations (Lviv not Lvov, Kharkiv not Kharkov)
+The Euromaidan revolution and the Russian indexation of Crimea (2013-2014) changed this. As Western audiences became more engaged with Ukrainian politics the question of how to render Ukrainian place names in English acquired new salience. A [number of media](https://www.apstylebook.com/) outlets began adopting "Kyiv" during this period, though the shift was gradual and uneven. The Ukrainian government and diaspora organizations intensified their advocacy, most visibly through the #KyivNotKiev campaign. Ukrainian embassies lobbied media organizations directly, and the campaign extended beyond the capital to other place names: Lviv rather than Lvov, Kharkiv rather than Kharkov, Odesa rather than Odessa.
 
-**Correlation with Political Positions**
-- **Pro-Ukrainian speakers**: Overwhelmingly use "Kyiv"
-- **Pro-Russian speakers**: Maintain "Kiev" as rejection of Ukrainian nationalism
-- **Neutral/uninformed**: May use either based on habit or media exposure
-- **Research evidence**: Pronunciation correlates with attitudes toward Ukraine ([Kulyk, 2018](https://doi.org/10.1080/14631369.2018.1503842))
-- **Signaling mechanism**: "Kyiv" signals support for Ukrainian sovereignty and opposition to Russian aggression
-- **Western media**: Adoption speed varied by outlet's political orientation ([Shevchenko, 2022](https://www.atlanticcouncil.org/blogs/ukrainealert/why-kyiv-not-kiev/))
+The Russian invasion of February 2022 produced a rapid and near-universal shift in Western media. The Associated Press updated its style guide to recommend "Kyiv", and the BBC, the New York Times, and most other major outlets followed. [The speed of this adoption](https://www.atlanticcouncil.org/blogs/ukrainealert/why-kyiv-not-kiev/), compared to the slow and partial uptake of the previous eight years, reflects the degree to which the invasion transformed the transliteration question from a matter of linguistic sensitivity into an explicit solidarity signal. Adopting "Kyiv" became, in a compressed period, [a way of publicly aligning with Ukraine and against Russia](https://doi.org/10.1080/14631369.2018.1503842), and the social pressure to do so within politically engaged Western communities became considerable.
 
 ### 2.2 Muslim vs. Muzlim
 
-**Arabic vs. Anglicized Pronunciation**
-- **Arabic pronunciation**: /ˈmʊslɪm/ or /ˈmʌslɪm/ (closer to Arabic مسلم)
-- **Anglicized pronunciation**: /ˈmʌzləm/ (with voiced 's' becoming 'z')
-- **Historical development**: Anglicized form dominant in older English usage
-- **Regional variation**: British English more likely to use /ˈmʊzlɪm/, American /ˈmʌzləm/
-- **Generational shift**: Younger speakers increasingly adopt Arabic-proximate forms
+The variation between /ˈmʊslɪm/ and /ˈmʌzləm/ as English pronunciations of "Muslim" represents a somewhat different case from the Kiev/Kyiv shift. The phonetic difference between the two forms is straightforward. The Arabic word "مسلم" contains an unvoiced /s/ sound, and the vowel of the first syllable is closer to /ʊ/ than to /ʌ/. The anglicized form /ˈmʌzləm/, which has been dominant in older American English usage, produced a form that is phonologically more distant from the Arabic source. 
 
-**Post-9/11 Discourse and Political Ideology**
-- **Heightened salience**: Increased discussion of Islam after 2001 attacks
-- **Islamophobia**: Rise in anti-Muslim sentiment and discourse ([Saeed, 2007](https://doi.org/10.1080/01419870701356384))
-- **Cultural sensitivity**: Progressive emphasis on respecting Muslim preferences
-- **Pronunciation politics**: /ˈmʊslɪm/ becomes marker of cultural sensitivity
-- **Research evidence**: Pronunciation correlates with political ideology ([Sharma, 2011](https://doi.org/10.1017/S0954394511000071))
-- **Conservative resistance**: Maintaining anglicized form as rejection of "political correctness"
+The political salience of this variation increased after the September 11 attacks, which brought Muslim communities into sustained and often hostile public discourse in the United States. The rise in [anti-Muslim sentiment](https://doi.org/10.1080/01419870701356384) documented in the years following 2001 created a context in which the pronunciation of the word "Muslim" itself became a [marker of attitude](https://doi.org/10.1017/S0954394511000071). Progressive and culturally engaged speakers, emphasizing respect for Muslim communities and sensitivity to their preferences, increasingly adopted the Arabic-proximate form. 
 
-**Backlash and Counter-Signaling**
-- **Deliberate anglicization**: Some speakers emphasize /ˈmʌzləm/ as political statement
-- **"Political correctness" critique**: Pronunciation change framed as excessive accommodation
-- **Authenticity debates**: Who has authority to determine "correct" pronunciation?
-- **Muslim community diversity**: Not all Muslims prefer Arabic-proximate pronunciation
-- **Class and education**: Pronunciation correlates with educational background
-- **Media polarization**: Fox News vs. NPR pronunciation patterns
+The conservative response to this shift followed a pattern that recurs across several of the cases examined in this article. Rather than simply maintaining the older anglicized form out of habit or unfamiliarity with the alternative, some speakers began to use /ˈmʌzləm/ with deliberate emphasis.
 
-**Limits of Linguistic Accommodation**
-- **Performative allyship**: Pronunciation change without substantive support
-- **Virtue signaling critique**: Accusations of superficial gestures
-- **Overcorrection**: Non-Muslims adopting pronunciations unfamiliar to many Muslims
-- **Essentialism**: Assuming all Muslims prefer particular pronunciation
-- **Practical communication**: Intelligibility vs. authenticity trade-offs
+However, the internal diversity of Muslim communities themselves. "Muslim" encompasses over a billion people across dozens of linguistic and cultural traditions, and there is no single authoritative community preference for how the word should be pronounced in English. 
 
 ### 2.3 Iran/Persia and Farsi/Parsi
 
-**Complex Nomenclature and Political Layers**
-- **Iran vs. Persia**: "Persia" traditional English exonym, "Iran" official name since 1935 ([Kashani-Sabet, 1999](https://www.ucpress.edu/book/9780520208650/frontier-fictions))
-- **Farsi vs. Persian**: "Farsi" is endonym (فارسی), "Persian" is English exonym
-- **Parsi**: Pre-Islamic pronunciation, used by some diaspora opponents of Islamic Republic
-- **Political implications**: Each term carries different ideological associations
-- **Ethnic complexity**: Iran includes non-Persian ethnic groups (Azeri, Kurdish, Baloch)
+The Iranian case is the most linguistically complex of the examples examined in this article, involving not one pronunciation variable but a set of overlapping nomenclature choices of a highly fragmented ideological landscape.
 
-**"Eye-ran" vs. "Ee-rahn": Foreign Policy Implications**
-- **Anglicized "Eye-ran"**: Traditional English pronunciation, dominant in U.S. media
-- **Persian-proximate "Ee-rahn"**: Closer to Persian ایران /iːˈɾɒːn/
-- **Political correlation**: "Ee-rahn" associated with diplomatic engagement, cultural sensitivity
-- **Hawkish discourse**: "Eye-ran" more common among advocates of confrontational policy
-- **Media patterns**: NPR vs. Fox News pronunciation differences
-- **Obama administration**: Shift toward "Ee-rahn" during nuclear negotiations period
-- **Trump administration**: Return to "Eye-ran" among officials
+The primary spoken language of Iran is known in English as "Persian". However, after the 1979 Islamic Revolution, the endonym "Farsi" ("فارسی") entered widespread English usage, partly through the influence of Iranian state media and partly through the growing presence of Iranian immigrants in English-speaking countries. "Persian" remains the form preferred by most academic linguists and by many in the Iranian diaspora, particularly those who wish to emphasize the language's pre-Islamic literary and cultural heritage. A third form, "Parsi", reflects the pre-Arabic phonology of the language and is used by some diaspora communities, particularly those associated with Zoroastrian traditions or with strong opposition to Arab cultural influence on Iranian identity. [Modarresi](https://doi.org/10.1080/00210860108701812)'s work on language attitudes in the Iranian diaspora documents how these terminological choices map onto distinct ideological positions within diaspora communities.
 
-**Diaspora Dynamics and Gradations of Opposition**
-- **Iranian diaspora diversity**: Monarchists, leftists, ethnic minorities, religious minorities
-- **Generational differences**: First generation vs. second generation pronunciation
-- **"Parsi" usage**: Signals rejection of Islamic Republic and Arab cultural influence ([Modarresi, 2001](https://doi.org/10.1080/00210860108701812))
-- **"Farsi" usage**: May indicate acceptance of post-1979 terminology
-- **"Persian" usage**: Neutral or emphasizing pre-Islamic heritage
-- **Political spectrum**: Pronunciation maps onto complex ideological landscape
+Secondly, the pronunciation of "Iran" itself in English has been subject of political alignement. The anglicized form "Eye-ran" has been the dominant form in American English media for most of the twentieth century, and the Persian-proximate form "Ee-rahn" has become increasingly associated with diplomatic engagement and opposition to confrontational foreign policy toward Iran. The correlation is observable across media contexts: NPR hosts and correspondents covering Iran tend consistently toward "Ee-rahn", while Fox News hosts and commentators associated with hawkish foreign policy positions tend toward "Eye-ran". 
 
-**Multi-Dimensional Political Signaling**
-- **Regime support vs. opposition**: Pronunciation indicates stance toward Islamic Republic
-- **Ethnic identity**: Persian vs. other Iranian ethnicities
-- **Religious identity**: Muslim vs. Zoroastrian, Baha'i, Jewish, Christian
-- **Foreign policy**: Engagement vs. confrontation with Iran
-- **Historical orientation**: Pre-Islamic vs. Islamic vs. modern Iran
-- **Diaspora vs. domestic**: Different pronunciation norms in different communities
+The diaspora dimension adds further complexity. The Iranian diaspora in the United States and Europe is not a politically homogeneous community. It includes monarchists who support a restoration of the Pahlavi dynasty, secular republicans, leftists, ethnic and religious minority communities including Azeris, Kurds, Jews, Christians, Baha'is, and Zoroastrians. Each of these communities has its own relationship to the various nomenclature choices described above. A speaker who uses "Parsi" in a Zoroastrian community context is signaling something quite different from a non-Iranian progressive who uses "Ee-rahn" in an American political discussion, even though both choices might superficially appear to signal proximity to Iranian culture.
 
 ### 2.4 Israel/Yisrael and Palestine vs. Falastin
 
-**Hebrew Pronunciation in English Contexts**
-- **Anglicized "Iz-ray-el"**: Standard English pronunciation /ˈɪzreɪəl/ or /ˈɪzriəl/
-- **Hebrew "Yis-rah-el"**: Closer to Hebrew ישראל /jisʁaˈʔel/
-- **Regional variation**: American vs. British English patterns
-- **Religious context**: Christian vs. Jewish pronunciation traditions
-- **Political implications**: Pronunciation signals relationship to Israeli state and Jewish identity
 
-**Jewish Community Variation**
-- **Orthodox vs. secular**: Different pronunciation norms within Jewish community
-- **Ashkenazi vs. Sephardi**: Different Hebrew pronunciation traditions ([Benor, 2009](https://doi.org/10.1017/S0047404509990236))
-- **Israeli vs. diaspora**: Native Hebrew speakers vs. heritage language learners
-- **Generational shifts**: Younger American Jews increasingly adopt Israeli Hebrew pronunciations
-- **Jewish English**: Distinctive ethnolect incorporating Hebrew/Yiddish elements ([Benor, 2012](https://www.upenn.edu/pennpress/book/14746.html))
-- **Political diversity**: Pronunciation doesn't uniformly predict political positions within Jewish community
+The Israeli-Palestinian conflict generates a denser and more contentious set of pronunciation and nomenclature disputes than any of the other cases examined in this article. This is partly because the conflict itself is more polarized in Western public discourse than the other cases, and partly because the linguistic terrain is genuinely more complex, involving two languages with distinct phonological systems, a long history of competing territorial claims expressed through place names, and communities with deeply held and mutually incompatible positions on questions of linguistic authority and authenticity.
 
-**Zionism, Palestinian Solidarity, and Linguistic Strategies**
-- **Pro-Israel advocacy**: May emphasize Hebrew pronunciations to assert Jewish connection
-- **Palestinian solidarity**: May use Arabic pronunciations or avoid Hebrew terms
-- **"Palestine" vs. "Falastin"**: Arabic pronunciation /fælæsˈtiːn/ signals solidarity
-- **Terminology battles**: "Judea and Samaria" vs. "West Bank", "settlements" vs. "colonies"
-- **Pronunciation as positioning**: Linguistic choices indicate stance on conflict
-- **Contested geography**: Place name pronunciations (Al-Quds vs. Jerusalem, Hebron vs. Al-Khalil)
+The variation between anglicized "Iz-ray-el" and Hebrew-proximate "Yis-rah-el" is the most straightforward of the pronunciation variables in this case. The standard English form /ˈɪzreɪəl/ has been dominant in English-language media and political discourse since the establishment of the state in 1948. The Hebrew form /jisʁaˈʔel/ is used by native Hebrew speakers and by Jews with strong connections to Hebrew liturgy or Israeli culture. Within Jewish communities, pronunciation norms vary considerably along several axes. Ashkenazi and Sephardi traditions have historically used different Hebrew pronunciation systems, a distinction that carries its own cultural and sometimes political weight within Jewish communities (Benor, 2009). Israeli-born speakers use Modern Israeli Hebrew pronunciation, which differs from both Ashkenazi and Sephardi diaspora traditions. Younger American Jews with strong connections to Israel increasingly adopt Israeli Hebrew pronunciations, while older or more assimilated speakers may retain anglicized forms. Benor's work on Jewish English documents how Hebrew and Yiddish phonological features function as markers of Jewish ethnic identity in American English, operating through mechanisms closely related to those described in earlier sections of this article (Benor, 2012).
 
-**Contested Authenticity**
-- **Who owns pronunciation?**: Competing claims to linguistic authority
-- **Insider/outsider dynamics**: Non-Jews using Hebrew pronunciations
-- **Appropriation concerns**: When does accommodation become appropriation?
-- **Palestinian erasure**: Exclusive use of Hebrew names for contested sites
-- **Linguistic colonialism**: Imposition of Hebrew toponyms on Arabic-speaking areas
-- **Neutral ground**: Difficulty finding politically neutral pronunciations
+The political valence of Hebrew pronunciation in non-Jewish contexts is more straightforward but also more contested. Non-Jewish speakers who adopt Hebrew-proximate pronunciations of Israeli place names or institutions may be signaling solidarity with Israel or, more specifically, with a conception of Israel as a Jewish state with deep historical roots in the region. Conversely, speakers associated with Palestinian solidarity movements tend to avoid Hebrew pronunciations and may actively prefer Arabic forms, a choice that signals a different set of political commitments.
+
+The Arabic dimension of this case introduces a parallel set of variables. "Palestine" in English derives from the Latin "Palaestina". The Arabic pronunciation "Falastin" /fælæsˈtiːn/, derived from the absence of the "p" sound in arabic, is increasingly used by speakers associated with Palestinian solidarity movements. The same pattern extends to specific place names. "Al-Quds", the Arabic name for Jerusalem, is used by speakers who wish to signal recognition of Palestinian and broader Arab claims to the city, while "Jerusalem" remains the standard English form used across the political spectrum. "Al-Khalil" and "Hebron" function similarly for the West Bank city known by both names. "Judea and Samaria" versus "the West Bank" is a related but distinct case, involving not pronunciation but the choice between a biblical Hebrew toponym and a geographically descriptive English term, each of which carries clear political associations.
+
+The question of who has authority to determine the "correct" pronunciation of contested place names is particularly acute in this case, and it surfaces tensions that are present but less visible in the other cases examined in this article. A non-Jewish speaker who adopts Hebrew pronunciations of Israeli place names could be read as asserting a Jewish connection to the land that excludes Palestinian claims. A non-Palestinian speaker who uses Arabic pronunciations could be read as denying Israeli sovereignty. The difficulty of finding a genuinely neutral linguistic position reflects the difficulty of finding a genuinely neutral political position on the conflict itself.
+
 
 ### 2.5 Iraq: "Eye-rack" vs. "Ee-rock"
 
-**Pronunciation Patterns During Iraq War**
-- **Anglicized "Eye-rack"**: Traditional English pronunciation /aɪˈræk/
-- **Arabic-proximate "Ee-rock"**: Closer to Arabic العراق /ʕiˈrɑːq/
-- **Political correlation**: "Ee-rock" more common among war opponents
-- **Media consumption**: NPR listeners vs. Fox News viewers
-- **Expertise signaling**: "Ee-rock" claims superior knowledge of Middle East
-- **Framing research**: Lakoff's analysis of war discourse ([Lakoff, 2004](https://www.ucpress.edu/book/9780520242302/dont-think-of-an-elephant))
+The variation between "Eye-rack" /aɪˈræk/ and "Ee-rock", the latter closer to the Arabic /ʕiˈrɑːq/, followed the same basic pattern as the Iranian case but was more compressed in time, rising to political salience during the debate over the 2003 invasion and fading as the war receded from the center of American political discourse after the 2011 withdrawal.
 
-**Political Positions and Linguistic Choices**
-- **Pro-war speakers**: More likely to use anglicized "Eye-rack"
-- **Anti-war speakers**: More likely to use Arabic-proximate "Ee-rock"
-- **Mechanism**: Media diet and identity signaling
-- **Cultural sensitivity**: "Ee-rock" signals respect for Iraqi culture
-- **Orientalism critique**: Anglicized pronunciation as linguistic imperialism
-- **Current status**: Less politically salient post-2011 withdrawal
+The correlation between pronunciation and political position was observable across media contexts during the peak years of the conflict. Opponents of the war, and journalists and commentators associated with outlets critical of the invasion, tended toward the Arabic-proximate form. Supporters of the war, and media figures associated with a more assertive foreign policy posture, tended toward the anglicized form. 
 
 ### 2.6 Latinx/Latine: Gender Politics
 
-**Pronunciation and Gender-Neutral Language**
-- **Traditional terms**: "Latino" (masculine), "Latina" (feminine), "Latinos" (mixed/plural)
-- **"Latinx"**: Gender-neutral neologism, pronunciation /læˈtiːnɛks/ or /ləˈtiːnɛks/
-- **"Latine"**: Alternative gender-neutral form, pronunciation /læˈtiːneɪ/ ([Salinas & Lozano, 2021](https://doi.org/10.1080/07908318.2021.1946778))
-- **Linguistic debate**: Compatibility with Spanish phonology and morphology
-- **Political implications**: Progressive gender politics vs. linguistic traditionalism
+The "Latinx" (/læˈtiːnɛks/) case differs from the preceding examples in one important respect: the political signal is carried not by the choice between an anglicized and a source-language pronunciation of an existing word, but by the use of a neologism whose very existence is contested. "Latinx" emerged in American progressive and academic contexts in the 2010s as a gender-neutral alternative to "Latino" and "Latina", avoiding the grammatical gender distinction that Spanish. The term has no equivalent in Spanish phonology, since the consonant cluster /ks/ does not occur in word-final position in Spanish. This phonological incompatibility is central to the criticism the term has attracted from within Latino communities: it is, on this account, an anglophone imposition on a Spanish-speaking community, a solution to a grammatical "problem" that Spanish speakers did not identify as a problem and that cannot be naturally incorporated into Spanish speech. "Latine", which uses a vowel ending that is phonologically compatible with Spanish morphology, was developed partly in response to this criticism, and has gained some traction as an alternative, particularly in Latin American LGBTQ+ communities.
 
-**Generational and Ideological Divides**
-- **Young progressives**: More likely to adopt "Latinx" or "Latine"
-- **Older generations**: Often reject neologisms as anglicized impositions
-- **LGBTQ+ communities**: Higher adoption rates of gender-neutral terms
-- **Academic vs. community**: University usage vs. broader Latino community
-- **Survey data**: Majority of Latinos unfamiliar with or reject "Latinx" ([Pew Research, 2020](https://www.pewresearch.org/hispanic/2020/08/11/about-one-in-four-u-s-hispanics-have-heard-of-latinx-but-just-3-use-it/))
-- **Political signaling**: "Latinx" pronunciation marks progressive identity
-- **Backlash**: Conservative Latinos reject term as woke imposition
+[Survey data](https://www.pewresearch.org/hispanic/2020/08/11/about-one-in-four-u-s-hispanics-have-heard-of-latinx-but-just-3-use-it/) indicate that the terms remain marginal in the broader Latino population. A 2020 Pew Research Center survey found that roughly one in four Hispanic adults in the United States had heard of "Latinx", and only three percent used it. Adoption is considerably higher among younger, college-educated, and LGBTQ+-identified respondents, which maps the term's usage onto a specific demographic and ideological profile. 
 
-### 2.7 Türkiye: State-Mandated Rebranding
+### 2.7 When Pronunciation Isn't Political
 
-**Turkish Government Campaign (2022)**
-- **Official request**: Turkish government requests international use of "Türkiye" instead of "Turkey"
-- **Pronunciation**: /ˈtʏɾcije/ (Turkish) vs. /tɜːrˈkiːeɪ/ (anglicized approximation)
-- **Rationale**: Avoiding associations with turkey bird, asserting linguistic sovereignty
-- **UN registration**: Official name change registered with United Nations ([UN, 2022](https://www.un.org/en/))
-- **Precedents**: Similar to Côte d'Ivoire, Myanmar requests
+The preceding case studies risk creating a misleading impression: that pronunciation choices are reliably interpretable as political signals, and that a speaker's use of a certain pronounciation can be straightforwardly read as evidence of their political commitments. 
 
-**International Adoption and Resistance**
-- **Media response**: Mixed adoption by international media outlets
-- **Style guides**: Some adopt "Türkiye", others maintain "Turkey"
-- **Pronunciation challenges**: Ü sound difficult for English speakers
-- **Political context**: Erdoğan government's nationalist policies
-- **Effectiveness**: Limited success compared to "Kyiv" adoption
-- **Factors**: Less geopolitical urgency, pronunciation difficulty, established usage
+However, professional or educational exposure may affect a person's pronounciation without any political affiliation. Area studies scholars, foreign correspondents, and language teachers acquire source-language pronunciations through training and immersion.
 
-**Top-Down vs. Bottom-Up Linguistic Influence**
-- **State directive**: Government-mandated vs. grassroots change
-- **Legitimacy**: Democratic vs. authoritarian government requests
-- **Geopolitical support**: Western alignment affects adoption willingness
-- **Linguistic feasibility**: Ease of pronunciation in target language
-- **Existing usage**: Overcoming entrenched terminology
-- **Comparative cases**: Successful (Beijing, Mumbai) vs. unsuccessful (Burma/Myanmar mixed)
+Moreover, younger and more highly educated speakers tend toward source-language pronunciations and also tend, in current Western demographics, toward more progressive political positions. The apparent correlation between pronunciation and politics may therefore partly reflect the underlying correlation between both variables and age or education.
 
-### 2.9 When Pronunciation Isn't Political
-
-**Professional and Academic Motivations**
-- **Linguistic accuracy**: Scholars and journalists pursuing correct pronunciation
-- **Professional standards**: Area studies experts expected to use authentic pronunciations
-- **Language training**: Foreign language education emphasizes native-like pronunciation
-- **International experience**: Living abroad naturally shifts pronunciation
-- **Peer expectations**: Academic and professional communities enforce pronunciation norms
-- **Non-political expertise**: Pronunciation knowledge independent of political views
-
-**Generational and Educational Factors**
-- **Age cohorts**: Younger generations exposed to more diverse media
-- **Educational background**: University education correlates with "authentic" pronunciations
-- **Language learning**: Formal language study affects pronunciation choices
-- **Socioeconomic status**: Class correlates with linguistic capital
-- **Geographic location**: Urban vs. rural, coastal vs. inland patterns
-- **Media access**: Internet access and media diversity
-
-**Regional and Dialectal Variation**
-- **British vs. American English**: Different pronunciation traditions
-- **Regional accents**: Southern, Midwestern, New England patterns
-- **Phonological constraints**: Some accents make certain pronunciations difficult
-- **Historical settlement patterns**: Ethnic enclaves maintain heritage pronunciations
-- **Random variation**: Individual idiosyncrasy and personal preference
-- **Habit and inertia**: Continuing learned pronunciations without political intent
-
-**Risks of Over-Interpretation**
-
-**The Attribution Problem**
-- **Context-dependency**: Same pronunciation may mean different things in different contexts
-- **Individual variation**: Not all members of political group use same pronunciations
-- **Multiple motivations**: Professional, personal, and political factors overlap
-- **Probabilistic not deterministic**: Pronunciation correlates with but doesn't determine politics
-- **Avoiding profiling**: Danger of stereotyping based on linguistic features
-
-**Correlation vs. Causation**
-- **Confounding variables**: Education, age, geography correlate with both pronunciation and politics
-- **Reverse causality**: Does pronunciation shape politics or politics shape pronunciation?
-- **Spurious correlations**: Third variables may explain apparent relationships
-- **Mechanism uncertainty**: Unclear whether pronunciation is cause, effect, or mere marker
-- **Empirical challenges**: Difficult to establish causal relationships
-
-**Agency and Intentionality**
-- **Conscious vs. unconscious**: Many pronunciation choices made without awareness
-- **Strategic vs. habitual**: Deliberate signaling vs. absorbed patterns
-- **Limits of intentionality**: Speakers may not control or recognize their pronunciations
-- **Organic language change**: Natural evolution vs. political manipulation
-- **Overestimating strategy**: Not all linguistic patterns reflect conscious political choices
-
-
+Finally, many pronunciation choices are made without conscious awareness. Speakers absorb pronunciations from their media environment and social networks and reproduce them without deliberate signaling intent. The political meaning of a pronunciation exists at the level of social interpretation rather than necessarily at the level of speaker intention. The patterns described in the preceding sections are real at the aggregate level; they are considerably less reliable as a basis for interpreting the political commitments of any individual speaker.
 
 ## 3. Mechanisms of Influence
 
