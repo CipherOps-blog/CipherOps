@@ -63,5 +63,15 @@
         "date": "January 10, 2025"
       }
     ]
+  },
+  {
+    "category": "Linguistics",
+    "articles": [
+      {
+        "title": "Pronunciation as Political Signaling: Micro-Markers of Macro-Divisions",
+        "file": "articles/linguistics/pronounciation and propaganda.md",
+        "date": "January 10, 2025"
+      }
+    ]
   }
 ]
