@@ -35,111 +35,10 @@ The concept of the shibboleth provides a useful historical frame for understandi
 The historical record contains more recent examples of the same phenomenon. During the 2022 Russian invasion of Ukraine, Ukrainian civilians and territorial defense forces reportedly used the word "паляниця" ([palianytsia](https://www.ebsco.com/articles/communication-and-mass-media/d2c72630-ea00-5d5c-a095-1e91c93e779f/say-palianytsia-language-and-war-in-ukrainian-humor-in-2022)), a Ukrainian term for a type of bread, as a shibboleth to identify Russian soldiers and suspected infiltrators. The word contains several phonological features that are difficult for native Russian speakers to reproduce convincingly, including a vowel sound that exists in Ukrainian but has no direct equivalent in Russian. Speakers who could not produce the word with a recognizable Ukrainian phonology risked being identified as Russian.
 
 
-## 2. Political Communication Research
 
-### 2.1 Signaling and Identity Performance
+## 2. Case Studies
 
-**Costly vs. Cheap Signals**
-- **Signaling theory**: Credible signals require investment that dishonest signalers cannot afford ([Spence, 1973](https://doi.org/10.2307/1882010))
-- **Costly signals in politics**: Donations, activism, personal sacrifice demonstrate commitment ([Gambetta, 2009](https://doi.org/10.1093/acprof:oso/9780199218707.001.0001))
-- **Cheap talk problem**: Verbal claims are easily faked without verification
-- **Pronunciation as intermediate signal**: Requires minimal effort but demonstrates media consumption patterns and group alignment
-- **Cumulative signaling**: Multiple cheap signals (pronunciation, vocabulary, framing) create credible composite
-
-**Performing Expertise and Insider Status**
-- **Cultural capital**: Linguistic knowledge as form of symbolic capital ([Bourdieu, 1986](https://www.taylorfrancis.com/chapters/edit/10.4324/9781315680897-17))
-- **Expertise performance**: "Correct" pronunciation claims superior knowledge
-- **Insider/outsider dynamics**: Native-like pronunciation signals proximity to source community
-- **Authenticity paradox**: Over-performance can signal inauthenticity or appropriation
-- **Gatekeeping**: Correcting others' pronunciation establishes hierarchies
-
-**Echo Chambers and Linguistic Convergence**
-- **Echo chamber effect**: Ideologically homogeneous networks reinforce beliefs ([Sunstein, 2017](https://global.oup.com/academic/product/republic-9780691175515))
-- **Media diet hypothesis**: Pronunciation reflects which media sources one consumes
-- **Algorithmic amplification**: Recommendation systems create linguistically homogeneous environments
-- **Empirical evidence**: Social media users cluster by linguistic features ([Bail et al., 2018](https://doi.org/10.1073/pnas.1804840115))
-- **Reinforcement mechanisms**: In-group approval for "correct" pronunciation, correction of deviations
-- **Cascade effects**: Rapid adoption within networks once critical mass achieved
-
-### 2.2 Linguistic Capital and Authority
-
-**Bourdieu's Linguistic Capital**
-- **Language as capital**: Linguistic competence functions as symbolic capital conferring power ([Bourdieu, 1991](https://www.hup.harvard.edu/catalog.php?isbn=9780674539426))
-- **Legitimate language**: Dominant groups define "correct" speech
-- **Symbolic violence**: Imposing linguistic norms naturalizes power relations
-- **Distinction**: Elite speech patterns mark class boundaries
-- **Application to pronunciation**: "Authentic" pronunciation becomes form of cultural capital
-
-**Who Defines "Correct" Pronunciation?**
-- **Traditional authorities**: Dictionaries, style guides, broadcasting standards
-- **Democratization**: Social media challenges centralized linguistic authority
-- **Competing authorities**: Source language communities vs. anglophone tradition
-- **Political contestation**: "Correctness" becomes site of ideological struggle
-- **Prescriptivism vs. descriptivism**: Normative claims vs. empirical observation of usage
-- **Power dynamics**: Whose pronunciation preferences prevail reflects broader power relations
-
-**Gatekeeping Through Linguistic Knowledge**
-- **Expertise claims**: Pronunciation knowledge signals area expertise or cultural competency
-- **Exclusion mechanisms**: Correcting pronunciation marginalizes those with "incorrect" forms
-- **Class and education**: Access to "correct" pronunciation correlates with educational privilege
-- **Linguistic insecurity**: Speakers uncertain of "correct" form may avoid terms entirely
-- **Democratic implications**: Linguistic gatekeeping as barrier to political participation
-
-
-
-## 3. Propaganda and Influence Studies
-
-### 3.1 Soft Power and Cultural Influence
-
-**Nye's Soft Power Framework**
-- **Soft power definition**: Ability to shape preferences through attraction rather than coercion ([Nye, 2004](https://www.publicaffairsbooks.com/titles/joseph-s-nye/soft-power/9781586483067/))
-- **Three sources**: Culture, political values, foreign policies
-- **Language as soft power**: Linguistic influence shapes how issues are conceptualized
-- **Long-term investment**: Cultural diplomacy operates over decades
-- **Measurement challenges**: Difficult to quantify soft power effects
-
-**Language as Instrument of Cultural Diplomacy**
-- **Language promotion programs**: Alliance Française, Goethe-Institut, Confucius Institutes
-- **Broadcasting**: BBC World Service, Voice of America, RT, Al Jazeera
-- **Educational exchange**: Study abroad programs create linguistic ambassadors
-- **Translation and terminology**: Controlling how concepts are rendered in other languages
-- **Pronunciation diplomacy**: Encouraging adoption of source-language pronunciations
-
-**Subtle Influence vs. Overt Messaging**
-- **Overt propaganda**: Easily identified and potentially counterproductive
-- **Subtle influence**: Gradual normalization of perspectives through linguistic choices
-- **Plausible deniability**: Organic adoption vs. orchestrated campaigns
-- **Cumulative effects**: Small linguistic shifts accumulate into worldview changes
-- **Resistance**: Overt campaigns trigger backlash; subtle influence may go unnoticed
-
-### 3.2 Contemporary Information Operations
-
-**Narrative Warfare and Linguistic Framing**
-- **Strategic narratives**: Coherent stories shaping interpretation of events ([Bjola & Pamment, 2019](https://www.routledge.com/Countering-Online-Propaganda-and-Extremism-The-Dark-Side-of-Digital-Diplomacy/Bjola-Pamment/p/book/9780367584863))
-- **Framing effects**: How issues are linguistically framed shapes attitudes ([Lakoff, 2004](https://www.ucpress.edu/book/9780520242302/dont-think-of-an-elephant))
-- **Terminology battles**: Competing terms for same referent (freedom fighter/terrorist)
-- **Pronunciation in framing**: Choice of pronunciation frames relationship to referent
-- **Narrative coherence**: Pronunciation choices must align with broader narrative
-
-**Organic Adoption vs. Orchestrated Campaigns**
-- **Grassroots change**: Bottom-up linguistic shifts driven by social movements
-- **Astroturfing**: Fake grassroots campaigns orchestrated by state or corporate actors ([Woolley & Howard, 2018](https://global.oup.com/academic/product/computational-propaganda-9780190931407))
-- **Hybrid models**: State actors amplifying genuine grassroots movements
-- **Attribution problem**: Difficulty distinguishing organic from orchestrated
-- **Indicators of coordination**: Sudden simultaneous adoption, bot amplification, talking points
-
-**Pronunciation in Influence Operations**
-- **Linguistic markers**: Pronunciation choices identify influence operation targets
-- **Audience segmentation**: Different pronunciations for different target audiences
-- **Credibility building**: "Correct" pronunciation establishes expertise
-- **Polarization strategy**: Promoting divisive pronunciations to deepen societal splits
-- **Case study**: Russian media's insistence on "Kiev" vs. Ukrainian advocacy for "Kyiv"
-
-
-
-## 4. Case Studies
-
-### 4.1 Kiev vs. Kyiv
+### 2.1 Kiev vs. Kyiv
 
 **Russian vs. Ukrainian Transliteration**
 - **Linguistic background**: Russian "Киев" (Kiev) vs. Ukrainian "Київ" (Kyiv)
@@ -171,7 +70,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Signaling mechanism**: "Kyiv" signals support for Ukrainian sovereignty and opposition to Russian aggression
 - **Western media**: Adoption speed varied by outlet's political orientation ([Shevchenko, 2022](https://www.atlanticcouncil.org/blogs/ukrainealert/why-kyiv-not-kiev/))
 
-### 4.2 Muslim vs. Muzlim
+### 2.2 Muslim vs. Muzlim
 
 **Arabic vs. Anglicized Pronunciation**
 - **Arabic pronunciation**: /ˈmʊslɪm/ or /ˈmʌslɪm/ (closer to Arabic مسلم)
@@ -203,7 +102,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Essentialism**: Assuming all Muslims prefer particular pronunciation
 - **Practical communication**: Intelligibility vs. authenticity trade-offs
 
-### 4.3 Iran/Persia and Farsi/Parsi
+### 2.3 Iran/Persia and Farsi/Parsi
 
 **Complex Nomenclature and Political Layers**
 - **Iran vs. Persia**: "Persia" traditional English exonym, "Iran" official name since 1935 ([Kashani-Sabet, 1999](https://www.ucpress.edu/book/9780520208650/frontier-fictions))
@@ -237,7 +136,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Historical orientation**: Pre-Islamic vs. Islamic vs. modern Iran
 - **Diaspora vs. domestic**: Different pronunciation norms in different communities
 
-### 4.4 Israel/Yisrael and Palestine vs. Falastin
+### 2.4 Israel/Yisrael and Palestine vs. Falastin
 
 **Hebrew Pronunciation in English Contexts**
 - **Anglicized "Iz-ray-el"**: Standard English pronunciation /ˈɪzreɪəl/ or /ˈɪzriəl/
@@ -270,7 +169,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Linguistic colonialism**: Imposition of Hebrew toponyms on Arabic-speaking areas
 - **Neutral ground**: Difficulty finding politically neutral pronunciations
 
-### 4.5 Iraq: "Eye-rack" vs. "Ee-rock"
+### 2.5 Iraq: "Eye-rack" vs. "Ee-rock"
 
 **Pronunciation Patterns During Iraq War**
 - **Anglicized "Eye-rack"**: Traditional English pronunciation /aɪˈræk/
@@ -288,7 +187,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Orientalism critique**: Anglicized pronunciation as linguistic imperialism
 - **Current status**: Less politically salient post-2011 withdrawal
 
-### 4.6 Latinx/Latine: Gender Politics
+### 2.6 Latinx/Latine: Gender Politics
 
 **Pronunciation and Gender-Neutral Language**
 - **Traditional terms**: "Latino" (masculine), "Latina" (feminine), "Latinos" (mixed/plural)
@@ -306,7 +205,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Political signaling**: "Latinx" pronunciation marks progressive identity
 - **Backlash**: Conservative Latinos reject term as woke imposition
 
-### 4.7 Türkiye: State-Mandated Rebranding
+### 2.7 Türkiye: State-Mandated Rebranding
 
 **Turkish Government Campaign (2022)**
 - **Official request**: Turkish government requests international use of "Türkiye" instead of "Turkey"
@@ -331,7 +230,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Existing usage**: Overcoming entrenched terminology
 - **Comparative cases**: Successful (Beijing, Mumbai) vs. unsuccessful (Burma/Myanmar mixed)
 
-### 4.9 When Pronunciation Isn't Political
+### 2.9 When Pronunciation Isn't Political
 
 **Professional and Academic Motivations**
 - **Linguistic accuracy**: Scholars and journalists pursuing correct pronunciation
@@ -382,9 +281,9 @@ The historical record contains more recent examples of the same phenomenon. Duri
 
 
 
-## 5. Mechanisms of Influence
+## 3. Mechanisms of Influence
 
-### 5.1 State-Sponsored Linguistic Influence
+### 3.1 State-Sponsored Linguistic Influence
 
 **Cultural Diplomacy Institutions**
 - **Confucius Institutes**: Chinese government-funded language and culture centers promoting Mandarin ([Paradise, 2009](https://doi.org/10.1017/S0305741009000776))
@@ -415,7 +314,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Effectiveness research**: Variable success rates ([Hayden, 2012](https://www.cornellpress.cornell.edu/book/9780801478338/the-rhetoric-of-soft-power/))
 - **Case comparisons**: Beijing (successful), Myanmar (mixed), Türkiye (limited)
 
-### 5.2 Non-State Actors
+### 3.2 Non-State Actors
 
 **Diaspora Communities and Heritage Language**
 - **Language maintenance**: Efforts to preserve heritage languages ([Fishman, 2001](https://multilingual-matters.com/page/detail/Reversing-Language-Shift/?k=9781853594915))
@@ -444,7 +343,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Theological implications**: Pronunciation linked to religious authenticity
 - **Transnational networks**: Religious organizations coordinating globally
 
-### 5.3 Media Ecosystem Dynamics
+### 3.3 Media Ecosystem Dynamics
 
 **Traditional Media Style Guides**
 - **AP Stylebook**: Influential guide for American journalism ([AP Stylebook](https://www.apstylebook.com/))
@@ -480,7 +379,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Amplification of extremes**: Algorithms may promote more extreme pronunciations
 - **Cross-platform dynamics**: Pronunciation trends spread across multiple platforms
 
-### 5.4 Psychological and Social Mechanisms
+### 3.4 Psychological and Social Mechanisms
 
 **Identity Construction and Moral Positioning**
 - **Identity work**: Linguistic choices construct and project identity ([Bucholtz & Hall, 2005](https://doi.org/10.1017/S0047404505050271))
@@ -509,9 +408,9 @@ The historical record contains more recent examples of the same phenomenon. Duri
 
 
 
-## 6. Implications for Domestic Security and Counter-Influence
+## 4. Implications for Domestic Security and Counter-Influence
 
-### 6.1 Pronunciation as Intelligence Indicator
+### 4.1 Pronunciation as Intelligence Indicator
 
 **Identifying Foreign Influence Networks**
 
@@ -623,7 +522,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Dual loyalty concerns**: Balancing homeland and host country allegiances
 - **Security implications**: When diaspora mobilization threatens host country interests
 
-### 6.2 Counter-Influence and Resilience Strategies
+### 4.2 Counter-Influence and Resilience Strategies
 
 **Detecting Information Operations**
 
@@ -738,9 +637,9 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Iranian operations**: IRGC-linked accounts promoting divisive pronunciations
 - **Lessons learned**: What works and doesn't work in counter-influence
 
-### 6.3 Operational Applications
+### 4.3 Operational Applications
 
-#### 6.3.1 Intelligence Collection and Analysis
+#### 4.3.1 Intelligence Collection and Analysis
 
 **Linguistic Analysis in OSINT**
 
@@ -782,7 +681,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Scenario planning**: Modeling different linguistic futures
 - **Early warning**: Detecting emerging threats through linguistic indicators
 
-#### 6.3.2 Counter-Terrorism Applications
+#### 4.3.2 Counter-Terrorism Applications
 
 **Pronunciation as Radicalization Indicator**
 
@@ -821,7 +720,7 @@ The historical record contains more recent examples of the same phenomenon. Duri
 - **Experimental studies**: Testing linguistic interventions for deradicalization
 - **Ethical considerations**: Balancing research value against privacy and stigmatization
 
-#### 6.3.3 Counter-Espionage Considerations
+#### 4.3.3 Counter-Espionage Considerations
 
 **Detecting Foreign Agents Through Linguistic Inconsistencies**
 
