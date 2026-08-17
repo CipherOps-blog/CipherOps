@@ -1,55 +1,39 @@
 # Pronunciation as Political Signaling: Micro-Markers of Macro-Divisions
 
-## Introduction
+In June 2022, the Associated Press updated its style guide to recommend "Kyiv" over the previously standard "Kiev" for the Ukrainian capital. The change was not driven by new linguistic research or a shift in English phonology but by political positionning signaling solidarity with Ukraine. This is not an isolated case. Across a range of politically charged topics, the way a speaker pronounces a foreign word or name has come to function as a marker of political identity. Progressive English speakers tend toward the Arabic-proximate /ˈmʊslɪm/ for "Muslim", while more conservative speakers typically retain the anglicized /ˈmʌzləm/. Among those who discuss Iran in political contexts, "Eye-ran" and "Ee-rahn" correlate, with notable consistency, with opposing foreign policy positions. In Iranian diaspora communities, the choice between "Farsi", "Persian", and "Parsi" maps onto a complex ideological spectrum ranging from proximity to the Islamic Republic to outright rejection of Arabic cultural influence. In each of these cases, the pronunciation variant a speaker selects carries information well beyond its phonetic content.
 
-### The Phenomenon: When Pronunciation Becomes Political
+Pronunciation choices of this kind require minimal effort, carry no legal or financial consequence, and are often made without conscious deliberation. Yet they reliably predict political affiliations, media consumption habits, and ideological commitments.
 
-- **Kiev/Kyiv example**: Western media shifted from Russian transliteration "Kiev" to Ukrainian "Kyiv" following 2014 Euromaidan and especially after 2022 invasion
-- **Muslim/Muzlim variation**: Progressive speakers tend toward Arabic-proximate /ˈmʊslɪm/ while conservative speakers use anglicized /ˈmʌzləm/
-- **Iran pronunciation**: "Eye-ran" (anglicized) vs. "Ee-rahn" (Persian-proximate) correlates with foreign policy positions
-- **The central puzzle**: Why do these seemingly minor pronunciation choices reliably predict political affiliations?
-- **Core argument**: Pronunciation functions as low-cost, high-visibility signal of political identity and group membership
-
-### Why This Matters Now
-
-- **Globalized media exposure**: 24/7 news cycles expose audiences to foreign terms pronounced by native speakers
-- **Digital echo chambers**: Algorithm-driven content creates linguistically homogeneous information environments
-- **Polarized identity politics**: Every aspect of communication becomes potential marker of tribal affiliation
-- **Information warfare context**: State and non-state actors exploit linguistic choices for influence operations
-- **Domestic security implications**: Pronunciation patterns can indicate foreign influence, radicalization pathways, or coordinated campaigns
-- **Weaponization of language**: Linguistic choices become tools in broader cultural and political conflicts
-
-### Scope of Article
-
-- **Interdisciplinary synthesis**: Combining sociolinguistics, political communication, propaganda studies, and security analysis
-- **Case study approach**: Detailed examination of specific pronunciation controversies
-- **Mechanism analysis**: How pronunciation choices spread and acquire political meaning
-- **Security focus**: Implications for domestic intelligence and counter-influence operations
-- **Practical applications**: Operational uses and ethical boundaries
-
-
+The phenomenon is not new, but several converging developments have made it more consequential than at any previous point. The globalisation of media exposure, the deepening of political polarisation, and the rise of information warfare exxagerate wht used to be a slow process of linguistic adaptation.
 
 ## 1. Sociolinguistic Perspectives
 
 ### 1.1 Linguistic Accommodation Theory
 
-**Giles' Communication Accommodation Theory**
-- **Core principle**: Speakers adjust their speech patterns to converge with or diverge from interlocutors ([Dragojevic, Gasiorek, & Giles, 2016](https://doi.org/10.1093/oxfordhb/9780199935345.013.21))
-- **Convergence**: Adopting speech patterns of valued groups signals solidarity and identification
-- **Divergence**: Maintaining or exaggerating speech differences emphasizes distinctiveness and boundaries
-- **Application to pronunciation**: Foreign word pronunciation becomes site of accommodation toward source language communities
+According to Giles' Communication Accommodation Theory, speakers adjust their speech patterns to converge with or diverge from interlocutors ([Dragojevic, Gasiorek, & Giles, 2016]([https://www.cambridge.org/core/books/abs/communication-accommodation-theory/accommodative-strategies-as-core-of-the-theory/32D969C90EA99611BAF1427994461EC7))). 
 
-**Alignment with Identity Groups**
-- **Social identity theory**: Language choices reflect and construct group memberships ([Tajfel & Turner, 1979](https://www.taylorfrancis.com/chapters/edit/10.4324/9780203505984-16))
-- **Imagined communities**: Speakers align with geographically distant groups through linguistic choices ([Anderson, 1983](https://www.versobooks.com/books/2388-imagined-communities))
-- **Media-mediated alignment**: Exposure to foreign media creates linguistic models for accommodation
-- **Political solidarity**: Pronunciation signals alignment with foreign political movements or governments
+Convergence is typically motivated by a desire for social approval, group identification, or the signaling of solidarity. When a speaker adopts a pronunciation closer to that used by a source-language community, they are engaging in a form of convergence, not necessarily toward a specific interlocutor, but toward an imagined or idealized group. Divergence, conversely, can be deliberate and politically charged. A speaker who maintains an anglicized pronunciation of a foreign term after the "correct" form has become widely known is not simply uninformed; they may be actively signaling distance from the group associated with the alternative pronunciation. Both movements carry social meaning, and both are legible to listeners who share the relevant cultural context.
 
-**Pronunciation as Identity Performance**
-- **Le Page & Tabouret-Keller's acts of identity**: Every linguistic choice is an "act of identity" projecting desired self-image ([Le Page & Tabouret-Keller, 1985](https://doi.org/10.1017/CBO9780511620607))
-- **Performance theory**: Identity is enacted through repeated linguistic performances ([Butler, 1990](https://www.routledge.com/Gender-Trouble-Feminism-and-the-Subversion-of-Identity/Butler/p/book/9780415389556))
-- **Authenticity claims**: "Correct" pronunciation positions speaker as knowledgeable insider
-- **Moral positioning**: Linguistic accommodation signals ethical stance (respect, solidarity, anti-imperialism)
+Giles developed the theory primarily to account for face-to-face interaction, where speakers adjust to the person in front of them. Yet a speaker who adopts "Kyiv" has sometimes never even spoken directly with a Ukrainian interlocutor who corrected them; they have instead been exposed, repeatedly, to Ukrainian voices through media, and have converged toward those voices as an act of political alignment. This media-mediated accommodation is a distinctly contemporary form of the process Giles described, enabled by the globalization of information environments.
+
+The accommodation process does not occur in a social vacuum. It is shaped by the speaker's sense of which groups they belong to, which groups they aspire to belong to, and which groups they wish to distinguish themselves from. Social Identity Theory, ([Tajfel & Turner, 1979](https://www.taylorfrancis.com/chapters/edit/10.4324/9780203505984-16)) provides the foundational account of how group membership structures social behavior. Applied to language, the theory predicts that speakers will adopt the linguistic features of groups they identify with and distance themselves from the features of groups they define themselves against. Pronunciation is one of the most accessible and visible dimensions along which this process operates.
+
+[Benedict Anderson](https://www.versobooks.com/books/2388-imagined-communities)'s concept of imagined communities also applies at a smaller scale to political communities organized around specific causes or ideological commitments. A speaker who adopts "Kyiv" is aligning with an imagined community of people who support Ukrainian sovereignty, even if they have never met another member of that community in person. The pronunciation functions as a symbolic act of membership, legible to others who share the relevant political context.
+
+Beyond accommodation theory, the political pronunciation phenomenon can be understood through the framework of identity performance. [Le Page & Tabouret-Keller](https://doi.org/10.1017/CBO9780511620607) argued that every linguistic choice is an "act of identity," a projection of the self-image the speaker wishes to present to the world. On this account, there is no such thing as a politically neutral pronunciation in a context where the political valence of variants is widely understood. Choosing "Kyiv" over "Kiev" is not merely selecting a phonetic form; it is performing a particular kind of political self, one that is informed, sympathetic to Ukrainian perspectives, and aligned with a specific interpretation of the conflict.
+
+[Judith Butler](https://www.routledge.com/Gender-Trouble-Feminism-and-the-Subversion-of-Identity/Butler/p/book/9780415389556)'s account of performativity adds a further dimension. Butler argued that identity is not a pre-existing essence that is then expressed through behavior, but is instead constituted through repeated performances. Applied to pronunciation, this suggests that the political identity signaled by a particular pronunciation is not simply reflected in the choice but is partly constructed by it. Speakers who consistently use "Ee-rahn" are not merely expressing a pre-existing sympathy for Iranian culture; they are, through the repeated performance of that pronunciation, constructing and reinforcing a particular political identity for themselves and for their audiences.
+
+Finally, it grants the speaker the claim to authenticity and expertise. Using a source-language pronunciation positions the speaker as someone with genuine knowledge of and connection to the relevant community, as an insider rather than an outsider. This claim is often implicit but socially powerful; it confers a form of authority on the speaker's broader statements about the relevant topic. 
+
+
+
+
+
+
+
+
+
 
 ### 1.2 Indexicality and Shibboleths
 
