@@ -108,127 +108,24 @@ Finally, many pronunciation choices are made without conscious awareness. Speake
 
 ### 3.1 State-Sponsored Linguistic Influence
 
-**Cultural Diplomacy Institutions**
-- **Confucius Institutes**: Chinese government-funded language and culture centers promoting Mandarin ([Paradise, 2009](https://doi.org/10.1017/S0305741009000776))
-- **Alliance Française**: French government network promoting French language globally
-- **Goethe-Institut**: German cultural association promoting German language and culture
-- **British Council**: UK organization promoting English language and British culture
-- **Cervantes Institute**: Spanish government promoting Spanish language
-- **Mechanisms**: Language classes, cultural events, teacher training, materials development
-- **Soft power goals**: Building positive associations with sponsoring country
-- **Pronunciation norms**: Teaching "standard" pronunciations of sponsoring country
+Governments use language promotion as an instrument of foreign policy. The Alliance Française, the Goethe-Institut, the British Council, the Instituto Cervantes, and the Chinese government's Confucius Institutes all operate networks of cultural centers abroad, offering language classes and teacher training that transmit the pronunciation norms of the sponsoring country alongside its cultural associations. [Paradise (2009)](https://doi.org/10.1017/S0305741009000776) notes that Confucius Institutes have attracted more scrutiny than their Western equivalents, partly because of concerns about academic freedom and partly because of the broader context of Chinese soft power expansion, though the underlying mechanism is the same in all cases.
 
-**State Media Operations**
-- **RT (Russia Today)**: Russian state-funded international broadcaster ([Yablokov, 2015](https://doi.org/10.1080/1060586X.2015.1051251))
-- **Al Jazeera English**: Qatari state-funded broadcaster with global reach ([Seib, 2008](https://www.palgrave.com/gp/book/9780230608368))
-- **CGTN (China Global Television Network)**: Chinese state broadcaster
-- **Voice of America**: U.S. government-funded broadcaster
-- **BBC World Service**: British public broadcaster with international reach
-- **Pronunciation strategies**: Consistent use of preferred pronunciations
-- **Audience targeting**: Different pronunciations for different target audiences
-- **Credibility building**: Native speaker pronunciations establish authenticity
+State-funded international broadcasters operate through a related mechanism. RT, Al Jazeera English, CGTN, Voice of America, and the BBC World Service all make consistent choices about how to pronounce contested place names and political terms, and these choices reflect the positions of their funders. RT's pronunciation and terminology in covering the war in Ukraine differs systematically from the BBC World Service's, and these differences are legible to attentive listeners as markers of editorial alignment (Yablokov, 2015). Regular listeners can be expected to converge, over time, toward the pronunciation norms of the outlets they consume most frequently.
 
-**Official Naming Campaigns**
-- **Government requests**: Formal diplomatic requests for terminology changes
-- **UN channels**: Registration of official names with United Nations
-- **Bilateral diplomacy**: Direct requests to foreign governments and media
-- **Public campaigns**: Social media and public relations efforts
-- **Success factors**: Geopolitical alignment, linguistic feasibility, timing
-- **Effectiveness research**: Variable success rates ([Hayden, 2012](https://www.cornellpress.cornell.edu/book/9780801478338/the-rhetoric-of-soft-power/))
-- **Case comparisons**: Beijing (successful), Myanmar (mixed), Türkiye (limited)
+Direct government campaigns for terminology change are a third and more explicit mechanism. The factors determining whether such campaigns succeed are not fully understood, but [Hayden (2012)](https://www.cornellpress.cornell.edu/book/9780801478338/the-rhetoric-of-soft-power/) suggests that geopolitical alignment, linguistic feasibility, and timing all play a role. The shift from "Peking" to "Beijing" in English-language usage, largely complete by the 1980s, suggests that campaigns are most effective when the requested form is phonologically accessible to English speakers and when the requesting government has sufficient diplomatic leverage to make adoption a matter of practical convenience.
 
 ### 3.2 Non-State Actors
 
-**Diaspora Communities and Heritage Language**
-- **Language maintenance**: Efforts to preserve heritage languages ([Fishman, 2001](https://multilingual-matters.com/page/detail/Reversing-Language-Shift/?k=9781853594915))
-- **Transnational networks**: Diaspora organizations coordinating across borders
-- **Political activism**: Using language as tool of political mobilization
-- **Generational transmission**: Teaching heritage pronunciations to children
-- **Community institutions**: Schools, religious organizations, cultural centers
-- **Media production**: Diaspora media reinforcing pronunciation norms
-- **Homeland connections**: Maintaining linguistic ties to country of origin
+#### 3.2.1 Communities and institutions
 
-**Advocacy Organizations and Indigenous Rights**
-- **Indigenous language revitalization**: Reclaiming traditional place names ([Hornberger, 2008](https://multilingual-matters.com/page/detail/Can-Schools-Save-Indigenous-Languages/?k=9781847690838))
-- **Decolonization movements**: Rejecting colonial toponyms
-- **Human rights organizations**: Advocating for linguistic recognition
-- **Environmental justice**: Linking land rights to naming rights
-- **International advocacy**: Pressuring governments and institutions
-- **Success cases**: Uluru (Ayers Rock), Aotearoa (New Zealand), Denali (Mt. McKinley)
-- **Ongoing struggles**: Many indigenous names still not officially recognized
+Diaspora communities transmit heritage pronunciations through community schools, religious institutions, and diaspora media, and in politically mobilized cases actively advocate for their adoption by mainstream outlets. The Ukrainian diaspora's role in the #KyivNotKiev campaign is a recent example of coordination between a diaspora community and its country of origin.
 
-**Religious Institutions and Linguistic Campaigns**
-- **Islamic organizations**: Promoting Arabic pronunciations of Islamic terms
-- **Jewish organizations**: Advocating for Hebrew pronunciations
-- **Hindu nationalist movements**: Promoting Sanskrit-based pronunciations ([Ramaswamy, 1997](https://www.ucpress.edu/book/9780520206038/passions-of-the-tongue))
-- **Christian missionary linguistics**: Historical role in standardizing pronunciations
-- **Religious education**: Teaching "correct" pronunciations in religious schools
-- **Theological implications**: Pronunciation linked to religious authenticity
-- **Transnational networks**: Religious organizations coordinating globally
+Indigenous rights movements have focused on restoring traditional place names displaced by colonial renaming. The renaming of Ayers Rock to Uluru, the growing use of Aotearoa alongside New Zealand, and the 2015 restoration of Denali are among the more visible successes of this advocacy.
 
-### 3.3 Media Ecosystem Dynamics
+Religious institutions represent a third category. Islamic organizations in Western countries have promoted Arabic-proximate pronunciations of Islamic terms as a matter of religious authenticity and community identity. Jewish educational institutions transmit Hebrew pronunciation norms, with variation between Ashkenazi, Sephardi, and Modern Israeli standards. Hindu nationalist movements have promoted Sanskrit-based pronunciations of Hindu religious and cultural terms.
 
-**Traditional Media Style Guides**
-- **AP Stylebook**: Influential guide for American journalism ([AP Stylebook](https://www.apstylebook.com/))
-- **BBC Pronunciation Unit**: Provides guidance for BBC broadcasters
-- **New York Times style**: Sets standards for prestige American journalism
-- **Editorial decision-making**: How style choices are made and updated
-- **Political pressures**: External lobbying for pronunciation changes
-- **Professional norms**: Balancing accuracy, consistency, and sensitivity
-- **Evolution over time**: Style guides adapt to changing usage
-
-**Social Platforms**
-- **YouTube**: Pronunciation guides and language learning content
-- **Twitter/X**: Rapid debates over correct pronunciations, viral corrections
-- **TikTok**: Short-form content spreading pronunciation norms to young audiences
-- **Reddit**: Community discussions and debates about pronunciations
-- **Podcasts**: Spoken medium where pronunciation choices are salient
-- **Platform affordances**: Different platforms enable different types of linguistic influence
-
-**Influencers and Viral Moments**
-- **Individual trendsetters**: High-profile individuals modeling pronunciations
-- **Viral corrections**: Public corrections of pronunciation spreading rapidly
-- **Authenticity performance**: Influencers building credibility through "correct" pronunciation
-- **Audience building**: Using pronunciation to signal identity and attract followers
-- **Cascade effects**: Rapid adoption following viral moments
-- **Celebrity influence**: Public figures' pronunciations widely imitated
-
-**Algorithmic Amplification**
-- **Echo chambers**: Recommendation algorithms create ideologically homogeneous environments ([Pariser, 2011](https://www.penguinrandomhouse.com/books/309214/the-filter-bubble-by-eli-pariser/))
-- **Filter bubbles**: Personalized content limits exposure to diverse pronunciations
-- **Engagement optimization**: Algorithms promote content that confirms existing beliefs
-- **Linguistic homogenization**: Within-group convergence, between-group divergence
-- **Platform effects**: YouTube, Facebook, Twitter algorithms shape information exposure ([Tufekci, 2018](https://www.youtube.com/watch?v=iFTWM7HV2UI))
-- **Amplification of extremes**: Algorithms may promote more extreme pronunciations
-- **Cross-platform dynamics**: Pronunciation trends spread across multiple platforms
-
-### 3.4 Psychological and Social Mechanisms
-
-**Identity Construction and Moral Positioning**
-- **Identity work**: Linguistic choices construct and project identity ([Bucholtz & Hall, 2005](https://doi.org/10.1017/S0047404505050271))
-- **Moral positioning**: Pronunciation signals ethical stance (respect, solidarity, justice)
-- **Virtue signaling**: Demonstrating moral superiority through linguistic choices
-- **Authenticity seeking**: Pursuing "real" or "correct" pronunciations
-- **Self-presentation**: Managing impressions through language ([Goffman, 1959](https://www.penguinrandomhouse.com/books/312775/the-presentation-of-self-in-everyday-life-by-erving-goffman/))
-- **Cognitive dissonance**: Aligning linguistic choices with political beliefs
-
-**Group Dynamics and Linguistic Policing**
-- **In-group/out-group boundaries**: Pronunciation marks group membership
-- **Linguistic policing**: Correcting others' pronunciations enforces norms
-- **Social sanctions**: Disapproval for "incorrect" pronunciations
-- **Conformity pressures**: Desire to fit in drives pronunciation adoption
-- **Tipping points**: Critical mass triggers rapid group-wide adoption
-- **Bandwagon effects**: Joining majority pronunciation to avoid standing out
-- **Leadership**: Opinion leaders model pronunciations for followers
-
-**Perception and Interpretation**
-- **Listener inferences**: How audiences decode pronunciation signals ([Campbell-Kibler, 2007](https://doi.org/10.1017/S0047404507070169))
-- **Accuracy of attribution**: Can listeners reliably infer politics from pronunciation?
-- **Stereotyping**: Overgeneralizing from pronunciation to political views
-- **Context effects**: Same pronunciation interpreted differently in different contexts
-- **Implicit attitudes**: Unconscious associations with pronunciations
-- **Perceptual dialectology**: Folk beliefs about pronunciation and identity
-
+#### 3.2.2 Media 
+Algorithmic amplification is the least well-understood of the mechanisms examined in this section but potentially the most consequential. [Pariser](https://www.penguinrandomhouse.com/books/309214/the-filter-bubble-by-eli-pariser/)'s analysis of filter bubbles describes how recommendation algorithms tend to expose users to content that confirms existing preferences, limiting contact with divergent viewpoints. Applied to pronunciation, this dynamic suggests that algorithmically curated media environments may accelerate within-group convergence on particular pronunciation norms while increasing between-group divergence, reinforcing the ideological sorting described in the case studies above. The [empirical evidence for strong filter bubble effects remains contested](https://www.youtube.com/watch?v=iFTWM7HV2UI), but the directional claim, that algorithmic curation reduces exposure to linguistic diversity and reinforces existing patterns, is consistent with the broader literature on platform effects (Tufekci, 2018).
 
 
 ## 4. Implications for Domestic Security and Counter-Influence
