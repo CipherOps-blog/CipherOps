@@ -24,21 +24,17 @@ Finally, linguistic accomodation grants the speaker the claim to authenticity an
 
 ### 1.2 Indexicality and Shibboleths
 
-**How Sounds Acquire Political Meaning**
-- **Silverstein's indexicality**: Linguistic forms point to social meanings beyond referential content ([Silverstein, 2003](https://doi.org/10.1016/S0271-5309(03)00013-2))
-- **First-order indexicality**: Direct correlation (e.g., accent indicates regional origin)
-- **Higher-order indexicality**: Social meanings layered onto linguistic forms (e.g., pronunciation indicates political ideology)
-- **Eckert's indexical field**: Constellation of potential meanings activated by context ([Eckert, 2008](https://doi.org/10.1017/S0047404508080792))
-- **Ideological becoming**: Neutral pronunciations acquire political associations through repeated use in partisan contexts
+Accommodation theory explains why speakers adjust their pronunciation toward particular groups, but it does not fully account for how a specific pronunciation comes to carry a specific political meaning in the first place. [Silverstein](https://doi.org/10.1016/S0271-5309(03)00013-2)'s core insight is that linguistic forms do not only refer to things in the world; they also point to social meanings that exist outside the referential content of an utterance. A speaker's accent, for instance, does not only convey information about the sounds they are producing; it simultaneously conveys information about where they are from and what class they belong to. Silverstein distinguished the layered nature of this process: 
+- First-order indexicality involves relatively direct correlations between a linguistic feature and a social category (a particular vowel shift indexes a regional origin, for example).
+- Higher-order indexicality involves meanings that are more ideologically mediated, where a linguistic feature comes to index not a demographic fact but a set of values, or attitudes.
 
-**Modern Pronunciation Shibboleths**
-- **Biblical shibboleth**: Judges 12:6 - Gileadites identified Ephraimites by inability to pronounce /ʃ/ ([Judges 12:6](https://www.biblegateway.com/passage/?search=Judges%2012%3A6&version=NIV))
-- **Historical examples**: Parsley Massacre (1937) - Haitians identified by pronunciation of "perejil" ([Derby, 1994](https://www.jstor.org/stable/2517169))
-- **Contemporary shibboleths**: Pronunciation as in-group/out-group marker ([McCullough & Somerville, 2015](https://doi.org/10.1017/S0047404515000755))
-- **Low-cost signals**: Unlike accent change, individual word pronunciation is easily adopted
-- **High visibility**: Salient political terms used frequently in discourse
-- **Boundary maintenance**: Policing pronunciation enforces group boundaries
+[Eckert](https://doi.org/10.1017/S0047404508080792)'s concept of the indexical field elaborates this further. A linguistic feature is associated with a constellation of potential meanings, any of which may be activated depending on context. The pronunciation "Ee-rahn" does not carry a single invariant political meaning; in the mouth of a State Department official during nuclear negotiations, it signals diplomatic engagement and cultural competence; in the mouth of an Iranian-American activist, it signals heritage and identity; in the mouth of a progressive commentator, it signals opposition to certain foreign policies. The same phonetic form indexes different things in different contexts, though the various meanings are related and mutually reinforcing.
 
+The process by which a previously neutral pronunciation acquires political associations is gradual and cumulative. A pronunciation that was once simply the anglicized default, carrying no particular ideological charge, becomes politically marked through repeated use in partisan contexts. Once enough speakers in a visible political community have adopted a particular variant, the variant becomes an index of membership in that community. 
+
+The concept of the shibboleth provides a useful historical frame for understanding how pronunciation functions as a boundary marker. The term derives from (an episode in the Book of Judges](https://www.biblegateway.com/passage/?search=Judges%2012%3A6&version=NIV)) in which the Gileadites, having defeated the Ephraimites in battle, used pronunciation as a means of identification at river crossings. Ephraimites who could not produce the /ʃ/ sound in "shibboleth" and instead said "sibboleth" were identified as enemies and killed. The episode illustrates a principle that recurs throughout history: that phonetic features can serve as reliable markers of group membership precisely because they are difficult to fake under pressure, being deeply embedded in early language acquisition.
+
+The historical record contains more recent examples of the same phenomenon. During the 2022 Russian invasion of Ukraine, Ukrainian civilians and territorial defense forces reportedly used the word "паляниця" ([palianytsia](https://www.ebsco.com/articles/communication-and-mass-media/d2c72630-ea00-5d5c-a095-1e91c93e779f/say-palianytsia-language-and-war-in-ukrainian-humor-in-2022)), a Ukrainian term for a type of bread, as a shibboleth to identify Russian soldiers and suspected infiltrators. The word contains several phonological features that are difficult for native Russian speakers to reproduce convincingly, including a vowel sound that exists in Ukrainian but has no direct equivalent in Russian. Speakers who could not produce the word with a recognizable Ukrainian phonology risked being identified as Russian.
 
 
 ## 2. Political Communication Research
