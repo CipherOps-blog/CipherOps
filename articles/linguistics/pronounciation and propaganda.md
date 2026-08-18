@@ -146,18 +146,20 @@ Attribution is complicated by hybrid cases in which state actors amplify genuine
 
 The following analysis draws on Google Trends data for the search terms "Kiev" and "Kyiv".
 
-![Interest over time from 2004 on](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/2004on Interest over time.png)
-![Normalised deviation index from 2004 on](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/2004on Normalised deviation index.png)
+![Interest over time from 2004 on](./articles/linguistics/pronounciation and propaganda images/2004on Interest over time.png)
+
+![Normalised deviation index from 2004 on](./articles/linguistics/pronounciation and propaganda images/2004on Normalised deviation index.png)
 
 From 2004 to approximately 2020, searches for "Kyiv" remained consistently low relative to "Kiev". From 2020 onward, the relative share of "Kyiv" increased steadily, with a sharp spike in early 2022.
 
-![Interest over time from 2010 to 2016](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20102016 Interest over time.png)
-![Normalised deviation index from 2010 to 2016](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20102016 Normalised deviation index.png)
+![Interest over time from 2010 to 2016](./articles/linguistics/pronounciation and propaganda images/20102016 Interest over time.png)
+
+![Normalised deviation index from 2010 to 2016](./articles/linguistics/pronounciation and propaganda images/20102016 Normalised deviation index.png)
 
 Between 2010 and 2016, the ratio of "Kyiv" to "Kiev" searches remained low and stable, with no sustained upward movement, despite the escalation of the Russian-Ukrainian conflict during this period.
 
-![Interest over time from 2019 to 2022](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20192022 Interest over time.png)
-![Normalised deviation index from 2019 to 2022](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20192022 Normalised deviation index.png)
+![Interest over time from 2019 to 2022](./articles/linguistics/pronounciation and propaganda images/20192022 Interest over time.png)
+![Normalised deviation index from 2019 to 2022](./articles/linguistics/pronounciation and propaganda images/20192022 Normalised deviation index.png)
 
 A pronounced spike in "Kyiv" searches occurred in early 2022, followed by a lower but consistently rising baseline. Excluding the spike itself, the deviation index from this period fits a positive linear trend.
 
