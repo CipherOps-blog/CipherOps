@@ -8,11 +8,6 @@ CipherOps is a lightweight static GitHub Pages blog for cybersecurity and math a
 2. Open `manifest.json` and add an entry to the relevant category array, or create a new category object
 3. Push to GitHub, the TOC updates automatically
 
-## How to add a PDF
-
-- Drop the PDF file into the `/pdfs` folder
-- In your article, add:
-
-```html
-<div class="pdf-embed" data-src="pdfs/yourfile.pdf"></div>
-```
+## Main colours
+Sage: #87A878;
+Lavender: #B8A9C9;
