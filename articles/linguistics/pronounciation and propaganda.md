@@ -142,6 +142,38 @@ Pronunciation patterns can function as one signal among many in the analysis of 
 
 Attribution is complicated by hybrid cases in which state actors amplify genuine grassroots movements. The spread of "Kyiv" as a replacement for "Kiev" in English-language usage involved both organic solidarity from non-Ukrainian speakers and coordinated advocacy by Ukrainian government actors, making clean attribution difficult and illustrating the limits of pronunciation-based analysis as a standalone tool.
 
+**4.1.1.1 Case Study: "Kiev" vs. "Kyiv"**
+
+The following analysis draws on Google Trends data for the search terms "Kiev" and "Kyiv".
+
+![Interest over time from 2004 on](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/2004on Interest over time.png)
+![Normalised deviation index from 2004 on](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/2004on Normalised deviation index.png)
+
+From 2004 to approximately 2020, searches for "Kyiv" remained consistently low relative to "Kiev". From 2020 onward, the relative share of "Kyiv" increased steadily, with a sharp spike in early 2022.
+
+![Interest over time from 2010 to 2016](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20102016 Interest over time.png)
+![Normalised deviation index from 2010 to 2016](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20102016 Normalised deviation index.png)
+
+Between 2010 and 2016, the ratio of "Kyiv" to "Kiev" searches remained low and stable, with no sustained upward movement, despite the escalation of the Russian-Ukrainian conflict during this period.
+
+![Interest over time from 2019 to 2022](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20192022 Interest over time.png)
+![Normalised deviation index from 2019 to 2022](https://cipherops-blog.github.io/CipherOps/articles/linguistics/pronounciation and propaganda images/20192022 Normalised deviation index.png)
+
+A pronounced spike in "Kyiv" searches occurred in early 2022, followed by a lower but consistently rising baseline. Excluding the spike itself, the deviation index from this period fits a positive linear trend.
+
+Several features of this trajectory are consistent with coordinated influence rather than purely organic diffusion. The shift in the deviation index in 2022 is not gradual in the way that organic linguistic change typically is. The Associated Press, the BBC, and the New York Times all adopted "Kyiv" within a narrow window, and the Google Trends data suggest that public search behaviour followed institutional media norms rather than preceding them. This sequence, institutional adoption followed by public uptake, is more consistent with a top-down norm change than with a bottom-up grassroots shift. It does not, of course, exclude the possibility that genuine solidarity played a role; the two mechanisms are not mutually exclusive, and the Ukrainian case appears to involve both.
+
+**4.1.1.2 Extending the Analysis to Social Media**
+
+Google Trends data have the advantage of being publicly accessible and longitudinally consistent, but they capture only one dimension of the phenomenon: aggregate search volume. They do not reveal who is using which term, in what context, in combination with what other language, or in response to what stimuli. Social media platforms offer a richer data environment for studying pronunciation and terminology as political signals, though access to that environment has become considerably more restricted since 2022.
+
+The most direct method is platform API access. Until 2023, Twitter's academic research API provided retrospective access to the full public tweet archive, enabling researchers to track the adoption of specific terms across time, geography, and network position. Studies using this data could, in principle, reconstruct the diffusion curve of "Kyiv" across Twitter, identify the accounts that adopted it earliest, determine whether early adopters were disproportionately connected to Ukrainian government accounts or diaspora organisations, and test whether adoption spread through social ties or through exposure to media accounts. The closure of free academic API access under Twitter's current ownership has made this kind of research substantially more difficult, though not impossible for well-resourced institutions.
+
+Web scraping offers a partial alternative. Public posts on platforms that do not restrict scraping, as well as archived data from sources such as the Wayback Machine and the Pushshift Reddit archive, can be used to reconstruct longitudinal term-usage patterns. The limitations are significant: scraping captures only a subset of public content, is subject to platform terms of service, and produces data that are harder to normalise than API-derived datasets. For the specific purpose of detecting coordinated influence operations, however, scraping can be combined with network analysis tools to identify clusters of accounts adopting identical or near-identical formulations within short time windows, a pattern that is difficult to explain by organic diffusion alone.
+
+A more targeted approach involves monitoring state-affiliated media outlets and their associated social media accounts for systematic terminology choices, then tracking how those choices propagate through follower networks. RT, Sputnik, and associated accounts have used "Kiev" consistently throughout the period examined above, while Ukrainian state media and their amplifiers have used "Kyiv". Mapping the boundary between these two terminological communities on a platform like X or Telegram, and tracking how that boundary shifts over time, would provide a more granular picture of the influence dynamics than aggregate search data can offer. The methodological infrastructure for this kind of analysis exists within the computational social science literature; applying it systematically to pronunciation and terminology as political signals remains, for the most part, work that has not yet been done.
+
+
 #### 4.1.2 Pronunciation as a Radicalization Indicator
 
 Adoption of in-group pronunciation conventions can accompany ideological radicalization. [Schmid](https://icct.nl/publication/radicalisation-de-radicalisation-counter-radicalisation-conceptual-discussion-and-literature) notes that linguistic markers, including the use of community-specific terminology and pronunciation conventions, are observable correlates of radicalization trajectories. Pronunciation is, however, a correlated indicator rather than a cause, and the same pronunciation patterns are shared by large populations with no connection to extremism. Its analytical value depends on combination with content, network, and behavioral indicators, and it is insufficient as a basis for targeting or risk assessment on its own.
