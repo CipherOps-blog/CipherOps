@@ -48,5 +48,45 @@
         "date": "To be published"
       }
     ]
+  },
+  {
+    "category": "Mathematics",
+    "articles": [
+      {
+        "title": "Logic",
+        "file": "courses/maths/1. Logic.md",
+        "date": "July 20, 2026"
+      },
+      {
+        "title": "Proof Techniques",
+        "file": "courses/maths/2. Proof Techniques.md",
+        "date": "July 20, 2026"
+      },
+      {
+        "title": "Arithmetic",
+        "file": "courses/maths/3. Arithmetic.md",
+        "date": "July 20, 2026"
+      },
+      {
+        "title": "Matrices",
+        "file": "courses/maths/4. Matrices.md",
+        "date": "July 20, 2026"
+      },
+      {
+        "title": "Graphs",
+        "file": "courses/maths/5. Graphs.md",
+        "date": "July 20, 2026"
+      },
+      {
+        "title": "Optimisation Methods",
+        "file": "courses/maths/6. Optimisation Methods.md",
+        "date": "July 20, 2026"
+      },
+      {
+        "title": "Queuing Theory and Dependability",
+        "file": "courses/maths/7. Queuing Theory and Dependability.md",
+        "date": "July 20, 2026"
+      }
+    ]
   }
 ]
