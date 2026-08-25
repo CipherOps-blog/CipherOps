@@ -1,1 +1,222 @@
+## 4 Matrices
 
+**Definition 4.1.** A matrix A with n rows and p columns is a rectangular array of real (or complex) numbers, written A = (aᵢⱼ)₁≤ᵢ≤ₙ, ₁≤ⱼ≤ₚ, where aᵢⱼ denotes the entry in row i and column j. The dimension of the matrix is written n × p.
+
+**Example 4.1.**
+
+$$A = \begin{pmatrix} 1 & 2 & -1 \\ 0 & 3 & 4 \end{pmatrix}$$
+
+is a matrix of dimension 2 × 3.
+
+**Definition 4.2 (Diagonal matrix).** A square matrix A = (aᵢⱼ) ∈ ℝⁿˣⁿ is diagonal if aᵢⱼ = 0 for all i ≠ j.
+
+**Example 4.2.**
+
+$$D = \begin{pmatrix} 2 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 3 \end{pmatrix}$$
+
+is a diagonal matrix.
+
+**Property 4.1.** The product of two diagonal matrices of the same dimension is a diagonal matrix.
+
+*Proof.* Let D₁ and D₂ be two diagonal matrices. For i ≠ j, (D₁D₂)ᵢⱼ = Σₖ (D₁)ᵢₖ (D₂)ₖⱼ. Since D₁ and D₂ are diagonal, the only non-zero terms occur when k = i = j, which is impossible if i ≠ j. Thus (D₁D₂)ᵢⱼ = 0.
+
+**Definition 4.3 (Triangular matrix).** A square matrix is:
+- upper triangular if aᵢⱼ = 0 for i > j;
+- lower triangular if aᵢⱼ = 0 for i < j.
+
+**Definition 4.4 (Identity matrix).** The identity matrix of order n, denoted Iₙ, is the diagonal matrix whose diagonal entries are all 1.
+
+**Property 4.2.** For any matrix A of compatible dimension: AIₙ = IₙA = A.
+
+*Proof.* Multiplication by Iₙ preserves each row and column of A, since only the diagonal entries are involved.
+
+**Definition 4.5 (Transpose).** The transpose of a matrix A = (aᵢⱼ) ∈ ℝⁿˣᵖ is the matrix Aᵀ ∈ ℝᵖˣⁿ defined by (Aᵀ)ᵢⱼ = aⱼᵢ.
+
+**Property 4.3.** For all matrices A and B of compatible dimensions: (A + B)ᵀ = Aᵀ + Bᵀ.
+
+*Proof.* The property follows directly from entry-wise equality: (A + B)ᵀᵢⱼ = (A + B)ⱼᵢ = Aⱼᵢ + Bⱼᵢ.
+
+---
+
+### 4.1 Matrix Calculus
+
+**Definition 4.6 (Matrix equality).** Two matrices A and B are equal if they have the same dimension and aᵢⱼ = bᵢⱼ for all i, j.
+
+**Definition 4.7 (Matrix sum).** The sum of two matrices of the same dimension is defined by (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ.
+
+**Example 4.4.**
+
+$$A = \begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}, \quad A + B = \begin{pmatrix} 6 & 9 \\ 9 & 12 \end{pmatrix}$$
+
+**Definition 4.8 (Scalar multiplication).** Let λ ∈ ℝ. The product λA is defined by (λA)ᵢⱼ = λaᵢⱼ.
+
+**Definition 4.9 (Matrix product).** Let A ∈ ℝⁿˣᵖ and B ∈ ℝᵖˣᵐ. The product AB is the matrix of dimension n × m defined by:
+
+$$(AB)_{i,j} = \sum_{k=1}^p a_{i,k} b_{k,j}$$
+
+**Example 4.6.**
+
+$$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}, \quad AB = \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix}$$
+
+**Definition 4.10 (Rank).** Th rank of a matrix is the maximum number of linearly independent columns.
+
+**Example 4.7.**
+
+$$A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}$$
+
+The second column is twice the first, and the third is the sum of the first two. There is only one linearly independent column, so rank(A) = 1.
+
+**Definition 4.11 (Invertible matrix).** A square matrix is invertible if there exists a matrix A⁻¹ such that AA⁻¹ = A⁻¹A = Iₙ.
+
+---
+
+### 4.2 Determinants
+
+**Definition 4.12 (Determinant of order 2).** Let
+
+$$A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
+
+The determinant of A is defined by det(A) = ad − bc.
+
+**Example 4.9.**
+
+$$A = \begin{pmatrix} 3 & 5 \\ 2 & 7 \end{pmatrix}, \quad \det(A) = 3 \cdot 7 - 5 \cdot 2 = 21 - 10 = 11$$
+
+---
+
+### 4.3 Higher-Order Determinants
+
+**Definition 4.13 (General expression of the determinant).** Let A = (aᵢⱼ) ∈ ℝⁿˣⁿ. The determinant of A is defined by the Leibniz formula:
+
+$$\det(A) = \sum_{\sigma \in S_n} \varepsilon(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}$$
+
+where Sₙ is the set of permutations of {1, …, n} and ε(σ) is the signature of the permutation σ, equal to +1 or −1 according to whether σ is even or odd.
+
+In practice, the matrix is transformed into a triangular matrix, whose determinant is easy to compute, while carefully tracking the effect of the operations on the determinant.
+
+**Property 4.4.** Let A be a square matrix.
+- Swapping two rows multiplies the determinant by −1.
+- Multiplying a row by a scalar λ multiplies the determinant by λ.
+- Adding a multiple of one row to another row does not change the determinant.
+
+*Proof.* These properties follow directly from the definition of the determinant as a multilinear alternating function of the rows (or columns) of the matrix.
+
+**Definition 4.14 (Practical computation method: triangularisation).**
+1. Apply elementary row operations of the third type (adding a multiple of one row to another) to create zeros below (or above) the diagonal.
+2. This yields a triangular matrix.
+3. The determinant equals the product of the diagonal entries, corrected by any factors introduced by operations of the first and second types.
+
+**Theorem 4.1.** The determinant of a triangular matrix equals the product of its diagonal entries.
+
+*Proof.* In the general expression of the determinant, all terms involving off-diagonal entries are zero. The only non-zero term is therefore the product of the diagonal entries.
+
+**Example 4.10.** Computing the determinant of:
+
+$$A = \begin{pmatrix} 1 & 2 & 1 \\ 2 & 5 & 3 \\ 1 & 3 & 2 \end{pmatrix}$$
+
+Applying L₂ ← L₂ − 2L₁ and L₃ ← L₃ − L₁:
+
+$$A' = \begin{pmatrix} 1 & 2 & 1 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$$
+
+Then L₃ ← L₃ − L₂:
+
+$$A'' = \begin{pmatrix} 1 & 2 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}$$
+
+The matrix is triangular with a zero diagonal entry: det(A) = 1 × 1 × 0 = 0.
+
+**Theorem 4.2.** A square matrix is invertible if and only if its determinant is non-zero.
+
+*Proof.* If det(A) ≠ 0, the explicit formula for the inverse shows the existence of A⁻¹. Conversely, if A is invertible, then det(A) det(A⁻¹) = 1, so det(A) ≠ 0.
+
+#### 4.3.1 Solving Systems of Linear Equations
+
+**Theorem 4.3 (Cramer's rule).** Let AX = B be a linear system of n equations in n unknowns, where A ∈ ℝⁿˣⁿ and B ∈ ℝⁿ. If det(A) ≠ 0, then the system has a unique solution X = (x₁, …, xₙ) given by:
+
+$$x_i = \frac{\det(A_i)}{\det(A)}, \quad i = 1, \ldots, n$$
+
+where Aᵢ is the matrix obtained by replacing the i-th column of A by the vector B.
+
+*Proof.* The condition det(A) ≠ 0 implies that A is invertible, so the system AX = B has a unique solution. Writing A⁻¹ = (1/det(A)) Com(A)ᵀ, where Com(A) denotes the cofactor matrix of A, gives X = A⁻¹B = (1/det(A)) Com(A)ᵀ B. The i-th coefficient of X is xᵢ = (1/det(A)) Σⱼ Cⱼᵢ bⱼ, where Cⱼᵢ is the cofactor of aⱼᵢ. This sum corresponds exactly to the expansion of det(Aᵢ) along the i-th column, giving xᵢ = det(Aᵢ) / det(A).
+
+**Solving by matrix inversion**
+
+**Theorem 4.4.** If A is invertible, then the system AX = B has a unique solution given by X = A⁻¹B.
+
+*Proof.* If A is invertible, there exists A⁻¹ such that A⁻¹A = Iₙ. Multiplying AX = B on the left by A⁻¹ gives X = A⁻¹B. The existence of A⁻¹ guarantees the existence and uniqueness of the solution.
+
+**Theorem 4.5 (Inverse of a 2 × 2 matrix).** Let
+
+$$A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
+
+A is invertible if and only if ad − bc ≠ 0, in which case:
+
+$$A^{-1} = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+
+*Proof.* Direct computation verifies that A · (1/(ad−bc)) · ((d, −b), (−c, a)) = I₂.
+
+**Example 4.11.** Consider the system:
+
+$$\begin{cases} x + y = 3 \\ 2x + y = 4 \end{cases}$$
+
+In matrix form: A = ((1,1),(2,1)), X = (x,y)ᵀ, B = (3,4)ᵀ.
+
+det(A) = 1·1 − 1·2 = −1 ≠ 0, so A is invertible.
+
+$$A^{-1} = \begin{pmatrix} -1 & 1 \\ 2 & -1 \end{pmatrix}$$
+
+$$X = A^{-1}B = \begin{pmatrix} -1 & 1 \\ 2 & -1 \end{pmatrix} \begin{pmatrix} 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
+
+The solution is (x, y) = (1, 2).
+
+**Theorem 4.6 (Gauss-Jordan method).** Let A ∈ ℝⁿˣⁿ. A is invertible if and only if the augmented matrix (A | Iₙ) can be transformed into (Iₙ | A⁻¹) by elementary row operations.
+
+*Proof.* Elementary row operations correspond to multiplication by invertible elementary matrices. Transforming A into Iₙ amounts to multiplying A by a sequence of invertible matrices, whose product is precisely A⁻¹.
+
+**Algorithm 4.1.**
+1. Write the augmented matrix (A | Iₙ).
+2. Apply elementary row operations to transform A into Iₙ.
+3. The right-hand side becomes A⁻¹.
+
+**Example 4.12.** Computing the inverse of:
+
+$$A = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$$
+
+$$\left(\begin{array}{cc|cc} 1 & 1 & 1 & 0 \\ 1 & 2 & 0 & 1 \end{array}\right) \xrightarrow{L_2 \leftarrow L_2 - L_1} \left(\begin{array}{cc|cc} 1 & 1 & 1 & 0 \\ 0 & 1 & -1 & 1 \end{array}\right) \xrightarrow{L_1 \leftarrow L_1 - L_2} \left(\begin{array}{cc|cc} 1 & 0 & 2 & -1 \\ 0 & 1 & -1 & 1 \end{array}\right)$$
+
+Thus:
+
+$$A^{-1} = \begin{pmatrix} 2 & -1 \\ -1 & 1 \end{pmatrix}$$
+
+#### 4.3.2 Applications of Matrices
+
+**Definition 4.15 (Graphs).** A graph is a mathematical structure composed of a set of vertices (or nodes) and a set of edges connecting certain vertices.
+
+**Definition 4.16 (Orientation).** Two main types of graphs are distinguished:
+- undirected graphs, in which an edge connects two vertices symmetrically;
+- directed graphs, in which edges have a direction (they are then called arcs).
+
+Graphs represent relations between objects: connections between computers, social relations, roads between cities, dependencies between tasks, etc.
+
+To any graph with n vertices, an adjacency matrix of size n × n can be associated. This matrix translates the relations between vertices into algebraic form.
+
+**Definition 4.17 (Matrices associated with graphs).** Let a graph have vertices numbered 1 to n. The adjacency matrix A = (aᵢⱼ) is defined by:
+
+$$a_{ij} = \begin{cases} 1 & \text{if vertex } i \text{ is connected to vertex } j \\ 0 & \text{otherwise} \end{cases}$$
+
+In a directed graph, aᵢⱼ = 1 means there exists an arc from i to j.
+
+**Property 4.5.** Let G be a graph with n vertices and A its adjacency matrix.
+1. A is a square matrix of size n × n.
+2. If G is undirected, then A is symmetric.
+3. The diagonal entries of A indicate the possible presence of loops on vertices.
+
+*Proof.*
+1. By definition, the adjacency matrix assigns a row and a column to each vertex. Since the graph has n vertices, the matrix has n rows and n columns.
+2. In an undirected graph, an edge connecting vertices i and j implies that i is connected to j and j is connected to i. Thus aᵢⱼ = aⱼᵢ for all i, j, so A is symmetric.
+3. The diagonal entry aᵢᵢ equals 1 if there exists an edge connecting vertex i to itself (a loop), and 0 otherwise.
+
+**Example 4.13.** Consider an undirected graph with four vertices A, B, C, D and the following connections: A–B, A–C, B–C, C–D.
+
+Numbering the vertices in order (A, B, C, D), the adjacency matrix is:
+
+$$A = \begin{pmatrix} 0 & 1 & 1 & 0 \\ 1 & 0 & 1 & 0 \\ 1 & 1 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix}$$
