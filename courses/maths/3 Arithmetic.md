@@ -1,1 +1,153 @@
+## 3 Arithmetic
+
+Let a, b, b₁, …, bₙ, c ∈ ℤ for the remainder of this chapter.
+
+**Definition 3.1 (Divisors).** We say that a divides b if there exists q ∈ ℤ such that b = aq. We write a | b.
+
+**Property 3.1.** If b ≠ 0, then b | a if and only if a/b ∈ ℤ.
+
+*Proof.* By definition, b | a means there exists q ∈ ℤ such that a = bq. This is equivalent to a/b = q ∈ ℤ.
+
+**Example 3.1.** 2 | 8, since 8/2 = 4 is an integer; but 3 ∤ 8, since 8/3 ≈ 2.66 is not an integer.
+
+**Property 3.2.** a | 0, ±1 | a, and ±a | a.
+
+*Proof.* 0 = a · 0, so a | 0. Also a = ±1 · (±a), so ±1 | a. Finally a = ±a · (±1), so ±a | a.
+
+**Example 3.2.** 1 | 0 since 0 = 1 · 0; 1 | 3 since 3 = 1 · 3; −3 | 3 since 3 = 3 · (−1).
+
+**Property 3.3.** If a | b and b | c, then a | c.
+
+*Proof.* If a | b, then b = aq for some q ∈ ℤ. If b | c, then c = br for some r ∈ ℤ. Thus c = aqr, so a | c.
+
+**Example 3.3.** 2 | 4 since 4 = 2 · 2, and 4 | 16 since 16 = 4 · 4, so 2 | 16.
+
+**Property 3.4.** If a | bᵢ for all i ∈ {1, …, n}, then $a \mid \sum_{i=1}^n b_i c_i$ for all c₁, …, cₙ ∈ ℤ.
+
+*Proof.* For each i, there exists qᵢ ∈ ℤ such that bᵢ = aqᵢ. Then $\sum_{i=1}^n b_i c_i = a \sum_{i=1}^n q_i c_i$, with $\sum_{i=1}^n q_i c_i \in \mathbb{Z}$.
+
+**Example 3.4.** 2 | 4 and 2 | 8, so 2 | (4 + 8), i.e. 2 | 12.
+
+**Property 3.5.** If a | b and b ≠ 0, then |a| ≤ |b|.
+
+*Proof.* Since a | b, there exists q ∈ ℤ such that b = aq. As b ≠ 0, q ≠ 0, so |q| ≥ 1. Thus |b| = |a||q| ≥ |a|.
+
+**Example 3.5.** 2 | 4 and 2 < 4; but 2 | 0 and 2 > 0.
+
+**Property 3.6.** If a | b and b | a, then a = ±b.
+
+*Proof.* There exist q, r ∈ ℤ such that b = aq and a = br. Substituting gives a = a(qr), so qr = 1. Thus q = ±1 and r = ±1, which implies a = ±b.
+
+**Property 3.7.** If there exists n ∈ ℕ* such that aⁿ | bⁿ, then a | b.
+
+*Proof.* If aⁿ | bⁿ, there exists q ∈ ℤ such that bⁿ = aⁿq. Writing (b/a)ⁿ = q gives b/a ∈ ℤ, so a | b.
+
+---
+
+### 3.1 Primes
+
+**Definition 3.2 (Prime).** A prime number is an integer p ≥ 2 whose only divisors are 1 and itself.
+
+**Theorem 3.1 (Fundamental theorem of arithmetic).** Every integer n ≥ 2 can be expressed uniquely as a product of prime numbers.
+
+*Proof.* The proof rests on induction and the divisibility lemma:
+- Existence: if n is prime, we are done. Otherwise n = ab with a, b < n. By induction, a and b factorise into primes.
+- Uniqueness: assuming two different factorisations, the property that any prime dividing a product divides at least one factor shows the two factorisations are identical up to order.
+
+**Example 3.6.** The number 15 is not prime, but it can be expressed as 15 = 3 · 5, where both 3 and 5 are prime.
+
+**Property 3.8.** If p is a prime number and p | ab, then p | a or p | b.
+
+*Proof.* If p ∤ a, then gcd(a, p) = 1. By Bézout's identity (Property 3.9), there exist x, y ∈ ℤ such that ax + py = 1. Multiplying by b gives abx + pby = b. Since p | ab and p | pby, it follows that p | b.
+
+**Definition 3.3.** Euler's totient function, denoted φ(n), is defined as the number of natural integers strictly less than n and coprime with n. When n is the product of two primes p and q: φ(n) = (p − 1)(q − 1).
+
+**Algorithm 3.1 (Sieve of Eratosthenes).**
+
+Objective: Find all primes ≤ n.
+
+Method:
+1. Write the list of integers from 2 to n.
+2. Take the first unmarked number p and declare it prime.
+3. Cross out all multiples of p greater than p.
+4. Repeat until p² > n.
+5. The remaining unmarked numbers are prime.
+
+*Proof.* Every multiple of a prime p is necessarily divisible by a prime less than or equal to p, so crossing out these multiples removes no prime. The remaining numbers have no prime divisor less than their square root and are therefore prime.
+
+**Example 3.7.** Applying the Sieve of Eratosthenes for n = 20.
+
+Write the integers from 2 to 20:
+
+2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+
+- p = 2: cross out 4, 6, 8, 10, 12, 14, 16, 18, 20.
+- p = 3: cross out 9, 15, 18.
+
+Since 3² > 20, we stop. The primes ≤ 20 are: 2, 3, 5, 7, 11, 13, 17, 19.
+
+**Definition 3.4 (GCD).** The gcd(a, b) is the largest integer that divides both a and b.
+
+**Property 3.9 (Bézout's identity).** For all integers a and b, there exist x, y ∈ ℤ such that ax + by = gcd(a, b).
+
+*Proof.* Using the Euclidean algorithm (Algorithm 3.2): at each step gcd(a, b) = gcd(b, r), and by back-substitution the gcd is expressed as a linear combination of a and b.
+
+**Definition 3.5 (Coprime).** Two integers a and b are coprime if gcd(a, b) = 1.
+
+**Algorithm 3.2 (Euclidean algorithm).**
+
+Objective: Compute gcd(a, b).
+
+Method:
+1. If b = 0, then gcd(a, b) = |a|.
+2. Otherwise, compute r = a mod b.
+3. Replace (a, b) by (b, r) and repeat.
+
+*Proof.* At each step, the gcd of two numbers does not change when the larger is replaced by the remainder of its division by the smaller. When the remainder becomes zero, the last non-zero divisor divides all preceding numbers and is therefore the gcd.
+
+**Example 3.8.** Computing gcd(48, 18) with the Euclidean algorithm:
+- 48 mod 18 = 12, so replace (48, 18) by (18, 12).
+- 18 mod 12 = 6, replace (18, 12) by (12, 6).
+- 12 mod 6 = 0, stop.
+
+Thus gcd(48, 18) = 6.
+
+**Definition 3.6 (Diophantine equation).** A polynomial equation for which integer solutions are sought.
+
+**Theorem 3.2 (Fermat's Last Theorem).** There are no positive integer solutions to xⁿ + yⁿ = zⁿ when n > 2.
+
+*Proof.* This proof is highly complex and was completed by Andrew Wiles in 1994. It uses advanced techniques from arithmetic geometry and number theory.
+
+**Definition 3.7 (Congruence).** Let a, b, n ∈ ℤ with n ≠ 0. We say that a is congruent to b modulo n if n | (a − b). We write a ≡ b (mod n).
+
+**Example 3.9.** 17 ≡ 5 (mod 12) since 17 − 5 = 12 and 12 | 12. Also 23 ≡ 2 (mod 7) since 23 − 2 = 21 and 7 | 21.
+
+**Property 3.10.** If a ≡ b (mod n), then:
+1. a + c ≡ b + c (mod n)
+2. ac ≡ bc (mod n)
+3. aᵏ ≡ bᵏ (mod n) for k ∈ ℕ
+
+*Proof.* Using the definition a ≡ b (mod n) ⟹ n | (a − b) and the properties of divisors.
+
+**Algorithm 3.3 (RSA).** An asymmetric cryptography system based on the difficulty of factoring large numbers.
+
+Method:
+1. Choose two large prime numbers p and q.
+2. Compute n = pq, which serves as the modulus for the public and private keys.
+3. Compute φ(n) = (p − 1)(q − 1).
+4. Choose an integer e such that 1 < e < φ(n) and gcd(e, φ(n)) = 1.
+5. Compute d such that e · d ≡ 1 (mod φ(n)).
+
+Keys: Public key (e, n), private key (d, n).
+
+Encryption: For a message M, C = Mᵉ (mod n).
+
+Decryption: M = Cᵈ (mod n).
+
+Security: Based on the difficulty of factoring n into its prime factors.
+
+*Proof.* Security rests on factorisation: knowing n alone does not allow recovery of p and q, so d remains secret. The relation Mᵉᵈ ≡ M (mod n) guarantees that decryption correctly inverts encryption, since ed ≡ 1 (mod φ(n)) and Euler's theorem ensures Mᵠ⁽ⁿ⁾ ≡ 1 (mod n) for M coprime with n.
+
+---
+
 
