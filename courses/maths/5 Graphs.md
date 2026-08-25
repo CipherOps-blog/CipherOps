@@ -1,1 +1,584 @@
+## 1 Graphs
 
+A graph is a mathematical structure used to model relations between objects. Applications include computer networks, logistics, and project scheduling.
+
+**Definition 1.1 (Vertex).** A vertex (also called a node or point) is the fundamental element of a graph. It represents a basic entity in the modelled problem. The set of vertices of a graph G is denoted V (or S), and the number of vertices is denoted |V| (or n).
+
+**Example 1.1 (Vertices of a road network).** In a road network, each city is a vertex. For the cities {A, B, C, D}:
+
+$$V = \{A, B, C, D\}, \quad |V| = 4$$
+
+**Definition 1.2 (Arc).** An arc is a link connecting two vertices of a graph. The set of arcs is denoted E, and the number of arcs is denoted |E|. An arc between vertices u and v is written (u, v).
+
+**Definition 1.3 (Weighted arc).** An arc is weighted when a numerical value w(u, v) ∈ ℝ is assigned to it, called its weight, cost, or capacity depending on context.
+
+**Definition 1.4 (Directed arc).** An arc is directed when it has a unique direction of traversal: from u to v, written u → v. It cannot be traversed in the reverse direction v → u. A graph in which all arcs are directed is called a directed graph (or digraph).
+
+**Example 1.2 (Arcs of a road network).** Taking the cities {A, B, C, D} from Example 1.1, roads are added:
+
+$$E = \{(A,B,4),\ (A,D,2),\ (B,C,5),\ (D,C,3),\ (D,B,1)\}$$
+
+Values represent distances in km. Arrows indicate the direction of travel (one-way).
+
+---
+
+### 1.1 Graph Representations
+
+A given graph can be stored in memory in several ways. The choice of representation affects the efficiency of algorithms.
+
+#### 1.1.1 Arc List
+
+**Definition 1.5 (Arc list).** The arc list is the simplest representation: the set of triples (u, v, w) is stored, where u is the source vertex, v the destination vertex, and w the arc weight.
+
+**Example 1.3 (Arc list).** For the graph of Example 1.2:
+
+| Source | Destination | Weight |
+|--------|-------------|--------|
+| A | B | 4 |
+| A | D | 2 |
+| B | C | 5 |
+| D | C | 3 |
+| D | B | 1 |
+
+This representation is compact but inefficient for finding the neighbours of a vertex (complexity O(m)).
+
+#### 1.1.2 Adjacency Matrix
+
+**Definition 1.6 (Adjacency matrix).** The adjacency matrix of a graph with n vertices is a matrix M ∈ ℝⁿˣⁿ such that:
+
+$$M[i][j] = \begin{cases} w(i,j) & \text{if there exists an arc from } i \text{ to } j \\ 0 \text{ (or } \infty) & \text{otherwise} \end{cases}$$
+
+In the Boolean case (unweighted graph), M[i][j] ∈ {0, 1}. In the numerical case, M[i][j] = w(i, j).
+
+**Example 1.4 (Numerical adjacency matrix).** For the graph {A, B, C, D} of Example 1.2 (∞ denotes the absence of an arc):
+
+$$M = \begin{pmatrix} & A & B & C & D \\ A & 0 & 4 & \infty & 2 \\ B & \infty & 0 & 5 & \infty \\ C & \infty & \infty & 0 & \infty \\ D & \infty & 1 & 3 & 0 \end{pmatrix}$$
+
+Reading row D indicates that D has arcs to B (weight 1) and C (weight 3).
+
+#### 1.1.3 Successor and Predecessor Dictionaries
+
+**Definition 1.7 (Successor / predecessor dictionary).** The successor dictionary maps each vertex u to its list of outgoing neighbours:
+
+$$\text{Succ}(u) = \{v \mid (u,v) \in E\}$$
+
+The predecessor dictionary maps each vertex v to its list of incoming neighbours:
+
+$$\text{Pred}(v) = \{u \mid (u,v) \in E\}$$
+
+**Example 1.5 (Successor dictionary).** For the graph of Example 1.2:
+
+| Vertex | Successors |
+|--------|------------|
+| A | {B, D} |
+| B | {C} |
+| C | {} |
+| D | {B, C} |
+
+This representation is efficient for traversing the neighbours of a vertex (complexity O(deg(u))), unlike the adjacency matrix which requires O(n).
+
+---
+
+### 1.2 Paths and Cycles
+
+**Definition 1.8 (Path).** A directed path is a sequence of vertices v₀, v₁, …, vₖ such that for every i, there exists an arc (vᵢ, vᵢ₊₁) ∈ E. The length of the path is the number of arcs traversed, namely k.
+
+**Definition 1.9 (Hamiltonian path).** A Hamiltonian path is a path that passes through each vertex of the graph exactly once. If it forms a cycle (returning to the starting vertex), it is called a Hamiltonian cycle.
+
+**Example 1.6 (Path and Hamiltonian path).** In the graph {A, B, C, D} of Example 1.2:
+
+A → D → B → C is a path of length 3 and cost 2 + 1 + 5 = 8. It is also a Hamiltonian path, since it passes through each of the 4 vertices exactly once.
+
+**Definition 1.10 (Undirected cycle).** A cycle is a sequence of vertices v₀, v₁, …, vₖ = v₀ such that arcs connecting consecutive vertices exist, and v₀ = vₖ.
+
+**Definition 1.11 (Directed cycle / circuit).** A circuit is a directed path whose origin and end coincide: v₀ = vₖ. Following the arcs in their direction, one returns to the starting point.
+
+**Example 1.7 (Circuit in a graph).** Adding an arc C → A of weight 1 to the graph of Example 1.2: A → D → B → C → A is a circuit of length 4 and cost 2 + 1 + 5 + 1 = 9.
+
+The presence of circuits can cause problems in certain algorithms (e.g. Dijkstra, see Example 1.17, with negative weights).
+
+---
+
+### 1.3 Graph Traversal
+
+Traversal algorithms systematically explore all vertices of a graph starting from a source vertex.
+
+#### 1.3.1 Breadth-First Search
+
+**Definition 1.12 (Breadth-First Search).** Breadth-First Search (BFS) explores the graph level by level: all direct neighbours of the source vertex are visited first, then the neighbours of those neighbours, and so on. It uses a queue (FIFO). It finds the shortest path in an unweighted graph.
+
+**Algorithm 1: Breadth-First Search**
+
+```
+Require: Graph G = (V, E), source vertex s
+Ensure: Visitation order of vertices
+
+1: Mark all vertices as unvisited
+2: Create an empty queue F
+3: Mark s as visited and enqueue s in F
+4: while F is not empty do
+5:     u ← dequeue the first element of F
+6:     Process u (display, store, etc.)
+7:     for each neighbour v of u do
+8:         if v is not visited then
+9:             Mark v as visited
+10:            Enqueue v in F
+11:        end if
+12:    end for
+13: end while
+```
+
+**Example 1.8 (BFS on a simple graph).** Consider the undirected graph:
+
+$$V = \{1,2,3,4,5\}, \quad E = \{(1,2),(1,3),(2,4),(3,4),(4,5)\}$$
+
+BFS from vertex 1:
+1. Queue: [1] — visit 1, enqueue 2, 3
+2. Queue: [2, 3] — visit 2, enqueue 4
+3. Queue: [3, 4] — visit 3 (4 already queued)
+4. Queue: [4] — visit 4, enqueue 5
+5. Queue: [5] — visit 5
+
+Visitation order: 1, 2, 3, 4, 5. Compare with DFS on the same graph (Example 1.9).
+
+#### 1.3.2 Depth-First Search
+
+**Definition 1.13 (Depth-First Search).** Depth-First Search (DFS) explores the graph by going as deep as possible into each branch before backtracking. It uses a stack (LIFO) or recursion. It is useful for detecting cycles, computing connected components, or performing a topological sort.
+
+**Algorithm 2: Depth-First Search (recursive)**
+
+```
+Require: Graph G = (V, E), source vertex s
+Ensure: Visitation order of vertices
+
+1: procedure DFS(u)
+2:     Mark u as visited
+3:     Process u
+4:     for each neighbour v of u do
+5:         if v is not visited then
+6:             DFS(v)
+7:         end if
+8:     end for
+9: end procedure
+10: Mark all vertices as unvisited
+11: DFS(s)
+```
+
+**Example 1.9 (DFS on a simple graph).** Same graph as for BFS (Example 1.8). DFS from vertex 1:
+1. Visit 1 → explore 2
+2. Visit 2 → explore 4
+3. Visit 4 → explore 3 then 5
+4. Visit 3 (no new neighbour)
+5. Visit 5 (no new neighbour)
+
+Visitation order: 1, 2, 4, 3, 5.
+
+---
+
+### 1.4 Connectivity
+
+#### 1.4.1 Connected Components
+
+**Definition 1.14 (Connected component).** A connected component of an undirected graph is a maximal subset of vertices such that every pair of vertices is connected by a path. A graph is connected if it has only one connected component.
+
+**Example 1.10 (Connected components).** Consider the graph:
+
+$$V = \{1,2,3,4,5\}, \quad E = \{(1,2),(2,3),(4,5)\}$$
+
+Its connected components are {1, 2, 3} and {4, 5}. This graph is not connected, as it has two components. Components can be identified by BFS or DFS.
+
+#### 1.4.2 Strongly Connected Components
+
+**Definition 1.15 (Strongly connected component).** In a directed graph, a strongly connected component (SCC) is a maximal subset of vertices C ⊆ V such that for every pair (u, v) ∈ C × C, there exists a directed path from u to v and from v to u.
+
+**Algorithm 3: Tarjan's algorithm for strongly connected components**
+
+```
+Require: Directed graph G = (V, E)
+Ensure: Set of SCCs
+
+1: Initialise counter index ← 0, empty stack S
+2: for each unvisited vertex u ∈ V do
+3:     Tarjan(u)
+4: end for
+
+5: procedure Tarjan(u)
+6:     u.index ← u.lowlink ← index
+7:     index += 1
+8:     Push u onto S, mark u as on the stack
+9:     for each neighbour v of u do
+10:        if v not visited then
+11:            Tarjan(v)
+12:            u.lowlink ← min(u.lowlink, v.lowlink)
+13:        else if v is on the stack then
+14:            u.lowlink ← min(u.lowlink, v.index)
+15:        end if
+16:    end for
+17:    if u.lowlink = u.index then
+18:        Pop until u (inclusive) ⇒ new SCC
+19:    end if
+20: end procedure
+```
+
+**Example 1.11 (Strongly connected components).** Consider the directed graph:
+
+$$V = \{1,2,3,4,5\}, \quad E = \{(1,2),(2,3),(3,1),(3,4),(4,5),(5,4)\}$$
+
+Its strongly connected components are {1, 2, 3} and {4, 5}. Tarjan's algorithm identifies them in a single DFS pass, with complexity O(|V| + |E|). The associated reduced graph is presented in Example 1.12.
+
+#### 1.4.3 Reduced Graph
+
+**Definition 1.16 (Reduced graph).** The reduced graph (or SCC graph) is obtained by contracting each strongly connected component into a single vertex. The reduced graph is always a DAG (directed acyclic graph, containing no circuit). It allows analysis of the global structure of a directed graph.
+
+**Example 1.12 (Reduced graph).** From Example 1.11, the SCCs {1, 2, 3} and {4, 5} become two super-vertices C₁ and C₂. The reduced graph is:
+
+$$C_1 \rightarrow C_2$$
+
+since the arc (3, 4) exists between the two components.
+
+---
+
+### 1.5 Trees
+
+**Definition 1.17 (Tree).** A tree is a connected, acyclic graph. For a tree with n vertices, there are exactly n − 1 edges. Equivalent properties:
+- There exists a unique path between every pair of vertices.
+- The graph is connected and the removal of any edge disconnects it.
+
+**Example 1.13 (Tree).** The following graph is a tree, as it is connected, has 5 − 1 = 4 edges, and contains no cycle:
+
+$$V = \{A,B,C,D,E\}, \quad E = \{(A,B),(A,C),(C,D),(C,E)\}$$
+
+#### 1.5.1 Spanning Trees
+
+**Definition 1.18 (Spanning tree).** A spanning tree of a connected graph G = (V, E) is a subgraph that is a tree and contains all vertices of G. It has exactly |V| − 1 edges.
+
+**Example 1.14 (Spanning tree).** For the graph V = {A, B, C, D} of Example 1.2 with E = {(A,B,4), (A,D,2), (B,C,5), (D,C,3), (D,B,1)}, one possible spanning tree is: {(A,D,2), (D,B,1), (D,C,3)}. It contains all 4 vertices and 3 edges, with no cycle.
+
+#### 1.5.2 Minimum Spanning Tree
+
+**Definition 1.19 (Minimum Spanning Tree).** The Minimum Spanning Tree (MST) is the spanning tree whose sum of edge weights is minimal. Its cost is:
+
+$$\text{cost}(\text{MST}) = \sum_{(u,v) \in \text{MST}} w(u,v)$$
+
+**Algorithm 4: Prim's algorithm**
+
+```
+Require: Connected weighted graph G = (V, E, w), source vertex s
+Ensure: Minimum spanning tree T
+
+1: T ← ∅, Visited ← {s}
+2: while |Visited| < |V| do
+3:     Find the minimum-weight edge (u, v) such that u ∈ Visited and v ∉ Visited
+4:     T ← T ∪ {(u, v)}
+5:     Visited ← Visited ∪ {v}
+6: end while
+7: return T
+```
+
+**Algorithm 5: Kruskal's algorithm**
+
+```
+Require: Connected weighted graph G = (V, E, w)
+Ensure: Minimum spanning tree T
+
+1: Sort edges of E by increasing weight
+2: T ← ∅
+3: Initialise a Union-Find structure on V
+4: for each edge (u, v, w) in increasing order do
+5:     if u and v are not in the same component then
+6:         T ← T ∪ {(u, v)}
+7:         Merge the components of u and v
+8:     end if
+9: end for
+10: return T
+```
+
+**Example 1.15 (MST with Prim and Kruskal).** Graph {A, B, C, D} of Example 1.2, edges sorted by weight: (D,B,1), (A,D,2), (D,C,3), (A,B,4), (B,C,5). Both algorithms produce the same MST.
+
+Kruskal:
+1. (D,B,1): add, no cycle.
+2. (A,D,2): add, no cycle.
+3. (D,C,3): add, no cycle.
+4. (A,B,4): reject, creates cycle A−D−B−A.
+
+MST = {(D,B,1), (A,D,2), (D,C,3)}, cost = 1 + 2 + 3 = 6. This spanning tree is also presented in Example 1.14.
+
+#### 1.5.3 Optimal Trees
+
+**Definition 1.20 (Optimal tree).** An optimal tree is, in a given context, the tree minimising (or maximising) a particular criterion.
+
+---
+
+### 1.6 Optimal Paths
+
+**Definition 1.21 (Optimal path).** An optimal path between two vertices s and t is a path minimising the sum of the weights of the arcs traversed.
+
+#### 1.6.1 Bellman-Ford Algorithm
+
+**Algorithm 6: Bellman-Ford**
+
+```
+Require: Graph G = (V, E, w), source vertex s
+Ensure: Minimum distance d[v] from s to every v ∈ V
+
+1: d[s] ← 0; d[v] ← +∞ for all v ≠ s
+2: for i = 1 to |V| − 1 do
+3:     for each arc (u, v, w) ∈ E do
+4:         if d[u] + w < d[v] then
+5:             d[v] ← d[u] + w
+6:         end if
+7:     end for
+8: end for
+9: for each arc (u, v, w) ∈ E do
+10:    if d[u] + w < d[v] then
+11:        Detect a negative-weight cycle
+12:    end if
+13: end for
+14: return d
+```
+
+**Example 1.16 (Bellman-Ford).** Graph {A, B, C, D} of Example 1.2, source A: arcs (A,B,4), (A,D,2), (D,B,1), (D,C,3), (B,C,5).
+
+Initialisation: d = [A:0, B:∞, C:∞, D:∞].
+
+Iteration 1:
+- (A,B,4): d[B] = min(∞, 0+4) = 4
+- (A,D,2): d[D] = min(∞, 0+2) = 2
+- (D,B,1): d[B] = min(4, 2+1) = 3
+- (D,C,3): d[C] = min(∞, 2+3) = 5
+- (B,C,5): d[C] = min(5, 3+5) = 5
+
+Result: d = [A:0, B:3, C:5, D:2]. This result is identical to that of Dijkstra (Example 1.17) and consistent with the Floyd-Warshall matrix (Example 1.18).
+
+#### 1.6.2 Dijkstra's Algorithm
+
+**Algorithm 7: Dijkstra**
+
+```
+Require: Graph G = (V, E, w) with w ≥ 0, source vertex s
+Ensure: Minimum distance d[v] from s to every v ∈ V
+
+1: d[s] ← 0; d[v] ← +∞ for all v ≠ s
+2: Q ← V (priority queue)
+3: while Q ≠ ∅ do
+4:     u ← vertex in Q with minimal d[u]
+5:     Remove u from Q
+6:     for each neighbour v of u do
+7:         if d[u] + w(u,v) < d[v] then
+8:             d[v] ← d[u] + w(u,v)
+9:         end if
+10:    end for
+11: end while
+12: return d
+```
+
+**Example 1.17 (Dijkstra).** Same graph as Example 1.2, source A:
+
+| Step | Vertex processed | d[A] | d[B] | d[C] | d[D] |
+|------|-----------------|------|------|------|------|
+| Init | — | 0 | ∞ | ∞ | ∞ |
+| 1 | A | 0 | 4 | ∞ | 2 |
+| 2 | D | 0 | 3 | 5 | 2 |
+| 3 | B | 0 | 3 | 5 | 2 |
+| 4 | C | 0 | 3 | 5 | 2 |
+
+Result identical to Bellman-Ford (Example 1.16), but more efficient (O((|V|+|E|) log |V|) with a binary heap). Note: Dijkstra does not work with negative weights; use Bellman-Ford in that case.
+
+#### 1.6.3 Floyd-Warshall Algorithm
+
+**Algorithm 8: Floyd-Warshall**
+
+```
+Require: Adjacency matrix D of size n × n
+Ensure: Matrix of shortest paths between all pairs
+
+1: Initialise D[i][j] = w(i,j) if arc exists, 0 if i = j, ∞ otherwise
+2: for k = 1 to n do
+3:     for i = 1 to n do
+4:         for j = 1 to n do
+5:             if D[i][k] + D[k][j] < D[i][j] then
+6:                 D[i][j] ← D[i][k] + D[k][j]
+7:             end if
+8:         end for
+9:     end for
+10: end for
+11: return D
+```
+
+**Example 1.18 (Floyd-Warshall).** For the graph of Example 1.2, after Floyd-Warshall, the final matrix gives the shortest paths between all pairs of vertices:
+
+$$D_{\text{final}} = \begin{pmatrix} 0 & 3 & 5 & 2 \\ \infty & 0 & 5 & \infty \\ \infty & \infty & 0 & \infty \\ \infty & 1 & 3 & 0 \end{pmatrix}$$
+
+Complexity: O(n³). Advantage: handles all pairs in a single pass, unlike Dijkstra (Example 1.17) which processes only one source, and supports negative weights (without negative cycles).
+
+---
+
+### 1.7 Flows
+
+Flow theory models transport or circulation problems in a network (water, data, goods, etc.). Arcs are assigned capacities.
+
+**Definition 1.22 (Flow).** Let G = (V, E) be a directed graph with a source s, a sink t, and a capacity c(u, v) ≥ 0 on each arc. A flow is a function f : E → ℝ⁺ satisfying:
+- Capacity constraint: 0 ≤ f(u, v) ≤ c(u, v)
+- Flow conservation: for every vertex v ≠ s, t: $\sum_u f(u,v) = \sum_w f(v,w)$
+
+The value of the flow is $|f| = \sum_v f(s,v)$.
+
+**Definition 1.23 (Residual graph).** The residual graph associated with a flow f is the graph Gf = (V, Ef) where:
+- For each arc (u, v) ∈ E: a forward arc with residual capacity c(u, v) − f(u, v) is added (if > 0).
+- For each arc (u, v) ∈ E: a reverse arc (v, u) with capacity f(u, v) is added (if > 0).
+
+**Definition 1.24 (Minimum cut).** A cut (S, T) is a partition of V such that s ∈ S and t ∈ T. The capacity of the cut is:
+
+$$c(S,T) = \sum_{u \in S,\, v \in T} c(u,v)$$
+
+The minimum cut is the cut with minimum capacity.
+
+#### 1.7.1 Maximum Flow
+
+**Definition 1.25 (Maximum flow).** The maximum flow is the flow of maximum value that can circulate from source s to sink t, subject to capacity constraints.
+
+**Theorem 1.1 (Max-Flow Min-Cut).** A feasible flow f is maximum if and only if there exists no augmenting path in the residual graph Gf (i.e. no path from s to t in Gf). Moreover: max |f| = min c(S, T).
+
+**Algorithm 9: Ford-Fulkerson**
+
+```
+Require: Graph G = (V, E, c), source s, sink t
+Ensure: Maximum flow f
+
+1: Initialise f(u, v) ← 0 for all arcs
+2: while there exists an augmenting path P from s to t in Gf do
+3:     δ ← min_{(u,v)∈P} cf(u, v)
+4:     for each arc (u, v) ∈ P do
+5:         if (u, v) is a forward arc then
+6:             f(u, v) ← f(u, v) + δ
+7:         else
+8:             f(v, u) ← f(v, u) − δ
+9:         end if
+10:    end for
+11: end while
+12: return f
+```
+
+**Example 1.19 (Ford-Fulkerson).** Network with s = A and t = D:
+
+$$V = \{A,B,C,D\}, \quad E = \{(A,B,3),(A,C,2),(B,D,2),(C,D,3),(B,C,1)\}$$
+
+- Iteration 1: Path A → B → D, δ = min(3, 2) = 2. Set f(A,B) = 2, f(B,D) = 2.
+- Iteration 2: Path A → C → D, δ = min(2, 3) = 2. Set f(A,C) = 2, f(C,D) = 2.
+
+After these two iterations, |f| = f(A,B) + f(A,C) = 2 + 2 = 4.
+
+- Iteration 3: An augmenting path still exists in Gf, for example A → B → C → D, with residual capacities cf(A,B) = 1, cf(B,C) = 1, cf(C,D) = 1. Thus δ = 1. Update: f(A,B) = 3, f(B,C) = 1, f(C,D) = 3.
+
+The final flow value is |f| = f(A,B) + f(A,C) = 3 + 2 = 5. Since the total capacity leaving A is c(A,B) + c(A,C) = 3 + 2 = 5, the flow obtained is maximum.
+
+#### 1.7.2 Minimum-Cost Maximum Flow
+
+**Definition 1.26 (Minimum-cost maximum flow).** In a network where each arc (u, v) has both a capacity c(u, v) and a cost w(u, v), the minimum-cost maximum flow is the maximum flow whose total cost $\sum_{(u,v)} f(u,v) \cdot w(u,v)$ is minimised.
+
+**Algorithm 10: Busacker and Gowen**
+
+```
+Require: Graph G = (V, E, c, w), source s, sink t
+Ensure: Minimum-cost maximum flow
+
+1: Initialise f(u, v) ← 0 for all arcs
+2: while there exists a path from s to t in Gf do
+3:     Find the minimum-cost path P from s to t in Gf
+       (via Bellman-Ford or Dijkstra, see Examples 1.16 and 1.17)
+4:     δ ← min_{(u,v)∈P} cf(u, v)
+5:     Augment the flow along P by δ
+6: end while
+7: return f
+```
+
+**Example 1.20 (Busacker and Gowen).** Same network as Example 1.19, with costs: (A,B,1), (A,C,3), (B,D,2), (C,D,1), (B,C,2).
+
+- Iteration 1: Minimum-cost path A → B → D (cost 1 + 2 = 3), δ = 2.
+- Iteration 2: Minimum-cost path A → C → D (cost 3 + 1 = 4), δ = 2.
+
+Maximum flow = 4 (identical to Example 1.19), total cost = 2 × 3 + 2 × 4 = 14.
+
+---
+
+### 1.8 Scheduling
+
+Scheduling consists of planning tasks while accounting for their durations and dependencies (precedence constraints). Directed graphs and critical paths are central to these methods.
+
+#### 1.8.1 PERT Method
+
+**Definition 1.27 (Program Evaluation and Review Technique).** The PERT method represents a project as a directed graph where:
+- Arcs represent tasks (with their duration).
+- Vertices represent events (start or end of tasks).
+
+It allows computation of the critical path and slack times.
+
+**Algorithm 11: Construction and analysis of the PERT graph**
+
+```
+Require: List of tasks with durations and precedences
+Ensure: Earliest dates, latest dates, critical path
+
+1: Build the PERT graph (vertices = events, arcs = tasks)
+2: Compute earliest dates t⁺(i) by forward pass (from source to sink):
+       t⁺(j) = max_{i→j} [t⁺(i) + d(i,j)]
+3: Compute latest dates t⁻(i) by backward pass (from sink to source):
+       t⁻(i) = min_{i→j} [t⁻(j) − d(i,j)]
+4: Compute the slack of each task (i, j):
+       slack(i,j) = t⁻(j) − t⁺(i) − d(i,j)
+5: The critical path is the set of tasks with zero slack
+```
+
+**Example 1.21 (PERT).** Project with 4 tasks:
+
+| Task | Duration | Precedences | Arc |
+|------|----------|-------------|-----|
+| A | 3 | — | 1→2 |
+| B | 2 | — | 1→3 |
+| C | 4 | A | 2→4 |
+| D | 1 | B | 3→4 |
+
+- Earliest dates: t⁺(1) = 0, t⁺(2) = 3, t⁺(3) = 2, t⁺(4) = 7.
+- Latest dates: t⁻(4) = 7, t⁻(2) = 3, t⁻(3) = 6, t⁻(1) = 0.
+- Slacks: A = 0, B = 4, C = 0, D = 4.
+- Critical path: A → C (total duration = 7 days).
+
+This project is also treated by the MPM method in Example 1.22.
+
+#### 1.8.2 MPM Method
+
+**Definition 1.28 (Metra Potential Method).** The MPM method represents a project as a directed graph where:
+- Vertices represent tasks.
+- Arcs represent precedence constraints (with optional minimum delays).
+
+Unlike PERT, tasks are carried by nodes, which avoids the need for dummy tasks.
+
+**Algorithm 12: Construction and analysis of the MPM graph**
+
+```
+Require: List of tasks with durations and precedences
+Ensure: Earliest dates, latest dates, critical path
+
+1: Add a Start vertex and an End vertex
+2: Connect Start to all tasks with no predecessor
+3: Connect all tasks with no successor to End
+4: Compute earliest dates t⁺(i):
+       t⁺(j) = max_{i→j} [t⁺(i) + d(i)]
+5: Compute latest dates t⁻(i):
+       t⁻(i) = min_{i→j} [t⁻(j) − d(i)]
+6: Compute the total slack of each task i:
+       slack(i) = t⁻(i) − t⁺(i)
+7: The critical path is the set of tasks with zero slack
+```
+
+**Example 1.22 (MPM).** Same project as for PERT (Example 1.21). The MPM graph has vertices: {Start, A, B, C, D, End}.
+
+Arcs: Start → A, Start → B, A → C, B → D, C → End, D → End.
+
+Earliest dates: t⁺(A) = 0, t⁺(B) = 0, t⁺(C) = 3, t⁺(D) = 2, t⁺(End) = 7.
+
+Slacks: A = 0, B = 4, C = 0, D = 4.
+
+Critical path: Start → A → C → End, identical to that found by PERT (Example 1.21).
+
+**Remark 1.1 (PERT vs MPM).** Both methods yield the same results. MPM is often preferred because it avoids the dummy tasks that PERT requires to model certain complex dependencies.
