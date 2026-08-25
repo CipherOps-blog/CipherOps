@@ -73,6 +73,21 @@ const fetchManifestEntry = async (filePath) => {
   return null;
 };
 
+const renderMarkdown = (markdown) => {
+  if (typeof marked === 'undefined' || !marked.parse) return markdown;
+
+  const mathExpressions = [];
+  const mathPattern = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)|(?<!\$)\$(?!\$)[\s\S]*?(?<!\$)\$(?!\$))/g;
+  const protectedMarkdown = markdown.replace(mathPattern, (expression) => {
+    const token = `CIPHEROPS_MATH_${mathExpressions.length}_END`;
+    mathExpressions.push(expression);
+    return token;
+  });
+
+  const html = marked.parse(protectedMarkdown);
+  return html.replace(/CIPHEROPS_MATH_(\d+)_END/g, (_, index) => mathExpressions[Number(index)] || '');
+};
+
 // ─────────────────────────────────────────────────────────────────
 
 const loadArticle = async (filePath) => {
@@ -89,7 +104,7 @@ const loadArticle = async (filePath) => {
     }
 
     const markdown = await response.text();
-    const html     = marked && marked.parse ? marked.parse(markdown) : markdown;
+    const html     = renderMarkdown(markdown);
     const manifestEntry = await fetchManifestEntry(filePath);
 
     articleContainer.innerHTML = html;
