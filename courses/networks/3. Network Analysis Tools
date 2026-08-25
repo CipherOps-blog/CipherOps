@@ -1,7 +1,172 @@
 # 3. Network Analysis Tools
 ## 3.1 Wireshark
-### 3.1.1 Features and Capabilities
-### 3.1.2 Practical Use Cases
+To learn more about this section, I highly recommend reading [Practical Packet Analysis, 3rd Edition : Using Wireshark to Solve Real-World Network Problems, by Chris Sanders](https://search.worldcat.org/fr/title/1047868641) and [WIRESHARK for Security Professionals : Using Wireshark and the Metasploit Framework, by Jessey Bullock and Jeff T. Parker](https://search.worldcat.org/fr/title/975223991)
+
+### 3.1.1 Introduction to Wireshark
+What is Wireshark?
+Definition and role: tool for capturing and analysing network packets
+History: formerly named Ethereal, renamed in 2006
+Supported platforms: Windows, Linux, Unix
+Key concepts: frames, datagrams, packets, segments
+
+When to use Wireshark?
+Ideal use cases: root cause diagnosis, searching for a specific protocol, timing analysis
+Secondary use cases: identifying top talkers, traffic overview
+Tool limitations: Wireshark is not a general-purpose network discovery tool; opening it to "browse" traffic quickly leads to information overload
+
+### 3.1.2 The graphical user interface
+The three main panes
+Packet List Pane: overview of all captured packets, with columns for source, destination, protocol, length, and Info
+Packet Details Pane: breakdown of the selected packet into subtrees corresponding to OSI layers
+Packet Bytes Pane: raw packet data in three columns, offset in hexadecimal, hex values, and ASCII representation
+
+Reading the Packet Details Pane
+Subtree structure: each subtree represents an OSI layer, Ethernet (L2), IP (L3), TCP/UDP (L4), Application (L7)
+Packet metadata: the first subtree, "Frame", contains the number, timestamp, interface, captured size vs. size on the wire
+Packet Details to Packet Bytes correspondence: clicking a field in the Packet Details Pane highlights the corresponding bytes in the Packet Bytes Pane
+
+Reading the Packet Bytes Pane
+Offset column: position in hexadecimal from the start of the packet (0x0010 = 16 bytes)
+Hex column: raw value of each byte on the wire
+ASCII column: human-readable representation, where "." indicates a non-printable character
+Diagnostic utility: allows verification of exactly which bytes the dissector is analysing
+
+### 3.1.3 Wireshark filters
+Two types of filters
+Capture Filters: applied before recording, reducing the size of the pcap file
+Display Filters: applied after capture, allowing navigation through already-recorded packets
+Different syntaxes: capture filters use Berkeley Packet Filter syntax, display filters use a high-level logical syntax
+
+Capture Filters (BPF syntax)
+Basic components: protocol + direction (src, dst) + type (host, port, net, portrange)
+Common BPF protocols: ether, tcp, ip, ip6, arp
+Special primitives: broadcast, less, greater, gateway
+Logical operators: and (&&), or (||), not (!)
+Examples:
+tcp dst port 22: TCP traffic to port 22 only
+ether host 00:0c:29:57:b3:ff or broadcast: traffic from a specific machine plus broadcast
+
+Display Filters (logical syntax)
+Comparison operators: eq (==), ne (!=), gt (>), lt (<), ge (>=), le (<=), contains, matches
+Logical operators: and (&&), or (||), xor (^^), not (!), slice [ ], parentheses ( )
+Protocol-typed variables: ip.addr, eth.addr, tcp.port, arp.opcode, smb2.filename
+Finding variable names: status bar at the bottom left when a field is selected in the Packet Details Pane
+Interactive construction: right-click on a field, then Apply as Filter or Prepare as Filter
+Examples:
+ip.addr == 1.2.3.4: traffic to/from an IP address
+arp.opcode == 1: ARP requests only
+tcp.port == 80: HTTP traffic
+
+### 3.1.4 Dissectors
+Role of dissectors
+Definition: modules that decode protocols layer by layer to make them readable in the interface
+First dissector: always the "Frame" dissector, which adds metadata and timestamps
+Dissection chain: from the physical layer up to the application layer
+
+When Wireshark applies the wrong dissector
+Non-standard port problem: HTTP traffic on port 1080 incorrectly identified as SOCKS
+Decode As solution: Analyze → Decode As, to force the application of a specific dissector
+Importance for analysis: an incorrect dissector distorts protocol interpretation and the associated filters
+
+### 3.1.5 Understanding network traffic in Wireshark
+OSI layers in the Packet Details Pane
+Layer 2, Data Link: "Ethernet II" subtree, source and destination MAC addresses
+Layer 3, Network: "Internet Protocol" subtree, source and destination IP addresses, TTL, flags
+Layer 4, Transport: "TCP" or "UDP" subtree, ports, flags, sequence numbers
+Upper layers: application protocols, HTTP, DNS, FTP, SMB
+
+Key rule: MAC addresses change at each network hop, while IP addresses remain constant from source to destination, except where NAT is applied
+
+TCP vs UDP: reading the differences in Wireshark
+TCP: connection-oriented; look for the three-way handshake (SYN, SYN-ACK, ACK) before any data exchange
+Visible TCP flags: SYN, ACK, FIN, RST, PSH, each with a specific meaning in the flow of a session
+RST: abrupt connection reset, often indicating a closed port or a refused connection
+UDP: connectionless, no handshake, no acknowledgement, immediate traffic
+
+ARP: reading an address resolution
+Normal operation: ARP broadcast request ("Who has IP x.x.x.x?") followed by a unicast reply ("IP x.x.x.x is at MAC aa:bb:cc:dd:ee:ff")
+Useful filter: arp, displays all ARP frames
+Gratuitous ARP: an unsolicited ARP reply, which may be legitimate (reboot, failover) or indicate an attack
+No authentication: any host can reply to an ARP request or send a gratuitous ARP
+
+DNS: reading a name resolution
+Normal operation: UDP port 53 request followed by a reply containing the corresponding IP address
+TCP port 53: used for zone transfers or large responses
+Useful filter: dns, displays both DNS requests and replies
+Key field: the Info column, which directly shows the queried domain name and the resolved IP address
+
+Well-known ports: protocol identification
+Wireshark resolves automatically: port 80 to HTTP, port 443 to HTTPS, port 53 to DNS, port 21 to FTP
+Port ranges: well-known (0–1024), registered (1025–49151), dynamic (49152+)
+Non-standard ports: a malicious service may listen on an unusual port, causing the dissector to misidentify the protocol
+
+### 3.1.6 Reading attack traffic in Wireshark
+Identifying an ARP attack (ARP Spoofing / Poisoning)
+Characteristic sign: multiple ARP replies associating different MAC addresses with the same IP address
+Expert Information: Wireshark automatically flags a "duplicate IP address" under Analyze → Expert Information
+Suspicious gratuitous ARP: a host announces its IP/MAC association without having been prompted, which may indicate cache poisoning
+Useful filter: arp, to observe unsolicited ARP replies and MAC/IP inconsistencies
+Visible consequence: traffic intended for the gateway is redirected to the attacker's machine, so FTP, HTTP, and other packets arrive at an unexpected MAC address
+
+Identifying a DNS attack (DNS Spoofing)
+Characteristic sign: a DNS reply resolving a legitimate domain name to an unexpected IP address or one belonging to the attacker
+Useful filter: dns, to compare returned IP addresses against expected values
+Rogue DHCP: a fake DHCP server may distribute a DNS address controlled by the attacker; look for multiple DHCP Offer responses to the same request
+
+Identifying a port scan
+Characteristic sign: a burst of SYN packets sent to successive ports from the same source within a very short time
+Closed ports: RST/ACK response, indicating the port is not open
+Open ports: SYN-ACK response, indicating the service is available, followed by a RST from the scanner to avoid completing the connection
+Useful filter: tcp.flags.syn == 1 and tcp.flags.ack == 0, to isolate initial SYN packets
+Reading timestamps: nmap scans generate hundreds of SYN packets in under a millisecond, visible in the Time column
+
+Identifying a DoS attack (Denial of Service)
+SYN Flood: large volume of SYN packets with no returning ACK; the target accumulates half-open connections
+ICMP Flood: large volume of ICMP Echo requests (ping); filter: icmp
+UDP Flood: large volume of UDP packets sent to various ports; the target replies with ICMP "Destination Unreachable" messages
+Slowloris: few packets, but incomplete HTTP connections held open; difficult to detect by volume alone; look for TCP connections that remain open without a complete data exchange
+General indicator: an abnormally high ratio of packets of the same type or from the same source over a short period
+
+Identifying a shell or exploitation (offensive traffic)
+Bind shell: the compromised machine opens a listening port; the attacker connects to it (SYN, SYN-ACK, ACK toward an unusual port such as 4444)
+Reverse shell: the compromised machine initiates the connection toward the attacker, producing outbound traffic to an external IP on an unusual port
+Encrypted traffic (HTTPS/TLS): a reverse shell tunnelled over HTTPS is indistinguishable from legitimate web traffic without the private key; only the destination IP may reveal the activity
+Useful filter: tcp.port == 4444, or whichever non-standard port the payload uses
+Follow TCP Stream: right-click on a packet, then Follow → TCP Stream, to reconstruct the full conversation and potentially reveal shell commands in plaintext (e.g. whoami, root)
+Plaintext signatures: in an unencrypted shell, strings such as metasploit or meterpreter may appear directly in the Packet Bytes Pane
+
+Identifying APT traffic (Advanced Persistent Threat)
+Characteristic sign: regular, repeated connections to the same external IP over HTTP (port 80), with GET requests for unremarkable resources (e.g. default.htm, h.gif)
+Timing pattern: connections at fixed intervals (e.g. every 120 seconds), indicating malware beaconing
+Incremental source ports: some malware uses source ports that increment with each attempt (1067, 1068, 1069, etc.)
+Unanswered connections: repeated SYN attempts with no returning ACK, which may indicate an unreachable or blocked command-and-control server
+Useful filter: ip.dst == [suspicious IP] combined with http, to observe the regularity and content of requests
+
+Note: when faced with unknown traffic, identify the protocol first using the Protocol column, read the summary in the Info column, then examine the Packet Details Pane layer by layer. Use Follow TCP Stream to reconstruct a full conversation, and Expert Information to let Wireshark flag anomalies automatically.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 3.2 tcpdump
 ### 3.2.1 Command-Line Usage
 ## 3.3 Scapy
