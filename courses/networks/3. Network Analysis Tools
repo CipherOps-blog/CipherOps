@@ -191,6 +191,52 @@ Note: when faced with unknown traffic, identify the protocol first using the Pro
 
 
 ## 3.2 tcpdump
+
+- What tcpdump is: a command-line packet capture tool relying on the libpcap library
+- Relationship to Wireshark: shares Berkeley Packet Filter syntax for capture filters; outputs to pcap files readable by Wireshark
+- Supported platforms: Linux, Unix, macOS; Windows port available via WinPcap/Npcap
+- Typical use cases: remote capture over SSH, lightweight capture on servers without a graphical interface, scripted or automated capture pipelines
+
 ### 3.2.1 Command-Line Usage
+- Basic syntax: `tcpdump [options] [filter expression]`
+- Common options: `-i` (interface), `-w` (write to file), `-r` (read from file), `-n` (disable name resolution), `-v` / `-vv` / `-vvv` (verbosity levels), `-c` (packet count limit), `-s` (snaplen)
+- Reading live output: understanding the one-line summary format (timestamp, protocol, source, destination, flags, sequence numbers)
+- Writing and reading pcap files: `-w capture.pcap` and `-r capture.pcap`
+- Applying Berkeley Packet Filter expressions: same syntax as Wireshark capture filters
+- Practical examples:
+  - `tcpdump -i eth0 -n tcp port 443`: capture TLS traffic on a specific interface
+  - `tcpdump -i any -w output.pcap host 192.168.1.1`: capture all traffic to/from a host and save to file
+  - `tcpdump -r output.pcap -n 'tcp and port 80'`: read a saved file and filter for HTTP traffic
+
+### 3.2.2 Remote Capture and Integration with Wireshark
+- Capturing on a remote host via SSH and piping output to a local Wireshark instance
+- Example pipeline: `ssh user@host tcpdump -i eth0 -w - | wireshark -k -i -`
+- Use cases: analysing traffic on headless servers, embedded devices, or network appliances
+
 ## 3.3 Scapy
-### 3.3.1 Frame Analysis and Crafting with Scapy
+
+- What Scapy is: a Python-based packet manipulation library and interactive shell
+- Capabilities: packet crafting, capture, injection, decoding, and pcap file handling
+- Relationship to other tools: can replace or complement tcpdump and Wireshark for programmatic analysis and custom protocol testing
+- Supported platforms: Linux, macOS, Windows (with Npcap)
+
+### 3.3.1 Frame Analysis with Scapy
+- Reading pcap files: `rdpcap()` and iterating over packets
+- Inspecting packet structure: `.show()`, `.summary()`, layer indexing with `/` and `[]`
+- Accessing specific fields: `pkt[IP].src`, `pkt[TCP].flags`, `pkt[DNS].qd.qname`
+- Filtering packets programmatically: list comprehensions and conditional field access
+
+### 3.3.2 Packet Crafting with Scapy
+- Building packets layer by layer using the `/` operator: `Ether() / IP() / TCP() / Raw()`
+- Setting and overriding fields: source/destination addresses, TTL, flags, payload
+- Sending packets: `send()` for Layer 3, `sendp()` for Layer 2, `sr()` and `srp()` for send-and-receive
+- Practical examples:
+  - Crafting a TCP SYN packet to a target port
+  - Sending a gratuitous ARP frame
+  - Constructing a custom DNS query
+
+### 3.3.3 Offensive and Diagnostic Use Cases
+- Reproducing attack traffic for lab analysis: ARP spoofing frames, SYN floods, malformed packets
+- Fuzzing: sending packets with unexpected field values to test protocol implementations
+- Integration with pcap workflows: writing crafted packets to file with `wrpcap()` for analysis in Wireshark
+
