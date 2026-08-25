@@ -2,73 +2,96 @@
 ## 3.1 Wireshark
 To learn more about this section, I highly recommend reading [Practical Packet Analysis, 3rd Edition : Using Wireshark to Solve Real-World Network Problems, by Chris Sanders](https://search.worldcat.org/fr/title/1047868641) and [WIRESHARK for Security Professionals : Using Wireshark and the Metasploit Framework, by Jessey Bullock and Jeff T. Parker](https://search.worldcat.org/fr/title/975223991)
 
-### 3.1.1 Introduction to Wireshark
-What is Wireshark?
-Definition and role: tool for capturing and analysing network packets
-History: formerly named Ethereal, renamed in 2006
-Supported platforms: Windows, Linux, Unix
-Key concepts: frames, datagrams, packets, segments
+Wireshark is a network packet capture and analysis tool, which operates at the level of individual frames, datagrams, packets, and segments, allowing detailed inspection of traffic at each layer of the network stack. 
+It is best suited to targeted investigations: diagnosing the root cause of a network issue, locating traffic belonging to a specific protocol, or examining the timing of exchanges between hosts. 
+It can also be used to identify the most active hosts on a network or to get a broad view of traffic composition. 
+It is not, however, a general-purpose network discovery tool. 
+Without a specific question in mind, browsing raw captures tends to produce more noise than insight, given the volume and variety of packets present on any active network.
 
-When to use Wireshark?
-Ideal use cases: root cause diagnosis, searching for a specific protocol, timing analysis
-Secondary use cases: identifying top talkers, traffic overview
-Tool limitations: Wireshark is not a general-purpose network discovery tool; opening it to "browse" traffic quickly leads to information overload
+### 3.1.1 The graphical user interface
 
-### 3.1.2 The graphical user interface
-The three main panes
-Packet List Pane: overview of all captured packets, with columns for source, destination, protocol, length, and Info
-Packet Details Pane: breakdown of the selected packet into subtrees corresponding to OSI layers
-Packet Bytes Pane: raw packet data in three columns, offset in hexadecimal, hex values, and ASCII representation
+![OSI vs TCP IP](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkUI.png)
 
-Reading the Packet Details Pane
-Subtree structure: each subtree represents an OSI layer, Ethernet (L2), IP (L3), TCP/UDP (L4), Application (L7)
-Packet metadata: the first subtree, "Frame", contains the number, timestamp, interface, captured size vs. size on the wire
-Packet Details to Packet Bytes correspondence: clicking a field in the Packet Details Pane highlights the corresponding bytes in the Packet Bytes Pane
+Wireshark organises captured traffic across three panes displayed simultaneously. 
+Each pane provides a different level of abstraction over the same underlying data, and understanding how they relate to one another is a prerequisite for efficient packet analysis.
 
-Reading the Packet Bytes Pane
-Offset column: position in hexadecimal from the start of the packet (0x0010 = 16 bytes)
-Hex column: raw value of each byte on the wire
-ASCII column: human-readable representation, where "." indicates a non-printable character
-Diagnostic utility: allows verification of exactly which bytes the dissector is analysing
+The Packet List Pane occupies the top portion of the interface and presents one row per captured packet. 
+Each row shows the source and destination addresses, the identified protocol, the frame length, and a summary in the Info column. 
+This pane is the entry point for any analysis session: it gives an immediate sense of traffic composition and allows the analyst to select a packet for deeper inspection.
 
-### 3.1.3 Wireshark filters
-Two types of filters
-Capture Filters: applied before recording, reducing the size of the pcap file
-Display Filters: applied after capture, allowing navigation through already-recorded packets
-Different syntaxes: capture filters use Berkeley Packet Filter syntax, display filters use a high-level logical syntax
+The Packet Details Pane, positioned in the middle, displays the selected packet as a hierarchical tree of collapsible subtrees. 
+Each subtree corresponds to a layer of the OSI model. 
+The first subtree, labelled "Frame", contains metadata added by Wireshark itself rather than data present on the wire: the packet number, the capture timestamp, 
+the interface on which the frame was recorded, and the comparison between the captured length and the original length on the wire. 
+Below it, successive subtrees represent the Ethernet header (Layer 2), the IP header (Layer 3), the transport layer header, typically TCP or UDP (Layer 4), 
+and any application-layer protocol Wireshark has been able to identify (Layer 7). Each field within a subtree corresponds to a specific sequence of bytes in the raw frame.
 
-Capture Filters (BPF syntax)
-Basic components: protocol + direction (src, dst) + type (host, port, net, portrange)
-Common BPF protocols: ether, tcp, ip, ip6, arp
-Special primitives: broadcast, less, greater, gateway
-Logical operators: and (&&), or (||), not (!)
-Examples:
-tcp dst port 22: TCP traffic to port 22 only
-ether host 00:0c:29:57:b3:ff or broadcast: traffic from a specific machine plus broadcast
+The Packet Bytes Pane, at the bottom, exposes those raw bytes directly. It is structured in three columns. 
+The leftmost column shows the offset of each row from the start of the packet, expressed in hexadecimal: a value of 0x0010, for instance, indicates that the row begins at the sixteenth byte. 
+The middle column lists the hexadecimal value of each byte as it was captured on the wire. The rightmost column provides an ASCII interpretation of the same bytes, 
+where printable characters are rendered as text and non-printable characters are replaced by a dot.
 
-Display Filters (logical syntax)
-Comparison operators: eq (==), ne (!=), gt (>), lt (<), ge (>=), le (<=), contains, matches
-Logical operators: and (&&), or (||), xor (^^), not (!), slice [ ], parentheses ( )
-Protocol-typed variables: ip.addr, eth.addr, tcp.port, arp.opcode, smb2.filename
-Finding variable names: status bar at the bottom left when a field is selected in the Packet Details Pane
-Interactive construction: right-click on a field, then Apply as Filter or Prepare as Filter
-Examples:
-ip.addr == 1.2.3.4: traffic to/from an IP address
-arp.opcode == 1: ARP requests only
-tcp.port == 80: HTTP traffic
+The three panes are not independent views: they are synchronised representations of the same data. 
+Clicking on any field in the Packet Details Pane causes Wireshark to highlight the corresponding bytes in the Packet Bytes Pane. 
+This correspondence is particularly useful when verifying how a dissector has parsed a given field, or when investigating a malformed packet where the dissector's 
+interpretation may not match the actual byte sequence. Developing the habit of cross-referencing these two panes is one of the more reliable ways to build confidence in 
+reading unfamiliar protocols.
 
-### 3.1.4 Dissectors
-Role of dissectors
-Definition: modules that decode protocols layer by layer to make them readable in the interface
-First dissector: always the "Frame" dissector, which adds metadata and timestamps
-Dissection chain: from the physical layer up to the application layer
+### 3.1.2 Wireshark Filters
 
-When Wireshark applies the wrong dissector
-Non-standard port problem: HTTP traffic on port 1080 incorrectly identified as SOCKS
-Decode As solution: Analyze → Decode As, to force the application of a specific dissector
-Importance for analysis: an incorrect dissector distorts protocol interpretation and the associated filters
+Wireshark provides two distinct filtering mechanisms, each operating at a different stage of the capture process and using a different syntax. 
+Knowing which to apply, and when, is essential for keeping analysis manageable.
 
-### 3.1.5 Understanding network traffic in Wireshark
+![OSI vs TCP IP](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/CaptureFilters.png)
+
+Capture filters are applied before any packet is recorded. They instruct Wireshark to discard traffic that does not match the specified criteria, 
+which directly reduces the size of the resulting pcap file. This makes them appropriate when the scope of the investigation is already well defined, 
+for instance when only traffic to a specific host or port is relevant. Capture filters use Berkeley Packet Filter syntax, the same syntax used by tools such as tcpdump. 
+A filter expression is built from three components: a protocol qualifier (such as `ether`, `tcp`, `ip`, `ip6`, or `arp`), a direction qualifier (`src` or `dst`), 
+and a type qualifier (`host`, `port`, `net`, or `portrange`). These components can be combined using the logical operators `and`, `or`, and `not`. Special primitives 
+such as `broadcast`, `less`, `greater`, and `gateway` are also available for common filtering needs. As an example, `tcp dst port 22` retains only TCP packets destined for port 22, 
+while `ether host 00:0c:29:57:b3:ff or broadcast` captures traffic to or from a specific MAC address alongside all broadcast frames.
+
+![OSI vs TCP IP](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/DisplayFilters.png)
+
+Display filters operate on packets that have already been captured. Rather than discarding traffic, they control which packets are visible in the Packet List Pane at a given moment, 
+leaving the underlying capture intact. This makes them more flexible during exploratory analysis, since the filter can be changed at any point without losing data. Display filters use 
+a higher-level logical syntax built around protocol-typed field names. Fields are referenced by dot-separated identifiers such as `ip.addr`, `eth.addr`, `tcp.port`, `arp.opcode`, or 
+`smb2.filename`, and compared using operators including `==`, `!=`, `>`, `<`, `>=`, `<=`, `contains`, and `matches`. Expressions can be combined with `and`, `or`, `xor`, and `not`, 
+and grouped with parentheses. The slice operator `[ ]` allows matching against a specific byte range within a field.
+
+Constructing display filters does not require memorising field names. Selecting any field in the Packet Details Pane causes its full identifier to appear in the status bar at the bottom 
+left of the interface. Right-clicking the same field offers the options "Apply as Filter" and "Prepare as Filter", which insert the corresponding expression directly into the filter bar. 
+This interactive approach is reliable for building correct expressions quickly, particularly when working with unfamiliar protocols. A few representative examples illustrate the syntax: 
+`ip.addr == 1.2.3.4` matches all traffic to or from a given IP address, `arp.opcode == 1` isolates ARP requests, and `tcp.port == 80` selects packets where either the source or destination 
+port is 80.
+
+Capture filters and display filters do not share a syntax and cannot be used interchangeably. Applying a Berkeley Packet Filter expression in the 
+display filter bar, or vice versa, will produce an error. When in doubt, display filters are the safer default: they preserve the full capture and can be adjusted at any time.
+
+### 3.1.3 Dissectors
+
+When Wireshark captures a packet, it does not simply store the raw bytes: it passes them through a chain of dissectors, each responsible for interpreting one layer of the 
+protocol stack and rendering its fields as human-readable entries in the Packet Details Pane. Dissectors are modular components, and Wireshark ships with several hundred of 
+them covering the most common protocols in use.
+
+The chain always begins with the Frame dissector, which does not decode a protocol in the conventional sense but attaches capture-level metadata to the packet: its number in 
+the sequence, the timestamp recorded at capture time, the interface on which it arrived, and the relationship between the captured length and the original length on the wire. 
+From there, Wireshark hands the remaining bytes to the appropriate Layer 2 dissector, typically Ethernet, which in turn identifies the next-layer protocol and passes control 
+accordingly. This process continues up the stack through the network and transport layers until the payload is either fully decoded by an application-layer dissector or left 
+as raw data if no suitable dissector is available.
+
+Wireshark selects dissectors primarily on the basis of port numbers. This works reliably for traffic that follows convention, but creates problems when services run on non-standard ports. 
+HTTP traffic arriving on port 1080, for instance, will be handed to the SOCKS dissector, since port 1080 is the registered port for that protocol. The resulting interpretation will be 
+incorrect, the fields displayed in the Packet Details Pane will not correspond to the actual structure of the payload, and any display filters referencing HTTP-specific field names will 
+fail to match. The same issue arises in offensive or misconfigured environments where services deliberately avoid their standard ports.
+
+In such cases, Wireshark provides a manual override through the Decode As dialogue, accessible via Analyze → Decode As. This allows the analyst to instruct Wireshark to apply a specific 
+dissector to traffic on a given port, regardless of the default association. The change takes effect immediately and updates both the Packet Details Pane and the filter engine. Verifying 
+that the correct dissector is active before drawing conclusions from a capture is a necessary step, particularly when traffic does not behave as expected or when filter expressions return
+no results despite packets being visibly present.
+
+### 3.1.4 Understanding network traffic in Wireshark
 OSI layers in the Packet Details Pane
 Layer 2, Data Link: "Ethernet II" subtree, source and destination MAC addresses
 Layer 3, Network: "Internet Protocol" subtree, source and destination IP addresses, TTL, flags
@@ -100,7 +123,7 @@ Wireshark resolves automatically: port 80 to HTTP, port 443 to HTTPS, port 53 to
 Port ranges: well-known (0–1024), registered (1025–49151), dynamic (49152+)
 Non-standard ports: a malicious service may listen on an unusual port, causing the dissector to misidentify the protocol
 
-### 3.1.6 Reading attack traffic in Wireshark
+### 3.1.5 Reading attack traffic in Wireshark
 Identifying an ARP attack (ARP Spoofing / Poisoning)
 Characteristic sign: multiple ARP replies associating different MAC addresses with the same IP address
 Expert Information: Wireshark automatically flags a "duplicate IP address" under Analyze → Expert Information
