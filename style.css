@@ -609,22 +609,25 @@ body.dark .landing-description::before {
 }
 
 #article-container code {
-  background: rgba(135, 168, 120, 0.1);
+  color: inherit;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-family: 'Courier New', monospace;
 }
 
 #article-container pre {
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border: 1px solid var(--accent-alt);
   padding: 1rem;
   border-radius: 0.5rem;
   overflow-x: auto;
   margin-bottom: 1.5rem;
 }
 
-body.dark #article-container pre {
-  background: rgba(255, 255, 255, 0.05);
+#article-container pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
 }
 
 #article-container ul,
