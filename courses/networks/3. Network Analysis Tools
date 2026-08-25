@@ -10,7 +10,7 @@ Without a specific question in mind, browsing raw captures tends to produce more
 
 ### 3.1.1 The graphical user interface
 
-![OSI vs TCP IP](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkUI.png)
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkUI.png)
 
 Wireshark organises captured traffic across three panes displayed simultaneously. 
 Each pane provides a different level of abstraction over the same underlying data, and understanding how they relate to one another is a prerequisite for efficient packet analysis.
@@ -42,7 +42,7 @@ reading unfamiliar protocols.
 Wireshark provides two distinct filtering mechanisms, each operating at a different stage of the capture process and using a different syntax. 
 Knowing which to apply, and when, is essential for keeping analysis manageable.
 
-![OSI vs TCP IP](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/CaptureFilters.png)
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/CaptureFilters.png)
 
 Capture filters are applied before any packet is recorded. They instruct Wireshark to discard traffic that does not match the specified criteria, 
 which directly reduces the size of the resulting pcap file. This makes them appropriate when the scope of the investigation is already well defined, 
@@ -52,7 +52,7 @@ and a type qualifier (`host`, `port`, `net`, or `portrange`). These components c
 such as `broadcast`, `less`, `greater`, and `gateway` are also available for common filtering needs. As an example, `tcp dst port 22` retains only TCP packets destined for port 22, 
 while `ether host 00:0c:29:57:b3:ff or broadcast` captures traffic to or from a specific MAC address alongside all broadcast frames.
 
-![OSI vs TCP IP](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/DisplayFilters.png)
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/DisplayFilters.png)
 
 Display filters operate on packets that have already been captured. Rather than discarding traffic, they control which packets are visible in the Packet List Pane at a given moment, 
 leaving the underlying capture intact. This makes them more flexible during exploratory analysis, since the filter can be changed at any point without losing data. Display filters use 
@@ -91,102 +91,162 @@ dissector to traffic on a given port, regardless of the default association. The
 that the correct dissector is active before drawing conclusions from a capture is a necessary step, particularly when traffic does not behave as expected or when filter expressions return
 no results despite packets being visibly present.
 
-### 3.1.4 Understanding network traffic in Wireshark
-OSI layers in the Packet Details Pane
-Layer 2, Data Link: "Ethernet II" subtree, source and destination MAC addresses
-Layer 3, Network: "Internet Protocol" subtree, source and destination IP addresses, TTL, flags
-Layer 4, Transport: "TCP" or "UDP" subtree, ports, flags, sequence numbers
-Upper layers: application protocols, HTTP, DNS, FTP, SMB
+### 3.1.4 Understanding Network Traffic in Wireshark
 
-Key rule: MAC addresses change at each network hop, while IP addresses remain constant from source to destination, except where NAT is applied
+The Packet Details Pane exposes the full layer-by-layer structure of every captured frame. Each layer corresponds to a subtree in the interface, 
+containing the fields relevant to that protocol.
 
-TCP vs UDP: reading the differences in Wireshark
-TCP: connection-oriented; look for the three-way handshake (SYN, SYN-ACK, ACK) before any data exchange
-Visible TCP flags: SYN, ACK, FIN, RST, PSH, each with a specific meaning in the flow of a session
-RST: abrupt connection reset, often indicating a closed port or a refused connection
-UDP: connectionless, no handshake, no acknowledgement, immediate traffic
+| OSI Layer | Wireshark Subtree | Key Fields |
+|---|---|---|
+| Layer 2, Data Link | Ethernet II | Source MAC, destination MAC |
+| Layer 3, Network | Internet Protocol | Source IP, destination IP, TTL, fragmentation flags |
+| Layer 4, Transport | TCP or UDP | Source port, destination port, flags, sequence and acknowledgement numbers (TCP only) |
+| Layer 7, Application | HTTP, DNS, FTP, SMB, and others | Protocol-specific fields |
 
-ARP: reading an address resolution
-Normal operation: ARP broadcast request ("Who has IP x.x.x.x?") followed by a unicast reply ("IP x.x.x.x is at MAC aa:bb:cc:dd:ee:ff")
-Useful filter: arp, displays all ARP frames
-Gratuitous ARP: an unsolicited ARP reply, which may be legitimate (reboot, failover) or indicate an attack
-No authentication: any host can reply to an ARP request or send a gratuitous ARP
+One behaviour worth understanding early is that MAC addresses are local to each network segment. A router replaces the source and destination MAC addresses at every hop, 
+so the addresses visible in a capture reflect only the last link traversed, not the original sender or the final destination. IP addresses, by contrast, remain unchanged 
+from source to destination across the entire path, unless the traffic passes through a device performing network address translation.
 
-DNS: reading a name resolution
-Normal operation: UDP port 53 request followed by a reply containing the corresponding IP address
-TCP port 53: used for zone transfers or large responses
-Useful filter: dns, displays both DNS requests and replies
-Key field: the Info column, which directly shows the queried domain name and the resolved IP address
+**TCP and UDP**
 
-Well-known ports: protocol identification
-Wireshark resolves automatically: port 80 to HTTP, port 443 to HTTPS, port 53 to DNS, port 21 to FTP
-Port ranges: well-known (0–1024), registered (1025–49151), dynamic (49152+)
-Non-standard ports: a malicious service may listen on an unusual port, causing the dissector to misidentify the protocol
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkTCPUDP.png)
+**Illustration idea: a Wireshark screenshot showing a TCP three-way handshake in the Packet List Pane, with the SYN, SYN-ACK, and ACK packets clearly visible in sequence, and 
+the Packet Details Pane open on the TCP flags subtree.**
 
-### 3.1.5 Reading attack traffic in Wireshark
-Identifying an ARP attack (ARP Spoofing / Poisoning)
-Characteristic sign: multiple ARP replies associating different MAC addresses with the same IP address
-Expert Information: Wireshark automatically flags a "duplicate IP address" under Analyze → Expert Information
-Suspicious gratuitous ARP: a host announces its IP/MAC association without having been prompted, which may indicate cache poisoning
-Useful filter: arp, to observe unsolicited ARP replies and MAC/IP inconsistencies
-Visible consequence: traffic intended for the gateway is redirected to the attacker's machine, so FTP, HTTP, and other packets arrive at an unexpected MAC address
+TCP and UDP are the two transport-layer protocols an analyst encounters most frequently, and their behaviour in a capture differs in ways that are immediately visible.
 
-Identifying a DNS attack (DNS Spoofing)
-Characteristic sign: a DNS reply resolving a legitimate domain name to an unexpected IP address or one belonging to the attacker
-Useful filter: dns, to compare returned IP addresses against expected values
-Rogue DHCP: a fake DHCP server may distribute a DNS address controlled by the attacker; look for multiple DHCP Offer responses to the same request
+TCP is connection-oriented. Before any application data is exchanged, the two endpoints complete a three-way handshake: the initiating host sends a SYN packet, 
+the responding host replies with a SYN-ACK, and the initiator confirms with an ACK. This sequence is consistently visible in the Packet List Pane and serves as a 
+reliable marker for the start of a TCP session. Throughout the session, individual packets carry flags that describe their role: SYN initiates, ACK acknowledges, 
+PSH requests immediate delivery to the application, FIN signals an orderly close, and RST terminates the connection abruptly. An RST in a capture typically indicates 
+that a port was closed, that a connection was refused, or that one side encountered an unrecoverable error.
 
-Identifying a port scan
-Characteristic sign: a burst of SYN packets sent to successive ports from the same source within a very short time
-Closed ports: RST/ACK response, indicating the port is not open
-Open ports: SYN-ACK response, indicating the service is available, followed by a RST from the scanner to avoid completing the connection
-Useful filter: tcp.flags.syn == 1 and tcp.flags.ack == 0, to isolate initial SYN packets
-Reading timestamps: nmap scans generate hundreds of SYN packets in under a millisecond, visible in the Time column
+UDP carries none of this machinery. There is no handshake, no acknowledgement, and no built-in mechanism for retransmission. A UDP exchange appears in the capture as one 
+or more datagrams sent without any prior negotiation, which makes it well suited to latency-sensitive applications such as DNS, DHCP, and streaming media, but means that 
+loss or reordering is invisible at the transport layer.
 
-Identifying a DoS attack (Denial of Service)
-SYN Flood: large volume of SYN packets with no returning ACK; the target accumulates half-open connections
-ICMP Flood: large volume of ICMP Echo requests (ping); filter: icmp
-UDP Flood: large volume of UDP packets sent to various ports; the target replies with ICMP "Destination Unreachable" messages
-Slowloris: few packets, but incomplete HTTP connections held open; difficult to detect by volume alone; look for TCP connections that remain open without a complete data exchange
-General indicator: an abnormally high ratio of packets of the same type or from the same source over a short period
+**ARP**
 
-Identifying a shell or exploitation (offensive traffic)
-Bind shell: the compromised machine opens a listening port; the attacker connects to it (SYN, SYN-ACK, ACK toward an unusual port such as 4444)
-Reverse shell: the compromised machine initiates the connection toward the attacker, producing outbound traffic to an external IP on an unusual port
-Encrypted traffic (HTTPS/TLS): a reverse shell tunnelled over HTTPS is indistinguishable from legitimate web traffic without the private key; only the destination IP may reveal the activity
-Useful filter: tcp.port == 4444, or whichever non-standard port the payload uses
-Follow TCP Stream: right-click on a packet, then Follow → TCP Stream, to reconstruct the full conversation and potentially reveal shell commands in plaintext (e.g. whoami, root)
-Plaintext signatures: in an unencrypted shell, strings such as metasploit or meterpreter may appear directly in the Packet Bytes Pane
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkARP.png)
+**Illustration idea: a Wireshark screenshot showing an ARP request broadcast followed by a unicast ARP reply, with the Info column displaying the "Who has" and "is at" 
+strings, and the Ethernet II subtree open to show the broadcast destination address.**
 
-Identifying APT traffic (Advanced Persistent Threat)
-Characteristic sign: regular, repeated connections to the same external IP over HTTP (port 80), with GET requests for unremarkable resources (e.g. default.htm, h.gif)
-Timing pattern: connections at fixed intervals (e.g. every 120 seconds), indicating malware beaconing
-Incremental source ports: some malware uses source ports that increment with each attempt (1067, 1068, 1069, etc.)
-Unanswered connections: repeated SYN attempts with no returning ACK, which may indicate an unreachable or blocked command-and-control server
-Useful filter: ip.dst == [suspicious IP] combined with http, to observe the regularity and content of requests
+The Address Resolution Protocol maps IP addresses to MAC addresses within a local network segment. Normal ARP operation follows a two-step exchange: a host that needs to reach an 
+IP address it does not yet have a MAC address for sends a broadcast frame asking "Who has IP x.x.x.x?", and the host holding that address replies directly with 
+"IP x.x.x.x is at MAC aa:bb:cc:dd:ee:ff". Applying the display filter `arp` isolates all ARP frames in the capture and makes this exchange straightforward to follow.
 
-Note: when faced with unknown traffic, identify the protocol first using the Protocol column, read the summary in the Info column, then examine the Packet Details Pane layer by layer. Use Follow TCP Stream to reconstruct a full conversation, and Expert Information to let Wireshark flag anomalies automatically.
+A gratuitous ARP is an ARP reply sent by a host without having received a request. It announces an IP-to-MAC mapping to the local segment unprompted. This occurs legitimately when 
+a host comes online after a reboot or during a failover event, but the same mechanism can be exploited to poison the ARP caches of other hosts on the segment. ARP includes no 
+authentication: any host can send a reply, solicited or not, and other hosts will generally accept it and update their cache accordingly.
 
+**DNS**
 
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkDNS.png)
+**Illustration idea: a Wireshark screenshot showing a DNS query and its response in the Packet List Pane, with the Info column displaying the queried domain name and 
+resolved IP address, and the DNS subtree expanded in the Packet Details Pane to show the answer section.**
 
+DNS resolution appears in a capture as a pair of UDP datagrams on port 53: a query from the client naming the domain it wishes to resolve, and a response from the 
+server containing the corresponding IP address. The Info column in the Packet List Pane renders both the queried name and the returned address directly, making DNS exchanges 
+readable without opening the Packet Details Pane. The display filter `dns` isolates all DNS traffic, both queries and responses.
 
+TCP is used on port 53 when a response is too large to fit in a single UDP datagram, and for zone transfers between DNS servers. Seeing TCP port 53 traffic in a capture from a workstation 
+is therefore worth noting, as it is uncommon in normal client operation.
 
+**Port numbers and protocol identification**
 
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkPortNumbers.png)
+**Illustration idea: a Wireshark screenshot of a mixed capture showing several protocols in the Protocol column (DNS, HTTP, TCP, ARP), illustrating how Wireshark labels 
+traffic automatically based on port numbers, with one row selected to show the port fields in the TCP subtree.**
 
+Wireshark uses port numbers as the primary signal for selecting a dissector and labelling traffic in the Protocol column. Port 80 is labelled HTTP, port 443 HTTPS, port 53 DNS, 
+and port 21 FTP, among others. Port numbers fall into three ranges: well-known ports from 0 to 1023, registered ports from 1024 to 49151, and dynamic or ephemeral ports from 49152 upward. 
+Client applications typically use a port drawn from the dynamic range as their source port for each new connection, which is why outbound traffic commonly shows a high-numbered source 
+port paired with a well-known destination port.
 
+This automatic resolution is convenient but not infallible. A service listening on a non-standard port will cause Wireshark to apply whichever dissector is registered for that port by 
+default, which may produce an incorrect interpretation. As discussed in section 3.1.3, the Decode As dialogue provides the means to correct this when the actual protocol is known.
 
+### 3.1.5 Reading Attack Traffic in Wireshark
 
+When faced with an unfamiliar capture, a reliable starting point is to identify the protocol using the Protocol column, read the one-line summary in the Info column, 
+and then descend into the Packet Details Pane layer by layer. The Follow TCP Stream function reconstructs full conversations from individual packets, and the Expert 
+Information dialogue surfaces anomalies that Wireshark has flagged automatically, including duplicate addresses, retransmissions, and malformed headers.
 
+**ARP Spoofing and Poisoning**
 
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkARPSpoofing.png)
 
+ARP spoofing exploits the absence of authentication in the Address Resolution Protocol. The characteristic sign in a capture is multiple ARP replies associating different MAC 
+addresses with the same IP address. A legitimate host does not send unsolicited ARP replies, so a gratuitous ARP from an unexpected source warrants attention, particularly if 
+it claims the MAC address of the default gateway. The practical consequence is that traffic intended for the gateway is redirected to the attacker's machine, meaning FTP, HTTP, 
+and other application-layer packets will arrive at a MAC address that does not belong to the gateway.
 
+Wireshark detects this automatically. Opening Analyze → Expert Information will surface a "duplicate IP address" warning when conflicting ARP mappings are observed in the capture. 
+The display filter `arp` isolates all ARP frames and allows direct comparison of the MAC addresses appearing in successive replies for the same IP.
 
+**DNS Spoofing**
 
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkDNSSpoofing.png)
 
+DNS spoofing manifests as a DNS reply that resolves a legitimate domain name to an IP address controlled by the attacker rather than the authoritative server. In a capture, this 
+appears as a standard DNS response packet whose answer section contains an unexpected address. Applying the filter `dns` and examining the Info column allows comparison of returned 
+addresses against known legitimate values.
 
+A related vector involves a rogue DHCP server. By responding to DHCP discovery requests before the legitimate server does, an attacker can distribute a DNS server address under their 
+control to clients on the segment. This is visible in a capture as multiple DHCP Offer packets in response to a single DHCP Discover, originating from different source MAC addresses.
 
+**Port Scanning**
 
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkPortScanning.png)
 
+A port scan is one of the more straightforward attack patterns to identify in a capture. The defining characteristic is a rapid succession of TCP SYN packets sent from a single source 
+to consecutive or pseudo-random destination ports on the same target host. The Time column makes the pace immediately apparent: a scan conducted with a tool such as nmap can generate 
+hundreds of SYN packets within a single millisecond.
+
+The responses reveal the state of each port. A closed port replies with RST/ACK, while an open port replies with SYN-ACK. In a typical SYN scan, the scanner sends a RST after receiving 
+the SYN-ACK, deliberately avoiding the completion of the handshake to minimise its footprint. The display filter `tcp.flags.syn == 1 and tcp.flags.ack == 0` isolates the initial SYN 
+packets and makes the scope of the scan visible at a glance.
+
+**Denial of Service**
+
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkDoS.png)
+
+Denial of service attacks are generally identifiable by an abnormally high volume of packets of a single type originating from one or more sources over a short period. The specific 
+pattern depends on the technique in use.
+
+A SYN flood produces a large number of SYN packets with no corresponding ACK, causing the target to allocate state for connections that are never completed. An ICMP flood generates a 
+sustained stream of Echo Request frames, visible with the filter `icmp`. A UDP flood sends high volumes of datagrams to various ports, prompting the target to reply with ICMP Destination 
+Unreachable messages for each port that has no listening service.
+
+Slowloris differs from the above in that it does not rely on volume. It holds HTTP connections open by sending partial requests at a slow rate, never completing them. This is difficult 
+to detect by packet count alone. The indicator to look for is a set of TCP connections that remain open for an unusually long time without progressing to a complete HTTP exchange.
+
+**Shells and Post-Exploitation Traffic**
+
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkShells.png)
+
+Once a host has been compromised, the attacker typically establishes a persistent communication channel. Two patterns are common. In a bind shell scenario, the compromised machine opens 
+a listening port, and the attacker connects to it from outside. This appears in a capture as an inbound TCP connection completing a full handshake toward an unusual port, such as 4444. 
+In a reverse shell scenario, the compromised machine initiates the connection outward toward the attacker's infrastructure, producing outbound traffic to an external IP on a non-standard port.
+
+The display filter `tcp.port == 4444`, adjusted to whatever port the payload uses, isolates the relevant stream. Right-clicking any packet in that stream and selecting Follow → TCP Stream 
+reconstructs the full conversation as a readable sequence. In an unencrypted shell, this view may reveal commands and responses in plaintext, including strings associated with common 
+frameworks such as metasploit or meterpreter, which may also appear directly in the Packet Bytes Pane.
+
+When the shell is tunnelled over HTTPS, the traffic is encrypted and indistinguishable from legitimate web traffic at the packet level. In that case, the destination IP address is the 
+only readily available indicator, and its value depends on threat intelligence rather than packet content.
+
+**APT Beaconing**
+
+![name](https://cipherops-blog.github.io/CipherOps/courses/networks/3illustrations/WiresharkAPTBeaconing.png)
+
+Advanced persistent threat activity often involves malware that periodically contacts a command-and-control server to receive instructions or exfiltrate data. In a capture, this manifests 
+as repeated HTTP GET requests to the same external IP address at regular intervals, targeting unremarkable resource names such as `default.htm` or `h.gif`. The regularity of the timing is 
+the primary indicator: connections spaced exactly 120 seconds apart, for instance, are unlikely to reflect normal user behaviour.
+
+Additional signs include source ports that increment sequentially across successive connections, a pattern produced by some malware implementations, and repeated SYN packets to the same
+destination with no returning SYN-ACK, which may indicate that the command-and-control server is unreachable or has been blocked. The filter `ip.dst == [suspicious IP]` combined with 
+`http` isolates the relevant traffic and makes the timing pattern visible in the Time column.
 
 
 
