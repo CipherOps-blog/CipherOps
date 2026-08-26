@@ -10,8 +10,9 @@ CipherOps is a lightweight static GitHub Pages blog for cybersecurity and math a
 
 ## Add an image
 
-
+```
 ![Image title](https://cipherops-blog.github.io/CipherOps/pathway/imagename.png)
+```
 
 ## Main colours
 Sage: #87A878;
