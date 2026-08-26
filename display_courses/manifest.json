@@ -88,5 +88,25 @@
         "date": "July 20, 2026"
       }
     ]
+  },
+  {
+    "category": "Project Management",
+    "articles": [
+      {
+        "title": "IT Project Management",
+        "file": "courses/projectManagement/1. IT Project Management.md",
+        "date": "July 19, 2026"
+      },
+      {
+        "title": "Information Systems and Databases",
+        "file": "courses/projectManagement/2. Information Systems and Databases.md",
+        "date": "July 19, 2026"
+      },
+      {
+        "title": "Team Management and Communication",
+        "file": "courses/projectManagement/3. Team Management and Communication.md",
+        "date": "July 19, 2026"
+      }
+    ]
   }
 ]
