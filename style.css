@@ -864,9 +864,8 @@ body.dark .article-hex {
   border-radius: 999px;
 }
 
-/* used to be   margin: 0 0 0.85rem */
 .article-toc-title {
-  margin: 0 0 0rem;
+  margin: 0 0 0.85rem;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
