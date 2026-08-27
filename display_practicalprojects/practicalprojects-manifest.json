@@ -8,5 +8,15 @@
         "date": "July 21, 2026"
       }
     ]
+  },
+  {
+    "category": "Games",
+    "articles": [
+      {
+        "title": "Curve Clash",
+        "file": "practicalprojects/Games/Curve Clash.md",
+        "date": "August 26, 2026"
+      }
+    ]
   }
 ]
