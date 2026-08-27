@@ -832,7 +832,7 @@ body.dark .article-hex {
   align-items: flex-start;
   gap: 2rem;
   width: 100%;
-  padding-right: 1rem;
+  padding-right: 0rem;
 }
 
 #article-container {
