@@ -832,7 +832,7 @@ body.dark .article-hex {
   align-items: flex-start;
   gap: 2rem;
   width: 100%;
-  padding-right: 0rem;
+  padding-right: 1rem;
 }
 
 #article-container {
@@ -864,8 +864,9 @@ body.dark .article-hex {
   border-radius: 999px;
 }
 
+/* used to be   margin: 0 0 0.85rem */
 .article-toc-title {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0rem;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
