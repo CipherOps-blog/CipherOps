@@ -50,6 +50,31 @@
     ]
   },
   {
+    "category": "Systems",
+    "articles": [
+      {
+        "title": "Programming Paradigms",
+        "file": "courses/systems/1. Programming Paradigms.md",
+        "date": "July 17, 2026"
+      },
+      {
+        "title": "Computing Systems History",
+        "file": "courses/systems/2. Computing Systems History.md",
+        "date": "July 17, 2026"
+      },
+      {
+        "title": "Process Management and Virtual Memory",
+        "file": "courses/systems/3. Process Management and Virtual Memory.md",
+        "date": "July 17, 2026"
+      },
+      {
+        "title": "Resource Management and Process Scheduling",
+        "file": "courses/systems/4. Resource Management and Process Scheduling.md",
+        "date": "July 17, 2026"
+      }
+    ]
+  },
+  {
     "category": "Mathematics",
     "articles": [
       {
