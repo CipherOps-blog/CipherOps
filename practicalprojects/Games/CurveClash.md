@@ -2,7 +2,7 @@
 
 I built a small game called Curve Clash and wanted to share it [here](https://cipherops-blog.github.io/CurveClash/). I made this mostly for my own amusement and figured others might enjoy trying it too. 
 
-The core mechanic is that each player fires by typing the right-hand side of a function. The interface supplies the `f(x) =` part; the player only enters expressions such as `x^2 - 1`, `0.5 * x`, `2 * sin(x / 1.5)`, `2 * ln(x + 1)`, or `exp(x / 3) - 1`. Expressions must cross `y = 0` somewhere in the playable range, so functions like `x^2 + 1` are rejected, along with `min()`, `max()`, `abs()`, anything using `y`, and implicit equations like `x^2 + y^2 = 1`.
+The core mechanic is that each player fires by typing the right-hand side of a function. The enters expressions such as $x^2 - 1$, $0.5 * x$, $2 * sin(x / 1.5)$, $2 * ln(x + 1)$, or $exp(x / 3) - 1$. Expressions must cross $y = 0$ somewhere in the playable range, so functions like $x^2 + 1$ are rejected, along with $min()$, $max()$, $abs()$, anything using $y$, and implicit equations like $x^2 + y^2 = 1$.
 
 Turn order is fixed: the human player fires first, then bots in a shuffled but constant order for the rest of the match. Bots come in two behaviors. Competitive bots pick a surviving target at random and plan a terrain-aware route toward it, adjusted by a difficulty setting. Peaceful bots never fire; they still occupy the arena, block or absorb shots, and can be eliminated for their normal score value.
 
