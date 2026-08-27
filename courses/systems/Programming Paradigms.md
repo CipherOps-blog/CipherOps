@@ -1,0 +1,275 @@
+# Programming Paradigms
+
+## 1. Introduction to Programming Paradigms
+
+### 1.1 Definitions: Paradigm, Programming, Language
+
+According to the Larousse dictionary, a paradigm is a theoretical model of thought that guides scientific research and reflection. Programming refers to the set of activities involved in writing computer programs, generally understood as the writing of a software's source code.
+
+A programming language is an abstraction of the operations performed by a computer. A language is usually associated with a dominant paradigm from which its structure was designed, although elements from several paradigms are often present within the same language. Programming consists of using a language to conform, to varying degrees, to one or more programming paradigms.
+
+### 1.2 Relationship Between Paradigms and Programming Languages
+
+A single programming language can combine features from multiple paradigms. For example, a language designed primarily around imperative constructs may also support functional or object-oriented features.
+
+### 1.3 Rationale for Studying Multiple Paradigms
+
+The study of multiple paradigms serves several purposes: expressing complex ideas more effectively, adapting to the requirements of different tasks, facilitating the learning of new languages, supporting informed choices among languages, and following developments in programming practice.
+
+### 1.4 Overview of Major Paradigms
+
+Programming paradigms discussed in the course include object-oriented programming, logic programming, functional programming, imperative programming, scripting or dynamic programming, declarative programming, aspect-oriented programming, and concurrent programming, among others. No single paradigm is suited to all applications, and most problems can be addressed using more than one paradigm.
+
+### 1.5 Historical Development of Programming Languages
+
+Several languages illustrate the historical development of programming paradigms:
+
+- Ada was developed for the U.S. Department of Defense, targeting embedded systems and concurrency.
+- Algol, developed by ACM and GAMM, used notation close to mathematics and aimed at machine-independent algorithm description.
+- ANSI C resulted from standardization work by the ANSI committee to ensure portability of the C language.
+- APL, created by K. Iverson, was designed for mathematical programming using matrices and vectors.
+- B, created by K. Thompson, was used as a simple compiler for early Unix development.
+- BASIC, created by J. Kemeny and T. Kurtz, was designed to be simple and accessible.
+- BCPL was a simplification of CPL.
+- C, created by B. W. Kernighan and D. M. Ritchie, was designed for systems programming close to the machine.
+- C++, created by B. Stroustrup, extended C with object-oriented features.
+- C#, developed by Microsoft, combines features of C++ and Java for the .NET platform.
+- COBOL, developed by the Short Range Committee, was designed for business applications using English-like syntax.
+- Common Lisp resulted from a committee effort to unify various Lisp dialects.
+- CPL was a North American counterpart to Algol, closer to machine operations.
+- Eiffel, created by B. Meyer, was designed to support object-oriented design principles.
+- Fortran, created by J. Backus, was designed for the IBM 704 with an emphasis on code efficiency.
+- Java, created by J. Gosling at Sun Microsystems, resembles C++ but adheres more closely to object-oriented principles.
+- Lisp, created by J. McCarthy, was designed for artificial intelligence research and uses the list as its principal data structure.
+- Miranda, created by D. Turner, is a purely functional language with fully lazy evaluation.
+- ML, created by R. Milner, is a strongly typed functional language with type inference.
+- Pascal, created by N. Wirth, was designed for teaching purposes.
+- PL/I, developed by the "3x3" committee, aimed to be a universal language but became complex.
+- Prolog, developed by the Marseille AI group, was designed for expert systems.
+- Scheme, developed at MIT, is a Lisp dialect used for teaching.
+- Simula, created by K. Nygaard and O. J. Dahl, introduced the concept of the class for simulation purposes.
+- Smalltalk, created by A. Kay, is considered an early mature object-oriented language, using objects, messages, and a graphical environment.
+
+## 2. Imperative Programming
+
+### 2.1 Core Principles: Sequential Instructions and State Modification
+
+In imperative programming, programs consist of a sequence of instructions or commands that modify the state of the program. Several paradigms can coexist within the same language.
+
+### 2.2 Control Structures
+
+Imperative programs are composed of a series of instructions executed in a specific order. The state of the program, represented by variables, changes as instructions are executed. This paradigm makes extensive use of control structures such as loops and conditional branches.
+
+### 2.3 Functions and Procedures
+
+Imperative programs are often decomposed into subprograms, such as functions and procedures, which support code reuse.
+
+### 2.4 Top-Down Problem Decomposition
+
+Problems are frequently broken down into smaller subproblems that are solved step by step.
+
+### 2.5 Step-by-Step Execution Model
+
+Each instruction is executed sequentially, modifying the program state until a final state is reached. The goal is to specify explicitly what the computer should do at each step, using assignments, loops, and conditional branches.
+
+### 2.6 Advantages and Limitations
+
+Advantages associated with imperative programming include:
+
+- Sequential control flow based on simple, explicit instructions, which is generally considered intuitive.
+- Direct control over program state, memory, and variables.
+- Flexibility in handling complex algorithms and varied data structures.
+
+Limitations include:
+
+- Risk of side effects, since the program continuously modifies state, which can introduce subtle errors when state changes unexpectedly.
+- Difficulty in parallelizing execution, due to the strict sequential order of instructions.
+- Reduced readability in large programs, where the order of execution becomes critical to understanding the code.
+
+### 2.7 Comparison with Functional and Object-Oriented Paradigms
+
+Functional programming focuses on the application of pure functions and the avoidance of side effects, rather than on sequential execution and state. Object-oriented programming uses objects and classes to encapsulate state and behavior, with an emphasis on abstraction and modularity.
+
+## 3. Key Concepts in Imperative Programming
+
+### 3.1 Variables and Memory Allocation
+
+Variables are memory locations that store values. Their content can change during program execution.
+
+### 3.2 Functions in an Imperative Context
+
+Functions group instructions under a single name, facilitating code reuse. They can take parameters and return results. Functions used in this way remain part of the imperative paradigm. This differs from functional programming, where the use of mutable state and side effects is minimized and functions are treated as first-class objects, supporting a more modular and mathematical approach.
+
+### 3.3 Side Effects: Definition and Examples
+
+A side effect occurs when a function modifies the state of the program or its environment beyond returning a value. Examples include modifying global variables, modifying objects or data structures passed as parameters, reading or writing files, and producing output such as printed messages.
+
+For instance, a function that appends an element to a list passed as a parameter modifies that list directly rather than returning a new value. This constitutes a side effect, since the state of the program changes as a result of the function call.
+
+### 3.4 Consequences of Side Effects on Debugging and Predictability
+
+Side effects can make programs more difficult to understand and debug, since they may introduce unforeseen changes to the overall program state. Functions that modify global variables or shared data structures in ways not visible to the caller can produce unexpected results, reducing the predictability of program behavior.
+
+## 4. Declarative Programming
+
+### 4.1 Principles: Specifying What Rather Than How
+
+Declarative programming is a paradigm in which the programmer specifies what should be accomplished rather than how to accomplish it. The focus is placed on the logic of the program, and on the rules and relationships between data, leaving the compiler or interpreter to determine how instructions are executed.
+
+### 4.2 Comparison with Imperative Programming
+
+In imperative programming, the emphasis is placed on the sequence of operations needed to obtain a result. In declarative programming, the emphasis is placed on describing relationships and outcomes rather than the steps required to achieve them.
+
+### 4.3 Sub-Paradigms of Declarative Programming
+
+#### 4.3.1 Functional Programming
+
+Functional programming is based on the evaluation of mathematical functions, without mutable state or side effects. Haskell is cited as an example of a language built around this paradigm.
+
+#### 4.3.2 Logic Programming
+
+Logic programming is based on formal logic, principally first-order logic. Prolog is cited as an example of a language built around this paradigm.
+
+#### 4.3.3 Constraint Programming
+
+In constraint programming, solutions to a problem are obtained by expressing constraints on the possible values of variables, typically using constraint solvers.
+
+## 5. Logic Programming
+
+### 5.1 Structure of a Logic Program: Facts, Rules, Queries
+
+A logic program is a collection of facts, rules, and queries.
+
+Facts define information known to the program. For example, a fact might state that Pierre is the parent of Paul.
+
+Rules express conditional relationships between facts: if certain conditions are met, a conclusion is drawn. For example, a rule might state that a person X is the grandparent of Y if X is the parent of Z and Z is the parent of Y.
+
+Queries allow the fact and rule base to be interrogated in order to derive information.
+
+### 5.2 Formal Logic Foundations
+
+Logic programming relies principally on first-order logic. Programs are composed of predicates, and answers are obtained through logical inference.
+
+### 5.3 Core Mechanisms: Unification, Resolution, Backtracking
+
+Three concepts are central to logic programming:
+
+- Unification: the process of matching variables between queries and facts.
+- Resolution: an inference method used to derive new information from known rules and facts.
+- Backtracking: a technique in which the logic engine tries alternative solutions and reverts to a previous state if an attempt fails.
+
+### 5.4 Illustrative Examples in Prolog
+
+A simple Prolog program can state that Pierre is a man, Marie is a woman, and that Pierre and Marie are the parents of Paul. Rules can then define what constitutes a father or a mother based on these facts. Queries can subsequently be posed to determine, for instance, whether Pierre is the father of Paul.
+
+### 5.5 Advantages and Limitations
+
+Advantages associated with logic programming include:
+
+- Expressiveness in representing complex relationships and formulating problems as logical rules.
+- Clarity, since logic programs focus on the logic of the problem rather than on implementation steps.
+- Automatic inference, since the logic engine derives answers from facts and rules without explicit procedural instructions.
+
+Limitations include:
+
+- Performance costs associated with backtracking and resolution.
+- Limited applicability outside domains such as expert systems, planning, and formal verification; the paradigm is generally considered less suited to problems such as user interface design or high-performance computing.
+
+## 6. Functional Programming
+
+### 6.1 Core Principles: Pure Functions, Immutability, Absence of Side Effects
+
+Functional programming is based on pure functions, immutability, and the absence of side effects. The functions map, filter, and reduce are commonly associated with this paradigm, as they operate on collections of data while following these principles.
+
+### 6.2 Comparison with Imperative Programming
+
+Although imperative programming also makes use of functions, functional programming is distinguished by its emphasis on function composition, immutability, and the avoidance of side effects.
+
+### 6.3 Functional Constructs in Python
+
+#### 6.3.1 The map() Function
+
+The map() function applies a given function to each element of a sequence, such as a list or a tuple, and returns an iterable containing the results. It takes two arguments: the function to apply, and the iterable on which to apply it. The result is a map object, which can be converted into a list or another collection type.
+
+Example: computing the square of each number in a list.
+
+```python
+nombres = [1, 2, 3, 4]
+carres = list(map(lambda x: x ** 2, nombres))
+```
+
+Here, each element of `nombres` is passed to the lambda function `lambda x: x ** 2`, which returns the square of the number.
+
+Exercise: converting a list of temperatures from Celsius to Fahrenheit.
+
+```python
+celsius = [0, 20, 37, 100]
+fahrenheit = list(map(lambda c: c * 9/5 + 32, celsius))
+```
+
+#### 6.3.2 The filter() Function
+
+The filter() function is used to select elements of a sequence according to a condition. It applies a test function, returning True or False, to each element of the iterable, and retains only those elements for which the test function returns True. Like map(), filter() returns an object that can be converted into a list or another collection.
+
+Example: filtering even numbers from a list.
+
+```python
+nombres = [1, 2, 3, 4, 5, 6]
+pairs = list(filter(lambda x: x % 2 == 0, nombres))
+```
+
+Exercise: filtering words that begin with a given letter.
+
+```python
+mots = ["pomme", "banane", "poire", "prune"]
+mots_p = list(filter(lambda m: m.startswith("p"), mots))
+```
+
+#### 6.3.3 The reduce() Function
+
+The reduce() function, available in the functools module, applies a function cumulatively to the elements of an iterable, from left to right, to produce a single value. It takes a function combining two arguments, an iterable of values, and an optional initial value to start the accumulation.
+
+Example: computing the sum of a list.
+
+```python
+from functools import reduce
+nombres = [1, 2, 3, 4]
+somme = reduce(lambda a, b: a + b, nombres)
+```
+
+Exercise: computing the product of a list.
+
+```python
+produit = reduce(lambda a, b: a * b, nombres)
+```
+
+Exercise: finding the largest value in a list.
+
+```python
+maximum = reduce(lambda a, b: a if a > b else b, nombres)
+```
+
+### 6.4 Applied Examples and Exercises
+
+A combined example illustrates the use of filter, map, and reduce together: filtering a list to keep only even numbers, applying a function to square each remaining number, and reducing the results to obtain the sum of the squares.
+
+```python
+from functools import reduce
+nombres = [1, 2, 3, 4, 5, 6]
+resultat = reduce(lambda a, b: a + b, map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, nombres)))
+```
+
+## 7. Comparative Analysis of Paradigms
+
+### 7.1 Imperative vs. Declarative Approaches
+
+Imperative programming specifies the sequence of operations required to reach a result, while declarative programming specifies the desired result and the relationships between data, leaving the execution strategy to the compiler or interpreter.
+
+### 7.2 Functional vs. Imperative Approaches
+
+Functional programming avoids mutable state and side effects, relying on pure functions and function composition. Imperative programming, by contrast, relies on sequential instructions that modify program state directly.
+
+### 7.3 Use Cases and Applicability by Paradigm
+
+According to the course material, logic programming is generally applied to problems such as expert systems, planning, and formal verification, while it is considered less suited to user interface design or high-performance computing. Functional programming is illustrated through data transformation tasks using map, filter, and reduce. Imperative programming is described as suited to problems requiring direct control over program state and step-by-step execution.
+but Y" structures) in favor of plain descriptive prose (Rule 6).
