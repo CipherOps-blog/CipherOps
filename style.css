@@ -311,7 +311,7 @@ body.dark .toggle-thumb {
 }
 
 .toc-category {
-  margin-bottom: 0rem;
+  margin-bottom: 1.25rem;
 }
 
 .toc-category-header {
@@ -353,6 +353,10 @@ body.dark .toggle-thumb {
 
 .toc-article-item {
   margin-bottom: 0.85rem;
+}
+
+.toc-article-list .toc-article-item:last-child {
+  margin-bottom: 0;
 }
 
 .toc-article {
