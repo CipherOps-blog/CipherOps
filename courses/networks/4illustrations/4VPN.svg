@@ -53,6 +53,6 @@
 </g>
 <text class="fx lv" x="95"  y="430" text-anchor="middle">New IP header</text>
 <text class="fx lv" x="241" y="430" text-anchor="middle">ESP header</text>
-<text class="fx sg" x="502" y="430" text-anchor="middle">Original IP packet — encrypted</text>
+<text class="fx sg" x="502" y="430" text-anchor="middle">Original IP packet, encrypted</text>
 <text class="fx lv" x="759" y="430" text-anchor="middle">ESP auth</text>
 </svg>
