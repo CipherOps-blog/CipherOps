@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="490" viewBox="0 0 780 490" role="img" aria-labelledby="t d">
+<title id="t">Defence in depth as concentric layers</title>
+<desc id="d">Six nested rings running from an outer policies and people layer inward to the data asset at the core, each paired with example controls.</desc>
+<style>
+ text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
+ .band{fill:none;stroke-opacity:.22}
+ .edge{fill:none;stroke-width:1.4;stroke-opacity:.85}
+ .rl{font-size:13px;font-weight:600}
+ .lt{font-size:14.5px;font-weight:600}
+ .ld{font-size:12px;fill-opacity:.9}
+ .cap{font-size:12.5px;fill-opacity:.85}
+ .sg{fill:#87A878}.lv{fill:#B8A9C9}
+</style>
+
+<g>
+  <circle class="band" cx="250" cy="230" r="184" stroke="#B8A9C9" stroke-width="32"/>
+  <circle class="band" cx="250" cy="230" r="152" stroke="#87A878" stroke-width="32"/>
+  <circle class="band" cx="250" cy="230" r="120" stroke="#B8A9C9" stroke-width="32"/>
+  <circle class="band" cx="250" cy="230" r="88"  stroke="#87A878" stroke-width="32"/>
+  <circle class="band" cx="250" cy="230" r="56"  stroke="#B8A9C9" stroke-width="32"/>
+  <circle cx="250" cy="230" r="40" fill="#87A878" fill-opacity=".26" stroke="#87A878" stroke-width="1.6"/>
+
+  <circle class="edge" cx="250" cy="230" r="200" stroke="#B8A9C9"/>
+  <circle class="edge" cx="250" cy="230" r="168" stroke="#B8A9C9"/>
+  <circle class="edge" cx="250" cy="230" r="136" stroke="#87A878"/>
+  <circle class="edge" cx="250" cy="230" r="104" stroke="#B8A9C9"/>
+  <circle class="edge" cx="250" cy="230" r="72"  stroke="#87A878"/>
+</g>
+
+<g text-anchor="middle">
+  <text class="rl lv" x="250" y="51">Policies, people, process</text>
+  <text class="rl sg" x="250" y="83">Physical and perimeter</text>
+  <text class="rl lv" x="250" y="115">Network</text>
+  <text class="rl sg" x="250" y="147">Host</text>
+  <text class="rl lv" x="250" y="179">Application</text>
+  <text class="lt sg" x="250" y="228">Data</text>
+  <text class="ld sg" x="250" y="246">the asset</text>
+</g>
+
+<g>
+  <rect x="498" y="62" width="15" height="15" rx="3.5" fill="#B8A9C9" fill-opacity=".35" stroke="#B8A9C9"/>
+  <text class="lt lv" x="524" y="75">Policies, people, process</text>
+  <text class="ld lv" x="524" y="94">Training, procedures, access reviews</text>
+
+  <rect x="498" y="120" width="15" height="15" rx="3.5" fill="#87A878" fill-opacity=".35" stroke="#87A878"/>
+  <text class="lt sg" x="524" y="133">Physical and perimeter</text>
+  <text class="ld sg" x="524" y="152">Site access control, firewall, DMZ</text>
+
+  <rect x="498" y="178" width="15" height="15" rx="3.5" fill="#B8A9C9" fill-opacity=".35" stroke="#B8A9C9"/>
+  <text class="lt lv" x="524" y="191">Network</text>
+  <text class="ld lv" x="524" y="210">Segmentation, ACLs, IDS and IPS</text>
+
+  <rect x="498" y="236" width="15" height="15" rx="3.5" fill="#87A878" fill-opacity=".35" stroke="#87A878"/>
+  <text class="lt sg" x="524" y="249">Host</text>
+  <text class="ld sg" x="524" y="268">Patching, hardening, endpoint detection</text>
+
+  <rect x="498" y="294" width="15" height="15" rx="3.5" fill="#B8A9C9" fill-opacity=".35" stroke="#B8A9C9"/>
+  <text class="lt lv" x="524" y="307">Application</text>
+  <text class="ld lv" x="524" y="326">Input validation, authentication, authorisation</text>
+
+  <rect x="498" y="352" width="15" height="15" rx="3.5" fill="#87A878" fill-opacity=".35" stroke="#87A878"/>
+  <text class="lt sg" x="524" y="365">Data</text>
+  <text class="ld sg" x="524" y="384">Encryption at rest, key management</text>
+</g>
+
+<text class="cap sg" x="390" y="452" text-anchor="middle">No single control is assumed to hold. Each layer is designed to slow or contain an intrusion</text>
+<text class="cap sg" x="390" y="470" text-anchor="middle">that has already defeated the layer outside it.</text>
+</svg>
