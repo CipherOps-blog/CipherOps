@@ -42,7 +42,6 @@
   <text class="vd lv" x="526" y="141">dropped: the source is not</text><text class="vd lv" x="526" y="157">in our address space</text>
 </g>
 
-<line x1="20" y1="196" x2="820" y2="196" stroke="#87A878" stroke-width="1" stroke-opacity=".35"/>
 
 <text class="pt lv" x="20" y="234">Ingress filtering — traffic entering the network</text>
 <g>
@@ -71,5 +70,4 @@
   <text class="vd lv" x="526" y="347">dropped: an internal address</text><text class="vd lv" x="526" y="363">cannot arrive from outside</text>
 </g>
 
-<text class="bs sg" x="420" y="404" text-anchor="middle">Both directions apply the same rule: the source address must be consistent with the interface the packet arrived on.</text>
 </svg>
