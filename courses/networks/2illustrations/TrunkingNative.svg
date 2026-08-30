@@ -84,5 +84,4 @@
   <line x1="666" y1="230" x2="666" y2="254"/><line x1="686" y1="230" x2="686" y2="254"/>
 </g>
 
-<text class="note" x="650" y="348" text-anchor="middle" fill-opacity=".85">The end device never sees a VLAN tag. Tagging exists only between switches, so the native VLAN is the one case where a frame crosses a trunk bare.</text>
 </svg>
