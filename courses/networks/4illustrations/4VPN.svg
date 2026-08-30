@@ -42,7 +42,6 @@
 <text class="sb lv" x="110" y="337" text-anchor="middle">address assigned by site B</text>
 
 <path d="M202 302 L586 302 Q642 302 656 250 L668 190" fill="none" stroke="#B8A9C9" stroke-width="2.4" marker-end="url(#al)"/>
-<path d="M202 322 L592 322 Q668 322 684 256 L696 194" fill="none" stroke="#B8A9C9" stroke-width="2.4" stroke-opacity=".5"/>
 <text class="tl lv" x="392" y="294" text-anchor="middle">encrypted tunnel — remote access</text>
 
 <text class="hd sg" x="20" y="392">IPsec tunnel mode: the original packet is encapsulated whole</text>
