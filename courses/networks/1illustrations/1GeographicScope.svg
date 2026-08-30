@@ -18,7 +18,7 @@
  .chip{fill:#87A878;fill-opacity:.12;stroke:none}
  .chipl{fill:#B8A9C9;fill-opacity:.12;stroke:none}
  .nd{font-size:16px;font-weight:600;fill:#ffffff}
- .nh{font-size:16px;font-weight:600;fill:#000000}
+ .nh{font-size:16px;font-weight:600;fill:#ffffff}
  .el{font-size:12px;fill:#87A878}
  .elh{font-size:12px;fill:#B8A9C9}
  .note{font-size:12.5px;fill:#B8A9C9}
