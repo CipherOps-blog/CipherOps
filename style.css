@@ -125,6 +125,21 @@ button {
   border-bottom-width: 3px;
 }
 
+/* Conteneur défilable ajouté autour de chaque tableau par render.js :
+   un tableau trop large défile sur lui-même au lieu de faire déborder
+   la page, donc la marge à droite reste identique à celle de gauche. */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+}
+
+#article-container .table-wrap > table,
+#main-content .table-wrap > table {
+  margin: 0; /* la marge verticale est portée par le conteneur */
+}
+
 #toggle-toc {
   position: fixed;
   left: 1rem;
@@ -743,6 +758,14 @@ hr {
 
   #toggle-toc {
     display: grid;
+  }
+
+  /* Retrait de citation divisé par deux (défaut navigateur : 40px) et
+     aucun retrait à droite : la citation s'aligne sur le texte courant. */
+  #article-container blockquote,
+  #main-content blockquote {
+    margin-left: 20px;
+    margin-right: 0;
   }
 
   /* Seules les variables changent : le centrage lune/soleil suit. */

@@ -96,6 +96,24 @@ const rewriteRelativeMediaUrls = (html, sourceFilePath) => {
   });
 };
 
+// Les tableaux larges (formules MathJax, colonnes nombreuses) faisaient
+// déborder toute la page horizontalement sur mobile, collant la dernière
+// colonne au bord de l'écran. On les enferme dans un conteneur défilable
+// pour garder la même marge à droite qu'à gauche.
+const wrapTables = (container) => {
+  if (!container) return;
+
+  container.querySelectorAll('table').forEach((table) => {
+    const parent = table.parentNode;
+    if (!parent || (parent.classList && parent.classList.contains('table-wrap'))) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-wrap';
+    parent.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+};
+
 const renderMarkdown = (markdown, sourceFilePath = '') => {
   if (typeof marked === 'undefined' || !marked.parse) return markdown;
 
@@ -132,6 +150,7 @@ const loadArticle = async (filePath) => {
     const manifestEntry = await fetchManifestEntry(filePath);
 
     articleContainer.innerHTML = html;
+    wrapTables(articleContainer);
     injectArticleDate(articleContainer, manifestEntry && manifestEntry.date);
     injectArticleHexagons(articleContainer);
 
