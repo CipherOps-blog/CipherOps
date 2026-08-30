@@ -21,7 +21,7 @@
  .nt{font-size:13px;font-weight:600;fill:#B8A9C9}
 </style>
 <rect x="14" y="20" width="420" height="290" rx="12" fill="#B8A9C9" fill-opacity=".05" stroke="#B8A9C9" stroke-width="2" stroke-dasharray="8 5"/>
-<text class="nt" x="34" y="46">Private network — 192.168.1.0/24</text>
+<text class="nt" x="34" y="46">Private network : 192.168.1.0/24</text>
 <text class="note" x="34" y="66" fill-opacity=".8">not routable on the public internet</text>
 
 <g>
