@@ -25,7 +25,7 @@
 <text class="lb sg" x="264" y="128" text-anchor="middle">physical</text>
 <text class="lb sg" x="264" y="168" text-anchor="middle">design</text>
 
-<text class="hdr sg" x="580" y="70" text-anchor="middle">PHYSICAL — POSTGRESQL 16</text>
+<text class="hdr sg" x="580" y="70" text-anchor="middle">PHYSICAL : POSTGRESQL 16</text>
 <rect x="320" y="80" width="460" height="164" rx="8" fill="#87A878" fill-opacity=".12" stroke="#87A878" stroke-width="2"/>
 <line x1="320" y1="110" x2="780" y2="110" stroke="#87A878" stroke-width="2"/>
 <text class="tn sg" x="550" y="101" text-anchor="middle">order_line</text>
@@ -51,6 +51,4 @@
 <rect x="320" y="322" width="460" height="52" rx="8" fill="#B8A9C9" fill-opacity=".12" stroke="#B8A9C9" stroke-width="1.8"/>
 <text class="lb lv" x="334" y="344">Storage</text>
 <text class="cn lv" x="334" y="363">tablespace ts_orders, fillfactor 90</text>
-
-<text class="cp sg" x="400" y="410" text-anchor="middle">The physical level fixes what the logical level left open: product-specific types, key and check constraints, indexing and storage parameters.</text>
 </svg>
