@@ -52,7 +52,4 @@
 <rect class="ext" x="716" y="146" width="170" height="80" rx="9"/>
 <text class="nh" x="801" y="180" text-anchor="middle" font-size="16">Internet</text>
 <text class="note" x="801" y="202" text-anchor="middle" fill-opacity=".8">sees 203.0.113.1</text>
-
-<text class="note" x="450" y="348" text-anchor="middle" fill-opacity=".85">Private ranges may be reused freely inside any organisation, so they are not globally unique and cannot be routed on the public internet.</text>
-<text class="note" x="450" y="368" text-anchor="middle" fill-opacity=".85">The router is the only device in this picture holding an address the rest of the world can reach.</text>
 </svg>
