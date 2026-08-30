@@ -30,7 +30,7 @@
 <rect class="chipl" x="176" y="160" width="112" height="30" rx="5"/>
 <text class="elh" x="232" y="180" text-anchor="middle">blocked traffic</text>
 <g stroke="#B8A9C9" stroke-width="2.4" stroke-linecap="round">
-  <line x1="266" y1="142" x2="280" y2="156"/><line x1="280" y1="142" x2="266" y2="156"/>
+  <line x1="266" y1="140" x2="280" y2="154"/><line x1="280" y1="140" x2="266" y2="154"/>
 </g>
 
 <rect class="dev" x="292" y="96" width="118" height="60" rx="8"/>
@@ -51,4 +51,3 @@
 <rect class="host" x="762" y="166" width="92" height="44" rx="7"/>
 <text class="nh" x="808" y="194" text-anchor="middle">PC2</text>
 </svg>
-
