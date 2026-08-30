@@ -61,5 +61,4 @@
   <path d="M300 400 L500 388" fill="none"/>
 </g>
 
-<text class="note" x="410" y="452" text-anchor="middle" fill-opacity=".85">The OSI model is a teaching reference; TCP/IP is what actually runs. Layers 5 to 7 collapse into one application layer, and 1 to 2 into network access.</text>
 </svg>
