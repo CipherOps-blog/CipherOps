@@ -403,7 +403,7 @@ body.dark .toggle-thumb {
   display: block;
   padding: 0.5rem 0.35rem;
   border-radius: 0.65rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .toc-article:hover,
@@ -412,9 +412,15 @@ body.dark .toggle-thumb {
   color: var(--accent-alt);
 }
 
-.toc-article.active {
-  background: linear-gradient(135deg, rgba(135, 168, 120, 0.18), rgba(184, 169, 201, 0.18));
+/* Article actuellement affiché : lavande franche + barre latérale,
+   nettement plus marqué que le simple survol. */
+.toc-article.active,
+.toc-article.active:hover,
+.toc-article.active:focus-visible {
+  background: rgba(184, 169, 201, 0.28);
   color: var(--accent-alt);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--accent-alt);
 }
 
 .article-meta {

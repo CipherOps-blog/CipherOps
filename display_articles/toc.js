@@ -20,9 +20,31 @@ const closeMobileTOC = () => {
 };
 
 const setActiveLink = (link) => {
-  if (currentActiveLink) currentActiveLink.classList.remove('active');
-  currentActiveLink = link;
+  const tocRoot = document.getElementById(tocRootId);
+  // On relit le DOM : showLanding() peut avoir retiré la classe de son côté.
+  (tocRoot || document).querySelectorAll('.toc-article.active')
+    .forEach((el) => el.classList.remove('active'));
+  currentActiveLink = link || null;
   if (currentActiveLink) currentActiveLink.classList.add('active');
+};
+
+const fileFromHash = () => {
+  const hash = window.location.hash;
+  if (!hash.startsWith('#article=')) return null;
+  return decodeURIComponent(hash.slice('#article='.length)) || null;
+};
+
+// Source de vérité = l'URL, pas le clic : couvre l'ouverture directe d'un lien,
+// les boutons précédent/suivant et les liens internes aux articles.
+const syncActiveFromHash = () => {
+  const tocRoot = document.getElementById(tocRootId);
+  if (!tocRoot) return;
+  const file = fileFromHash();
+  const match = file
+    ? Array.from(tocRoot.querySelectorAll('.toc-article'))
+        .find((link) => link.dataset.file === file)
+    : null;
+  setActiveLink(match);
 };
 
 const handleCategoryToggle = (categoryEl) => {
@@ -99,6 +121,7 @@ const buildTOC = async () => {
     manifest.forEach((category) => {
       tocRoot.appendChild(createCategoryNode(category));
     });
+    syncActiveFromHash();
   } catch (error) {
     console.error('Error building TOC:', error);
     tocRoot.textContent = 'Unable to load table of contents.';
@@ -107,6 +130,8 @@ const buildTOC = async () => {
 
 // ── SUPPRIMÉ : window.addEventListener('DOMContentLoaded', buildTOC);
 // Chaque page appelle buildTOC() elle-même.
+
+window.addEventListener('hashchange', syncActiveFromHash);
 
 export { buildTOC };
 
