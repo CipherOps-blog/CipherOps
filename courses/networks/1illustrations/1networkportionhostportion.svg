@@ -58,6 +58,5 @@
 <g stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)">
   <line x1="278" y1="245" x2="296" y2="245"/><line x1="560" y1="245" x2="578" y2="245"/>
 </g>
-<text class="note" x="430" y="316" text-anchor="middle" fill-opacity=".85">Every bit borrowed from the host portion doubles the number of subnets and roughly halves the hosts each one can hold.</text>
-<text class="note" x="430" y="336" text-anchor="middle" fill-opacity=".85">Two addresses per subnet are never assignable: the network address itself and the broadcast address.</text>
+
 </svg>
