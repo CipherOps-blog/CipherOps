@@ -49,8 +49,7 @@
   <text class="mn sg" x="544" y="156">0.0.0.0/0</text>        <text class="mn sg" x="700" y="156">eth2</text>
 </g>
 
-<text class="hd lv" x="530" y="212">Applied to the packet above</text>
-<rect x="530" y="226" width="250" height="132" rx="8" fill="#B8A9C9" fill-opacity=".10" stroke="#B8A9C9" stroke-width="1.6"/>
+
 <text class="nt lv" x="544" y="250">The packet arrived on eth0, but the</text>
 <text class="nt lv" x="544" y="270">only route back to 10.0.0.5 points at</text>
 <text class="nt lv" x="544" y="290">eth1. The claimed source is therefore</text>
