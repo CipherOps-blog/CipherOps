@@ -97,6 +97,4 @@
 </g>
 <g fill="#B8A9C9"><circle cx="1063" cy="216" r="5"/><circle cx="1063" cy="236" r="5"/><circle cx="1063" cy="256" r="5"/></g>
 
-<text class="note" x="620" y="380" text-anchor="middle" fill-opacity=".85">One physical link carries every conversation. Whether the channels are separated in time, in frequency or in wavelength,</text>
-<text class="note" x="620" y="400" text-anchor="middle" fill-opacity=".85">the demultiplexer needs the same channel plan as the multiplexer to put the traffic back where it belongs.</text>
 </svg>
