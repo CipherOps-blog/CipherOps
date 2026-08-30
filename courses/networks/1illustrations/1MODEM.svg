@@ -41,6 +41,4 @@
 <rect class="dev" x="700" y="76" width="146" height="60" rx="8"/>
 <text class="nd" x="773" y="112" text-anchor="middle">Router</text>
 
-<text class="note" x="430" y="200" text-anchor="middle" fill-opacity=".85">The modem does no routing and no filtering. Its whole job is to translate between the physical</text>
-<text class="note" x="430" y="220" text-anchor="middle" fill-opacity=".85">carrier the provider uses on the access line and the Ethernet the rest of the network speaks.</text>
 </svg>
