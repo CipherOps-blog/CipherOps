@@ -640,6 +640,49 @@ body.dark .landing-description::before {
   border-radius: 0.5rem;
 }
 
+/* ── Animated figures: discreet play/pause control ─────────────────── */
+
+#article-container figure.anim-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 1.5rem 0;
+}
+
+#article-container figure.anim-figure img {
+  margin: 0;
+}
+
+#article-container .anim-toggle {
+  align-self: flex-end;
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  opacity: 0.45;
+  cursor: pointer;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+#article-container figure.anim-figure:hover .anim-toggle,
+#article-container .anim-toggle:hover,
+#article-container .anim-toggle:focus-visible {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* Readers who ask for reduced motion get the control at full strength, since
+   for them it is the way back to the animation rather than a way out of it. */
+@media (prefers-reduced-motion: reduce) {
+  #article-container .anim-toggle { opacity: 1; }
+}
+
 #article-container a {
   color: var(--accent);
   text-decoration: underline;

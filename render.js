@@ -114,6 +114,77 @@ const wrapTables = (container) => {
   });
 };
 
+// ── Animated figures: SMIL support, reduced motion, manual toggle ──
+
+// Figures that ship as an animated SVG. `still` is the static SVG shown when
+// the reader has asked for reduced motion or pauses the loop; `gif` is the
+// original raster animation, used only where SMIL is unavailable.
+const ANIMATED_FIGURES = {
+  '1Topology.svg': { still: '1Topology-still.svg', gif: '1Topology.gif' }
+};
+
+// Browsers without SMIL return a plain SVGElement for <animate>; those with it
+// return an SVGAnimateElement. This is the long-standing Modernizr check.
+const supportsSMIL = () => {
+  if (!document.createElementNS) return false;
+  const el = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+  return /SVGAnimate/.test(Object.prototype.toString.call(el));
+};
+
+const prefersReducedMotion = () =>
+  typeof window.matchMedia === 'function' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const enhanceAnimatedFigures = (container) => {
+  if (!container) return;
+
+  const smil = supportsSMIL();
+
+  container.querySelectorAll('img').forEach((img) => {
+    const src  = img.getAttribute('src') || '';
+    const name = src.split('/').pop().split('?')[0];
+    const spec = ANIMATED_FIGURES[name];
+    if (!spec) return;
+
+    const base      = src.slice(0, src.length - name.length);
+    const animated  = src;
+    const stillSrc  = base + spec.still;
+    const gifSrc    = base + spec.gif;
+
+    // No SMIL: fall back to the original GIF and offer no controls, since the
+    // browser cannot pause that either.
+    if (!smil) {
+      img.src = gifSrc;
+      return;
+    }
+
+    const wrap = document.createElement('figure');
+    wrap.className = 'anim-figure';
+    img.parentNode.insertBefore(wrap, img);
+    wrap.appendChild(img);
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'anim-toggle';
+    wrap.appendChild(button);
+
+    let playing = !prefersReducedMotion();
+
+    const apply = () => {
+      img.src = playing ? animated : stillSrc;
+      button.textContent = playing ? 'Pause' : 'Play animation';
+      button.setAttribute('aria-pressed', String(playing));
+      button.setAttribute(
+        'aria-label',
+        playing ? 'Pause the topology animation' : 'Play the topology animation'
+      );
+    };
+
+    button.addEventListener('click', () => { playing = !playing; apply(); });
+    apply();
+  });
+};
+
 const renderMarkdown = (markdown, sourceFilePath = '') => {
   if (typeof marked === 'undefined' || !marked.parse) return markdown;
 
@@ -153,6 +224,7 @@ const loadArticle = async (filePath) => {
     wrapTables(articleContainer);
     injectArticleDate(articleContainer, manifestEntry && manifestEntry.date);
     injectArticleHexagons(articleContainer);
+    enhanceAnimatedFigures(articleContainer);
 
     hideLandingShowArticle();
 
