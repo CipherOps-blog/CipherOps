@@ -54,6 +54,4 @@
 <line x1="600" y1="112" x2="480" y2="300" stroke="#B8A9C9" stroke-width="2"/>
 <text class="cd sg" x="590" y="128">1</text><text class="cd sg" x="492" y="292">n</text>
 
-<text class="cp sg" x="400" y="396" text-anchor="middle">Transformation rules: each entity becomes a table and each attribute a column; a one-to-many association becomes a foreign key</text>
-<text class="cp sg" x="400" y="416" text-anchor="middle">on the many side; a many-to-many association becomes an association table whose primary key is the pair of foreign keys.</text>
 </svg>
