@@ -22,13 +22,11 @@
 
 <rect x="40" y="150" width="160" height="102" rx="11" fill="#87A878" fill-opacity=".14" stroke="#87A878" stroke-width="2"/>
 <text class="hd sg" x="120" y="180" text-anchor="middle">Alice</text>
-<text class="sb sg" x="120" y="200" text-anchor="middle">measures ↕ basis</text>
-<text class="res sg" x="120" y="234" text-anchor="middle">0</text>
+<text class="sb sg" x="120" y="200" text-anchor="middle">measures</text>
 
 <rect x="640" y="150" width="160" height="102" rx="11" fill="#87A878" fill-opacity=".14" stroke="#87A878" stroke-width="2"/>
 <text class="hd sg" x="720" y="180" text-anchor="middle">Bob</text>
-<text class="sb sg" x="720" y="200" text-anchor="middle">measures ↕ basis</text>
-<text class="res sg" x="720" y="234" text-anchor="middle">1</text>
+<text class="sb sg" x="720" y="200" text-anchor="middle">measures</text>
 
 <rect x="352" y="166" width="136" height="70" rx="11" fill="#B8A9C9" fill-opacity=".20" stroke="#B8A9C9" stroke-width="2"/>
 <text class="hd lv" x="420" y="196" text-anchor="middle">Pair source</text>
@@ -41,10 +39,4 @@
   <circle cx="540" cy="201" r="4"/><circle cx="578" cy="201" r="4"/>
 </g>
 
-<line x1="120" y1="292" x2="720" y2="292" stroke="#87A878" stroke-width="2" marker-start="url(#asr)" marker-end="url(#as)"/>
-<text class="lb sg" x="420" y="284" text-anchor="middle">classical channel</text>
-<text class="sb sg" x="420" y="312" text-anchor="middle">outcomes are compared here — and this link is bounded by the speed of light</text>
-
-<text class="cp lv" x="420" y="358" text-anchor="middle">Each party sees a random string on its own. The correlation only becomes visible once the two records are compared,</text>
-<text class="cp lv" x="420" y="378" text-anchor="middle">which is why entanglement carries no message and cannot be used to signal faster than light.</text>
 </svg>
