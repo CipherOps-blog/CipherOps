@@ -21,7 +21,7 @@
 <text class="sb lv" x="430" y="82" text-anchor="middle">a 24-bit identifier gives roughly 16 million segments, against 4094 for an 802.1Q VLAN</text>
 
 <rect x="180" y="158" width="500" height="112" rx="14" fill="#87A878" fill-opacity=".07" stroke="#87A878" stroke-width="2" stroke-dasharray="8 5"/>
-<text class="sb sg" x="430" y="260" text-anchor="middle">Underlay: a routed IP network — it only ever sees ordinary UDP traffic</text>
+<text class="sb sg" x="430" y="260" text-anchor="middle">Underlay: a routed IP network only ever sees ordinary UDP traffic</text>
 
 <rect x="200" y="176" width="124" height="62" rx="9" fill="#87A878" fill-opacity=".18" stroke="#87A878" stroke-width="2"/>
 <text class="hd sg" x="262" y="202" text-anchor="middle">VTEP 1</text>
@@ -44,7 +44,7 @@
 <text class="sb lv" x="771" y="222" text-anchor="middle">tenant 1</text>
 <line x1="664" y1="207" x2="702" y2="207" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
 
-<text class="tl sg" x="30" y="316">Encapsulation — about 50 bytes of overhead per frame</text>
+<text class="tl sg" x="30" y="316">Encapsulation, about 50 bytes of overhead per frame</text>
 <g stroke-width="1.8">
   <rect x="30" y="328" width="118" height="52" rx="6" fill="#B8A9C9" fill-opacity=".16" stroke="#B8A9C9"/>
   <rect x="154" y="328" width="106" height="52" rx="6" fill="#B8A9C9" fill-opacity=".16" stroke="#B8A9C9"/>
