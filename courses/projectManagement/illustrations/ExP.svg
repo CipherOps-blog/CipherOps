@@ -1,95 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="830" height="440" viewBox="0 0 830 440" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="896" height="261" viewBox="0 0 896 261" role="img">
 <defs>
- <marker id="as" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#87A878"/></marker>
+ <marker id="ah-s" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="10" refX="13" refY="5" orient="auto"><path d="M0,0 L13,5 L0,10 Z" fill="#87A878"/></marker>
+ <marker id="ah-l" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="10" refX="13" refY="5" orient="auto"><path d="M0,0 L13,5 L0,10 Z" fill="#B8A9C9"/></marker>
+ <path id="p0Plan" d="M154.00,238.00 A109.00,109.00 0 0 0 263.00,129.00"/>
+ <path id="p0Design" d="M223.30,59.70 A98.00,98.00 0 0 1 252.00,129.00"/>
+ <path id="p0Build" d="M154.00,31.00 A98.00,98.00 0 0 1 223.30,59.70"/>
+ <path id="p0Test" d="M84.70,59.70 A98.00,98.00 0 0 1 154.00,31.00"/>
+ <path id="p0Review" d="M56.00,129.00 A98.00,98.00 0 0 1 84.70,59.70"/>
+ <path id="p1Plan" d="M409.20,238.00 A109.00,109.00 0 0 0 518.20,129.00"/>
+ <path id="p1Design" d="M478.50,59.70 A98.00,98.00 0 0 1 507.20,129.00"/>
+ <path id="p1Build" d="M409.20,31.00 A98.00,98.00 0 0 1 478.50,59.70"/>
+ <path id="p1Test" d="M339.90,59.70 A98.00,98.00 0 0 1 409.20,31.00"/>
+ <path id="p1Review" d="M311.20,129.00 A98.00,98.00 0 0 1 339.90,59.70"/>
+ <path id="p2Plan" d="M664.40,238.00 A109.00,109.00 0 0 0 773.40,129.00"/>
+ <path id="p2Design" d="M733.70,59.70 A98.00,98.00 0 0 1 762.40,129.00"/>
+ <path id="p2Build" d="M664.40,31.00 A98.00,98.00 0 0 1 733.70,59.70"/>
+ <path id="p2Test" d="M595.10,59.70 A98.00,98.00 0 0 1 664.40,31.00"/>
+ <path id="p2Review" d="M566.40,129.00 A98.00,98.00 0 0 1 595.10,59.70"/>
 </defs>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
- .pt{font-size:15px;font-weight:600}
- .ct{font-size:13px;font-weight:600}
- .cd{font-size:11px;fill-opacity:.9}
- .sn{font-size:12px;font-weight:600}
- .cp{font-size:12px;fill-opacity:.9}
- .sg{fill:#87A878}.lv{fill:#B8A9C9}
+ .ln{fill:none;stroke-width:4.5}
+ .ph{font-size:13.5px;font-weight:600;letter-spacing:.3px}
+ .sp{font-size:16px;font-weight:600;fill:#87A878}
+ .lc{font-size:14px;font-weight:600;fill:#87A878}
 </style>
 
-<text class="pt sg" x="20" y="34">Extreme Programming specifies technical practices, not only process roles</text>
-
-<g stroke-width="2">
-  <rect x="20"  y="52" width="150" height="200" rx="11" fill="#87A878" fill-opacity=".11" stroke="#87A878"/>
-  <rect x="184" y="52" width="150" height="200" rx="11" fill="#B8A9C9" fill-opacity=".11" stroke="#B8A9C9"/>
-  <rect x="348" y="52" width="150" height="200" rx="11" fill="#87A878" fill-opacity=".11" stroke="#87A878"/>
-  <rect x="512" y="52" width="150" height="200" rx="11" fill="#B8A9C9" fill-opacity=".11" stroke="#B8A9C9"/>
-  <rect x="676" y="52" width="150" height="200" rx="11" fill="#87A878" fill-opacity=".11" stroke="#87A878"/>
-</g>
-
-<g fill="none" stroke="#87A878" stroke-width="2">
-  <rect x="74" y="86" width="42" height="30" rx="4"/>
-  <circle cx="81" cy="132" r="7"/><circle cx="109" cy="132" r="7"/>
-  <line x1="81" y1="139" x2="81" y2="150"/><line x1="109" y1="139" x2="109" y2="150"/>
-</g>
-<text class="ct sg" x="95" y="184" text-anchor="middle">Pair programming</text>
-<text class="cd sg" x="95" y="208" text-anchor="middle">Two developers work</text>
-<text class="cd sg" x="95" y="224" text-anchor="middle">at one workstation.</text>
-
-<g fill="none" stroke="#B8A9C9" stroke-width="2" stroke-linecap="round">
-  <path d="M234 132 a25 25 0 1 1 12 21" />
-  <path d="M240 100 l-8 -8 l10 -6" />
-  <path d="M251 122 l6 7 l12 -15"/>
-</g>
-<text class="ct lv" x="259" y="184" text-anchor="middle">Test-driven</text>
-<text class="ct lv" x="259" y="200" text-anchor="middle">development</text>
-<text class="cd lv" x="259" y="222" text-anchor="middle">Tests are written</text>
-<text class="cd lv" x="259" y="238" text-anchor="middle">before the code.</text>
-
-<g fill="none" stroke="#87A878" stroke-width="2" stroke-linecap="round">
-  <path d="M392 92 L423 122"/><path d="M454 92 L423 122"/><path d="M423 122 L423 152"/>
-  <circle cx="392" cy="92" r="6"/><circle cx="454" cy="92" r="6"/><circle cx="423" cy="152" r="6"/>
-</g>
-<text class="ct sg" x="423" y="184" text-anchor="middle">Continuous</text>
-<text class="ct sg" x="423" y="200" text-anchor="middle">integration</text>
-<text class="cd sg" x="423" y="222" text-anchor="middle">Changes are merged</text>
-<text class="cd sg" x="423" y="238" text-anchor="middle">and tested often.</text>
-
-<g fill="none" stroke="#B8A9C9" stroke-width="2">
-  <rect x="551" y="112" width="24" height="24" rx="4"/>
-  <rect x="587" y="112" width="24" height="24" rx="4"/>
-  <rect x="623" y="112" width="24" height="24" rx="4"/>
-  <line x1="575" y1="124" x2="585" y2="124" marker-end="url(#as)" stroke="#B8A9C9"/>
-  <line x1="611" y1="124" x2="621" y2="124" marker-end="url(#as)" stroke="#B8A9C9"/>
-</g>
-<text class="ct lv" x="587" y="184" text-anchor="middle">Small, frequent</text>
-<text class="ct lv" x="587" y="200" text-anchor="middle">releases</text>
-<text class="cd lv" x="587" y="222" text-anchor="middle">Feedback cycles with</text>
-<text class="cd lv" x="587" y="238" text-anchor="middle">users stay short.</text>
-
-<g fill="none" stroke="#87A878" stroke-width="2">
-  <rect x="726" y="106" width="50" height="36" rx="5"/>
-  <path d="M712 92 L724 104" marker-end="url(#as)"/>
-  <path d="M790 92 L778 104" marker-end="url(#as)"/>
-  <path d="M751 160 L751 146" marker-end="url(#as)"/>
-</g>
-<text class="ct sg" x="751" y="184" text-anchor="middle">Collective code</text>
-<text class="ct sg" x="751" y="200" text-anchor="middle">ownership</text>
-<text class="cd sg" x="751" y="222" text-anchor="middle">Anyone may change</text>
-<text class="cd sg" x="751" y="238" text-anchor="middle">any part of the code.</text>
-
-<text class="pt lv" x="20" y="300">All of it runs inside a short iteration</text>
-<g stroke-width="2" fill="none">
-  <rect x="20"  y="316" width="140" height="46" rx="9" fill="#B8A9C9" fill-opacity=".14" stroke="#B8A9C9"/>
-  <rect x="196" y="316" width="140" height="46" rx="9" fill="#B8A9C9" fill-opacity=".14" stroke="#B8A9C9"/>
-  <rect x="372" y="316" width="140" height="46" rx="9" fill="#B8A9C9" fill-opacity=".14" stroke="#B8A9C9"/>
-  <rect x="548" y="316" width="140" height="46" rx="9" fill="#B8A9C9" fill-opacity=".14" stroke="#B8A9C9"/>
-</g>
-<g class="sn lv" text-anchor="middle">
-  <text x="90" y="344">Plan</text><text x="266" y="344">Write test, code</text><text x="442" y="344">Integrate</text><text x="618" y="344">Release</text>
-</g>
-<g stroke="#87A878" stroke-width="2" marker-end="url(#as)">
-  <line x1="162" y1="339" x2="190" y2="339"/>
-  <line x1="338" y1="339" x2="366" y2="339"/>
-  <line x1="514" y1="339" x2="542" y2="339"/>
-</g>
-<path d="M690 339 L740 339 L740 388 L90 388 L90 366" fill="none" stroke="#87A878" stroke-width="2" marker-end="url(#as)"/>
-<text class="cp sg" x="415" y="382" text-anchor="middle">user feedback returns to the next iteration</text>
-
-<text class="cp sg" x="415" y="424" text-anchor="middle">Extreme Programming shares Scrum's short iterations but weights engineering discipline over process roles and ceremonies.</text>
+<path class="ln" d="M154.00,217.00 A88.00,88.00 0 0 0 242.00,129.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p0Plan" startOffset="50%" text-anchor="middle">Plan</textPath></text>
+<path class="ln" d="M242.00,129.00 A88.00,88.00 0 0 0 216.23,66.77" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="ph" fill="#87A878"><textPath href="#p0Design" startOffset="50%" text-anchor="middle">Design</textPath></text>
+<path class="ln" d="M216.23,66.77 A88.00,88.00 0 0 0 154.00,41.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p0Build" startOffset="50%" text-anchor="middle">Build</textPath></text>
+<path class="ln" d="M154.00,41.00 A88.00,88.00 0 0 0 91.77,66.77" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="ph" fill="#87A878"><textPath href="#p0Test" startOffset="50%" text-anchor="middle">Test</textPath></text>
+<path class="ln" d="M91.77,66.77 A88.00,88.00 0 0 0 66.00,129.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p0Review" startOffset="50%" text-anchor="middle">Review</textPath></text>
+<path class="ln" d="M66.00,129.00 A88.00,88.00 0 0 0 154.00,217.00" stroke="#87A878"/>
+<line class="ln" x1="154.00" y1="217.00" x2="365.20" y2="217.00" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="lc" x="312.40" y="237.00" text-anchor="middle">Launch</text>
+<line class="ln" x1="66.00" y1="217.00" x2="154.00" y2="217.00" stroke="#B8A9C9"/>
+<text class="sp" x="154.00" y="135.00" text-anchor="middle">Sprint 1</text>
+<path class="ln" d="M409.20,217.00 A88.00,88.00 0 0 0 497.20,129.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p1Plan" startOffset="50%" text-anchor="middle">Plan</textPath></text>
+<path class="ln" d="M497.20,129.00 A88.00,88.00 0 0 0 471.43,66.77" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="ph" fill="#87A878"><textPath href="#p1Design" startOffset="50%" text-anchor="middle">Design</textPath></text>
+<path class="ln" d="M471.43,66.77 A88.00,88.00 0 0 0 409.20,41.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p1Build" startOffset="50%" text-anchor="middle">Build</textPath></text>
+<path class="ln" d="M409.20,41.00 A88.00,88.00 0 0 0 346.97,66.77" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="ph" fill="#87A878"><textPath href="#p1Test" startOffset="50%" text-anchor="middle">Test</textPath></text>
+<path class="ln" d="M346.97,66.77 A88.00,88.00 0 0 0 321.20,129.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p1Review" startOffset="50%" text-anchor="middle">Review</textPath></text>
+<path class="ln" d="M321.20,129.00 A88.00,88.00 0 0 0 409.20,217.00" stroke="#87A878"/>
+<line class="ln" x1="409.20" y1="217.00" x2="620.40" y2="217.00" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="lc" x="567.60" y="237.00" text-anchor="middle">Launch</text>
+<line class="ln" x1="365.20" y1="217.00" x2="409.20" y2="217.00" stroke="#B8A9C9"/>
+<text class="sp" x="409.20" y="135.00" text-anchor="middle">Sprint 2</text>
+<path class="ln" d="M664.40,217.00 A88.00,88.00 0 0 0 752.40,129.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p2Plan" startOffset="50%" text-anchor="middle">Plan</textPath></text>
+<path class="ln" d="M752.40,129.00 A88.00,88.00 0 0 0 726.63,66.77" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="ph" fill="#87A878"><textPath href="#p2Design" startOffset="50%" text-anchor="middle">Design</textPath></text>
+<path class="ln" d="M726.63,66.77 A88.00,88.00 0 0 0 664.40,41.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p2Build" startOffset="50%" text-anchor="middle">Build</textPath></text>
+<path class="ln" d="M664.40,41.00 A88.00,88.00 0 0 0 602.17,66.77" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="ph" fill="#87A878"><textPath href="#p2Test" startOffset="50%" text-anchor="middle">Test</textPath></text>
+<path class="ln" d="M602.17,66.77 A88.00,88.00 0 0 0 576.40,129.00" stroke="#B8A9C9" marker-end="url(#ah-l)"/>
+<text class="ph" fill="#B8A9C9"><textPath href="#p2Review" startOffset="50%" text-anchor="middle">Review</textPath></text>
+<path class="ln" d="M576.40,129.00 A88.00,88.00 0 0 0 664.40,217.00" stroke="#87A878"/>
+<line class="ln" x1="664.40" y1="217.00" x2="875.60" y2="217.00" stroke="#87A878" marker-end="url(#ah-s)"/>
+<text class="lc" x="822.80" y="237.00" text-anchor="middle">Launch</text>
+<line class="ln" x1="620.40" y1="217.00" x2="664.40" y2="217.00" stroke="#B8A9C9"/>
+<text class="sp" x="664.40" y="135.00" text-anchor="middle">Sprint 3</text>
+<line class="ln" x1="22.00" y1="217.00" x2="66.00" y2="217.00" stroke="#B8A9C9" stroke-dasharray="9 8"/>
 </svg>
