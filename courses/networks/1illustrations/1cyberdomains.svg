@@ -28,11 +28,11 @@
   <line x1="370" y1="280" x2="230" y2="361"/>
   <line x1="370" y1="280" x2="230" y2="199"/>
 </g>
-<circle cx="370" cy="280" r="86" fill="#B8A9C9" fill-opacity=".18" stroke="#B8A9C9" stroke-width="2.5"/>
+<circle cx="370" cy="280" r="86" fill="#B8A9C9" stroke="#B8A9C9" stroke-width="2.5"/>
 <text class="nh" x="370" y="274" text-anchor="middle" font-size="17">Cybersecurity</text>
 <text class="nh" x="370" y="296" text-anchor="middle" font-size="17">domains</text>
 
-<g fill="#87A878" fill-opacity=".18" stroke="#87A878" stroke-width="2.5">
+<g fill="#87A878" stroke="#87A878" stroke-width="2.5">
   <circle cx="370" cy="118" r="66"/><circle cx="510" cy="199" r="66"/><circle cx="510" cy="361" r="66"/>
   <circle cx="370" cy="442" r="66"/><circle cx="230" cy="361" r="66"/><circle cx="230" cy="199" r="66"/>
 </g>
