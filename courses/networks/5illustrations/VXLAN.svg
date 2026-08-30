@@ -60,7 +60,4 @@
 <text class="fs lv" x="477" y="369" text-anchor="middle">24-bit VNI</text>
 <text class="fx sg" x="696" y="352" text-anchor="middle">Original Ethernet frame</text>
 <text class="fs sg" x="696" y="369" text-anchor="middle">carried unchanged</text>
-
-<text class="cap sg" x="430" y="412" text-anchor="middle">Because the frame grows, an underlay left at the default 1500-byte MTU will fragment the result.</text>
-<text class="cap sg" x="430" y="430" text-anchor="middle">Underlays carrying VXLAN are therefore normally configured for jumbo frames.</text>
 </svg>
