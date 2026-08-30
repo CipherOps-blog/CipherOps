@@ -58,8 +58,19 @@ const createCategoryNode = (category) => {
   const categoryHeader = document.createElement('button');
   categoryHeader.type = 'button';
   categoryHeader.className = 'toc-category-header';
-  categoryHeader.textContent = category.category;
   categoryHeader.addEventListener('click', () => handleCategoryToggle(categoryWrapper));
+
+  const categoryLabel = document.createElement('span');
+  categoryLabel.className = 'toc-category-label';
+  categoryLabel.textContent = category.category;
+
+  const categoryArrow = document.createElement('span');
+  categoryArrow.className = 'toc-category-arrow';
+  categoryArrow.setAttribute('aria-hidden', 'true');
+  categoryArrow.textContent = '\u25BE';
+
+  categoryHeader.appendChild(categoryLabel);
+  categoryHeader.appendChild(categoryArrow);
 
   const articleList = document.createElement('div');
   articleList.className = 'toc-article-list';

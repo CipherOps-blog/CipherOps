@@ -147,20 +147,26 @@ body.dark #toggle-toc {
 }
 
 #theme-toggle {
+  /* Toute la géométrie du switch découle de ces variables :
+     il suffit de les redéfinir dans les media queries. */
+  --toggle-w: 52px;
+  --toggle-h: 26px;
+  --thumb-size: 20px;
+  --thumb-inset: 3px;
+  --icon-size: 14px;
+
   position: fixed;
   top: 1.25rem;
   right: 1.25rem;
   z-index: 30;
-  width: 52px;
-  height: 26px;
+  width: var(--toggle-w);
+  height: var(--toggle-h);
+  padding: 0;
   border: none;
   border-radius: 999px;
   background: rgba(120, 120, 120, 0.35);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0.35rem;
+  display: block; /* thumb et icônes sont positionnés en absolu */
   box-shadow: var(--shadow);
   transition: background 0.3s ease;
 }
@@ -169,64 +175,73 @@ body.dark #theme-toggle {
   background: rgba(80, 80, 80, 0.5);
 }
 
-/* ── FIXED: icons sit above the thumb ───────────────────────────── */
+/* ── Icônes : centrées sur les deux positions de repos du thumb ─── */
 .toggle-icon {
-  font-size: 11px;
+  position: absolute;
+  top: 50%;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: calc(var(--icon-size) * 0.8);
   line-height: 1;
-  transition: opacity 0.3s ease, color 0.3s ease;
-  opacity: 1;
-  flex-shrink: 0;
-  width: 14px;
-  height: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateY(-50%);
+  opacity: 1;
   pointer-events: none;
-  color: #000000;    /* both icons black by default (light mode) */
-  position: relative;/* needed for z-index */
-  z-index: 1;        /* above the thumb */
+  color: #000000; /* les deux icônes en noir par défaut (light mode) */
+  z-index: 1;     /* au-dessus du thumb */
+  transition: color 0.3s ease;
 }
 
-/* Dark mode: sun becomes white, moon stays black */
+/* Décalage = bord du thumb + (thumb − icône) / 2,
+   donc l'icône partage exactement le centre du thumb à l'arrêt. */
+.dark-icon {
+  left: calc(var(--thumb-inset) + (var(--thumb-size) - var(--icon-size)) / 2);
+}
+
+.light-icon {
+  right: calc(var(--thumb-inset) + (var(--thumb-size) - var(--icon-size)) / 2);
+}
+
+/* Dark mode : le soleil passe en blanc, la lune reste noire */
 body.dark #theme-toggle .light-icon {
   color: #FFFFFF;
 }
 
-#theme-toggle[data-active='dark'] .dark-icon {
-  opacity: 1;
-}
-
 #theme-toggle[data-active='light'] .light-icon {
-  opacity: 1;
   color: #000000;
 }
 
-/* ── FIXED: thumb sits below the icons ──────────────────────────── */
+/* ── Thumb : sous les icônes ─────────────────────────────────────── */
 .toggle-thumb {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  top: 50%;
+  left: var(--thumb-inset);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(-50%);
   transition: transform 0.3s ease;
-  left: 3px;
   pointer-events: none;
-  z-index: 0; /* behind the icons */
+  z-index: 0; /* derrière les icônes */
 }
 
 body.dark .toggle-thumb {
   background: rgba(200, 200, 200, 0.95);
 }
 
-/* Light mode → thumb on the RIGHT (sun side) */
+/* Light mode → thumb à DROITE (côté soleil) */
 #theme-toggle[data-active='light'] .toggle-thumb {
-  transform: translateX(26px);
+  transform: translateY(-50%)
+    translateX(calc(var(--toggle-w) - var(--thumb-size) - 2 * var(--thumb-inset)));
 }
 
-/* Dark mode → thumb on the LEFT (moon side) */
+/* Dark mode → thumb à GAUCHE (côté lune) */
 #theme-toggle[data-active='dark'] .toggle-thumb {
-  transform: translateX(0px);
+  transform: translateY(-50%) translateX(0px);
 }
 
 #toggle-toc {
@@ -328,16 +343,23 @@ body.dark .toggle-thumb {
   color: var(--accent);
 }
 
-.toc-category-header::after {
-  content: " \00A0\25BE";
+/* Flèche : vrai élément (et non ::after), les pseudo-éléments de
+   <button> ne se laissent pas transformer de façon fiable sur mobile. */
+.toc-category-arrow {
   display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.4rem;
   font-size: 0.9rem;
-  transform-origin: center;
+  line-height: 1;
+  text-align: center;
+  transform-origin: 50% 50%;
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 
-.toc-category[aria-expanded="false"] .toc-category-header::after,
-.toc-category.collapsed .toc-category-header::after {
+.toc-category[aria-expanded="false"] .toc-category-arrow,
+.toc-category.collapsed .toc-category-arrow {
   transform: rotate(-90deg);
 }
 
@@ -723,42 +745,13 @@ hr {
     display: grid;
   }
 
+  /* Seules les variables changent : le centrage lune/soleil suit. */
   #theme-toggle {
-    width: 32px;
-    height: 16px;
-    padding: 0 0.25rem;
-    justify-content: center;
-  }
-
-  .toggle-thumb {
-    width: 13px;
-    height: 13px;
-    top: 50%;
-    transform: translateY(-50%) translateX(0px);
-  }
-
-  #theme-toggle[data-active='light'] .toggle-thumb {
-    transform: translateY(-50%) translateX(16px);
-  }
-
-  #theme-toggle[data-active='dark'] .toggle-thumb {
-    transform: translateY(-50%) translateX(0px);
-  }
-
-  .toggle-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 11px;
-    height: 11px;
-  }
-
-  .dark-icon {
-    left: 5px;
-  }
-
-  .light-icon {
-    right: 5px;
+    --toggle-w: 32px;
+    --toggle-h: 16px;
+    --thumb-size: 12px;
+    --thumb-inset: 2px;
+    --icon-size: 10px;
   }
 }
 
@@ -769,41 +762,11 @@ hr {
   }
 
   #theme-toggle {
-    width: 30px;
-    height: 15px;
-    padding: 0 0.2rem;
-    justify-content: center;
-  }
-
-  .toggle-thumb {
-    width: 12px;
-    height: 12px;
-    top: 50%;
-    transform: translateY(-50%) translateX(0px);
-  }
-
-  #theme-toggle[data-active='light'] .toggle-thumb {
-    transform: translateY(-50%) translateX(15px);
-  }
-
-  #theme-toggle[data-active='dark'] .toggle-thumb {
-    transform: translateY(-50%) translateX(0px);
-  }
-
-  .toggle-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-  }
-
-  .dark-icon {
-    left: 4px;
-  }
-
-  .light-icon {
-    right: 4px;
+    --toggle-w: 30px;
+    --toggle-h: 15px;
+    --thumb-size: 11px;
+    --thumb-inset: 2px;
+    --icon-size: 9px;
   }
 
   .landing-title {
