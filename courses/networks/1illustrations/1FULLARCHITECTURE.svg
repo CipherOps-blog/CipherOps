@@ -55,9 +55,12 @@
 <g class="el" font-size="11" text-anchor="middle">
   <text x="146" y="207">line signal</text>
   <text x="328" y="207">digital signal</text>
-  <text x="510" y="207">filtered traffic</text>
-  <text x="692" y="207">layer 3 routing</text>
+  <text x="510" y="193">filtered</text>
+  <text x="510" y="207">traffic</text>
+  <text x="692" y="193">layer 3</text>
+  <text x="692" y="207">routing</text>
 </g>
+
 
 <line x1="786" y1="240" x2="786" y2="296" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
 <path d="M746 240 C700 276 660 290 624 296" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
@@ -67,5 +70,4 @@
 <rect class="host" x="514" y="300" width="96" height="46" rx="7"/>
 <text class="nh" x="562" y="329" text-anchor="middle" font-size="15">PC2</text>
 
-<text class="note" x="450" y="384" text-anchor="middle" fill-opacity=".85">Each device owns one job: the modem converts the carrier, the firewall filters, the router chooses a network, the switch chooses a port.</text>
 </svg>
