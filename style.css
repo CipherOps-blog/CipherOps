@@ -329,19 +329,22 @@ body.dark .toggle-thumb {
 }
 
 .toc-category-header::after {
-  content: " ▾";
+  content: " \00A0\25BE";
+  display: inline-block;
   font-size: 0.9rem;
+  transform-origin: center;
   transition: transform 0.3s ease;
 }
 
-.toc-category[aria-expanded="false"] .toc-category-header::after {
+.toc-category[aria-expanded="false"] .toc-category-header::after,
+.toc-category.collapsed .toc-category-header::after {
   transform: rotate(-90deg);
 }
 
 .toc-article-list {
   list-style: none;
   margin: 0;
-  padding: 0 0 0 1.5rem;
+  padding: 0 0 0 0.75rem;
   max-height: 999px;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -361,7 +364,7 @@ body.dark .toggle-thumb {
 
 .toc-article {
   display: block;
-  padding: 0.65rem 0.5rem;
+  padding: 0.5rem 0.35rem;
   border-radius: 0.65rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -724,20 +727,38 @@ hr {
     width: 32px;
     height: 16px;
     padding: 0 0.25rem;
+    justify-content: center;
   }
 
   .toggle-thumb {
     width: 13px;
     height: 13px;
+    top: 50%;
+    transform: translateY(-50%) translateX(0px);
   }
 
   #theme-toggle[data-active='light'] .toggle-thumb {
-    transform: translateX(16px);
+    transform: translateY(-50%) translateX(16px);
+  }
+
+  #theme-toggle[data-active='dark'] .toggle-thumb {
+    transform: translateY(-50%) translateX(0px);
   }
 
   .toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 11px;
     height: 11px;
+  }
+
+  .dark-icon {
+    left: 5px;
+  }
+
+  .light-icon {
+    right: 5px;
   }
 }
 
@@ -751,20 +772,38 @@ hr {
     width: 30px;
     height: 15px;
     padding: 0 0.2rem;
+    justify-content: center;
   }
 
   .toggle-thumb {
     width: 12px;
     height: 12px;
+    top: 50%;
+    transform: translateY(-50%) translateX(0px);
   }
 
   #theme-toggle[data-active='light'] .toggle-thumb {
-    transform: translateX(15px);
+    transform: translateY(-50%) translateX(15px);
+  }
+
+  #theme-toggle[data-active='dark'] .toggle-thumb {
+    transform: translateY(-50%) translateX(0px);
   }
 
   .toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 10px;
     height: 10px;
+  }
+
+  .dark-icon {
+    left: 4px;
+  }
+
+  .light-icon {
+    right: 4px;
   }
 
   .landing-title {

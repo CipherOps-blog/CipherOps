@@ -13,7 +13,9 @@ const fetchManifest = async () => {
 const closeMobileTOC = () => {
   if (window.innerWidth <= 768) {
     const toc = document.getElementById(tocRootId);
-    if (toc) toc.classList.remove('open');
+    if (toc) {
+      toc.classList.remove('open', 'toc-open');
+    }
   }
 };
 
