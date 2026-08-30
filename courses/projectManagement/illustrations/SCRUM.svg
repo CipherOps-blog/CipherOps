@@ -45,5 +45,5 @@
 <text x="1078" y="176" text-anchor="middle" font-size="16" font-weight="700" fill="#B8A9C9">product increment</text>
 <g fill="none" stroke="#B8A9C9" stroke-width="2.4" stroke-linejoin="round"><rect x="1012" y="212" width="132" height="96" rx="6" fill="#B8A9C9" fill-opacity=".12"/><line x1="1012" y1="244" x2="1144" y2="244"/><path d="M1062 212 L1062 244 L1078 232 L1094 244 L1094 212" fill="#B8A9C9" fill-opacity=".22"/></g>
 <g fill="none" stroke="#87A878" stroke-width="2.4"><circle cx="1152" cy="310" r="20" fill="#87A878" fill-opacity=".22"/><path d="M1143 310 l6 7 l12 -15" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text class="note" x="620" y="462" text-anchor="middle">Two loops, not one: the sprint fixes what gets built and the daily cycle fixes how, and the increment must be shippable at the end of every sprint.</text>
-</svg>
+
+ </svg>
