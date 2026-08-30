@@ -39,13 +39,11 @@
 <rect class="dev" x="578" y="96" width="130" height="60" rx="8"/>
 <text class="nd" x="643" y="132" text-anchor="middle">Switch</text>
 
-<path d="M708 116 C742 116 752 78 786 70" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
+<path d="M708 116 C742 116 742 64 754 64" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
 <path d="M708 136 C742 136 752 174 786 182" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
 <rect class="host" x="754" y="42" width="92" height="44" rx="7"/>
 <text class="nh" x="800" y="70" text-anchor="middle">PC1</text>
 <rect class="host" x="754" y="166" width="92" height="44" rx="7"/>
 <text class="nh" x="800" y="194" text-anchor="middle">PC2</text>
 
-<text class="note" x="430" y="248" text-anchor="middle" fill-opacity=".85">The router is the boundary between two addressing realms. It works at layer 3, rewriting</text>
-<text class="note" x="430" y="268" text-anchor="middle" fill-opacity=".85">where the packet is going; the switch below it only moves frames within one network.</text>
 </svg>
