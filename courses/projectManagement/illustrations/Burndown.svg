@@ -54,5 +54,4 @@
 <text class="lg" x="666" y="114">Ideal remaining</text>
 <text class="axn" x="457" y="426" text-anchor="middle">Day of sprint</text>
 <text class="axn" x="30" y="220" text-anchor="middle" transform="rotate(-90 30 220)">Remaining story points</text>
-<text class="note" x="450" y="440" text-anchor="middle">The gap between the two lines is the whole point of the chart: work sat untouched early, so the last two days carried almost half the sprint.</text>
 </svg>
