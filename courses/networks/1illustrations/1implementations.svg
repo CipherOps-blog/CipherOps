@@ -32,19 +32,16 @@
 <text class="el" x="30" y="217" text-anchor="middle" transform="rotate(-90 30 217)">increasing capability and rigour</text>
 
 <g>
-  <rect class="dim" x="470" y="42" width="320" height="86" rx="9"/>
-  <text class="nt" x="490" y="70" font-size="14.5">Tier 3</text>
-  <text class="note" x="490" y="94" fill-opacity=".9">Significant cybersecurity expertise</text>
-  <text class="note" x="490" y="112" fill-opacity=".9">High-risk environments</text>
+  <rect class="dim" x="470" y="66" width="320" height="54" rx="9"/>
+  <text class="note" x="490" y="88" fill-opacity=".9">Significant cybersecurity expertise</text>
+  <text class="note" x="490" y="106" fill-opacity=".9">High-risk environments</text>
 
-  <rect class="dim" x="470" y="152" width="320" height="86" rx="9"/>
-  <text class="nt" x="490" y="180" font-size="14.5">Tier 2</text>
-  <text class="note" x="490" y="204" fill-opacity=".9">Moderate cybersecurity resources</text>
-  <text class="note" x="490" y="222" fill-opacity=".9">Greater exposure</text>
+  <rect class="dim" x="470" y="170" width="320" height="54" rx="9"/>
+  <text class="note" x="490" y="192" fill-opacity=".9">Moderate cybersecurity resources</text>
+  <text class="note" x="490" y="210" fill-opacity=".9">Greater exposure</text>
 
-  <rect class="dim" x="470" y="262" width="320" height="86" rx="9"/>
-  <text class="nt" x="490" y="290" font-size="14.5">Tier 1</text>
-  <text class="note" x="490" y="314" fill-opacity=".9">Limited cybersecurity resources</text>
-  <text class="note" x="490" y="332" fill-opacity=".9">Lower risk profile</text>
+  <rect class="dim" x="470" y="276" width="320" height="54" rx="9"/>
+  <text class="note" x="490" y="298" fill-opacity=".9">Limited cybersecurity resources</text>
+  <text class="note" x="490" y="316" fill-opacity=".9">Lower risk profile</text>
 </g>
 </svg>
