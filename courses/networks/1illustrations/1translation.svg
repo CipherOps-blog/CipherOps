@@ -61,7 +61,4 @@
 <rect class="dev" x="784" y="110" width="150" height="76" rx="9"/>
 <text class="nd" x="859" y="142" text-anchor="middle" font-size="15">Remote server</text>
 <text class="el" x="859" y="164" text-anchor="middle">sees one client</text>
-
-<text class="note" x="470" y="366" text-anchor="middle" fill-opacity=".85">The port number is what keeps the three conversations apart, so the router must hold state for every flow.</text>
-<text class="note" x="470" y="386" text-anchor="middle" fill-opacity=".85">That state is also why translation breaks protocols carrying addresses inside their own payload.</text>
 </svg>
