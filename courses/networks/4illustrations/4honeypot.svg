@@ -31,7 +31,7 @@
 </g>
 
 <rect x="280" y="228" width="340" height="140" rx="12" fill="#B8A9C9" fill-opacity=".10" stroke="#B8A9C9" stroke-width="2" stroke-dasharray="8 5"/>
-<text class="hd lv" x="300" y="254">Decoy segment (honeypot)</text>
+<text class="hd lv" x="300" y="254">Honeypot</text>
 <text class="sb lv" x="300" y="273">no user or service has any reason to reach it</text>
 <g fill="#B8A9C9" fill-opacity=".28" stroke="#B8A9C9" stroke-width="1.6">
   <rect x="326" y="290" width="110" height="58" rx="6"/>
@@ -53,6 +53,4 @@
 <text class="sb lv" x="750" y="312" text-anchor="middle">high-confidence</text>
 <text class="sb lv" x="750" y="326" text-anchor="middle">alert</text>
 
-<text class="cap sg" x="410" y="398" text-anchor="middle">A decoy has no legitimate business function, so interaction with it is anomalous by construction.</text>
-<text class="cap sg" x="410" y="416" text-anchor="middle">Alerts from deception carry a far lower false positive rate than detection on production systems.</text>
 </svg>
