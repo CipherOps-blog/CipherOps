@@ -32,5 +32,4 @@
 <text x="655" y="240" font-size="13.5" font-style="italic" fill="#87A878">runs alongside execution</text>
 <rect x="470" y="272" width="330" height="76" rx="12" fill="#B8A9C9" fill-opacity=".18" stroke="#B8A9C9" stroke-width="2.2"/>
 <text x="635" y="318" text-anchor="middle" font-size="19" font-weight="600" fill="#B8A9C9">Monitoring and control</text>
-<text class="note" x="540" y="392" text-anchor="middle">Monitoring and control is not a fifth stage in the sequence. It runs throughout, which is why it hangs off execution rather than following it.</text>
 </svg>
