@@ -30,7 +30,6 @@
 <path d="M665 106 L665 140 L155 140 L155 110" fill="none" stroke="#87A878" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#as)"/>
 <text class="lb sg" x="410" y="134" text-anchor="middle">the cycle repeats rather than closing</text>
 
-<rect x="40" y="188" width="350" height="182" rx="12" fill="#87A878" fill-opacity=".10" stroke="#87A878" stroke-width="2"/>
 <text class="ph sg" x="62" y="218">Individual level</text>
 <g class="it sg">
   <text x="62" y="252">Periodic appraisals</text>
@@ -43,7 +42,6 @@
   <text x="62" y="346">what the person can do, against what the role needs</text>
 </g>
 
-<rect x="430" y="188" width="350" height="182" rx="12" fill="#B8A9C9" fill-opacity=".10" stroke="#B8A9C9" stroke-width="2"/>
 <text class="ph lv" x="452" y="218">Collective level</text>
 <g class="it lv">
   <text x="452" y="252">Coordination mechanisms</text>
@@ -55,6 +53,4 @@
   <text x="452" y="308">who owns what, and where the gaps are</text>
   <text x="452" y="346">completion rate, quality measures, team cohesion</text>
 </g>
-
-<text class="cp sg" x="410" y="406" text-anchor="middle">The same cycle runs at both levels; only the instruments differ, and which indicators are meaningful depends on the organisational context.</text>
 </svg>
