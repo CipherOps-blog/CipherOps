@@ -29,21 +29,5 @@
 <text class="nd" x="300" y="322" text-anchor="middle" font-size="17">Integrity</text>
 <text class="nh" x="228" y="146" text-anchor="middle" font-size="17">Availability</text>
 
-<g>
-  <rect class="dim" x="500" y="52" width="306" height="86" rx="9"/>
-  <text class="nt" x="518" y="80" font-size="15">Confidentiality</text>
-  <text class="note" x="518" y="104" fill-opacity=".9">Data is reachable only by the parties</text>
-  <text class="note" x="518" y="122" fill-opacity=".9">authorised to reach it.</text>
 
-  <rect class="dev" x="500" y="158" width="306" height="86" rx="9" fill-opacity=".10"/>
-  <text class="nd" x="518" y="186" font-size="15">Integrity</text>
-  <text class="el" x="518" y="210" fill-opacity=".9">Data stays accurate and trustworthy,</text>
-  <text class="el" x="518" y="228" fill-opacity=".9">and unauthorised change is detectable.</text>
-
-  <rect class="dim" x="500" y="264" width="306" height="86" rx="9" fill-opacity=".04"/>
-  <text class="nt" x="518" y="292" font-size="15">Availability</text>
-  <text class="note" x="518" y="316" fill-opacity=".9">Systems and data are reachable at the</text>
-  <text class="note" x="518" y="334" fill-opacity=".9">moment they are needed.</text>
-</g>
-<text class="note" x="410" y="398" text-anchor="middle" fill-opacity=".8">The three pull against one another: a control that strengthens one property often costs something on another.</text>
 </svg>
