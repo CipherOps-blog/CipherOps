@@ -20,7 +20,7 @@
  .note{font-size:12.5px;fill:#B8A9C9}
  .nt{font-size:13px;font-weight:600;fill:#B8A9C9}
 </style>
-<text class="nd" x="20" y="30" font-size="15">192.168.1.0/24 — where the prefix cuts the address</text>
+<text class="nd" x="20" y="30" font-size="15">192.168.1.0/24, where the prefix cuts the address</text>
 <g>
   <rect class="dev" x="20" y="46" width="190" height="66" rx="7"/>
   <rect class="dev" x="218" y="46" width="190" height="66" rx="7"/>
@@ -41,8 +41,8 @@
   <path d="M20 124 L20 136 L606 136 L606 124" stroke="#87A878"/>
   <path d="M626 124 L626 136 L816 136 L816 124" stroke="#B8A9C9"/>
 </g>
-<text class="nd" x="313" y="158" text-anchor="middle" font-size="14">network portion — 24 bits</text>
-<text class="nh" x="721" y="158" text-anchor="middle" font-size="14">host portion — 8 bits</text>
+<text class="nd" x="313" y="158" text-anchor="middle" font-size="14">network portion, 24 bits</text>
+<text class="nh" x="721" y="158" text-anchor="middle" font-size="14">host portion, 8 bits</text>
 
 <text class="nh" x="20" y="206" font-size="15">Moving the prefix trades subnets against hosts</text>
 <g>
