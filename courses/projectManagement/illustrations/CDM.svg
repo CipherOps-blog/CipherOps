@@ -52,8 +52,4 @@
   <text x="635" y="121">0,n</text>
 </g>
 
-<text class="cp sg" x="400" y="240" text-anchor="middle">The conceptual level records what the organisation deals with — entities, the associations between them, and how often each</text>
-<text class="cp sg" x="400" y="260" text-anchor="middle">participates — without committing to a data structure or a database management system.</text>
-<text class="cp lv" x="400" y="298" text-anchor="middle">Cardinality is read as (minimum, maximum): 0,n means an occurrence may take part any number of times, including none;</text>
-<text class="cp lv" x="400" y="318" text-anchor="middle">1,1 means it must take part exactly once. An association may carry attributes of its own, such as quantity above.</text>
 </svg>
