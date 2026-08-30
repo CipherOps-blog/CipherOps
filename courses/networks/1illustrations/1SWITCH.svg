@@ -53,5 +53,4 @@
 <rect class="dim" x="425" y="300" width="150" height="48" rx="7"/>
 <text class="nh" x="500" y="330" text-anchor="middle" fill-opacity=".55">PC4</text>
 
-<text class="note" x="410" y="382" text-anchor="middle" fill-opacity=".85">A switch learns which port each MAC address sits behind, so a known unicast frame leaves through that one port alone.</text>
 </svg>
