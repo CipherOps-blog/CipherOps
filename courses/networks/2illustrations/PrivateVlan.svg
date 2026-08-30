@@ -92,5 +92,4 @@
 <text class="el" x="1146" y="517">can communicate</text>
 <g fill="none" stroke="#B8A9C9" stroke-width="2.6" stroke-linecap="round"><circle cx="1122" cy="556" r="12" stroke-width="1.8"/><line x1="1117" y1="551" x2="1127" y2="561"/><line x1="1127" y1="551" x2="1117" y2="561"/></g>
 <text class="elh" x="1146" y="561">cannot communicate</text>
-<text class="note" x="650" y="694" text-anchor="middle" fill-opacity=".85">Every port still shares one subnet and one uplink. The private VLAN restricts who may talk sideways, without spending a VLAN identifier per tenant.</text>
 </svg>
