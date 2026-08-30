@@ -38,7 +38,6 @@
 <rect x="319" y="342" width="150" height="46" rx="10" fill="#B8A9C9" fill-opacity=".18" stroke="#B8A9C9" stroke-width="2"/>
 <text class="hd lv" x="394" y="371" text-anchor="middle">Drop</text>
 
-<line x1="500" y1="30" x2="500" y2="400" stroke="#87A878" stroke-width="1" stroke-opacity=".3"/>
 
 <text class="hd sg" x="530" y="52">Routing table</text>
 <g>
@@ -58,5 +57,4 @@
 <text class="nt lv" x="544" y="310">inconsistent with the routing table,</text>
 <text class="nt lv" x="544" y="330">and the packet is discarded.</text>
 
-<text class="nt sg" x="400" y="424" text-anchor="middle">The decision is derived from the routing table rather than from a manually maintained list of expected addresses.</text>
 </svg>
