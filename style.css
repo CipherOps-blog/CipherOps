@@ -760,6 +760,29 @@ hr {
     display: grid;
   }
 
+  /* Tableaux : sur un écran étroit, cellules resserrées, formules un peu
+     réduites et coupure des mots autorisée (césure d'abord, coupure brute
+     en dernier recours) pour que le tableau tienne dans la largeur de la
+     page au lieu de déborder. */
+  #article-container th,
+  #article-container td,
+  #main-content th,
+  #main-content td {
+    padding: 0.3rem 0.35rem;
+    font-size: 0.8rem;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+
+  /* MathJax pose un font-size en style inline : !important est nécessaire. */
+  #article-container th mjx-container,
+  #article-container td mjx-container,
+  #main-content th mjx-container,
+  #main-content td mjx-container {
+    font-size: 85% !important;
+  }
+
   /* Retrait de citation divisé par deux (défaut navigateur : 40px) et
      aucun retrait à droite : la citation s'aligne sur le texte courant. */
   #article-container blockquote,
@@ -782,6 +805,15 @@ hr {
   #toggle-toc {
     width: 42px;
     height: 42px;
+  }
+
+  /* Écrans très étroits : les formules d'un tableau ne pouvant pas être
+     coupées, on les réduit un peu plus pour que le tableau tienne encore. */
+  #article-container th mjx-container,
+  #article-container td mjx-container,
+  #main-content th mjx-container,
+  #main-content td mjx-container {
+    font-size: 78% !important;
   }
 
   #theme-toggle {
