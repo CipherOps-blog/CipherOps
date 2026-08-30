@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="130 40 340 340" role="img" aria-labelledby="t d">
 <title id="t">The CIA triad</title>
 <desc id="d">A disc divided into three equal sectors for confidentiality, integrity and availability, each with the property it guarantees.</desc>
 <defs>
@@ -28,6 +28,5 @@
 <text class="nh" x="368" y="146" text-anchor="middle" font-size="17">Confidentiality</text>
 <text class="nd" x="300" y="322" text-anchor="middle" font-size="17">Integrity</text>
 <text class="nh" x="228" y="146" text-anchor="middle" font-size="17">Availability</text>
-
-
 </svg>
+
