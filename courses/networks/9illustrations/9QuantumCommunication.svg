@@ -15,7 +15,7 @@
  .sg{fill:#87A878}.lv{fill:#B8A9C9}
 </style>
 
-<text class="pt sg" x="20" y="34">Classical channel — the signal is a copyable waveform</text>
+<text class="pt sg" x="20" y="34">Classical channel </text>
 <rect x="20" y="52" width="126" height="70" rx="10" fill="#87A878" fill-opacity=".14" stroke="#87A878" stroke-width="2"/>
 <text class="hd sg" x="83" y="94" text-anchor="middle">Sender</text>
 <rect x="694" y="52" width="126" height="70" rx="10" fill="#87A878" fill-opacity=".14" stroke="#87A878" stroke-width="2"/>
@@ -29,9 +29,8 @@
 <text class="lb lv" x="446" y="166">a perfect copy, and the original arrives unchanged</text>
 <text class="lb sg" x="600" y="76" text-anchor="middle">delivered intact</text>
 
-<line x1="20" y1="200" x2="820" y2="200" stroke="#87A878" stroke-width="1" stroke-opacity=".3"/>
 
-<text class="pt lv" x="20" y="238">Quantum channel — the signal is a single photon</text>
+<text class="pt lv" x="20" y="238">Quantum channel </text>
 <rect x="20" y="256" width="126" height="70" rx="10" fill="#B8A9C9" fill-opacity=".14" stroke="#B8A9C9" stroke-width="2"/>
 <text class="hd lv" x="83" y="298" text-anchor="middle">Sender</text>
 <rect x="694" y="256" width="126" height="70" rx="10" fill="#B8A9C9" fill-opacity=".14" stroke="#B8A9C9" stroke-width="2"/>
@@ -47,7 +46,4 @@
 <text class="lb sg" x="586" y="262" text-anchor="middle">state disturbed in passing</text>
 <text class="lb sg" x="586" y="336" text-anchor="middle">errors surface when the key is checked</text>
 
-<text class="cp lv" x="420" y="386" text-anchor="middle">The no-cloning theorem rules out the passive tap above: an eavesdropper cannot duplicate an unknown quantum state,</text>
-<text class="cp lv" x="420" y="406" text-anchor="middle">and any attempt to read it leaves a measurable trace in the quantum bit error rate.</text>
-<text class="cp sg" x="420" y="428" text-anchor="middle">Photon loss grows exponentially with distance, holding fibre links to roughly 100 to 200 km without quantum repeaters.</text>
 </svg>
