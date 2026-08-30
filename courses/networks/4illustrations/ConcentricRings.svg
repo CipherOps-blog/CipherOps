@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="780" height="490" viewBox="0 0 780 490" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="30 10 440 440" role="img" aria-labelledby="t d">
 <title id="t">Defence in depth as concentric layers</title>
 <desc id="d">Six nested rings running from an outer policies and people layer inward to the data asset at the core, each paired with example controls.</desc>
 <style>
@@ -37,32 +37,5 @@
   <text class="ld sg" x="250" y="246">the asset</text>
 </g>
 
-<g>
-  <rect x="498" y="62" width="15" height="15" rx="3.5" fill="#B8A9C9" fill-opacity=".35" stroke="#B8A9C9"/>
-  <text class="lt lv" x="524" y="75">Policies, people, process</text>
-  <text class="ld lv" x="524" y="94">Training, procedures, access reviews</text>
-
-  <rect x="498" y="120" width="15" height="15" rx="3.5" fill="#87A878" fill-opacity=".35" stroke="#87A878"/>
-  <text class="lt sg" x="524" y="133">Physical and perimeter</text>
-  <text class="ld sg" x="524" y="152">Site access control, firewall, DMZ</text>
-
-  <rect x="498" y="178" width="15" height="15" rx="3.5" fill="#B8A9C9" fill-opacity=".35" stroke="#B8A9C9"/>
-  <text class="lt lv" x="524" y="191">Network</text>
-  <text class="ld lv" x="524" y="210">Segmentation, ACLs, IDS and IPS</text>
-
-  <rect x="498" y="236" width="15" height="15" rx="3.5" fill="#87A878" fill-opacity=".35" stroke="#87A878"/>
-  <text class="lt sg" x="524" y="249">Host</text>
-  <text class="ld sg" x="524" y="268">Patching, hardening, endpoint detection</text>
-
-  <rect x="498" y="294" width="15" height="15" rx="3.5" fill="#B8A9C9" fill-opacity=".35" stroke="#B8A9C9"/>
-  <text class="lt lv" x="524" y="307">Application</text>
-  <text class="ld lv" x="524" y="326">Input validation, authentication, authorisation</text>
-
-  <rect x="498" y="352" width="15" height="15" rx="3.5" fill="#87A878" fill-opacity=".35" stroke="#87A878"/>
-  <text class="lt sg" x="524" y="365">Data</text>
-  <text class="ld sg" x="524" y="384">Encryption at rest, key management</text>
-</g>
-
-<text class="cap sg" x="390" y="452" text-anchor="middle">No single control is assumed to hold. Each layer is designed to slow or contain an intrusion</text>
-<text class="cap sg" x="390" y="470" text-anchor="middle">that has already defeated the layer outside it.</text>
 </svg>
+
