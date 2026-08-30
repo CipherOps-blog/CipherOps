@@ -36,12 +36,12 @@
 <line x1="110" y1="442" x2="470" y2="442" stroke="#87A878" stroke-width="1.6" marker-end="url(#as)"/>
 <text class="ae sg" x="110" y="462">low</text>
 <text class="ae sg" x="470" y="462" text-anchor="end">high</text>
-<text class="ax sg" x="290" y="486" text-anchor="middle">Cooperativeness — concern for the other party's interests</text>
+<text class="ax sg" x="290" y="486" text-anchor="middle">Cooperativeness : concern for the other party's interests</text>
 
 <line x1="94" y1="430" x2="94" y2="70" stroke="#87A878" stroke-width="1.6" marker-end="url(#as)"/>
 <text class="ae sg" x="84" y="84" text-anchor="end">high</text>
 <text class="ae sg" x="84" y="424" text-anchor="end">low</text>
-<text class="ax sg" x="42" y="250" text-anchor="middle" transform="rotate(-90 42 250)">Assertiveness — concern for one's own interests</text>
+<text class="ax sg" x="42" y="250" text-anchor="middle" transform="rotate(-90 42 250)">Assertiveness : concern for one's own interests</text>
 
 <text class="rh sg" x="520" y="86">When each mode is used</text>
 <g>
@@ -69,6 +69,4 @@
   <text class="rd sg" x="520" y="450">The matter weighs more on the other</text>
   <text class="rd sg" x="520" y="468">side, or the relationship matters more.</text>
 </g>
-
-<text class="cp lv" x="400" y="508" text-anchor="middle">No mode is correct in general: the model describes a repertoire, and the choice depends on the stakes and the time available.</text>
 </svg>
