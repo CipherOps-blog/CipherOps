@@ -20,7 +20,7 @@
  .note{font-size:12.5px;fill:#B8A9C9}
  .nt{font-size:13px;font-weight:600;fill:#B8A9C9}
 </style>
-<text class="nh" x="20" y="28">IPv4 — 32 bits, four 8-bit octets</text>
+<text class="nh" x="20" y="28">IPv4 : 32 bits, four 8-bit octets</text>
 <g>
   <rect class="host" x="20" y="42" width="200" height="76" rx="7"/>
   <rect class="host" x="230" y="42" width="200" height="76" rx="7"/>
@@ -45,7 +45,7 @@
   <line x1="220" y1="80" x2="230" y2="80"/><line x1="430" y1="80" x2="440" y2="80"/><line x1="640" y1="80" x2="650" y2="80"/>
 </g>
 
-<text class="nd" x="20" y="160">IPv6 — 128 bits, eight 16-bit groups written in hexadecimal</text>
+<text class="nd" x="20" y="160">IPv6 : 128 bits, eight 16-bit groups written in hexadecimal</text>
 <g>
   <rect class="dev" x="20" y="174" width="97" height="42" rx="6"/>
   <rect class="dev" x="126" y="174" width="97" height="42" rx="6"/>
