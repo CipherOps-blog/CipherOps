@@ -82,6 +82,4 @@
   <text class="nd" x="884" y="399" font-size="15">802.1Q</text>
 </g>
 
-<text class="note" x="650" y="506" text-anchor="middle" fill-opacity=".85">The customer keeps its own VLAN numbering. The provider wraps that frame in a second, outer tag of its own, so two customers</text>
-<text class="note" x="650" y="526" text-anchor="middle" fill-opacity=".85">may both use VLAN 100 across the same core without ever meeting. This stacking is why 802.1ad is also called Q-in-Q.</text>
 </svg>
