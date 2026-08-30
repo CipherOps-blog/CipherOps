@@ -9,7 +9,7 @@
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .dev{fill:#87A878;fill-opacity:.18;stroke:#87A878;stroke-width:2}
  .host{fill:#B8A9C9;fill-opacity:.18;stroke:#B8A9C9;stroke-width:2}
- .dim{fill:#B8A9C9;fill-opacity:.07;stroke:#B8A9C9;stroke-width:2;stroke-dasharray:7 5}
+ .dim{fill:#B8A9C9;fill-opacity:.07;stroke:#B8A9C9;stroke-width:2}
  .ext{fill:#B8A9C9;fill-opacity:.07;stroke:#B8A9C9;stroke-width:2;stroke-dasharray:7 5}
  .chip{fill:#87A878;fill-opacity:.12;stroke:none}
  .chipl{fill:#B8A9C9;fill-opacity:.12;stroke:none}
