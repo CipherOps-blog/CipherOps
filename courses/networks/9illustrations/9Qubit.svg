@@ -18,16 +18,13 @@
 <rect x="224" y="190" width="86" height="72" rx="10" fill="none" stroke="#87A878" stroke-width="2.2" stroke-dasharray="6 5"/>
 <text class="val sg" x="267" y="238" text-anchor="middle" fill-opacity=".45">1</text>
 
-<g stroke="#87A878" stroke-width="2" fill="none" stroke-linecap="round">
-  <path d="M186 158 C200 138 200 138 214 158"/>
-</g>
+
 <text class="cp sg" x="200" y="134" text-anchor="middle">one or the other, never both</text>
 
 <text class="cp sg" x="200" y="300" text-anchor="middle">A bit is in exactly one of two states</text>
 <text class="cp sg" x="200" y="320" text-anchor="middle">at every moment, and reading it</text>
 <text class="cp sg" x="200" y="340" text-anchor="middle">leaves that state untouched.</text>
 
-<line x1="400" y1="40" x2="400" y2="400" stroke="#87A878" stroke-width="1" stroke-opacity=".3"/>
 
 <text class="pt lv" x="600" y="58" text-anchor="middle">Qubit</text>
 
