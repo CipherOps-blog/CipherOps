@@ -81,5 +81,4 @@
 <rect x="270" y="392" width="320" height="46" rx="23" fill="#87A878" fill-opacity=".20" stroke="#87A878" stroke-width="2"/>
 <text class="key sg" x="430" y="422" text-anchor="middle">shared key  1 1 1 0 1 0</text>
 
-<text class="cp lv" x="430" y="466" text-anchor="middle">Only the bases are revealed, never the bit values. An eavesdropper measuring in transit raises the error rate and is detected before the key is used.</text>
 </svg>
