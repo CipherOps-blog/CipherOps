@@ -9,7 +9,7 @@
  .lg{font-size:12.5px;fill:#B8A9C9}
  .note{font-size:12.5px;fill:#B8A9C9;fill-opacity:.85}
 </style>
-<text class="ttl" x="20" y="32">Sprint burndown — 40 story points over ten days</text>
+<text class="ttl" x="20" y="32">Sprint burndown</text>
 <line x1="92" y1="380" x2="822" y2="380" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
 <text class="ax" x="80" y="384" text-anchor="end">0</text>
 <line x1="92" y1="300" x2="822" y2="300" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
