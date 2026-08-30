@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" role="img" aria-labelledby="t d">
 <title id="t">Thomas and Kilmann conflict mode model</title>
 <desc id="d">Five conflict-handling modes positioned on axes of assertiveness and cooperativeness, each with the situation it suits.</desc>
 <defs>
@@ -9,10 +9,6 @@
  .mn{font-size:15px;font-weight:600}
  .ax{font-size:13px;font-weight:600}
  .ae{font-size:11.5px;fill-opacity:.85}
- .rh{font-size:14px;font-weight:600}
- .rn{font-size:13px;font-weight:600}
- .rd{font-size:11.5px;fill-opacity:.9}
- .cp{font-size:12px;fill-opacity:.9}
  .sg{fill:#87A878}.lv{fill:#B8A9C9}
 </style>
 
@@ -42,31 +38,5 @@
 <text class="ae sg" x="84" y="84" text-anchor="end">high</text>
 <text class="ae sg" x="84" y="424" text-anchor="end">low</text>
 <text class="ax sg" x="42" y="250" text-anchor="middle" transform="rotate(-90 42 250)">Assertiveness : concern for one's own interests</text>
-
-<text class="rh sg" x="520" y="86">When each mode is used</text>
-<g>
-  <rect x="520" y="106" width="13" height="13" rx="3" fill="#87A878" fill-opacity=".4" stroke="#87A878"/>
-  <text class="rn sg" x="543" y="118">Competing</text>
-  <text class="rd sg" x="520" y="140">A rapid, unilateral decision is needed.</text>
-
-  <rect x="520" y="170" width="13" height="13" rx="3" fill="#B8A9C9" fill-opacity=".4" stroke="#B8A9C9"/>
-  <text class="rn lv" x="543" y="182">Collaborating</text>
-  <text class="rd lv" x="520" y="204">The issue is complex and several</text>
-  <text class="rd lv" x="520" y="222">concerns must all be met.</text>
-
-  <rect x="520" y="252" width="13" height="13" rx="3" fill="#87A878" fill-opacity=".4" stroke="#87A878"/>
-  <text class="rn sg" x="543" y="264">Compromising</text>
-  <text class="rd sg" x="520" y="286">A partial, mutually acceptable</text>
-  <text class="rd sg" x="520" y="304">settlement will do.</text>
-
-  <rect x="520" y="334" width="13" height="13" rx="3" fill="#B8A9C9" fill-opacity=".4" stroke="#B8A9C9"/>
-  <text class="rn lv" x="543" y="346">Avoiding</text>
-  <text class="rd lv" x="520" y="368">The issue is minor, or the timing</text>
-  <text class="rd lv" x="520" y="386">is wrong.</text>
-
-  <rect x="520" y="416" width="13" height="13" rx="3" fill="#87A878" fill-opacity=".4" stroke="#87A878"/>
-  <text class="rn sg" x="543" y="428">Accommodating</text>
-  <text class="rd sg" x="520" y="450">The matter weighs more on the other</text>
-  <text class="rd sg" x="520" y="468">side, or the relationship matters more.</text>
-</g>
 </svg>
+
