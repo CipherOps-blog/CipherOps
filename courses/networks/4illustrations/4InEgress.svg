@@ -15,7 +15,7 @@
  .sg{fill:#87A878}.lv{fill:#B8A9C9}
 </style>
 
-<text class="pt sg" x="20" y="28">Egress filtering — traffic leaving the network</text>
+<text class="pt sg" x="20" y="28">Egress filtering </text>
 <g>
   <rect x="20" y="48" width="152" height="112" rx="10" fill="#87A878" fill-opacity=".12" stroke="#87A878" stroke-width="2"/>
   <text class="bx sg" x="96" y="94" text-anchor="middle">Internal network</text>
@@ -43,7 +43,7 @@
 </g>
 
 
-<text class="pt lv" x="20" y="234">Ingress filtering — traffic entering the network</text>
+<text class="pt lv" x="20" y="234">Ingress filtering </text>
 <g>
   <rect x="20" y="254" width="152" height="112" rx="10" fill="#B8A9C9" fill-opacity=".12" stroke="#B8A9C9" stroke-width="2"/>
   <text class="bx lv" x="96" y="314" text-anchor="middle">Internet</text>
