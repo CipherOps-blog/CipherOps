@@ -2,8 +2,12 @@
 <title id="t">Networks by geographic scope</title>
 <desc id="d">Four nested scopes running from a personal area network at the centre outward through local and metropolitan networks to a wide area network.</desc>
 <defs>
- <marker id="as" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#87A878"/></marker>
- <marker id="al" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#B8A9C9"/></marker>
+ <marker id="as" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+   <path d="M0,0 L9,4.5 L0,9 Z" fill="#87A878" stroke="#ffffff" stroke-width="1" stroke-linejoin="round"/>
+ </marker>
+ <marker id="al" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+   <path d="M0,0 L9,4.5 L0,9 Z" fill="#B8A9C9" stroke="#ffffff" stroke-width="1" stroke-linejoin="round"/>
+ </marker>
 </defs>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
@@ -13,19 +17,40 @@
  .ext{fill:#B8A9C9;fill-opacity:.07;stroke:#B8A9C9;stroke-width:2;stroke-dasharray:7 5}
  .chip{fill:#87A878;fill-opacity:.12;stroke:none}
  .chipl{fill:#B8A9C9;fill-opacity:.12;stroke:none}
- .nd{font-size:16px;font-weight:600;fill:##000000}
- .nh{font-size:16px;font-weight:600;fill:##000000}
+ .nd{font-size:16px;font-weight:600;fill:#000000}
+ .nh{font-size:16px;font-weight:600;fill:#000000}
  .el{font-size:12px;fill:#87A878}
  .elh{font-size:12px;fill:#B8A9C9}
  .note{font-size:12.5px;fill:#B8A9C9}
  .nt{font-size:13px;font-weight:600;fill:#B8A9C9}
+ .connOutline{stroke:#ffffff;stroke-width:4.5;fill:none;stroke-linecap:round}
+ .conn{stroke-width:1.6;fill:none;stroke-opacity:.95}
 </style>
- 
+
 <circle cx="250" cy="230" r="200" fill="#87A878" />
 <circle cx="250" cy="230" r="160" fill="#B8A9C9" />
 <circle cx="250" cy="230" r="120" fill="#87A878" />
 <circle cx="250" cy="230" r="70" fill="#B8A9C9" />
- 
+
+<!-- Connector lines with white outline -->
+<g>
+  <!-- White outlines (drawn first, underneath) -->
+  <g class="connOutline">
+    <line x1="391.4" y1="88.6" x2="490" y2="89"/>
+    <line x1="397.8" y1="168.8" x2="490" y2="177"/>
+    <line x1="370" y1="230" x2="490" y2="265"/>
+    <line x1="299.5" y1="279.5" x2="490" y2="353"/>
+  </g>
+
+  <!-- Coloured lines with arrowheads (drawn on top) -->
+  <g class="conn">
+    <line x1="391.4" y1="88.6" x2="490" y2="89" stroke="#87A878" marker-end="url(#as)"/>
+    <line x1="397.8" y1="168.8" x2="490" y2="177" stroke="#B8A9C9" marker-end="url(#al)"/>
+    <line x1="370" y1="230" x2="490" y2="265" stroke="#87A878" marker-end="url(#as)"/>
+    <line x1="299.5" y1="279.5" x2="490" y2="353" stroke="#B8A9C9" marker-end="url(#al)"/>
+  </g>
+</g>
+
 <g text-anchor="middle" font-size="13.5" font-weight="600">
   <text class="nd" x="250" y="60" font-size="13">Wide area network</text>
   <text class="nh" x="250" y="100" font-size="13">Metropolitan area network</text>
@@ -33,7 +58,6 @@
   <text class="nh" x="250" y="220" font-size="15">Personal area</text>
   <text class="nh" x="250" y="240" font-size="15">network</text>
 </g>
- 
 
 <g>
   <rect class="dev" x="490" y="52" width="272" height="74" rx="9" fill-opacity=".10"/>
@@ -57,10 +81,4 @@
   <text class="note" x="508" y="381" fill-opacity=".9">links such as Bluetooth or USB.</text>
 </g>
 
-<g class="conn">
-  <line x1="391.4" y1="88.6" x2="490" y2="89" stroke="#87A878" marker-end="url(#as)"/>
-  <line x1="397.8" y1="168.8" x2="490" y2="177" stroke="#B8A9C9" marker-end="url(#al)"/>
-  <line x1="370" y1="230" x2="490" y2="265" stroke="#87A878" marker-end="url(#as)"/> 
-  <line x1="299.5" y1="279.5" x2="490" y2="353" stroke="#B8A9C9" marker-end="url(#al)"/>
-</g>
 </svg>
