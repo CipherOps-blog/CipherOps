@@ -46,5 +46,4 @@
 <text x="1060" y="233" text-anchor="middle" font-size="13.5" font-weight="600" fill="#B8A9C9">privilege</text>
 <text x="1060" y="258" text-anchor="middle" font-size="11" fill="#B8A9C9" fill-opacity=".85">Gaining more access than</text>
 <text x="1060" y="274" text-anchor="middle" font-size="11" fill="#B8A9C9" fill-opacity=".85">was ever intended.</text>
-<text class="note" x="600" y="332" text-anchor="middle" fill-opacity=".85">Each category is the mirror image of a property being defended: authenticity, integrity, non-repudiation, confidentiality, availability and authorisation.</text>
 </svg>
