@@ -1,90 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
-  <title id="title">Sprint burndown chart</title>
-  <desc id="desc">A burndown chart comparing actual sprint progress against the ideal line over ten working days.</desc>
-
-  <defs>
-    <style>
-      .bg { fill: #f8f9fb; }
-      .axis { stroke: #3d4d5a; stroke-width: 2; }
-      .grid { stroke: #d6dde8; stroke-width: 1; }
-      .label { fill: #243446; font: 600 18px 'Segoe UI', Arial, sans-serif; }
-      .tick { fill: #4d5f72; font: 14px 'Segoe UI', Arial, sans-serif; }
-      .ideal { fill: none; stroke: #7aa9d8; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-      .actual { fill: none; stroke: #6ea56b; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-      .point { fill: #6ea56b; }
-      .legend { fill: #243446; font: 600 16px 'Segoe UI', Arial, sans-serif; }
-    </style>
-  </defs>
-
-  <rect class="bg" x="0" y="0" width="800" height="520" rx="18"/>
-
-  <g transform="translate(90,70)">
-    <g>
-      <line class="grid" x1="0" y1="350" x2="620" y2="350"/>
-      <line class="grid" x1="0" y1="300" x2="620" y2="300"/>
-      <line class="grid" x1="0" y1="250" x2="620" y2="250"/>
-      <line class="grid" x1="0" y1="200" x2="620" y2="200"/>
-      <line class="grid" x1="0" y1="150" x2="620" y2="150"/>
-      <line class="grid" x1="0" y1="100" x2="620" y2="100"/>
-      <line class="grid" x1="0" y1="50" x2="620" y2="50"/>
-    </g>
-
-    <line class="axis" x1="0" y1="0" x2="0" y2="350"/>
-    <line class="axis" x1="0" y1="350" x2="620" y2="350"/>
-
-    <g>
-      <text class="tick" x="-20" y="355" text-anchor="end">0</text>
-      <text class="tick" x="-20" y="305" text-anchor="end">5</text>
-      <text class="tick" x="-20" y="255" text-anchor="end">10</text>
-      <text class="tick" x="-20" y="205" text-anchor="end">15</text>
-      <text class="tick" x="-20" y="155" text-anchor="end">20</text>
-      <text class="tick" x="-20" y="105" text-anchor="end">25</text>
-      <text class="tick" x="-20" y="55" text-anchor="end">30</text>
-      <text class="tick" x="-20" y="5" text-anchor="end">35</text>
-      <text class="tick" x="-20" y="-10" text-anchor="end">40</text>
-    </g>
-
-    <g>
-      <text class="tick" x="20" y="385" text-anchor="middle">1</text>
-      <text class="tick" x="82" y="385" text-anchor="middle">2</text>
-      <text class="tick" x="144" y="385" text-anchor="middle">3</text>
-      <text class="tick" x="206" y="385" text-anchor="middle">4</text>
-      <text class="tick" x="268" y="385" text-anchor="middle">5</text>
-      <text class="tick" x="330" y="385" text-anchor="middle">6</text>
-      <text class="tick" x="392" y="385" text-anchor="middle">7</text>
-      <text class="tick" x="454" y="385" text-anchor="middle">8</text>
-      <text class="tick" x="516" y="385" text-anchor="middle">9</text>
-      <text class="tick" x="578" y="385" text-anchor="middle">10</text>
-    </g>
-
-    <path class="ideal" d="M 20 50 L 82 90 L 144 130 L 206 170 L 268 210 L 330 250 L 392 290 L 454 330 L 516 340 L 578 350"/>
-
-    <path class="actual" d="M 20 50 L 82 90 L 144 150 L 206 190 L 268 220 L 330 280 L 392 310 L 454 330 L 516 350 L 578 350"/>
-
-    <g fill="#6ea56b">
-      <circle class="point" cx="20" cy="50" r="5"/>
-      <circle class="point" cx="82" cy="90" r="5"/>
-      <circle class="point" cx="144" cy="150" r="5"/>
-      <circle class="point" cx="206" cy="190" r="5"/>
-      <circle class="point" cx="268" cy="220" r="5"/>
-      <circle class="point" cx="330" cy="280" r="5"/>
-      <circle class="point" cx="392" cy="310" r="5"/>
-      <circle class="point" cx="454" cy="330" r="5"/>
-      <circle class="point" cx="516" cy="350" r="5"/>
-      <circle class="point" cx="578" cy="350" r="5"/>
-    </g>
-
-    <g>
-      <text class="label" x="620" y="350" text-anchor="start">Day</text>
-      <text class="label" x="-60" y="-20" text-anchor="middle" transform="rotate(-90 -60 -20)">Remaining work</text>
-    </g>
-  </g>
-
-  <g transform="translate(440,24)">
-    <rect x="0" y="0" width="220" height="52" rx="8" fill="#ffffff" stroke="#d6dde8"/>
-    <line class="ideal" x1="18" y1="18" x2="54" y2="18"/>
-    <text class="legend" x="66" y="24">Ideal line</text>
-    <line class="actual" x1="18" y1="36" x2="54" y2="36"/>
-    <text class="legend" x="66" y="42">Actual work</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-labelledby="t d">
+<title id="t">Sprint burndown chart</title>
+<desc id="d">Remaining story points over a ten-day sprint. The team tracks above the ideal line for most of the sprint and only converges on zero in the final two days.</desc>
+<style>
+ text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
+ .ttl{font-size:17px;font-weight:600;fill:#87A878}
+ .ax{font-size:12px;fill:#B8A9C9;fill-opacity:.85}
+ .axn{font-size:13px;font-weight:600;fill:#B8A9C9}
+ .lg{font-size:12.5px;fill:#B8A9C9}
+ .note{font-size:12.5px;fill:#B8A9C9;fill-opacity:.85}
+</style>
+<text class="ttl" x="20" y="32">Sprint burndown — 40 story points over ten days</text>
+<line x1="92" y1="380" x2="822" y2="380" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
+<text class="ax" x="80" y="384" text-anchor="end">0</text>
+<line x1="92" y1="300" x2="822" y2="300" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
+<text class="ax" x="80" y="304" text-anchor="end">10</text>
+<line x1="92" y1="220" x2="822" y2="220" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
+<text class="ax" x="80" y="224" text-anchor="end">20</text>
+<line x1="92" y1="140" x2="822" y2="140" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
+<text class="ax" x="80" y="144" text-anchor="end">30</text>
+<line x1="92" y1="60" x2="822" y2="60" stroke="#B8A9C9" stroke-width="1" stroke-opacity=".22"/>
+<text class="ax" x="80" y="64" text-anchor="end">40</text>
+<line x1="92" y1="60" x2="92" y2="380" stroke="#B8A9C9" stroke-width="1.4" stroke-opacity=".5"/>
+<line x1="92" y1="380" x2="822" y2="380" stroke="#B8A9C9" stroke-width="1.4" stroke-opacity=".5"/>
+<text class="ax" x="92" y="402" text-anchor="middle">0</text>
+<text class="ax" x="165" y="402" text-anchor="middle">1</text>
+<text class="ax" x="238" y="402" text-anchor="middle">2</text>
+<text class="ax" x="311" y="402" text-anchor="middle">3</text>
+<text class="ax" x="384" y="402" text-anchor="middle">4</text>
+<text class="ax" x="457" y="402" text-anchor="middle">5</text>
+<text class="ax" x="530" y="402" text-anchor="middle">6</text>
+<text class="ax" x="603" y="402" text-anchor="middle">7</text>
+<text class="ax" x="676" y="402" text-anchor="middle">8</text>
+<text class="ax" x="749" y="402" text-anchor="middle">9</text>
+<text class="ax" x="822" y="402" text-anchor="middle">10</text>
+<path d="M92 60 L165 92 L238 124 L311 156 L384 188 L457 220 L530 252 L603 284 L676 316 L749 348 L822 380" fill="none" stroke="#B8A9C9" stroke-width="2" stroke-dasharray="7 6" stroke-linecap="round"/>
+<path d="M92 60 L165 76 L238 92 L311 108 L384 124 L457 140 L530 188 L603 220 L676 252 L749 316 L822 380" fill="none" stroke="#87A878" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92" cy="60" r="4.5" fill="#87A878"/>
+<circle cx="165" cy="76" r="4.5" fill="#87A878"/>
+<circle cx="238" cy="92" r="4.5" fill="#87A878"/>
+<circle cx="311" cy="108" r="4.5" fill="#87A878"/>
+<circle cx="384" cy="124" r="4.5" fill="#87A878"/>
+<circle cx="457" cy="140" r="4.5" fill="#87A878"/>
+<circle cx="530" cy="188" r="4.5" fill="#87A878"/>
+<circle cx="603" cy="220" r="4.5" fill="#87A878"/>
+<circle cx="676" cy="252" r="4.5" fill="#87A878"/>
+<circle cx="749" cy="316" r="4.5" fill="#87A878"/>
+<circle cx="822" cy="380" r="4.5" fill="#87A878"/>
+<text class="axn" x="538" y="174" fill="#87A878">Actual remaining</text>
+<text class="axn" x="376" y="210" text-anchor="end">Ideal remaining</text>
+<line x1="620" y1="86" x2="656" y2="86" stroke="#87A878" stroke-width="2.4"/><circle cx="638" cy="86" r="4.5" fill="#87A878"/>
+<text class="lg" x="666" y="90" fill="#87A878">Actual remaining</text>
+<line x1="620" y1="110" x2="656" y2="110" stroke="#B8A9C9" stroke-width="2" stroke-dasharray="7 6"/>
+<text class="lg" x="666" y="114">Ideal remaining</text>
+<text class="axn" x="457" y="426" text-anchor="middle">Day of sprint</text>
+<text class="axn" x="30" y="220" text-anchor="middle" transform="rotate(-90 30 220)">Remaining story points</text>
+<text class="note" x="450" y="440" text-anchor="middle">The gap between the two lines is the whole point of the chart: work sat untouched early, so the last two days carried almost half the sprint.</text>
 </svg>

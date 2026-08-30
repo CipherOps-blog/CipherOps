@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" role="img" aria-labelledby="t d">
+<title id="t">The CIA triad</title>
+<desc id="d">A disc divided into three equal sectors for confidentiality, integrity and availability, each with the property it guarantees.</desc>
+<defs>
+ <marker id="as" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#87A878"/></marker>
+ <marker id="al" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#B8A9C9"/></marker>
+</defs>
+<style>
+ text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
+ .dev{fill:#87A878;fill-opacity:.18;stroke:#87A878;stroke-width:2}
+ .host{fill:#B8A9C9;fill-opacity:.18;stroke:#B8A9C9;stroke-width:2}
+ .dim{fill:#B8A9C9;fill-opacity:.07;stroke:#B8A9C9;stroke-width:2;stroke-dasharray:7 5}
+ .ext{fill:#B8A9C9;fill-opacity:.07;stroke:#B8A9C9;stroke-width:2;stroke-dasharray:7 5}
+ .chip{fill:#87A878;fill-opacity:.12;stroke:none}
+ .chipl{fill:#B8A9C9;fill-opacity:.12;stroke:none}
+ .nd{font-size:16px;font-weight:600;fill:#87A878}
+ .nh{font-size:16px;font-weight:600;fill:#B8A9C9}
+ .el{font-size:12px;fill:#87A878}
+ .elh{font-size:12px;fill:#B8A9C9}
+ .note{font-size:12.5px;fill:#B8A9C9}
+ .nt{font-size:13px;font-weight:600;fill:#B8A9C9}
+</style>
+<g>
+  <path d="M300 210 L300 60 A150 150 0 0 1 429.9 285 Z" fill="#B8A9C9" fill-opacity=".22" stroke="#B8A9C9" stroke-width="2.5"/>
+  <path d="M300 210 L429.9 285 A150 150 0 0 1 170.1 285 Z" fill="#87A878" fill-opacity=".22" stroke="#87A878" stroke-width="2.5"/>
+  <path d="M300 210 L170.1 285 A150 150 0 0 1 300 60 Z" fill="#B8A9C9" fill-opacity=".12" stroke="#B8A9C9" stroke-width="2.5"/>
+</g>
+<text class="nh" x="368" y="146" text-anchor="middle" font-size="17">Confidentiality</text>
+<text class="nd" x="300" y="322" text-anchor="middle" font-size="17">Integrity</text>
+<text class="nh" x="228" y="146" text-anchor="middle" font-size="17">Availability</text>
+
+<g>
+  <rect class="dim" x="500" y="52" width="306" height="86" rx="9"/>
+  <text class="nt" x="518" y="80" font-size="15">Confidentiality</text>
+  <text class="note" x="518" y="104" fill-opacity=".9">Data is reachable only by the parties</text>
+  <text class="note" x="518" y="122" fill-opacity=".9">authorised to reach it.</text>
+
+  <rect class="dev" x="500" y="158" width="306" height="86" rx="9" fill-opacity=".10"/>
+  <text class="nd" x="518" y="186" font-size="15">Integrity</text>
+  <text class="el" x="518" y="210" fill-opacity=".9">Data stays accurate and trustworthy,</text>
+  <text class="el" x="518" y="228" fill-opacity=".9">and unauthorised change is detectable.</text>
+
+  <rect class="dim" x="500" y="264" width="306" height="86" rx="9" fill-opacity=".04"/>
+  <text class="nt" x="518" y="292" font-size="15">Availability</text>
+  <text class="note" x="518" y="316" fill-opacity=".9">Systems and data are reachable at the</text>
+  <text class="note" x="518" y="334" fill-opacity=".9">moment they are needed.</text>
+</g>
+<text class="note" x="410" y="398" text-anchor="middle" fill-opacity=".8">The three pull against one another: a control that strengthens one property often costs something on another.</text>
+</svg>
