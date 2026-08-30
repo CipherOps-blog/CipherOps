@@ -73,7 +73,30 @@ const fetchManifestEntry = async (filePath) => {
   return null;
 };
 
-const renderMarkdown = (markdown) => {
+const resolveResourceUrl = (rawUrl, sourceFilePath) => {
+  if (!rawUrl || rawUrl.startsWith('#') || rawUrl.startsWith('data:')) return rawUrl;
+  if (/^(?:[a-z]+:)?\/\//i.test(rawUrl) || /^[a-z]+:/i.test(rawUrl)) return rawUrl;
+
+  try {
+    const sourceDir = new URL('../', window.location.href).href;
+    const sourceUrl = new URL(sourceFilePath || '.', sourceDir);
+    return new URL(rawUrl, sourceUrl.href).href;
+  } catch (error) {
+    console.warn('Unable to resolve resource URL:', rawUrl, sourceFilePath, error);
+    return rawUrl;
+  }
+};
+
+const rewriteRelativeMediaUrls = (html, sourceFilePath) => {
+  if (!html) return html;
+
+  return html.replace(/(src|href)=(['"])(.*?)\2/gi, (match, attribute, quote, value) => {
+    const resolvedValue = resolveResourceUrl(value, sourceFilePath);
+    return `${attribute}=${quote}${resolvedValue}${quote}`;
+  });
+};
+
+const renderMarkdown = (markdown, sourceFilePath = '') => {
   if (typeof marked === 'undefined' || !marked.parse) return markdown;
 
   const mathExpressions = [];
@@ -85,7 +108,8 @@ const renderMarkdown = (markdown) => {
   });
 
   const html = marked.parse(protectedMarkdown);
-  return html.replace(/CIPHEROPS_MATH_(\d+)_END/g, (_, index) => mathExpressions[Number(index)] || '');
+  const htmlWithResolvedUrls = rewriteRelativeMediaUrls(html, sourceFilePath);
+  return htmlWithResolvedUrls.replace(/CIPHEROPS_MATH_(\d+)_END/g, (_, index) => mathExpressions[Number(index)] || '');
 };
 
 // ─────────────────────────────────────────────────────────────────
@@ -104,7 +128,7 @@ const loadArticle = async (filePath) => {
     }
 
     const markdown = await response.text();
-    const html     = renderMarkdown(markdown);
+    const html     = renderMarkdown(markdown, filePath);
     const manifestEntry = await fetchManifestEntry(filePath);
 
     articleContainer.innerHTML = html;
