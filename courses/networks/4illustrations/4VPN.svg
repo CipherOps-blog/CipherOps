@@ -34,7 +34,7 @@
   <line x1="202" y1="212" x2="638" y2="212"/>
 </g>
 <rect x="202" y="182" width="436" height="30" fill="#87A878" fill-opacity=".14"/>
-<text class="tl sg" x="420" y="202" text-anchor="middle">IPsec tunnel — site to site</text>
+<text class="tl sg" x="420" y="202" text-anchor="middle">IPsec tunnel, site to site</text>
 
 <rect x="18" y="262" width="184" height="94" rx="10" fill="#B8A9C9" fill-opacity=".12" stroke="#B8A9C9" stroke-width="2"/>
 <text class="hd lv" x="110" y="298" text-anchor="middle">Remote user</text>
