@@ -44,8 +44,8 @@
 <rect class="dev" x="620" y="96" width="118" height="60" rx="8"/>
 <text class="nd" x="679" y="132" text-anchor="middle">Switch</text>
 
-<path d="M738 116 C770 116 780 78 812 70" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
-<path d="M738 136 C770 136 780 174 812 182" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
+<path d="M708 116 C742 116 742 64 754 64" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
+<path d="M708 136 C742 136 742 188 754 188" fill="none" stroke="#B8A9C9" stroke-width="2" marker-end="url(#al)"/>
 <rect class="host" x="762" y="42" width="92" height="44" rx="7"/>
 <text class="nh" x="808" y="70" text-anchor="middle">PC1</text>
 <rect class="host" x="762" y="166" width="92" height="44" rx="7"/>
