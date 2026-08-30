@@ -58,22 +58,22 @@
 
 <g>
   <rect class="dev" x="490" y="52" width="272" height="74" rx="9" />
-  <text class="nd" x="508" y="78" font-size="14.5">Wide area network</text>
+  <text class="nd" x="508" y="78" font-size="14.5"></text>
   <text class="nd" x="508" y="100" fill-opacity=".9">Countries or continents, usually built</text>
   <text class="nd" x="508" y="117" fill-opacity=".9">on capacity leased from carriers.</text>
 
   <rect class="dim" x="490" y="140" width="272" height="74" rx="9" />
-  <text class="nd" x="508" y="166" font-size="14.5">Metropolitan area network</text>
+  <text class="nd" x="508" y="166" font-size="14.5"></text>
   <text class="nd" x="508" y="188" fill-opacity=".9">A city or urban region, run by councils,</text>
   <text class="nd" x="508" y="205" fill-opacity=".9">universities or carriers.</text>
 
   <rect class="dev" x="490" y="228" width="272" height="74" rx="9" />
-  <text class="nd" x="508" y="254" font-size="14.5">Local area network</text>
+  <text class="nd" x="508" y="254" font-size="14.5"></text>
   <text class="nd" x="508" y="276" fill-opacity=".9">A building or campus over Ethernet or</text>
   <text class="nd" x="508" y="293" fill-opacity=".9">Wi-Fi, owned by one organisation.</text>
 
   <rect class="dim" x="490" y="316" width="272" height="74" rx="9" />
-  <text class="nd" x="508" y="342" font-size="14.5">Personal area network</text>
+  <text class="nd" x="508" y="342" font-size="14.5"></text>
   <text class="nd" x="508" y="364" fill-opacity=".9">The range of one person, over short-hop</text>
   <text class="nd" x="508" y="381" fill-opacity=".9">links such as Bluetooth or USB.</text>
 </g>
