@@ -74,8 +74,8 @@
 
   <rect class="dim" x="490" y="316" width="272" height="74" rx="9" />
   <text class="nd" x="508" y="342" >The range of one person, over</text>
-  <text class="nd" x="508" y="364" >short-hop links such as Bluetooth </text>
-  <text class="nd" x="508" y="381" >or USB.</text>
+  <text class="nd" x="508" y="364" >short-hop links such as  </text>
+  <text class="nd" x="508" y="381" >Bluetooth or USB.</text>
 </g>
 
 </svg>
