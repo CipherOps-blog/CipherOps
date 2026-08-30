@@ -23,13 +23,13 @@
  
 <circle cx="250" cy="230" r="188" fill="none" stroke="#87A878" stroke-width="34" stroke-opacity=".22"/>
 <circle cx="250" cy="230" r="154" fill="none" stroke="#B8A9C9" stroke-width="34" stroke-opacity=".22"/>
-<circle cx="250" cy="230" r="120" fill="none" stroke="#87A878" stroke-width="34" stroke-opacity=".22"/>
+<circle cx="250" cy="230" r="120" stroke="#87A878" stroke-width="34" stroke-opacity=".22"/>
 <circle cx="250" cy="230" r="70" fill="#B8A9C9" fill-opacity=".22" stroke="#B8A9C9" stroke-width="1.6"/>
  
 <g fill="none" stroke-width="1.4" stroke-opacity=".8">
   <circle cx="250" cy="230" r="205" stroke="#87A878"/>
   <circle cx="250" cy="230" r="171" stroke="#B8A9C9"/>
-  <circle cx="250" cy="230" r="100" stroke="#87A878"/>
+  <circle cx="250" cy="230" r="137" stroke="#87A878"/>
 </g>
  
 <g text-anchor="middle" font-size="13.5" font-weight="600">
