@@ -42,7 +42,11 @@
   <text x="510" y="356">Endpoint</text><text x="510" y="374">security</text>
   <text x="370" y="437">Cloud</text><text x="370" y="455">security</text>
   <text x="230" y="367">Operational</text><text x="230" y="385">security</text>
-  <text x="230" y="185">Disaster recovery</text><text x="230" y="203">and business</text><text x="230" y="221">continuity</text>
+<text x="230" y="176">Disaster</text>
+<text x="230" y="194">recovery</text>
+<text x="230" y="212">and business</text>
+<text x="230" y="230">continuity</text>
+
 </g>
 <text class="note" x="370" y="528" text-anchor="middle" fill-opacity=".85">The divisions are conventional rather than exact, and real controls routinely span several of them at once.</text>
 </svg>
