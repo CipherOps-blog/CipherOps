@@ -37,7 +37,6 @@
   <line x1="520" y1="78" x2="570" y2="78"/>
   <path d="M230 44 C300 26 580 26 650 44" fill="none"/>
 </g>
-<text class="ed lv" x="440" y="18" text-anchor="middle">settlement-free peering, no money changes hands</text>
 
 <g stroke-width="2">
   <rect x="210" y="185" width="180" height="56" rx="9" fill="#87A878" fill-opacity=".13" stroke="#87A878"/>
@@ -54,7 +53,6 @@
 </g>
 <text class="ed sg" x="132" y="150">transit (paid)</text>
 <g stroke="#B8A9C9" stroke-width="2.2" stroke-dasharray="7 5"><line x1="390" y1="213" x2="470" y2="213"/></g>
-<text class="ed lv" x="430" y="205" text-anchor="middle">peering</text>
 
 <g stroke-width="2">
   <rect x="150" y="320" width="150" height="56" rx="9" fill="#87A878" fill-opacity=".10" stroke="#87A878"/>
