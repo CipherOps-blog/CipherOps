@@ -41,9 +41,6 @@
 <text x="736" y="142" text-anchor="middle" font-size="24" font-weight="700" fill="#B8A9C9">24</text>
 <text x="736" y="164" text-anchor="middle" font-size="15" font-weight="600" fill="#B8A9C9">hours</text>
 <line x1="852" y1="288" x2="972" y2="288" stroke="#87A878" stroke-width="10" marker-end="url(#as)"/>
-<text x="1078" y="152" text-anchor="middle" font-size="16" font-weight="700" fill="#B8A9C9">Potentially shippable</text>
-<text x="1078" y="176" text-anchor="middle" font-size="16" font-weight="700" fill="#B8A9C9">product increment</text>
-<g fill="none" stroke="#B8A9C9" stroke-width="2.4" stroke-linejoin="round"><rect x="1012" y="212" width="132" height="96" rx="6" fill="#B8A9C9" fill-opacity=".12"/><line x1="1012" y1="244" x2="1144" y2="244"/><path d="M1062 212 L1062 244 L1078 232 L1094 244 L1094 212" fill="#B8A9C9" fill-opacity=".22"/></g>
-<g fill="none" stroke="#87A878" stroke-width="2.4"><circle cx="1152" cy="310" r="20" fill="#87A878" fill-opacity=".22"/><path d="M1143 310 l6 7 l12 -15" stroke-linecap="round" stroke-linejoin="round"/></g>
-
- </svg>
+<text x="1092" y="259" text-anchor="middle" font-size="16" font-weight="700" fill="#B8A9C9">Potentially shippable</text>
+<text x="1092" y="283" text-anchor="middle" font-size="16" font-weight="700" fill="#B8A9C9">product increment</text>
+</svg>
