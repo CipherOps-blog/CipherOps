@@ -38,6 +38,4 @@
 <rect class="host" x="440" y="292" width="170" height="52" rx="7"/>
 <text class="nh" x="525" y="324" text-anchor="middle">Phone</text>
 
-<text class="note" x="350" y="386" text-anchor="middle" fill-opacity=".85">The access point is a layer 2 bridge: it carries the same segment across</text>
-<text class="note" x="350" y="406" text-anchor="middle" fill-opacity=".85">a radio medium rather than routing between networks.</text>
 </svg>
