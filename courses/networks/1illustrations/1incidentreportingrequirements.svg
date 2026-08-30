@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1360" height="290" viewBox="0 0 1360 290" role="img" aria-labelledby="t d">
-<title id="t">Incident reporting deadlines</title>
-<desc id="d">Three successive reporting deadlines after an incident is detected: an early warning within 24 hours, a full notification within 72 hours and a final report within one month.</desc>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .nd{font-weight:600;fill:#87A878}

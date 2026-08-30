@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="230" viewBox="0 0 880 230" role="img" aria-labelledby="t d">
-<title id="t">IPv4 and IPv6 address structure compared</title>
-<desc id="d">An IPv4 address as four 8-bit octets shown in decimal and binary, beside an IPv6 address as eight 16-bit hexadecimal groups.</desc>
 <defs>
  <marker id="as" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#87A878"/></marker>
  <marker id="al" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#B8A9C9"/></marker>

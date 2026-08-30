@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="560" height="330" viewBox="0 0 560 330" role="img" aria-labelledby="t d">
-<title id="t">A weighted directed graph</title>
-<desc id="d">Four vertices A, B, C and D joined by five directed edges carrying weights four, two, one, five and three.</desc>
 <defs>
  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0.6 L10,5 L0,9.4 Z" fill="#B8A9C9"/></marker>
  <marker id="b" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0.6 L10,5 L0,9.4 Z" fill="#B8A9C9"/></marker>

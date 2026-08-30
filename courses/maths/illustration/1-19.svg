@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="580" height="380" viewBox="0 0 580 380" role="img" aria-labelledby="t d">
-<title id="t">A weighted directed graph with two paths</title>
-<desc id="d">A reaches D either through B or through C, the two routes carrying different total weights.</desc>
 <defs>
  <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0.6 L10,5 L0,9.4 Z" fill="#B8A9C9"/></marker>
  <marker id="b" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0.6 L10,5 L0,9.4 Z" fill="#B8A9C9"/></marker>

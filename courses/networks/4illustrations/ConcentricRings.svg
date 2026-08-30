@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="30 10 440 440" role="img" aria-labelledby="t d">
-<title id="t">Defence in depth as concentric layers</title>
-<desc id="d">Six nested rings running from an outer policies and people layer inward to the data asset at the core, each paired with example controls.</desc>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .band{fill:none;stroke-opacity:.22}

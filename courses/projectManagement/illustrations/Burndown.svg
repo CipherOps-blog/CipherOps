@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-labelledby="t d">
-<title id="t">Sprint burndown chart</title>
-<desc id="d">Remaining story points over a ten-day sprint. The team tracks above the ideal line for most of the sprint and only converges on zero in the final two days.</desc>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .ttl{font-size:17px;font-weight:600;fill:#87A878}

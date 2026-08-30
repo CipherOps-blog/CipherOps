@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1260" height="530" viewBox="0 0 1260 530" role="img" aria-labelledby="t d">
-<title id="t">Gantt chart for a software module</title>
-<desc id="d">Eight tasks scheduled across 23 working days, with the critical path drawn solid and the two tasks holding float drawn hatched.</desc>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .ttl{font-size:17px;font-weight:600;fill:#87A878}

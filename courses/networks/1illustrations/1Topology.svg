@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="560" height="380" viewBox="0 0 560 380" role="img" aria-labelledby="t d">
-<title id="t">Network topologies</title>
-<desc id="d">Five network topologies shown in turn on a repeating ten-second loop: bus, star, ring, mesh and tree.</desc>
-  <g opacity="0">
+<g opacity="0">
     <line x1="100" y1="210" x2="460" y2="210" stroke="#B8A9C9" stroke-width="2"/>
     <line x1="136" y1="210" x2="136" y2="152" stroke="#B8A9C9" stroke-width="2"/>
     <circle cx="136" cy="150" r="9" fill="#87A878" stroke="#87A878" stroke-width="2"/>

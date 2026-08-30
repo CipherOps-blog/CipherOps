@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440" role="img" aria-labelledby="t d">
-<title id="t">Classical bit compared with a qubit</title>
-<desc id="d">A classical bit holding exactly one of two values, beside a Bloch sphere on which a qubit state is any point on the surface.</desc>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .pt{font-size:17px;font-weight:600}

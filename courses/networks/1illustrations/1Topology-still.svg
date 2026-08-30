@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1140" height="528" viewBox="0 0 1140 528" role="img" aria-labelledby="t d">
-<title id="t">Network topologies</title>
-<desc id="d">Bus, star, ring, mesh and tree network topologies shown together as a still alternative to the animated version.</desc>
-  <g transform="translate(0,0) scale(0.68)">
+<g transform="translate(0,0) scale(0.68)">
     <line x1="100" y1="210" x2="460" y2="210" stroke="#B8A9C9" stroke-width="2"/>
     <line x1="136" y1="210" x2="136" y2="152" stroke="#B8A9C9" stroke-width="2"/>
     <circle cx="136" cy="150" r="9" fill="#87A878" stroke="#87A878" stroke-width="2"/>

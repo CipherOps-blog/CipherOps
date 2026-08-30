@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1290" height="600" viewBox="0 0 1290 600" role="img" aria-labelledby="t d">
-<title id="t">The twenty NIST SP 800-53 control families</title>
-<desc id="d">All twenty control families of NIST Special Publication 800-53, each with its two-letter identifier, laid out as a honeycomb.</desc>
 <style>
  text{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif}
  .nd{font-weight:600;fill:#87A878}
