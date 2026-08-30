@@ -32,8 +32,8 @@
   <text class="nd" x="250" y="60" font-size="13">Wide area network</text>
   <text class="nh" x="250" y="100" font-size="13">Metropolitan area network</text>
   <text class="nd" x="250" y="150" font-size="13">Local area network</text>
-  <text class="nh" x="250" y="200" font-size="15">Personal area</text>
-  <text class="nh" x="250" y="220" font-size="15">network</text>
+  <text class="nh" x="250" y="220" font-size="15">Personal area</text>
+  <text class="nh" x="250" y="240" font-size="15">network</text>
 </g>
 
 
