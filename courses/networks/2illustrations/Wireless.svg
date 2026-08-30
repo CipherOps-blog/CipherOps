@@ -99,6 +99,4 @@
 </g>
 <text class="elh" x="1196" y="558" text-anchor="end">frequency (GHz)</text>
 
-<text class="note" x="620" y="608" text-anchor="middle" fill-opacity=".85">The horizontal scale is schematic, not linear: the 2.4 GHz band is only about 83 MHz wide, which is why it is so easily congested</text>
-<text class="note" x="620" y="628" text-anchor="middle" fill-opacity=".85">and why Bluetooth, sharing exactly that range, has to hop between channels to coexist with Wi-Fi.</text>
 </svg>
