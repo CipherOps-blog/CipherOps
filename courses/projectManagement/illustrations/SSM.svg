@@ -52,23 +52,19 @@
 
 <text class="rh sg" x="520" y="86">Adapting the message</text>
 <g>
-  <rect x="520" y="106" width="13" height="13" rx="3" fill="#87A878" fill-opacity=".4" stroke="#87A878"/>
-  <text class="rn sg" x="543" y="118">Driver</text>
+  <text class="rn sg" x="520" y="118">Driver</text>
   <text class="rd sg" x="520" y="140">Be brief, lead with the outcome,</text>
   <text class="rd sg" x="520" y="158">offer a decision to make.</text>
 
-  <rect x="520" y="186" width="13" height="13" rx="3" fill="#B8A9C9" fill-opacity=".4" stroke="#B8A9C9"/>
-  <text class="rn lv" x="543" y="198">Expressive</text>
+  <text class="rn lv" x="520" y="198">Expressive</text>
   <text class="rd lv" x="520" y="220">Give the wider picture, leave room</text>
   <text class="rd lv" x="520" y="238">for discussion, avoid dense detail.</text>
 
-  <rect x="520" y="266" width="13" height="13" rx="3" fill="#B8A9C9" fill-opacity=".4" stroke="#B8A9C9"/>
-  <text class="rn lv" x="543" y="278">Analytical</text>
+  <text class="rn lv" x="520" y="278">Analytical</text>
   <text class="rd lv" x="520" y="300">Supply the figures and the method,</text>
   <text class="rd lv" x="520" y="318">and allow time to review them.</text>
 
-  <rect x="520" y="346" width="13" height="13" rx="3" fill="#87A878" fill-opacity=".4" stroke="#87A878"/>
-  <text class="rn sg" x="543" y="358">Amiable</text>
+  <text class="rn sg" x="520" y="358">Amiable</text>
   <text class="rd sg" x="520" y="380">Reassure, explain the effect on people,</text>
   <text class="rd sg" x="520" y="398">and confirm the agreement.</text>
 </g>
