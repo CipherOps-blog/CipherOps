@@ -86,5 +86,4 @@
 <text class="lg" x="364" y="58" fill="#87A878">Critical path — no slack</text>
 <rect x="560" y="46" width="16" height="14" rx="3" fill="url(#hatch)" fill-opacity=".30" stroke="#B8A9C9" stroke-width="1.8" stroke-dasharray="4 3"/>
 <text class="lg" x="584" y="58">Float — may slip without moving the end date</text>
-<text class="note" x="630" y="512" text-anchor="middle">Only the hatched bars can slip. Any delay on a solid bar moves the delivery date by exactly that much.</text>
 </svg>
