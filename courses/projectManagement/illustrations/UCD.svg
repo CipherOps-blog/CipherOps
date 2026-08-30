@@ -61,5 +61,4 @@
 <path d="M370 141 C312 164 292 190 292 232 L292 268 C292 306 330 314 376 322" fill="none" stroke="#B8A9C9" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#op)"/>
 <text class="st lv" x="274" y="250" text-anchor="middle" transform="rotate(-90 274 250)">«include»</text>
 
-<text class="cp sg" x="400" y="402" text-anchor="middle">Actors sit outside the boundary; each oval is one goal-directed interaction. A dashed «include» arrow marks behaviour reused by another use case.</text>
 </svg>
