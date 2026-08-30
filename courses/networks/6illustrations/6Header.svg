@@ -77,5 +77,4 @@
   <text class="cb sg" x="669" y="393">TCP (6)</text><text class="cs sg" x="669" y="410">payload</text>
 </g>
 
-<text class="cap sg" x="420" y="444" text-anchor="middle">Relative to IPv4 the header drops the checksum, the options field and the header-length field, and adds the Flow Label.</text>
 </svg>
