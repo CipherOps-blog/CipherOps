@@ -78,5 +78,4 @@
   <text x="61" y="384">Host</text><text x="189" y="384">Host</text><text x="291" y="384">Host</text><text x="419" y="384">Host</text>
   <text x="521" y="384">Host</text><text x="649" y="384">Host</text><text x="751" y="384">Host</text><text x="879" y="384">Host</text>
 </g>
-<text class="note" x="470" y="440" text-anchor="middle" fill-opacity=".85">Borrowing two host bits turns one /24 into four /26 blocks. Each keeps its own broadcast address, so 62 of the 64 addresses are usable.</text>
 </svg>
