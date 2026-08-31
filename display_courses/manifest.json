@@ -50,6 +50,26 @@
     ]
   },
   {
+    "category": "Cybersecurity",
+    "articles": [
+      {
+        "title": "Cybersecurity",
+        "file": "courses/cybersecurity/1. Cybersecurity.md",
+        "date": "To be published"
+      }
+    ]
+  },
+  {
+    "category": "Services and Systems",
+    "articles": [
+      {
+        "title": "Cloud Systems and Apps",
+        "file": "courses/servicesSystems/1. Cloud Systems and Apps.md",
+        "date": "To be published"
+      }
+    ]
+  },
+  {
     "category": "Systems",
     "articles": [
       {
