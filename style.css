@@ -288,6 +288,8 @@ body.dark .toggle-thumb {
   margin-left: 20vw;
   padding: 2rem 0rem;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
@@ -522,28 +524,29 @@ body.dark .landing-author {
   z-index: 2;
 }
 
-.landing-title::before,
-.landing-author::before,
-.landing-description::before {
-  content: '';
-  position: absolute;
-  inset: -0.35rem -0.75rem;
-  z-index: -1;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  filter: blur(16px);
-  opacity: 0.95;
-  pointer-events: none;
-}
-
 body.dark .landing-description {
   color: #FFFFFF;
 }
 
-body.dark .landing-title::before,
-body.dark .landing-author::before,
-body.dark .landing-description::before {
-  background: rgba(0, 0, 0, 0.8);
+/* ── Carte du texte d'accueil ─────────────────────────────────────── */
+/* Le texte repose sur un panneau opaque bordé de lavande plutôt que sur
+   trois halos flous. La largeur suit le texte (fit-content, plafonné par
+   le max-width de .landing-description), donc la carte tient sur un
+   téléphone sans défilement horizontal. Les trois boutons restent en
+   dehors : l'animation passe librement derrière eux. */
+.landing-text {
+  width: fit-content;
+  margin-inline: auto;
+  padding: 2.25rem 1.5rem;
+  border-radius: 22px;
+  background: var(--bg);
+  border: 1px solid rgba(184, 169, 201, 0.75);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .landing-text {
+  border-color: rgba(184, 169, 201, 0.6);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
 /* ── Footer inside #landing only ────────────────────────────────── */
@@ -581,6 +584,18 @@ body.dark .landing-description::before {
 #contact-section a:hover,
 #contact-section a:focus-visible {
   color: var(--accent-alt);
+}
+
+/* Sur téléphone, le contact et le GitHub passent sur deux lignes
+   plutôt que d'être séparés par un point médian. */
+@media (max-width: 768px) {
+  #contact-section .contact-item {
+    display: block;
+  }
+
+  #contact-section .contact-sep {
+    display: none;
+  }
 }
 
 #article-container {
@@ -1100,7 +1115,10 @@ body.dark .landing-courses-btn {
 
 #articles-landing {
   max-width: 720px;
-  margin: 6rem auto 0;
+  width: 100%;
+  /* Auto margins on all sides centre the block vertically in the space
+     left above the footer, and horizontally within #main-content. */
+  margin: auto;
   padding: 0 1.5rem;
   text-align: center;
 }
