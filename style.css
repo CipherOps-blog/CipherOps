@@ -1129,8 +1129,14 @@ body.dark .landing-courses-btn {
   margin-bottom: 1rem;
 }
 
-.articles-page-description {
+.articles-page-description,
+.articles-page-description-it {
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--muted);
+}
+
+/* Accroche en italique, placée au-dessus de la description. */
+.articles-page-description-it {
+  font-style: italic;
 }
