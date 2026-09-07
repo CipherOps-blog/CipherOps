@@ -26,6 +26,30 @@ const resizeCanvas = () => {
   buildGrid(width, height);
 };
 
+/* Grappes hexagonales : les centres occupent un sous-réseau triangulaire de
+   pas CLUSTER_SPACING, et toute cellule située à CLUSTER_RADIUS ou moins d'un
+   centre est lavande. Les cellules restantes forment les séparateurs sauge.
+   Un rayon de 2 donne des grappes de dix-neuf cellules, et un pas de 6 laisse
+   deux cellules entre deux grappes : c'est ce qui permet de lire chaque
+   grappe comme un grand hexagone plutôt que comme un aplat continu. */
+const CLUSTER_SPACING = 6;
+const CLUSTER_RADIUS = 2;
+
+const clusterDistance = (q, s) => {
+  let best = Infinity;
+  const a0 = Math.round(q / CLUSTER_SPACING);
+  const b0 = Math.round(s / CLUSTER_SPACING);
+  for (let da = -1; da <= 1; da += 1) {
+    for (let db = -1; db <= 1; db += 1) {
+      const dq = q - (a0 + da) * CLUSTER_SPACING;
+      const ds = s - (b0 + db) * CLUSTER_SPACING;
+      const distance = (Math.abs(dq) + Math.abs(ds) + Math.abs(dq + ds)) / 2;
+      if (distance < best) best = distance;
+    }
+  }
+  return best;
+};
+
 const buildGrid = (width, height) => {
   const r = hexRadius;
   const xStep = 1.5 * r;
@@ -47,7 +71,7 @@ const buildGrid = (width, height) => {
       const phase = Math.random() * Math.PI * 2;
       const frequency = 0.0008 + Math.random() * 0.0006;
       const amplitude = 5 + Math.random() * 3;
-      const colourIndex = (q + s) % 2 === 0 ? 0 : 1;
+      const colourIndex = clusterDistance(q, s) <= CLUSTER_RADIUS ? 1 : 0;
       grid.push({ centreX, centreY, phase, frequency, amplitude, colourIndex });
     }
   }
