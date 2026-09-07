@@ -1139,4 +1139,5 @@ body.dark .landing-courses-btn {
 /* Accroche en italique, placée au-dessus de la description. */
 .articles-page-description-it {
   font-style: italic;
+  color: var(--accent-alt)
 }
