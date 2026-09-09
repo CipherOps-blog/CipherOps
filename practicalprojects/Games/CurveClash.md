@@ -1,6 +1,6 @@
 # Curve Clash
 
-I built a small game called Curve Clash and wanted to share it [here](https://cipherops-blog.github.io/CurveClash/). I made this mostly for my own amusement and figured others might enjoy trying it too. 
+I built a small game called Curve Clash and wanted to share it [here](https://lattice-walker.github.io/CurveClash/). I made this mostly for my own amusement and figured others might enjoy trying it too. 
 
 The core mechanic is that each player fires by typing the right-hand side of a function. The enters expressions such as $x^2 - 1$, $0.5 * x$, $2 * sin(x / 1.5)$, $2 * ln(x + 1)$, or $exp(x / 3) - 1$. Expressions must cross $y = 0$ somewhere in the playable range, so functions like $x^2 + 1$ are rejected, along with $min()$, $max()$, $abs()$, anything using $y$, and implicit equations like $x^2 + y^2 = 1$.
 
